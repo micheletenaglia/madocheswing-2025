@@ -11,18 +11,11 @@ defined('ABSPATH') || exit;
 // Add core block category
 add_filter('block_categories_all','mkt_block_categories');
 
-// Add project block category
-add_filter('block_categories_all','mkt_block_categories_project');
-
 // Set allowed blocks
 add_filter('allowed_block_types_all','mkt_allowed_blocks',10,1);
-add_filter('mkt_block_list','project_allowed_blocks');
 
 // Register core blocks
 add_action('acf/init','mkt_core_acf_blocks_init');
-
-// Register project blocks
-add_action('acf/init','project_acf_blocks_init');
 
 // Enqueue custom blocks scripts
 add_action('enqueue_block_editor_assets','mkt_block_editor_assets',PHP_INT_MAX);
@@ -34,78 +27,87 @@ add_action('enqueue_block_editor_assets','mkt_block_editor_assets',PHP_INT_MAX);
 function mkt_block_categories( $categories ) : array {
 	// Slugs
 	$category_slugs = wp_list_pluck($categories,'slug');
+    // If categories are already registered
+    if( in_array('custom_mkt_block_category',$category_slugs,true) ) {
+        return $categories;
+    }
+    // Theme's block categories
+    $theme_block_cats = [
+        // This category is never assigned
+        [
+            'slug'  => 'mkt_block_category',
+            'title' => __('Mkt Core','mklang'),
+            'icon'  => null,
+        ],
+        // Layout
+        [
+            'slug'  => 'mkt_block_category_layout',
+            'title' => __('Mkt / Layout','mklang'),
+            'icon'  => null,
+        ],
+        // Images
+        [
+            'slug'  => 'mkt_block_category_images',
+            'title' => __('Mkt / Images','mklang'),
+            'icon'  => null,
+        ],
+        // Buttons
+        [
+            'slug'  => 'mkt_block_category_buttons',
+            'title' => __('Mkt / Buttons and links','mklang'),
+            'icon'  => null,
+        ],
+        // Modals
+        [
+            'slug'  => 'mkt_block_category_modals',
+            'title' => __('Mkt / Modals','mklang'),
+            'icon'  => null,
+        ],
+        // Heros
+        [
+            'slug'  => 'mkt_block_category_heros',
+            'title' => __('Mkt / Heros','mklang'),
+            'icon'  => null,
+        ],
+        // Get content
+        [
+            'slug'  => 'mkt_block_category_get_content',
+            'title' => __('Mkt / Get content','mklang'),
+            'icon'  => null,
+        ],
+        // Lists
+        [
+            'slug'  => 'mkt_block_category_lists',
+            'title' => __('Mkt / Lists','mklang'),
+            'icon'  => null,
+        ],
+        // UI Elements
+        [
+            'slug'  => 'mkt_block_category_ui_elements',
+            'title' => __('Mkt / UI Elements','mklang'),
+            'icon'  => null,
+        ],
+        // Navigation
+        [
+            'slug'  => 'mkt_block_category_navigation',
+            'title' => __('Mkt / Navigation','mklang'),
+            'icon'  => null,
+        ],
+        // Charts
+        [
+            'slug'  => 'mkt_block_category_charts',
+            'title' => __('Mkt / Charts','mklang'),
+            'icon'  => null,
+        ],
+        // Project
+        [
+            'slug'  => 'project_block_category',
+            'title' => get_bloginfo('name'),
+            'icon'  => null,
+        ],
+    ];
 	// Return value
-	return in_array('custom_mkt_block_category', $category_slugs, true ) ? $categories : array_merge(
-		$categories,
-		[
-			// This category is never assigned
-			[
-				'slug'  => 'mkt_block_category',
-				'title' => __('Mkt Core','mklang'),
-				'icon'  => null,
-			],
-			// Layout
-			[
-				'slug'  => 'mkt_block_category_layout',
-				'title' => __('Mkt / Layout','mklang'),
-				'icon'  => null,
-			],
-			// Images
-			[
-				'slug'  => 'mkt_block_category_images',
-				'title' => __('Mkt / Images','mklang'),
-				'icon'  => null,
-			],
-			// Buttons
-			[
-				'slug'  => 'mkt_block_category_buttons',
-				'title' => __('Mkt / Buttons and links','mklang'),
-				'icon'  => null,
-			],
-			// Modals
-			[
-				'slug'  => 'mkt_block_category_modals',
-				'title' => __('Mkt / Modals','mklang'),
-				'icon'  => null,
-            ],
-			// Heros
-			[
-				'slug'  => 'mkt_block_category_heros',
-				'title' => __('Mkt / Heros','mklang'),
-				'icon'  => null,
-            ],
-			// Get content
-			[
-				'slug'  => 'mkt_block_category_get_content',
-				'title' => __('Mkt / Get content','mklang'),
-				'icon'  => null,
-            ],
-			// Lists
-			[
-				'slug'  => 'mkt_block_category_lists',
-				'title' => __('Mkt / Lists','mklang'),
-				'icon'  => null,
-            ],
-			// UI Elements
-			[
-				'slug'  => 'mkt_block_category_ui_elements',
-				'title' => __('Mkt / UI Elements','mklang'),
-				'icon'  => null,
-            ],
-			// Navigation
-			[
-				'slug'  => 'mkt_block_category_navigation',
-				'title' => __('Mkt / Navigation','mklang'),
-				'icon'  => null,
-            ],
-			// Charts
-			[
-				'slug'  => 'mkt_block_category_charts',
-				'title' => __('Mkt / Charts','mklang'),
-				'icon'  => null,
-            ],
-        ]
-	);
+	return array_merge($categories,$theme_block_cats);
 }
 
 /**
@@ -949,6 +951,11 @@ function mkt_core_acf_blocks_init() : void {
         ),
         'parent'	=> ['acf/description-list']
     ));
+
+    // Register project blocks
+    if( function_exists('project_acf_blocks_init') ) {
+        project_acf_blocks_init();
+    }
 }
 
 /**

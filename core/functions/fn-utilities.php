@@ -630,7 +630,7 @@ function mkt_get_post_by_slug( $slug, $post_type = 'page' ) : object {
  * @param boolean $filters
  * @param string/array $status
  */
-function mkt_get_page_by_title( $page_title, $post_type = 'page', $filters = false, $status = '' ) : object {
+function mkt_get_page_by_title( $page_title, $post_type = 'page', $filters = false, $status = '' ) : ?object {
     // Args
 	$query_args = [
 		'post_type'              => $post_type,

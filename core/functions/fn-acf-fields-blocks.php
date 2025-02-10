@@ -2990,8 +2990,8 @@ function mkt_load_fields_blocks() : void {
 									),
 								),
 								'relevanssi_exclude' => 1,
-								'ui_on_text'    => __('On','project'),
-								'ui_off_text'   => __('Off','project'),
+								'ui_on_text'    => __('On','mklang'),
+								'ui_off_text'   => __('Off','mklang'),
 								'ui'            => 1,
 							),
 							array(

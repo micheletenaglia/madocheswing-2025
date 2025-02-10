@@ -29,11 +29,9 @@ require_once(get_template_directory() . '/core/functions/fn-backend.php');
 
 // Blocks functions
 require_once(get_template_directory() . '/core/functions/fn-acf-register-blocks.php');
-require_once(get_template_directory() . '/project/blocks/fn-acf-register-blocks.php');
 
 // Block fields functions
 require_once(get_template_directory() . '/core/functions/fn-acf-fields-blocks.php');
-require_once(get_template_directory() . '/project/blocks/fn-acf-fields-blocks.php');
 
 // Frontend functions
 require_once(get_template_directory() . '/core/functions/fn-frontend.php');
