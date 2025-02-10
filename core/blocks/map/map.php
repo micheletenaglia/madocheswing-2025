@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Block Template: Logo.
  *
@@ -24,29 +27,24 @@ if( !empty( $block['anchor'] ) ) {
 // Locations args
 $locations_args = [];
 if( get_field('post_selection') == 'post_type' ) {
-
 	$locations_args = [
 		'numberposts'	=>	-1,
 		'fields'		=>	'ids',
 		'post_type'		=>	get_field('post_type'),
 	];
-
 }elseif( get_field('post_selection') == 'posts' ) {
-
 	$locations_args = [
 		'post_type'		=>	'any',
 		'numberposts'	=>	-1,
 		'fields'		=>	'ids',
 		'post__in'		=>	get_field('posts'),
 	];
-
 }
 
 // Get locations
 if( $locations_args ) {
-	
-	$locations = get_posts( $locations_args );
-
+	// Get locations
+	$locations = get_posts($locations_args);
 	// Args for map
 	$args = [ 
 		'locations'		=>	$locations, 
@@ -54,34 +52,23 @@ if( $locations_args ) {
 		'wrap_style'	=>	$class_name,
 		'map_style'		=>	null
 	];
-
 }
 
-?>
-
-<?php if( $is_preview ) : ?>
-
-	<div class="hap-wp-block"><!-- Start preview -->
-		
-		<div class="hap-wp-block-info"><!-- Start preview header -->
-
-			<div class="hap-wp-block-info-left">
-
-				<figure class="hap-wp-block-info-icon">
-					<?php echo get_svg_icon( 'map', null, 'block-core' ); ?>
+// Backend
+if( $is_preview ) : ?>
+	<div class="mkcb-wp-block">
+		<div class="mkcb-wp-block-info">
+			<div class="mkcb-wp-block-info-left">
+				<figure class="mkcb-wp-block-info-icon">
+					<?php echo get_svg_icon('map',null,'block-core'); ?>
 				</figure>
-
 				<div>
-					<span class="hap-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-					<span class="hap-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
+					<span class="mkcb-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+					<span class="mkcb-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
 				</div>
-
 			</div>
-			
-		</div><!-- End preview header -->
-
-		<div class="hap-wp-block-content"><!-- Start preview content -->
-
+		</div>
+		<div class="mkcb-wp-block-content">
 			<?php if( $locations_args ) : ?>
 				<ul>
 					<?php foreach( $locations as $location ) : ?>
@@ -89,19 +76,13 @@ if( $locations_args ) {
 					<?php endforeach; ?>
 				</ul>
 			<?php endif; ?>
-
-		</div><!-- End preview content -->
-		
-	</div><!-- End preview -->
-
-<?php else : ?>
-
-	<?php if( $locations_args ) : ?>
-
-		<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?>>
-			<?php hap_get_template( 'map/map', $args ); ?>
 		</div>
-
-	<?php endif; ?>
-
-<?php endif;
+	</div>
+<?php else :
+	// Frontend
+	if( $locations_args ) : ?>
+		<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?>>
+			<?php mkt_get_template('map/map',$args); ?>
+		</div>
+	<?php endif;
+endif;

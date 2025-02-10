@@ -1,13 +1,17 @@
 <?php
+
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * The template for displaying the footer.
  *
- * @since Hap Studio 1.0.0
  */
+
 ?>
 </div><!-- #top -->
 <footer>
-	<?php do_action('hap_footer_landing'); ?>
+	<?php do_action('mkt_footer_landing'); ?>
 </footer>
 <?php wp_footer(); ?>
 </body>

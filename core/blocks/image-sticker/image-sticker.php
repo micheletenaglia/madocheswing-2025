@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Block Template: Image with sticker.
  *
@@ -30,58 +33,40 @@ $allowed_blocks = [
 // Template.
 $template = [
 	['core/image', [
-		'placeholder'	=>	__('Image','hap'),
+		'placeholder'	=>	__('Image','mklang'),
 	]],
 	['acf/simple-div', [
 		'className'		=>	'sticker',
-		'placeholder'	=>	__('Sticker','hap'),
-        'content'		=>	__('Sticker','hap'),
+		'placeholder'	=>	__('Sticker','mklang'),
+        'content'		=>	__('Sticker','mklang'),
 	]],
 ];
 
-?>
-
-<?php if( $is_preview ) : ?>
-
-	<div class="hap-wp-block"><!-- Start preview -->
-		
-		<div class="hap-wp-block-info"><!-- Start preview header -->
-
-			<div class="hap-wp-block-info-left">
-
-				<figure class="hap-wp-block-info-icon">
-					<?php echo get_svg_icon( 'image-sticker', null, 'block-core' ); ?>
+// Backend
+if( $is_preview ) : ?>
+	<div class="mkcb-wp-block">
+		<div class="mkcb-wp-block-info">
+			<div class="mkcb-wp-block-info-left">
+				<figure class="mkcb-wp-block-info-icon">
+					<?php echo get_svg_icon('image-sticker',null,'block-core'); ?>
 				</figure>
-
 				<div>
-					<span class="hap-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-					<span class="hap-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
+					<span class="mkcb-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+					<span class="mkcb-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
 				</div>
-
 			</div>
-
-		</div><!-- End preview header -->
-		
-		<div class="hap-wp-block-content"><!-- Start preview content -->
-
+		</div>
+		<div class="mkcb-wp-block-content">
 			<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="<?php echo esc_attr($class_name); ?>">
-
-				<InnerBlocks allowedBlocks="<?php echo esc_attr( wp_json_encode( $allowed_blocks ) ); ?>" template="<?php echo esc_attr( wp_json_encode( $template ) ); ?>" />
-				
+				<InnerBlocks allowedBlocks="<?php echo esc_attr(wp_json_encode($allowed_blocks)); ?>" template="<?php echo esc_attr(wp_json_encode($template)); ?>" />
 				<div class="sticker-preview"></div>
-
 			</div>
-
-		</div><!-- End preview content -->
-		
-	</div><!-- End preview -->
-
-<?php else : ?>
-		
-	<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="<?php echo esc_attr($class_name); ?>">
-
-		<InnerBlocks allowedBlocks="<?php echo esc_attr( wp_json_encode( $allowed_blocks ) ); ?>" template="<?php echo esc_attr( wp_json_encode( $template ) ); ?>" />
-
+		</div>
 	</div>
-
-<?php endif; ?>
+<?php else :
+	// Frontend
+	?>	
+	<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="<?php echo esc_attr($class_name); ?>">
+		<InnerBlocks allowedBlocks="<?php echo esc_attr(wp_json_encode($allowed_blocks)); ?>" template="<?php echo esc_attr(wp_json_encode($template)); ?>" />
+	</div>
+<?php endif;

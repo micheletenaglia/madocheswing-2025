@@ -1,17 +1,18 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * The main PHP file of the theme
  *
- * 
- * @since Hap Studio Theme 1.0.0
  */
 
 // This line requires the main configuration file 
 // of the theme, do not delete.
 require_once('core/functions/fn-config.php');
 
-// ACF fields ot this project
+// Project fields
 require_once('project/functions/fn-acf-fields-project.php');
 
 // Register custom post types and taxonomies
@@ -35,7 +36,7 @@ add_filter('wpcf7_special_mail_tags','mcs_cf7_email_start', 10, 3);
 add_filter('wpcf7_special_mail_tags','mcs_cf7_email_end', 10, 3);
 
 // Load Google Maps style only when needed
-add_filter('hap_map_style_inclusion','mcs_google_map_optimization');
+add_filter('mkt_map_style_inclusion','mcs_google_map_optimization');
 
 /**
  * Generate children dance classes on post save.
@@ -79,7 +80,7 @@ function mcs_insert_post_children( $post_id ) {
         // Title
         $title = get_the_title($post_id) . ' - ' . $date->format('Y/m/d');
         // Check if post already exists
-        $check = hap_get_page_by_title($title,$post_type);
+        $check = mkt_get_page_by_title($title,$post_type);
         // If so, skip week
         if( $check ) {
             continue;
@@ -193,7 +194,7 @@ function mcs_cf7_email_start( $output, $name, $html ) {
 function mcs_cf7_email_end( $output, $name, $html ) {
 	if( 'mcs_email_end' == $name ) {
         $output = '</div>';
-        $output .= hap_get_email_signature('img_url');
+        $output .= mkt_get_email_signature('img_url');
 	}
 	return $output;
 }

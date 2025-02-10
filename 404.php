@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * The template for displaying 404 pages (Not Found)
  *
@@ -7,15 +10,18 @@
  * Create a pattern to customize content 
  * and assign it to page 404 in options page.
  * 
- * @since Hap Studio Theme 1.0.0
  */
 
  // Get header
 get_header();
 
-if( get_field('common_block_404','options') ) : // Custom 404  ?>
+// Get 404 block
+$block = get_field('common_block_404','options');
+
+// Custom 404
+if( $block ) : ?>
     <div class="content">
-        <?php hap_get_content( get_post( get_field('common_block_404','options') ) ); ?>
+        <?php mkt_get_content(get_post($block)); ?>
     </div>
 <?php else : // Default 404 ?>
     <div class="content">

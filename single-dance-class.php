@@ -85,12 +85,12 @@ $map_args = [
     <header class="container-sm mb-sm text-center">
         <span class="eyelet"><?php _e('Dance classes','project'); ?></span>
         <h1 class="title-xl mb-4"><?php the_title(); ?></h1>
-        <h2><?php echo get_field('label',$level); if( get_field('subhead') ) { echo ' / ' . get_field('subhead'); } ?></h2>
+        <h2><?php echo esc_html(get_field('label',$level)); if( get_field('subhead') ) { echo ' / ' . esc_html(get_field('subhead')); } ?></h2>
         <div class="teachers-thumbs">
             <?php foreach( $teachers as $teacher ) : ?>
                 <span class="block">
                     <?php echo wp_get_attachment_image( get_field('profile_image',$teacher),'full'); ?>
-                    <?php echo get_field('first_name',$teacher); ?>
+                    <?php echo esc_html(get_field('first_name',$teacher)); ?>
                 </span>
             <?php endforeach; ?>
         </div>
@@ -102,13 +102,13 @@ $map_args = [
         </li>
         <li class="pb-1">
             <h6 class="mb-0"><?php _e('Level','project'); ?></h6>
-            <?php echo get_field('label',$level); ?>
+            <?php echo esc_html(get_field('label',$level)); ?>
         </li>
         <li class="pb-1">
             <h6 class="mb-0"><?php _e('Teachers','project'); ?></h6>
             <ul class="list-inline-comma">
                 <?php foreach( $teachers as $teacher ) {
-                    echo '<li>' . get_field('first_name',$teacher) . '</li>';
+                    echo '<li>' . esc_html(get_field('first_name',$teacher)) . '</li>';
                 } ?>
             </ul>
         </li>
@@ -135,7 +135,7 @@ $map_args = [
     </ul>
     <div class="grid-1-3">
         <div>
-            <?php hap_get_template('map/map',$map_args); ?>
+            <?php mkt_get_template('map/map',$map_args); ?>
         </div>
         <div class="bg-gray-50 p-xs flex flex-col justify-between">
             <div>
@@ -187,6 +187,7 @@ $map_args = [
                 <div class="mb-xs pt-xs border-bottom">
                     <h4><?php echo $month; ?></h4>
                     <?php foreach( $dates as $data ) :
+                        // Increment
                         $index++;
                         ?>
                         <ul class="pt-2 grid-1-2-4 items-center border-top">

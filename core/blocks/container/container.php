@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Block Template: Container.
  *
@@ -14,58 +17,58 @@ $toggle = get_field('toggle');
 $semantic_tag = ( get_field('semantic_tag') ) ? get_field('semantic_tag') : 'div';
 $bg_preview = get_field('toggle_bg_preview');
 $toggle_grid_preview = get_field('toggle_grid_preview');
-$toggle_class = ( $toggle ) ? 'hap-disabled' : null;
+$toggle_class = $toggle ? 'mkcb-disabled' : null;
 $bg_image = get_field('bg_image');
 
 // Semantic tag index
 $semantic_tag_index = [
 	'div' => [
 		'tag'	=>	'div',
-		'label'	=>	__('A simple DIV.','hap'),
+		'label'	=>	__('A simple DIV.','mklang'),
 	],
 	'main' => [
 		'tag'	=>	'main',
-		'label'	=>	__('The main content (can only be used once per page).','hap'),
+		'label'	=>	__('The main content (can only be used once per page).','mklang'),
 	],
 	'aside' => [
 		'tag'	=>	'div',
-		'label'	=>	__('Related content.','hap'),
+		'label'	=>	__('Related content.','mklang'),
 	],
 	'article' => [
 		'tag'	=>	'article',
-		'label'	=>	__('Article.','hap'),
+		'label'	=>	__('Article.','mklang'),
 	],
 	'section' => [
 		'tag'	=>	'section',
-		'label'	=>	__('Section.','hap'),
+		'label'	=>	__('Section.','mklang'),
 	],
 	'header' => [
 		'tag'	=>	'header',
-		'label'	=>	__('Header.','hap'),
+		'label'	=>	__('Header.','mklang'),
 	],
 	'footer' => [
 		'tag'	=>	'footer',
-		'label'	=>	__('Footer.','hap'),
+		'label'	=>	__('Footer.','mklang'),
 	],
 	'nav' => [
 		'tag'	=>	'nav',
-		'label'	=>	__('Navigation.','hap'),
+		'label'	=>	__('Navigation.','mklang'),
 	],
 	'address' => [
 		'tag'	=>	'nav',
-		'label'	=>	__('Address.','hap'),
+		'label'	=>	__('Address.','mklang'),
 	],
 	'ul' => [
 		'tag'	=>	'ul',
-		'label'	=>	__('Unordered list.','hap'),
+		'label'	=>	__('Unordered list.','mklang'),
 	],
 	'ol' => [
 		'tag'	=>	'ol',
-		'label'	=>	__('Ordered list.','hap'),
+		'label'	=>	__('Ordered list.','mklang'),
 	],
 	'li' => [
 		'tag'	=>	'li',
-		'label'	=>	__('List item.','hap'),
+		'label'	=>	__('List item.','mklang'),
 	],
 ];
 
@@ -154,82 +157,60 @@ if( $toggle_grid_preview ) {
 // Custom attrs
 $custom_attributes = null;
 if( get_field('custom_attributes') ) {
-	$custom_attributes = hap_sanitize_attrs(get_field('custom_attributes'));
+	$custom_attributes = mkt_sanitize_attrs(get_field('custom_attributes'));
 }
 
-?>
-
-<?php if( $is_preview ) : ?>
-
-	<div class="hap-wp-block"><!-- Start preview -->
-		
+// Backend
+if( $is_preview ) : ?>
+	<div class="mkcb-wp-block">
 		<?php if( get_field('admin_label') ) : ?>
 			<div class="" style="font-size: 1.5rem; font-weight: 600; padding: .25rem .5rem; border-bottom: 1px dotted rgba(0, 0, 0, 0.2);">
 				<?php echo get_field('admin_label'); ?>
 			</div>
 		<?php endif; ?>
-		
-		<div class="hap-wp-block-info"><!-- Start preview header -->
-
-			<div class="hap-wp-block-info-left">
-
-				<figure class="hap-wp-block-info-icon">
-					<?php echo get_svg_icon( 'container', null, 'block-core' ); ?>
+		<div class="mkcb-wp-block-info">
+			<div class="mkcb-wp-block-info-left">
+				<figure class="mkcb-wp-block-info-icon">
+					<?php echo get_svg_icon('container',null,'block-core'); ?>
 				</figure>
-
 				<div>
 					<?php if( $semantic_tag ) : ?>
-						<span class="hap-wp-block-title">
+						<span class="mkcb-wp-block-title">
 							<?php echo $semantic_tag_index[$semantic_tag]['tag']; ?>
 							<?php if( get_field('admin_label') ) { echo ' / ' . get_field('admin_label'); } ?>
 						</span>
-						<span class="hap-wp-block-desc"><?php echo $semantic_tag_index[$semantic_tag]['label']; ?></span>
+						<span class="mkcb-wp-block-desc"><?php echo $semantic_tag_index[$semantic_tag]['label']; ?></span>
 					<?php else : ?>
-						<span class="hap-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-						<span class="hap-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
+						<span class="mkcb-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+						<span class="mkcb-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
 					<?php endif; ?>
 				</div>
-
 			</div>
-			
 			<?php if( $bg_image && !$bg_preview ) : ?>
-			
-				<div class="hap-wp-block-info-right">
-					<div class="hap-wp-block-bg-preview">
-						<?php echo wp_get_attachment_image( $bg_image, 'thumbnail' ); ?>
+				<div class="mkcb-wp-block-info-right">
+					<div class="mkcb-wp-block-bg-preview">
+						<?php echo wp_get_attachment_image($bg_image,'thumbnail'); ?>
 					</div>
 				</div>
-			
 			<?php endif; ?>
-
-		</div><!-- End preview header -->
-		
-		<div class="hap-wp-block-content"><!-- Start preview content -->
-
-			<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="<?php echo esc_attr($css_classes_preview); ?>" style="<?php echo ( $bg_preview ) ? esc_attr($style) : null; ?>">
-
+		</div>
+		<div class="mkcb-wp-block-content">
+			<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="<?php echo esc_attr($css_classes_preview); ?>" style="<?php echo $bg_preview ? esc_attr($style) : null; ?>">
 				<InnerBlocks />
-
 			</div>
-
-		</div><!-- End preview content -->
-
-	</div><!-- End preview -->
-		
-<?php else : ?>
-		
-	<?php if( !$toggle ) : ?>
-		
+		</div>
+	</div>
+<?php else : 
+	// Frontend
+	if( !$toggle ) : ?>	
 		<<?php echo esc_html($semantic_tag); ?> <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="<?php echo esc_attr($class_name); ?>" style="<?php echo esc_attr($style); ?>">
-						
-			<?php if( get_field('image_mobile_position') == 'top' ) {echo $img_mobile; } ?>
-
+			<?php if( get_field('image_mobile_position') == 'top' ) {
+				echo $img_mobile; 
+			} ?>
 			<InnerBlocks />
-
-			<?php if( get_field('image_mobile_position') == 'bottom' ) {echo $img_mobile; } ?>
-			
+			<?php if( get_field('image_mobile_position') == 'bottom' ) {
+				echo $img_mobile; 
+			} ?>
 		</<?php echo esc_html($semantic_tag); ?>>
-		
-	<?php endif; ?>
-		
-<?php endif; ?>
+	<?php endif;
+endif;

@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Block Template: Get template.
  *
@@ -24,47 +27,30 @@ if( !empty( $block['anchor'] ) ) {
 // Template path
 $template = get_field('template');
 
-?>
-
-<?php if( $is_preview ) : ?>
-
-	<div class="hap-wp-block"><!-- Start preview -->
-		
-		<div class="hap-wp-block-info"><!-- Start preview header -->
-
-			<div class="hap-wp-block-info-left">
-
-				<figure class="hap-wp-block-info-icon">
-					<?php echo get_svg_icon( 'get-template', null, 'block-core' ); ?>
+// Backend
+if( $is_preview ) : ?>
+	<div class="mkcb-wp-block">
+		<div class="mkcb-wp-block-info">
+			<div class="mkcb-wp-block-info-left">
+				<figure class="mkcb-wp-block-info-icon">
+					<?php echo get_svg_icon('get-template',null,'block-core'); ?>
 				</figure>
-
 				<div>
-					<span class="hap-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-					<span class="hap-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
+					<span class="mkcb-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+					<span class="mkcb-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
 				</div>
-
 			</div>
-			
-		</div><!-- End preview header -->
-
-		<div class="hap-wp-block-content"><!-- Start preview content -->
-			
-			<?php if( $template ) : ?>
-
-				<?php hap_get_template( $template ); ?>
-			
-			<?php else : ?>
-			
-				<strong class="text-error"><?php _e('Fill in the required fields.','hap'); ?></strong>
-
+		</div>
+		<div class="mkcb-wp-block-content">
+			<?php if( $template ) : 
+				// Get template
+				mkt_get_template( $template );
+			else : ?>
+				<strong class="text-error"><?php _e('Fill in the required fields.','mklang'); ?></strong>
 			<?php endif; ?>
-
-		</div><!-- End preview content -->
-		
-	</div><!-- End preview -->
-
-<?php else : ?>
-
-	<?php hap_get_template( $template ); ?>
-
-<?php endif; ?>
+		</div>
+	</div>
+<?php else : 
+	// Frontend
+	mkt_get_template( $template );
+endif;

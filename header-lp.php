@@ -1,24 +1,24 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * The template for displaying the header.
  *
  * Display all of the head element and everything up until the "#top" element.
  *
- * @since Hap 1.0.0
  */
 
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<script>
 		document.documentElement.className = 'js';
 	</script>
-	<meta name="author" content="Hap Studio" />
 	<meta name="copyright" content="<?php bloginfo('name'); ?>" />
 	<?php if( get_field('mobile_bar_color', 'options') ) : ?>
 		<meta name="theme-color" content="<?php the_field('mobile_bar_color', 'options'); ?>" />
@@ -31,16 +31,16 @@
 <body <?php body_class(); ?>>
 	<?php
 	/**
-	 * hap_body_start_landing hook.
+	 * mkt_body_start_landing hook.
 	 *
 	 * @hooked esempio_fonction_hook - 1
 	 */
-	do_action('hap_body_start_landing');
+	do_action('mkt_body_start_landing');
 	?>
-	<div id="top" <?php hap_wrap_class(); ?>>	
+	<div id="top" <?php mkt_wrap_class(); ?>>	
 		<?php
 		/**
-		 * hap_container_start hook.
+		 * mkt_container_start hook.
 		 *
 		 */
-		do_action('hap_container_start');
+		do_action('mkt_container_start');

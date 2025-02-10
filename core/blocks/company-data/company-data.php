@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Block Template: Company data and footer links.
  *
@@ -20,50 +23,50 @@ if( !empty( $block['className'] ) ) {
 
 // Labels
 $labels = [
-    'privacy'               =>  __('Privacy Policy','hap'),
-    'cookie'                =>  __('Cookie Policy','hap'),
-    'cookie_preferences'    =>  __('Cookie Preferences','hap'),
-    'terms_and_conditions'  =>  __('Terms and Conditions','hap'),
-    'copyright'             =>  __('Copyright','hap'),
-    'vat_number'            =>  __('VAT No.','hap'),
-    'cf_number'             =>  __('Fiscal Code','hap'),
-    'whistleblowing'        =>  __('Whistleblowing','hap'),
+    'privacy'               =>  __('Privacy Policy','mklang'),
+    'cookie'                =>  __('Cookie Policy','mklang'),
+    'cookie_preferences'    =>  __('Cookie Preferences','mklang'),
+    'terms_and_conditions'  =>  __('Terms and Conditions','mklang'),
+    'copyright'             =>  __('Copyright','mklang'),
+    'vat_number'            =>  __('VAT No.','mklang'),
+    'cf_number'             =>  __('Fiscal Code','mklang'),
+    'whistleblowing'        =>  __('Whistleblowing','mklang'),
     'google_recaptcha'      =>  'Google reCAPTCHA',
-    'credits'               =>  __('Credits','hap'),
-    'phone'                 =>  __('Phone','hap'),
-    'mobile_phone'          =>  __('Mobile Phone','hap'),
-    'toll_free_phone'       =>  __('Toll Free Phone Number','hap'),
-    'email'                 =>  __('Email','hap'),
-    'pec_email'             =>  __('PEC Email','hap'),
-    'company_name'          =>  __('Company Name','hap'),
-    'business_name'         =>  __('Business Name','hap'),
-    'registered_office'     =>  __('Registered office','hap'),
-    'rea_number'            =>  __('REA Number','hap'),
-    'legal_representative'  =>  __('Legal Representative','hap'),
-    'share_capital'         =>  __('Share Capital','hap'),
-    'custom_item'           =>  __('Custom Item','hap'),
+    'credits'               =>  __('Credits','mklang'),
+    'phone'                 =>  __('Phone','mklang'),
+    'mobile_phone'          =>  __('Mobile Phone','mklang'),
+    'toll_free_phone'       =>  __('Toll Free Phone Number','mklang'),
+    'email'                 =>  __('Email','mklang'),
+    'pec_email'             =>  __('PEC Email','mklang'),
+    'company_name'          =>  __('Company Name','mklang'),
+    'business_name'         =>  __('Business Name','mklang'),
+    'registered_office'     =>  __('Registered office','mklang'),
+    'rea_number'            =>  __('REA Number','mklang'),
+    'legal_representative'  =>  __('Legal Representative','mklang'),
+    'share_capital'         =>  __('Share Capital','mklang'),
+    'custom_item'           =>  __('Custom Item','mklang'),
 ];
 
-$google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href="%s" target="_blank" rel="nofollow noopener noreferrer">Privacy</a> | <a href="%s" target="_blank" rel="nofollow noopener noreferrer">Terms</a>','hap'), 'https://policies.google.com/privacy', 'https://policies.google.com/terms' );
+// Google reCAPTCHA policies
+$google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href="%s" target="_blank" rel="nofollow noopener noreferrer">Privacy</a> | <a href="%s" target="_blank" rel="nofollow noopener noreferrer">Terms</a>','mklang'), 'https://policies.google.com/privacy', 'https://policies.google.com/terms' );
 
-?>
-
-<?php if( $is_preview ) : ?>
-	<div class="hap-wp-block"><!-- Start preview -->
-		<div class="hap-wp-block-info"><!-- Start preview header -->
-			<div class="hap-wp-block-info-left">
-				<figure class="hap-wp-block-info-icon">
-					<?php echo get_svg_icon( 'company-data', null, 'block-core' ); ?>
+// Backend
+if( $is_preview ) : ?>
+	<div class="mkcb-wp-block">
+		<div class="mkcb-wp-block-info">
+			<div class="mkcb-wp-block-info-left">
+				<figure class="mkcb-wp-block-info-icon">
+					<?php echo get_svg_icon('company-data',null,'block-core'); ?>
 				</figure>
 				<div>
-					<span class="hap-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-					<span class="hap-wp-block-desc"><?php echo sprintf(__('Data and links filled in on the <a href="%s" target="_blank" rel="noopener noreferrer nofollow">options page</a>.','hap'), esc_url(add_query_arg('page','options',admin_url('admin.php')))); ?></span>
+					<span class="mkcb-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+					<span class="mkcb-wp-block-desc"><?php echo sprintf(__('Data and links filled in on the <a href="%s" target="_blank" rel="noopener noreferrer nofollow">options page</a>.','mklang'), esc_url(add_query_arg('page','options',admin_url('admin.php')))); ?></span>
 				</div>
 			</div>
-		</div><!-- End preview header -->
-		<div class="hap-wp-block-content"><!-- Start preview content -->
+		</div>
+		<div class="mkcb-wp-block-content">
 			<?php if( !$footer_links ) : ?>
-				<strong class="text-error"><?php _e('Fill in the required fields.','hap'); ?></strong>
+				<strong class="text-error"><?php _e('Fill in the required fields.','mklang'); ?></strong>
 			<?php else : ?>
                 <ul>
                     <?php if( have_rows('company_data_footer_links') ) {
@@ -75,29 +78,29 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $privacy ) {
                                     echo '<li><a href="' . get_the_permalink($privacy) . '">' . $labels['privacy'] . '</a></li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'cookie' ) {
                                 // Cookies
                                 $cookie = get_field('cookie_policy_page','options');
                                 if( $cookie ) {
-                                    echo '<li><a href="' . get_the_permalink($cookie) . '">' . __('Cookie policy','hap') . '</a></li>';
+                                    echo '<li><a href="' . get_the_permalink($cookie) . '">' . __('Cookie policy','mklang') . '</a></li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'cookie_preferences' ) {
                                 // Cookie preferences (if Iubenda is activated)
-                                if( is_iubenda_activated() ) {
-                                    echo '<li><a href="#" class="iubenda-cs-preferences-link">' . __('Update cookie tracking preferences','hap') . '</a></li>';
+                                if( mkt_plugin_active('iubenda') ) {
+                                    echo '<li><a href="#" class="iubenda-cs-preferences-link">' . __('Update cookie tracking preferences','mklang') . '</a></li>';
                                 }else{
-                                    echo '<li class="text-error">' . __('This option only works when the Iubenda plugin is installed.','hap') . '</li>';
+                                    echo '<li class="text-error">' . __('This option only works when the Iubenda plugin is installed.','mklang') . '</li>';
                                 }
                             }elseif( get_row_layout() == 'terms_and_conditions' ) {
                                 // Terms and conditions
                                 if( get_sub_field('terms_and_conditions_page') ) {
                                     echo '<li><a href="' . get_the_permalink($link['terms_and_conditions_page']) . '">' . $labels['terms_and_conditions'] . '</a></li>';
                                 }else{
-                                    echo '<li class="text-error">' . __('Select the terms and conditions page.','hap') . '</li>';
+                                    echo '<li class="text-error">' . __('Select the terms and conditions page.','mklang') . '</li>';
                                 }
                             }elseif( get_row_layout() == 'vat_number' ) {
                                 // VAT Number
@@ -105,21 +108,21 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $vat_number ) {
                                     echo '<li>' . $labels['vat_number'] . ': ' . $vat_number. '</li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'cf_number' ) {
                                 // Fiscal code
                                 $cf_number = get_field('cf_number','options');
                                 if( $cf_number ) {
-                                    echo '<li>' . __('FC','hap') . ': ' . $cf_number. '</li>';
+                                    echo '<li>' . __('FC','mklang') . ': ' . $cf_number. '</li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'copyright' ) {
                                 // Copyright
-                                $copyright_year = ( get_field('copyright_year','options') ) ? get_field('copyright_year','options') :  '<span>' . __('Copyright start year is missing.','hap') . '</span>';
+                                $copyright_year = ( get_field('copyright_year','options') ) ? get_field('copyright_year','options') :  '<span>' . __('Copyright start year is missing.','mklang') . '</span>';
                                 echo '<li>&copy; ' . $copyright_year . '/' . date( 'Y' ) . ', ' . get_field('company_name','options') .'</li>';
-                                echo '<li>' . __('All rights reserved','hap') .'</li>';
+                                echo '<li>' . __('All rights reserved','mklang') .'</li>';
                             }elseif( get_row_layout() == 'whistleblowing' ) {
                                 // Whistleblowing
                                 echo '<li><a href="#" class="whistleblowing-link">Whistleblowing</a></li>';
@@ -133,10 +136,10 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                     if( isset($wpcf7_option['recaptcha']) && !empty($wpcf7_option['recaptcha']) ) {
                                         echo '<li>' . $google_recaptcha_msg . '</li>';
                                     }else{
-                                        echo '<li class="text-error">' . sprintf(__('Contact Form 7 is installed but the Google reCAPTCHA keys are not set. Please visit <a href="%s" target="_blank" rel="noopener noreferrer nofollow">this page</a> to set up your keys.','hap'),esc_url(add_query_arg(['page'=>'wpcf7-integration','service'=>'recaptcha','action'=>'setup'],admin_url('admin.php')))) . '</li>';
+                                        echo '<li class="text-error">' . sprintf(__('Contact Form 7 is installed but the Google reCAPTCHA keys are not set. Please visit <a href="%s" target="_blank" rel="noopener noreferrer nofollow">this page</a> to set up your keys.','mklang'),esc_url(add_query_arg(['page'=>'wpcf7-integration','service'=>'recaptcha','action'=>'setup'],admin_url('admin.php')))) . '</li>';
                                     }
                                 }else{
-                                    echo '<li class="text-error">' . __('Contact Form 7 is not installed.','hap') . '</li>';
+                                    echo '<li class="text-error">' . __('Contact Form 7 is not installed.','mklang') . '</li>';
                                 }
                             }elseif( get_row_layout() == 'credits' ) {
                                 // Credits
@@ -147,7 +150,7 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $phone ) {
                                     echo '<li><a href="' . esc_url('tel:' . str_replace(' ','',$phone)) . '">' . $phone . '</a></li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'mobile_phone' ) {
                                 // Mobile phone
@@ -155,7 +158,7 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $mobile_phone ) {
                                     echo '<li><a href="' . esc_url('tel:' . str_replace(' ','',$mobile_phone)) . '">' . $mobile_phone . '</a></li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'toll_free_phone' ) {
                                 // Toll free phone
@@ -163,7 +166,7 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $toll_free_phone ) {
                                     echo '<li><a href="' . esc_url('tel:' . str_replace(' ','',$toll_free_phone)) . '">' . $toll_free_phone . '</a></li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'email' ) {
                                 // Email
@@ -171,7 +174,7 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $email ) {
                                     echo '<li><a href="' . esc_url('mailto:' . $email) . '">' . $email . '</a></li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'pec_email' ) {
                                 // PEC Email
@@ -179,7 +182,7 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $pec_email ) {
                                     echo '<li>PEC: <a href="' . esc_url('mailto:' . $pec_email) . '">' . $pec_email . '</a></li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'company_name' ) {
                                 // Company name
@@ -187,15 +190,15 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $company_name ) {
                                     echo '<li>' . $company_name . '</li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'business_name' ) {
                                 // Business name
                                 $business_name = get_field('company_name','options');
                                 if( $business_name ) {
-                                    echo '<li>' . __('Business Name','hap') . ': ' . $business_name . '</li>';
+                                    echo '<li>' . __('Business Name','mklang') . ': ' . $business_name . '</li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), __('Company Name','hap') ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), __('Company Name','mklang') ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'legal_representative' ) {
                                 // Legal representative
@@ -203,7 +206,7 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $legal_representative ) {
                                     echo '<li>' . $legal_representative . '</li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'registered_office' ) {
                                 // Registered office
@@ -226,7 +229,7 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $address_items ) {
                                     echo '<li>' . $labels['registered_office'] . ': ' . implode( ', ', $address_items ) . '</li>';
                                 }else{
-                                    echo '<li class="text-error">' . __('Address, postcode, city and country fields are missing.','hap') . '</li>';
+                                    echo '<li class="text-error">' . __('Address, postcode, city and country fields are missing.','mklang') . '</li>';
                                 }
                             }elseif( get_row_layout() == 'rea_number' ) {
                                 // REA Number
@@ -234,14 +237,14 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                 if( $rea_number ) {
                                     echo '<li>' . $labels['rea_number'] . ': ' . $rea_number .'</li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'share_capital' ) {
                                 $share_capital = get_field('share_capital','options');
                                 if( $share_capital ) {
                                     echo '<li>' . $labels['share_capital'] . ': ' . euro_format($share_capital) . '</li>';
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), $labels[get_row_layout()] ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), $labels[get_row_layout()] ) . '</li>';
                                 }
                             }elseif( get_row_layout() == 'custom_item' ) {
                                 if( get_sub_field('label') ) {
@@ -258,17 +261,17 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                                         echo '<li>' . get_sub_field('label') .'</li>';
                                     }
                                 }else{
-                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','hap'), __('Label','hap') ) . '</li>';
+                                    echo '<li class="text-error">' . sprintf( __('The field <strong>%s</strong> has no value.','mklang'), __('Label','mklang') ) . '</li>';
                                 }
                             }
                         } 
                     } ?>
                 </ul>
 			<?php endif; ?>
-		</div><!-- End preview content -->
-	</div><!-- End preview -->
-
-<?php else : 
+		</div>
+	</div>
+<?php else :
+    // Fontend 
     // Deafult value
     $items = [];
     // Conditions
@@ -286,12 +289,12 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                 // Cookies
                 $cookie = get_field('cookie_policy_page','options');
                 if( $cookie ) {
-                    $items['cookie'] = '<a href="' . get_the_permalink($cookie) . '">' . __('Cookie policy','hap') . '</a>';
+                    $items['cookie'] = '<a href="' . get_the_permalink($cookie) . '">' . __('Cookie policy','mklang') . '</a>';
                 }
             }elseif( get_row_layout() == 'cookie_preferences' ) {
                 // Cookie preferences (if Iubenda is activated)
-                if( is_iubenda_activated() ) {
-                    $items['cookie-preferences'] = '<a href="#" class="iubenda-cs-preferences-link">' . __('Update cookie tracking preferences','hap') . '</a>';
+                if( mkt_plugin_active('iubenda') ) {
+                    $items['cookie-preferences'] = '<a href="#" class="iubenda-cs-preferences-link">' . __('Update cookie tracking preferences','mklang') . '</a>';
                 }
             }elseif( get_row_layout() == 'terms_and_conditions' ) {
                 // Terms and conditions
@@ -308,13 +311,13 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                 // Fiscal code
                 $cf_number = get_field('cf_number','options');
                 if( $cf_number ) {
-                    $items['cf_number'] = __('FC','hap') . ': ' . $cf_number;
+                    $items['cf_number'] = __('FC','mklang') . ': ' . $cf_number;
                 }
             }elseif( get_row_layout() == 'copyright' ) {
                 // Copyright
                 $copyright_year = ( get_field('copyright_year','options') ) ? get_field('copyright_year','options') :  date( 'Y' );
                 $items['copyright'] = '&copy; ' . $copyright_year . '/' . date( 'Y' ) . ', ' . get_field('company_name','options');
-                $items['copyright-statement'] = __('All rights reserved','hap');
+                $items['copyright-statement'] = __('All rights reserved','mklang');
             }elseif( get_row_layout() == 'whistleblowing' ) {
                 // Whistleblowing
                 $items['whistleblowing'] = '<a href="#" class="whistleblowing-link">Whistleblowing</a>';
@@ -372,7 +375,7 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                 // Business name
                 $business_name = get_field('company_name','options');
                 if( $business_name ) {
-                    $items['business_name'] = __('Business Name','hap') . ': ' . $business_name;
+                    $items['business_name'] = __('Business Name','mklang') . ': ' . $business_name;
                 } 
             }elseif( get_row_layout() == 'legal_representative' ) {
                 // Legal representative
@@ -401,7 +404,7 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
                 if( $address_items ) {
                     $items['registered_office'] = $labels['registered_office'] . ': ' . implode( ', ', $address_items );
                 }else{
-                    $items['registered_office'] = __('No data','hap');
+                    $items['registered_office'] = __('No data','mklang');
                 }
             }elseif( get_row_layout() == 'rea_number' ) {
                 // REA Number
@@ -437,9 +440,8 @@ $google_recaptcha_msg = sprintf( __('Site protected by Google reCAPTCHA. <a href
     if( $items ) {
         echo '<ul class="' . esc_attr($class_name) . '">';
         foreach( $items as $name => $value ) {
-            echo '<li class="' . $name . '">' . $value . '</li>';
+            echo '<li class="' . esc_attr($name) . '">' . $value . '</li>';
         }
         echo '</ul>';
     }
-
 endif;

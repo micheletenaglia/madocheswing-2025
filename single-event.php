@@ -28,15 +28,14 @@ $map_args = [
 ];
 
 // Get address data
-$address_data = hap_address_data(get_field('address',$location));
+$address_data = mkt_address_data(get_field('address',$location));
 
 ?>
-
 <div class="pl-sm pb-sm pr-sm">
     <header class="container-sm mb-sm text-center">
         <a href="<?php echo get_the_permalink(898); ?>" class="eyelet">Mado' che eventi</a>
         <h1 class="title-xl mt-4 mb-4"><?php the_title(); ?></h1>
-        <h2><?php echo get_field('subhead'); ?></h2>
+        <h2><?php echo esc_html(get_field('subhead')); ?></h2>
     </header>
     <?php if( get_the_content() ) : ?>
         <div class="container-sm mb-sm text-center">
@@ -45,7 +44,7 @@ $address_data = hap_address_data(get_field('address',$location));
     <?php endif; ?>
     <div class="grid-1-3">
         <div>
-            <?php hap_get_template('map/map',$map_args); ?>
+            <?php mkt_get_template('map/map',$map_args); ?>
         </div>
         <div class="bg-gray-50 p-xs">
             <h3 class="h4"><?php _e('When','project'); ?></h3>
@@ -65,11 +64,9 @@ $address_data = hap_address_data(get_field('address',$location));
         <div class="bg-gray-50 p-xs">
             <div>
                 <h3 class="h4"><?php _e('Entrance','project'); ?></h3>
-                <?php echo get_field('entrance') ? get_field('entrance') : __('Not available.','project'); ?>
+                <?php echo get_field('entrance') ? esc_html(get_field('entrance')) : __('Not available.','project'); ?>
             </div>
         </div>
     </div>
 </div>
 <?php get_footer();
-
-/* <a class="eyelet" href="<?php echo get_the_permalink(898); ?>"><?php _e('Events','project'); ?></a> */

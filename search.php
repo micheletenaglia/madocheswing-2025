@@ -27,20 +27,21 @@ if( $contact_page ) {
 }
 
 ?>
-
 <main>
 	<div class="container-md p-4-8">
-        <?php if( $s != '' ) : ?>
-            <?php if( have_posts() ) : ?>
+        <?php if( esc_attr($s) != '' ) :
+            if( have_posts() ) : ?>
                 <div class="search-results-wrap text-center">
                     <span class="eyelet"><?php _e('You have searched for','project'); ?></span>
                     <h1 class="title-xl mt-4 capitalize">"<?php echo esc_html($s); ?>"</h1>
                     <ul class="search-results container-sm">
-                        <?php while ( have_posts() ) : the_post(); ?>
-                            <li><?php hap_get_template('search/search-card'); ?></li>
+                        <?php while( have_posts() ) : 
+                            the_post(); 
+                            ?>
+                            <li><?php mkt_get_template('search/search-card'); ?></li>
                         <?php endwhile; ?>
                     </ul>
-                    <?php hap_get_template('pagination'); ?>
+                    <?php mkt_get_template('pagination'); ?>
                 </div>
             <?php else : ?>
                 <div class="search-no-results-wrap text-center">
@@ -51,7 +52,7 @@ if( $contact_page ) {
                         <ul>
                             <li><?php _e('Try a different word or phrase.','project'); ?></li>
                             <li><?php _e('Check your search for typos.','project'); ?></li>
-                            <?php echo ( $contact_item ) ? $contact_item : null; ?>
+                            <?php echo $contact_item ? $contact_item : null; ?>
                         </ul>
                         <div class="mt-sm mb-sm">
                             <?php get_search_form(); ?>

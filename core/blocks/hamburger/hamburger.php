@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Block Template: Hamburger.
  *
@@ -15,47 +18,34 @@ if( !empty( $block['className'] ) ) {
 	$class_name .= ' ' . $block['className'];
 }
 
-?>
-
-<?php if( $is_preview ) : ?>
-
-	<div class="hap-wp-block"><!-- Start preview -->
-		
-		<div class="hap-wp-block-info"><!-- Start preview header -->
-
-			<div class="hap-wp-block-info-left">
-
-				<figure class="hap-wp-block-info-icon">
-					<?php echo get_svg_icon( 'hamburger', null, 'block-core' ); ?>
+// Backend
+if( $is_preview ) : ?>
+	<div class="mkcb-wp-block">
+		<div class="mkcb-wp-block-info">
+			<div class="mkcb-wp-block-info-left">
+				<figure class="mkcb-wp-block-info-icon">
+					<?php echo get_svg_icon('hamburger',null,'block-core'); ?>
 				</figure>
-
 				<div>
-					<span class="hap-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-					<span class="hap-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
+					<span class="mkcb-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+					<span class="mkcb-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
 				</div>
-
 			</div>
-			
-		</div><!-- End preview header -->
-
-		<div class="hap-wp-block-content"><!-- Start preview content -->
-
-			<div class="<?php echo $class_name; ?> menu-toggle-bars">
+		</div>
+		<div class="mkcb-wp-block-content">
+			<div class="<?php echo esc_attr($class_name); ?> menu-toggle-bars">
 				<span></span>
 				<span></span>
 				<span></span>
-			</div>	
-
-		</div><!-- End preview content -->
-		
-	</div><!-- End preview -->
-
-<?php else : ?>
-
-	<div class="<?php echo $class_name; ?> menu-toggle-bars">
+			</div>
+		</div>
+	</div>
+<?php else :
+	// Frontend
+	?>
+	<div class="<?php echo esc_attr($class_name); ?> menu-toggle-bars">
 		<span></span>
 		<span></span>
 		<span></span>
 	</div>	
-
-<?php endif; ?>
+<?php endif;

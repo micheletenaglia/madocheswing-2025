@@ -60,14 +60,14 @@ jQuery(document).ready(function($) {
 		});
 				
 		// Create modal
-		let tocModal = '<div class="hap-modal"><div class="hap-modal-content"><div class="js-copy-toc close"></div><h2>Table of contents</h2><ol style="margin-bottom: 1rem;">' + tableOfContents + '</ol><a class="js-copy-toc button-primary">Copy</a></div></div>'
+		let tocModal = '<div class="mkcb-modal"><div class="mkcb-modal-content"><div class="js-copy-toc close"></div><h2>Table of contents</h2><ol style="margin-bottom: 1rem;">' + tableOfContents + '</ol><a class="js-copy-toc button-primary">Copy</a></div></div>'
 		
 		// Fade in alpha layer
 		$('.dummy-layer').fadeIn();
 		// Append modal
-		$('.hap-modals').append(tocModal);
+		$('.mkcb-modals').append(tocModal);
 		// Show modal
-		$('.hap-modals').find('.hap-modal').addClass('open');
+		$('.mkcb-modals').find('.mkcb-modal').addClass('open');
 		// Copy text in clipboard
 		navigator.clipboard.writeText(copyText);
 		
@@ -78,7 +78,7 @@ jQuery(document).ready(function($) {
 
 		event.preventDefault();
 		// Just give the illusion of copying and close modal
-		$('.hap-modals').find('.hap-modal').removeClass('open');
+		$('.mkcb-modals').find('.mkcb-modal').removeClass('open');
 		$('.dummy-layer').fadeOut();
 
 	});

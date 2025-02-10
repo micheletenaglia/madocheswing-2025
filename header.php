@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * The template for displaying the header.
  *
@@ -8,7 +11,6 @@
  * Do not edit directly!
  * Hooks must be used to customize the content.
  * 
- * @since Hap Studio Theme 1.0.0
  */
 
 ?>
@@ -20,7 +22,6 @@
 	<script>
 		document.documentElement.className = 'js';
 	</script>
-	<meta name="author" content="Hap Studio" />
 	<meta name="copyright" content="<?php bloginfo('name'); ?>" />
 	<?php if( get_field('mobile_bar_color', 'options') ) : ?>
 		<meta name="theme-color" content="<?php the_field('mobile_bar_color', 'options'); ?>" />
@@ -33,15 +34,15 @@
 <body <?php body_class(); ?>>
 	<?php
 	/**
-	 * hap_body_start hook.
+	 * mkt_body_start hook.
 	 *
 	 */
-	do_action('hap_body_start');
+	do_action('mkt_body_start');
 	?>
-	<div id="top" <?php hap_wrap_class(); ?>>
+	<div id="top" <?php mkt_wrap_class(); ?>>
 		<?php
 		/**
-		 * hap_container_start hook.
+		 * mkt_container_start hook.
 		 *
 		 */
-		do_action('hap_container_start');
+		do_action('mkt_container_start');
