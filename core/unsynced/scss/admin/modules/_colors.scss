@@ -1,0 +1,91 @@
+//======================================================================
+// Colors: Background
+//======================================================================
+.bg-cover {
+	background-size: cover;
+}
+.bg-center {
+	background-position: center;
+}
+.bg-primary {
+	background-color: var(--color-primary);
+}
+.bg-secondary {
+	background-color: var(--color-secondary);
+}
+.bg-accent {
+	background-color: var(--color-accent);
+}
+.bg-brand {
+	background-color: var(--color-brand);
+}
+.bg-white {
+	background-color: var(--color-bg);
+}
+.bg-black {
+	background-color: var(--color-black);
+}
+.bg-gray-50 {
+	background-color: #{$color-gray-50};
+}
+.bg-gray-100 {
+	background-color: #{$color-gray-100};
+}
+.bg-gray-200 {
+	background-color: #{$color-gray-200};
+}
+.bg-gray-300 {
+	background-color: #{$color-gray-300};
+}
+.bg-gray-400 {
+	background-color: #{$color-gray-400};
+}
+.bg-gray-500 {
+	background-color: #{$color-gray-500};
+}
+.bg-gray-600 {
+	background-color: #{$color-gray-600};
+}
+.bg-gray-700 {
+	background-color: #{$color-gray-700};
+}
+.bg-gray-800 {
+	background-color: #{$color-gray-800};
+}
+.bg-gray-900 {
+	background-color: #{$color-gray-900};
+}
+
+//======================================================================
+// Colors: Status
+//======================================================================
+.text-success {
+	color:var(--color-success)
+}
+.bg-success {
+	background-color:var(--color-success)
+}
+.border-success {
+	border-color:var(--color-success)
+}
+.text-alert {
+	color:var(--color-alert)
+}
+.bg-alert {
+	background-color:var(--color-alert)
+}
+.border-alert {
+	border-color:var(--color-alert)
+}
+.text-error,
+.text-required {
+	color:var(--color-error)
+}
+.bg-error,
+.bg-required {
+	background-color:var(--color-error)
+}
+.border-error,
+.border-required {
+	border-color:var(--color-error)
+}

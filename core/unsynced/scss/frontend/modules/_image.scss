@@ -1,0 +1,42 @@
+img {
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	border-style: solid;
+}
+
+// Img cover
+.img-cover {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+// Figure cover
+.figure-cover {
+	height: 100%;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+// Blazy
+img.b-lazy {
+	opacity: 0;
+	transition: all .2s ease-in-out;
+	&.b-loaded {
+		opacity: 1;
+	}
+}
+
+// Image with ratio on small screens
+// and height full on large screens
+.bg-img-fluid-1-1 {
+	padding-top: 100%;
+	@include break-3 {
+		padding: 0;
+		height: 100%;
+	}
+}

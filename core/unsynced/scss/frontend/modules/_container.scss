@@ -1,0 +1,63 @@
+.container-sm {
+	@include container(small);
+}
+.container-md {
+	@include container(medium);
+}
+.container-lg {
+	@include container(large);
+}
+/*.container-sm,
+.container-md,
+.container-lg {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;	
+}
+.container-sm {
+	@include break-3 {
+		max-width: calc( 100% - 4rem );
+	}
+	@include break-4 {
+		max-width: 640px;
+	}
+	@include break-5 {
+		max-width: 800px;
+	}
+}
+.container-md {
+	@include break-3 {
+		max-width: calc( 100% - 2rem );
+	}
+	@include break-4 {
+		max-width: 960px;
+	}
+	@include break-5 {
+		max-width: 1280px;
+	}
+}
+.container-lg {
+	@include break-4 {
+		max-width: calc( 100% - 2rem );
+	}
+	@include break-5 {
+		max-width: 1520px;
+	}
+}
+*/
+.layout-wrap {
+	@include break-3 {
+		display: flex;
+	}	
+}
+.sidebar {
+	@include break-3 {
+		width: 20%;
+	}
+}
+.mainbar {
+	@include break-3 {
+		width: 70%;
+		margin-left: 10%;
+	}
+}

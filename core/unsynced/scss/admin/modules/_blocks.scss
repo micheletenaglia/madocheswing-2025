@@ -1,0 +1,223 @@
+// General
+.is-root-container .wp-block {
+	max-width: initial;
+}
+// Anchor content
+// Action link
+// Banner 2 columns
+.banner-cols-2 {
+	display: grid;
+	overflow: hidden;
+	@include break-3 {
+		@include grid-columns(2);
+	}
+	.banner-col-2-left {
+		padding: 1rem;
+		@include break-3 {
+			padding: 2rem;
+		}
+	}
+	.banner-col-2-right {
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+// Container
+.hap-wp-block-content .container {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.hap-wp-block-bg-preview {
+	img {
+		height: 3rem;
+		width: auto;
+		display: block;
+	}
+}
+// Hero primary
+.hero-primary {
+	padding: 1rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 50vh;
+	background-color: var(--color-gray-200);
+	background-blend-mode: multiply;
+	@include flex-center;
+	.hero-primary-content {
+		.hero-primary-subtitle {
+			display: block;
+			font-size: .75em;
+			line-height: 1.4em;
+		}
+	}
+}
+// Hero secondary
+// Hero extra
+// Hero slider
+// Hero video
+// Icon text
+// Image sticker
+.hap-wp-block-content .sticker-wrap {
+	position: relative;
+	.sticker,
+	.wp-block-image {
+		max-width: initial;
+	}
+	.sticker-preview {
+		position: absolute;
+		top: -1rem;
+		right: -1rem;
+		width: 6rem;
+		height: 6rem;
+		background-color: var(--color-accent);
+		border-radius: 50%;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 1rem;
+		margin: 0;
+		transform: rotate(-5deg);
+		h4 {
+			margin-bottom: 0 !important;
+		}
+		p {
+			padding-bottom: 0 !important;
+		}
+	}
+}
+
+// Key number
+// Menu
+// Modal form cf7
+// Post selector
+// Simple button
+.hap-wp-block-content a.button,
+.hap-wp-block-content span.button,
+.hap-wp-block-content button.button,
+.hap-wp-block-content input[type=button],
+.hap-wp-block-content input[type=submit],
+.hap-wp-block-content input[type=button].button,
+.hap-wp-block-content input[type=submit].button {
+	@include button-primary;
+	&.hollow {
+		@include button-hollow;
+	}
+	&.hollow.light {
+		@include button-hollow-light;
+	}
+	&.secondary {
+		@include button-secondary;
+	}
+	&.secondary.light {
+		@include button-secondary-light;
+	}
+	&.small {
+		@include button-small;
+	}
+	&.adjacent {
+		@include button-adjacent;
+	}
+	&.long {
+		@include button-long;
+	}
+}
+// Simple div
+// Svg image
+.svg-icon {
+	fill: currentColor;
+	height: 2rem;
+}
+// Text icon
+.hap-wp-block-content .icon-text {
+	@include break-3 {
+		display: flex;
+		.icon-text-svg {
+			flex: none;
+			margin-right: 2rem;
+		}
+		.icon-text-content {
+			width: 100%;
+		}
+	}
+	svg {
+		fill: currentColor;
+		height: 2rem;
+	}
+}
+
+
+.hap-wp-block-img-preview {
+	width: 4rem;
+	height: 4rem;
+	margin: 0 0 0 1rem;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+// Logo
+.wp-block-acf-logo {
+	.hap-wp-block-content {
+		img, svg {
+			height: 1.5rem;
+			width: auto;
+		}
+	}
+}
+
+// Hamburger
+.menu-toggle-bars {
+	width: 3rem;
+	height: 1.5rem;
+	margin: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	span {
+		display: block;
+		border-top: 1px solid #000;
+		&:nth-of-type(1) {
+		}
+		&:nth-of-type(2) {
+		}
+		&:nth-of-type(3) {
+		}
+	}
+}
+
+// Pie chart
+.pie-chart {
+	display: flex; 
+	align-items: center;
+	ul {
+		padding: 0;
+		li {
+			list-style: none;;
+		}
+	}
+}
+.stats_pie {
+	margin-right: 2rem;
+}
+
+// Bar chart
+.chart-bar-wrap {
+	.chart-label {
+		display: flex;
+		justify-content: space-between;
+	}
+	.chart-bar-bg {
+		height: 1rem;
+		background-color: rgba(0,0,0,.1);
+	}
+	.chart-bar {
+		height: 100%;
+		background-color: var(--color-primary);
+	}
+}

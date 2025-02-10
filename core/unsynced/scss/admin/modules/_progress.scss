@@ -1,0 +1,91 @@
+body.role-administrator {
+	//======================================================================
+	// Progress status: Colors
+	//======================================================================
+	.status-0 {
+		background-color: #ffebee !important;
+	}
+	.status-25 {
+		background-color: #f3e5f5 !important;
+	}
+	.status-50 {
+		background-color: #e8eaf6 !important;
+	}
+	.status-75 {
+		background-color: #e1f5fe !important;
+	}
+	.status-100 {
+		background-color: #e8f5e9 !important;
+	}
+
+	//======================================================================
+	// Progress status: Table
+	//======================================================================
+	.status-0 td,
+	.status-0 th,
+	.status-25 td,
+	.status-25 th,
+	.status-50 td,
+	.status-50 th,
+	.status-75 td,
+	.status-75 th,
+	.status-100 td,
+	.status-100 th {
+		border-bottom: 1px solid #fff;
+	}
+
+	//======================================================================
+	// Progress status: Bar
+	//======================================================================
+	.status-bar {
+		width: 100%;
+		height: 2rem;
+		background-color: rgba(0, 0, 0, .05);
+		border-radius: .25rem;
+		overflow: hidden;
+		div {
+			position: relative;
+			width: 0;
+			height: 100%;
+			background-color: var(--color-secondary);
+			&:after {
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				padding: 2px 8px;
+				color: var(--color-light);
+				font-size: .75rem;
+				line-height: 1em !important;
+			}
+		}
+	}
+	.status-25 .status-bar div {
+		width: 25%;
+		&:after {
+			content: '25%';
+		}
+	}
+	.status-50 .status-bar div {
+		width: 50%;
+		&:after {
+			content: '50%';
+		}
+	}
+	.status-75 .status-bar div {
+		width: 75%;
+		&:after {
+			content: '75%';
+		}
+	}
+	.status-100 .status-bar div {
+		width: 100%;
+		&:after {
+			content: '100%';
+		}
+	}
+}

@@ -1,0 +1,19 @@
+.footer-credits {
+	padding: 2rem;
+	font-size: .75rem;
+	ul {
+		@include break-3 {
+			display: flex;
+			justify-content: center;
+			li {
+				margin: 1rem;
+			}
+		}
+	}
+	li {
+		margin: .5rem 0;
+	}
+	a {
+		color: var(--color-text);
+	}
+}

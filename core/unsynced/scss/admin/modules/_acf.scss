@@ -1,0 +1,291 @@
+//======================================================================
+// ACF paragraphs and lists
+//======================================================================
+.acf-input {
+	p {
+		font-size: 16px;
+		color: #646464;
+		@include break-3 {
+			font-size: 18px;
+		}
+		&.description {
+			font-size: 13px;
+			@include break-3 {
+				font-size: 13px;
+			}			
+		}
+	}
+	
+}
+.acf-field-message ul {
+	li {
+		position:relative;
+		padding-left: 2em;
+		font-size: 16px;
+		color: #646464;
+		@include break-3 {
+			font-size: 18px;
+		}
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			width: .25em;
+			height: .25em;
+			top: .25em;
+			left: 0;
+			border-width: 2px;
+			border-style: solid;
+			border-color: #ccc;
+			border-radius: 50%;
+		}
+		li:before {
+			width: 1em;
+			height: 1px;
+			top: 1.25em;
+			left: 0;
+			border: none;
+			background-color: #ccc;
+			display: block;
+			position: absolute;
+			@include border-radius(0);
+		}
+	}
+}
+
+//======================================================================
+// ACF ??? !!!
+//======================================================================
+.acf-field-object.open>.handle {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+    text-shadow: none !important;
+}
+
+//======================================================================
+// ACF Flexible content
+//======================================================================
+.acf-flexible-content .layout .acf-fc-layout-handle {
+    font-size: 24px;
+}
+.acf-flexible-content .layout .acf-fc-layout-order {
+    background: transparent;
+    font-size: 24px;
+    color: var(--color-primary);
+}
+.acf-fields.-border {
+    border: none !important;
+}
+.acf-admin-toolbar .acf-tab.is-active {
+    border-color: var(--color-secondary);
+}
+
+//======================================================================
+// ACF Switch
+//======================================================================
+.acf-switch .acf-switch-on {
+    text-shadow: none !important;
+}
+.acf-switch.-on {
+    background: var(--color-primary) !important;
+    border-color: var(--color-primary) !important;
+}
+.acf-switch.-on {
+    background-color: var(--color-primary) !important;
+}
+.acf-switch.-on .acf-switch-slider {
+    border-color: var(--color-primary) !important;
+}
+.acf-switch:hover,
+.acf-switch.-focus,
+.acf-switch:hover .acf-switch-slider,
+.acf-switch.-focus .acf-switch-slider {
+    border-color: var(--color-primary) !important;
+    color: var(--color-primary) !important;
+}
+
+//======================================================================
+// ACF Button groups
+//======================================================================
+.acf-button-group label.selected {
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+}
+.acf-button-group label.selected:hover {
+    background: var(--color-primary);
+}
+.acf-row td {
+    border-top-color: #bbb !important;
+}
+.acf-fields>.acf-tab-wrap .acf-tab-group {
+    border-top: none;
+}
+.acf-fields>.acf-tab-wrap {
+    background-color: #fff;
+}
+
+//======================================================================
+// ACF Table
+//======================================================================
+.acf-table tbody tr:nth-of-type(2n) td,
+.acf-table tbody tr:nth-of-type(2n) td.acf-fields>.acf-tab-wrap,
+.acf-table tbody tr:nth-of-type(2n) td.acf-fields>.acf-tab-wrap .acf-tab-group li.active a {
+    background-color: #f4f4f4;
+}
+.acf-table tbody tr:nth-of-type(2n) td.acf-fields>.acf-tab-wrap .acf-tab-group li a {
+    background-color: #ebebeb;
+}
+
+//======================================================================
+// ACF Accordion
+//======================================================================
+.acf-accordion .acf-accordion-title {
+    transition: .2s linear;
+}
+/*.acf-accordion.-open {
+	border: 2px solid var(--color-primary) !important;
+	border-left-width: 1px !important;
+	border-right-width: 1px !important;
+}*/
+.acf-accordion .acf-accordion-title:hover,
+.acf-accordion.-open .acf-accordion-title {
+    background-color: #f6f7f7 !important;
+    color: var(--color-black);
+}
+
+//======================================================================
+// ACF pre and code fields
+//======================================================================
+.hap-code {
+	textarea,
+	input[type="text"],
+	input[type="email"],
+	input[type="url"],
+	pre {
+		font-family: var(--font-mono) !important;
+		background-color: #000031;
+		color: #43a6ff !important;
+		line-height: 1.5em !important;
+		// letter-spacing: 1px;
+		font-size: 1.1rem !important;
+		padding: 1rem;
+		overflow: auto;
+		max-height: 50vh;
+	}
+	tab-size: .5rem;
+	.tab-size-0 {
+		tab-size: 0;
+	}
+	.hap-pre {
+		font-family: var(--font-mono) !important;
+		background-color: #000031;
+		color: #43a6ff !important;
+		line-height: 1.5em !important;
+		font-size: 1.1rem !important;
+		padding: 1rem;
+		overflow: auto;
+		&.hap-pre-max-50 {
+			max-height: 50vh;		
+		}
+	}
+}
+
+//======================================================================
+// ACF append and prepend
+//======================================================================
+.acf-input {
+	.acf-input-prepend, 
+	.acf-input-append {
+		border-color: rgba(0,0,0,.15);
+		background: transparent;
+	}
+}
+
+//======================================================================
+// ACF Option pages
+//======================================================================
+body.hap_page_options-info #poststuff #post-body {
+	#postbox-container-1 {
+		display: none;
+	}
+	&.columns-2 {
+		margin-right: 0;
+	}
+	.postbox-header,
+	.acf-label {
+		display: none;
+	}
+	.postbox {
+		background-color: transparent;
+		border: none;
+		box-shadow: none;
+		.acf-fields > .acf-field {
+			padding: 0;
+		}
+	}
+	.hap-separator {
+		border: 1px solid #c3c4c7;
+		margin-top: -1px;
+		padding: 1rem;
+		background-color: var(--color-bg);
+	}
+	.hap-content {
+		border-top: 1px solid #c3c4c7;		
+	}
+	h1 {
+		padding: .5rem;
+		cursor: pointer;
+	}
+	p, li {
+		font-size: 18px;
+	}
+	ul {
+		padding-bottom: 1em;
+		li {
+			position: relative;
+			padding: 0 0 .5em 1em;
+			ul {
+				padding-bottom: 0;
+				li {
+					padding: .5rem 0 .5rem 3rem;
+					border: none;
+				}
+			}
+		}
+	}
+	ul li:before {
+		content: '';
+		width: .25em;
+		height: .25em;
+		top: .5em;
+		left: 0;
+		border-width: 2px;
+		border-style: solid;
+		border-color: #ccc;
+		display: block;
+		position: absolute;
+		border-radius: 50%;
+	}
+}
+
+//======================================================================
+// ACF Custom checkbox list
+//======================================================================
+.hap-acf-checkbox-list li {
+	padding: .5rem;
+	&:not(:first-child) {
+		border-top: 1px solid #e1e1e1;	
+	}
+}
+
+//======================================================================
+// ACF Edit term screen
+//======================================================================
+body.term-php {
+	.form-table {
+		margin-bottom: 2rem;
+	}
+	.acf-input {
+		background-color: #fff;
+	}
+}

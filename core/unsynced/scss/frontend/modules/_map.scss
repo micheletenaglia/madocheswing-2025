@@ -1,0 +1,145 @@
+// ACF map
+.map-wrap {
+	overflow: hidden;
+	background-color: var(--color-gray-50);
+	position: relative;
+	.acf-map {
+		opacity: 1;
+		transition: .4s all ease-in-out;
+	}
+	&.loading .acf-map {
+		opacity: 0;	
+	}
+}
+.acf-map {
+	overflow: hidden;
+	width: 100%;
+	height: var(--map-height);
+	background-color: var(--color-secondary);
+}
+.gm-style {
+    font-family: inherit;
+	li {
+    	font-size: 16px !important;
+		margin-top: 3px !important;
+		a {
+			display: block;
+			margin-top: .5rem;
+			font-weight: var(--font-weight-bold);
+			text-decoration: underline;
+		}
+	}
+	.gm-style-iw-c,
+	.gm-style-iw-t::after,
+	.gm-style-iw-d::-webkit-scrollbar-track, 
+	.gm-style-iw-d::-webkit-scrollbar-track-piece {
+		background-color: var(--color-bg);
+	}
+	.gm-style-iw.gm-style-iw-c {
+		border: 1px solid var(--border-color);
+		border-radius: 0 !important;
+		box-shadow: .25rem .25rem var(--border-color);
+		button {
+			display: none !important;
+		}
+	}
+	.gm-style-iw-tc::after {
+	 	background: var(--border-color) !important;
+	}
+	&-iw-d {
+		padding: .5rem;
+		h4 {
+			color: var(--color-black) !important;
+			font-size: 1rem;
+			margin-bottom: .5rem;
+		}
+		span {
+			display: block;
+			font-size: .75rem;
+			text-transform: uppercase;
+		}
+	}
+	.gmnoprint > div {
+ 		background-color: transparent !important;
+		> div {
+			background-color: transparent !important;
+		}
+	}
+	.gmnoprint * {
+ 		box-shadow: none !important;
+	}
+	.gm-control-active {
+	 	background: var(--color-secondary-dark) !important;
+	  	border-radius: 50%;
+		border: 2px solid var(--color-bg) !important;
+		&:hover {
+		 	background: var(--color-primary) !important;		
+		}
+	}
+	.gm-control-active > img {
+		filter: grayscale(1) brightness(10);
+		width: 15px !important;
+		height: 15px !important;
+	}
+}
+.map-loader {
+	position: absolute;
+	z-index: 999999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: .25rem;
+	&.loaded {
+		opacity: 0;
+	}
+}
+.map-loader-bar {
+	width: 100%;
+	height: 100%;
+	background-color: var(--color-secondary);
+	animation-name: map-loader;
+	animation-duration: 1s;
+	transform: scaleX(0);
+	transform-origin: left;
+}
+
+@keyframes map-loader {
+	from {
+		transform: scaleX(0);
+	}
+	to {
+		transform: scaleX(1);
+	}
+}
+
+.pin {
+	position: relative;
+	border-radius: 50% 50% 50% 0;
+	border: 1px solid var(--color-primary);
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+	transition: .4s all ease-in-out;
+	&.large {
+		width: 2rem;
+		height: 2rem		
+	}
+	transform: rotate(-45deg);
+	&:after {
+		position: absolute;
+		content: '';
+		width: 20%;
+		height: 20%;
+		border-radius: 50%;
+		top: 50%;
+		left: 50%;
+		margin-left: -10%;
+		margin-top: -10%;
+		border: 1px solid var(--color-primary)
+	}
+}
+a:hover .pin {
+	background-color: var(--color-secondary);
+	transform: rotate(-45deg) scale(1.1);
+	
+}

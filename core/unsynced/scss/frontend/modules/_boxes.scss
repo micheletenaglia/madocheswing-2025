@@ -1,0 +1,11 @@
+.box {
+	padding: 1rem;
+	background-color: var(--color-gray-100);
+	@include break-3 {
+		padding: 2rem;
+	}
+	&.hollow {
+		background-color: transparent;
+		border: var(--border-width) solid var(--border-color);
+	}
+}

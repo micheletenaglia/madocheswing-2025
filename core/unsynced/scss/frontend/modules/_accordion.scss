@@ -1,0 +1,32 @@
+// Accordion
+.accordion-wrap {
+	border-bottom: var(--border-width) var(--border-style) var(--border-color);
+}
+.accordion-trigger {
+	transition: all .2s ease-in-out;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	padding: .5rem;
+	border-top: var(--border-width) var(--border-style) var(--border-color);
+	&:after {
+		content: '>';
+		display: block;
+		font-size: 1.5rem;
+		font-weight: 400;
+		color: var(--color-black);
+		transform: scaleX(50%);
+		transform-origin: left;
+		transition: .2s all ease-in-out;
+	}
+	&.open:after {
+		transform: rotate(-90deg) scaleX(50%);
+	}
+	&:hover:after {
+		color: var(--color-primary);
+	}
+}
+.accordion-toggle {
+	font-weight: var(--font-weight-bold);
+	cursor: pointer;
+}

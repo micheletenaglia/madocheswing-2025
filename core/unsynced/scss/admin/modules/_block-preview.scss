@@ -1,0 +1,223 @@
+//======================================================================
+// Custom size
+// https://stackoverflow.com/questions/50923691/creating-custom-unit-for-sass
+//======================================================================
+$cs: .5rem;
+
+//======================================================================
+// Block preview: Grid layout
+//======================================================================
+@each $item in $grids {
+	
+	$name: implode( $item, '-' );
+	
+	@if length( $item ) == 1 {
+		.grid-#{$name} > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			@include grid( nth($item, 1) );
+		};
+	}
+	
+	@if length( $item ) == 2 {
+		.grid-#{$name} > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			@include grid( nth($item, 1), nth($item, 2) );
+		};
+	}
+
+	@if length( $item ) == 3 {
+		.grid-#{$name} > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			@include grid( nth($item, 1), nth($item, 2), nth($item, 3) );
+		};
+	}
+
+	@if length( $item ) == 4 {
+		.grid-#{$name} > .block-editor-inner-blocks > .block-editor-block-list__layout {
+			@include grid( nth($item, 1), nth($item, 2), nth($item, 3), nth($item, 4) );
+		};
+	}
+
+}
+
+//======================================================================
+// Block preview: Block list
+//======================================================================
+.block-editor-inserter__block-list .block-editor-inserter__panel-header:not(first-child) {
+	display: block;
+	border-top: 1px solid #e0e0e0;
+}
+
+//======================================================================
+// Block preview: Disabled block
+//======================================================================
+.hap-disabled {
+	opacity: .5;
+	position: relative;
+	overflow: hidden;
+	&:before {
+		content: 'Disabled';
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 1;
+		display: block;
+		// transform: rotate(2deg);
+		color: var(--color-bg);
+		background-color: var(--color-error);
+		font-size: 14px;
+		font-weight: 700;
+		padding: $cs 2*$cs;
+	}
+}
+
+//======================================================================
+// Block preview: Preview wrap
+//======================================================================
+body .editor-styles-wrapper {
+	background-color: var( --color-bg );
+	font-family: var(--font-primary);
+}
+
+//======================================================================
+// Block preview: Block wrap
+//======================================================================
+.is-root-container > .wp-block {
+    max-width: 90% !important;
+	&.is-selected {
+		background-color:var( --color-bg );
+		box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+	}
+}
+.hap-wp-block {
+	border: 1px dotted rgba(0,0,0,.2);
+}
+
+//======================================================================
+// Block preview: SVG icons
+//======================================================================
+.hap-icon-accent {
+	fill: var(--color-primary) !important;
+}
+
+//======================================================================
+// Block preview: Block header
+//======================================================================
+.hap-wp-block-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px dotted rgba(0,0,0,.2);
+}
+.hap-wp-block-info-left,
+.hap-wp-block-info-right {
+	display: flex;
+	align-items: center;
+	padding: .25rem .5rem;
+}
+.hap-wp-block-info-icon {
+	width: 3rem;
+	height: auto;
+	margin: 0 .5rem 0 0;
+}
+.hap-wp-block-title {
+	display: block;
+	font-size: .75rem;
+	font-weight: 700;
+	color: #000;
+}
+.hap-wp-block-desc {
+	display: block;
+	font-size: .75rem;
+	color: #000;
+}
+.hap-wp-block-content {
+	padding: 1rem;
+}
+
+//======================================================================
+// Block preview: Spacing / Margin
+//======================================================================
+.m-xs {
+    margin: .5*$cs;
+}
+.m-sm {
+    margin: 1*$cs;
+}
+.m-md {
+    margin: 2*$cs;
+}
+.m-lg {
+    margin: 3*$cs;
+}
+.m-xl {
+    margin: 4*$cs;
+}
+.mx-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+//======================================================================
+// Block preview: Spacing / Padding
+//======================================================================
+.p-xs {
+	padding: .5*$cs;
+}
+.p-sm {
+	padding: 1*$cs;
+}
+.p-md {
+	padding: 2*$cs;
+}
+.p-lg {
+	padding: 3*$cs;
+}
+.p-xl {
+	padding: 4*$cs;
+}
+
+//======================================================================
+// Block preview: Typography
+//======================================================================
+// Typography
+.isdark {
+	color: var(--color-bg);
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+
+//======================================================================
+// ACF Block fields: SVG Icons
+//======================================================================
+.acf-field-accordion.accordion-typography label:before {
+	background-image: url(../../../../core/assets/icons/font-case.svg);
+}
+.acf-field-accordion.accordion-background label:before {
+	background-image: url(../../../../core/assets/icons/background.svg);
+}
+.acf-field-accordion.accordion-margin label:before {
+	background-image: url(../../../../core/assets/icons/margin.svg);
+}
+.acf-field-accordion.accordion-padding label:before {
+	background-image: url(../../../../core/assets/icons/padding.svg);
+}
+.acf-field-accordion.accordion-layout label:before {
+	background-image: url(../../../../core/assets/icons/layout.svg);
+}
+.acf-field-accordion.accordion-custom-attrs label:before {
+	background-image: url(../../../../core/assets/icons/html5.svg);
+}
+.acf-field-accordion.accordion-anchor label:before {
+	background-image: url(../../../../core/assets/icons/link.svg);
+}
+.acf-field-accordion.accordion-filter label:before {
+	background-image: url(../../../../core/assets/icons/camera.svg);
+}
+.acf-field-accordion.accordion-title label:before {
+	background-image: url(../../../../core/assets/icons/bookmark.svg);
+}

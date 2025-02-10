@@ -1,0 +1,74 @@
+.svg-icon {
+	vertical-align: middle;
+	flex-shrink: 0;
+}
+
+// Hamburger
+.icon-hamburger {
+	position: relative;
+	width: 6em;
+	height: 3em;
+	cursor: pointer;
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		left: 1em;
+		width: 4em;
+		height: 1px;
+		background-color: var(--color-primary);
+		transition: .2s all ease-in-out;
+	}
+	&:before {
+		top: 1em;
+	}
+	&:after {
+		bottom: 1em;
+	}
+	&:hover {
+		&:before {
+			left: 0;
+		}
+		&:after {
+			left: 2em;
+		}
+	}
+	&.backend-open,
+	&.backend-open:hover {
+		&:before {
+			left: 1em;
+			width: 3em;
+			transform: rotate(45deg);
+		}
+		&:after {
+			left: 1em;
+			width: 3em;
+			bottom: calc( 2em - 1px );
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+// Times
+.icon-close {
+	position: relative;
+	width: 4em;
+	height: 4em;
+	cursor: pointer;
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 1em;
+		left: calc( 2em - 1px );
+		height: 2em;
+		width: 1px;
+		background-color: var(--color-black);
+	}
+	&:before {
+		transform: rotate(45deg);
+	}
+	&:after {
+		transform: rotate(-45deg);
+	}
+}

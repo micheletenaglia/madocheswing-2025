@@ -1,0 +1,39 @@
+//======================================================================
+// Layout: Grid
+//======================================================================
+.hap-grid-2,
+.hap-grid-3 {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(1, minmax(0, 1fr));
+	.hap-card {
+		margin: 0;
+	}
+}
+@media only screen and (min-width: 960px) {
+	.hap-grid-2,
+	.hap-grid-3 {
+		gap: 2rem;
+		grid-template-columns:repeat(2, minmax(0, 1fr));
+	}
+}
+@media only screen and (min-width: 1280px) {
+	.hap-grid-3 {
+		grid-template-columns:repeat(3, minmax(0, 1fr));
+	}
+}
+.col-span-1-1-2 {
+	@include col-span(1,1,2);
+}
+.col-span-1-1-3 {
+	@include col-span(1,1,3);
+}
+.col-span-1-2-2 {
+	@include col-span(1,2,2);
+}
+.col-span-1-2-3 {
+	@include col-span(1,2,3);
+}
+.col-span-1-3-3 {
+	@include col-span(1,3,3);
+}

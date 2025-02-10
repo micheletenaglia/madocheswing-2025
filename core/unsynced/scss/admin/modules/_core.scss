@@ -1,0 +1,117 @@
+// Buttons
+.wp-core-ui {
+	.button,
+	.button-primary,
+	.button.button-primary,
+	.button-secondary,
+	.add-new-h2,
+	.page-title-action,
+	.components-button.is-primary,
+	.components-button.is-secondary {
+		font-weight: 400;
+		border: 1px solid #000;
+		text-align: center;
+		transition: var(--transition-default);
+		box-shadow: none;
+		outline: none;
+	}
+	&.focus,
+	&:focus {
+		box-shadow: 0 0 0 1px var(--color-bg), 0 0 0 3px #000 !important;
+	}
+}
+.components-button.is-primary:focus:not(:disabled),
+.components-button.is-secondary:focus:not(:disabled) {
+	box-shadow: 0 0 0 1px var(--color-bg), 0 0 0 3px #000 !important;
+}
+.wp-core-ui {
+	.button-primary,
+	.button.button-primary,
+	.components-button.is-primary {
+		color: var(--color-bg) !important;
+		background: #000;
+		&.hover,
+		&:hover,
+		&.focus,
+		&:focus,
+		&.active,
+		&:active,
+		&.active,
+		&:active {
+			color: var(--color-bg) !important;
+			background: #000 !important;
+			border-color: #000 !important;
+			box-shadow: none;
+			outline: none;
+		}
+	}
+	.button,
+	.button-secondary,
+	.add-new-h2,
+	.page-title-action,
+	.components-button.is-secondary {
+		color: #000;
+		background-color: transparent;
+		&.hover,
+		&:hover,
+		&.focus,
+		&:focus,
+		&.active,
+		&:active,
+		&.active,
+		&:active {
+			color: var(--color-bg);
+			background-color: #000;
+			border-color: #000;
+			box-shadow: none;
+			outline: none;
+		}
+	}
+}
+.block-editor-block-styles__variants {
+	.components-button.is-secondary {
+		span.block-editor-block-styles__item-text {
+			color: #000;
+		}
+		&.hover,
+		&:hover,
+		&.focus,
+		&:focus,
+		&.active,
+		&:active,
+		&.active,
+		&:active {
+			span.block-editor-block-styles__item-text {
+				color: var(--color-bg);
+			}
+		}
+	}
+	
+}
+
+// Fix
+.interface-interface-skeleton__sidebar {
+	overflow-x: hidden;
+}
+
+// Post thumbs in #post-table
+.featured_thumb.column-featured_thumb {
+	a div {
+		width: 80px;
+		height: 80px;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		border-radius: 50%;
+	}
+}
+
+// Gutenberg Sidebar
+.edit-post-meta-boxes-area.is-side {
+	#poststuff {
+		h2.hndle.ui-sortable-handle {
+			font-weight: normal;
+			padding: 16px 48px 16px 16px;
+		}
+	}
+}

@@ -1,0 +1,44 @@
+//======================================================================
+// Html and body
+//======================================================================
+html{
+	scroll-behavior: smooth;
+}
+body {
+	min-height: 101vh;
+}
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+	background-color: var(--color-primary);
+	-webkit-box-shadow: none;
+}
+body::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+	background-color: #efefef;
+	-webkit-box-shadow: none;
+}
+body::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+	background-color: var(--color-primary);
+	border: 5px solid #efefef;
+	outline: none;
+	position: relative;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+html, body {
+	scrollbar-color: var(--color-primary) #efefef;
+}
+::-moz-selection {
+	color: var(--color-bg);
+	background: var(--color-black);
+}
+::selection {
+	color: var(--color-bg);
+	background: var(--color-black);
+}
+
+// Fix for SVG preview in Gutenberg sidebar
+.components-panel__body .editor-post-featured-image img.components-responsive-wrapper__content {
+	min-width: 120px;
+}

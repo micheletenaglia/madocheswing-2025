@@ -1,0 +1,256 @@
+//======================================================================
+// Login style v 1.0.0
+//======================================================================
+
+// Import styles from frontend core
+@import '../frontend/modules/breakpoints';
+@import '../../../../project/unsynced/scss/project-variables';
+
+body.login {
+	background-color: var(--color-bg);
+	font-family: var(--font-primary) !important;
+	a {
+		color: var(--color-primary) !important;
+		text-decoration: none;
+		transition: .2s all ease-in-out !important;
+		&:hover,
+		&:active,
+		&:focus {
+			text-decoration: underline !important;
+			 box-shadow: none;
+		}
+	}
+}
+@media only screen and (min-width: 783px) {
+	body.login {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+// Wrap
+#login {
+	padding: 20px;
+	background-color: var(--color-bg);
+}
+
+// Logo
+#login h1 a {
+	background-size: var(--logo-width) var(--logo-height);
+	width: var(--logo-width);
+	height: var(--logo-height);
+	margin: auto;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+// Form
+.login {
+	form {
+		background: var(--color-bg);
+		border: none;
+		box-shadow: none;
+		padding: 20px;
+	}
+	form .input,
+	input[type="text"],
+	input[type="password"] {
+		font-size: 18px;
+		border: none;
+		padding: 1rem !important;
+		background-color: rgba(0, 0, 0, .05);
+		&:focus,
+		&:focus-within {
+			box-shadow: none;
+			border: 2px solid var(--color-primary);
+			transition: .2s all ease-in-out !important;
+		}
+	}
+}
+input#user_pass {
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+
+// Buttons
+.forgetmenot,
+.login .button-primary,
+.admin-email__actions-primary a.button.button-large {
+	float: none;
+}
+p.submit {
+	margin-top: 2rem !important;
+}
+.login .button-primary,
+.admin-email__actions-primary a.button.button-large {
+	display: block;
+	width: 100%;
+    height: #{$button-height};
+	margin-bottom: 1rem;
+    padding: 1rem 2rem !important;
+    text-align: center;
+	border-radius: var(--button-border-radius);
+	font-size: 1rem;
+    font-weight: var(--button-font-weight);
+    line-height: 1em !important;
+    color: var(--color-button-text) !important;
+	background-color: var(--color-button-bg);
+	border-style: solid;
+	border-width: var(--button-border-width);
+	border-color: var(--color-button-border);
+	transition: .2s all ease-in-out !important;
+	&:hover,
+	&:active,
+	&:focus {
+        text-decoration: none !important;
+		color: var(--color-button-text-hover) !important;
+		background-color: var(--color-button-bg-hover) !important;
+		border-color: var(--color-button-border-hover) !important;
+	}
+	&:focus  {
+		box-shadow: 0 0 0 1px var(--color-bg),0 0 0 3px var(--color-button-border);
+	}
+}
+
+// Status
+.login {
+	#login_error,
+	.message,
+	.success {
+		position: relative;
+		border: none;
+		border-left-width: 0;
+		box-shadow: 1px 1px 5px 0 rgba(0,0,0,.1);
+		background-color: var(--color-bg);
+		padding-left: 2rem;
+		margin: 10px 0;
+		border-radius: .5rem;
+		&:before {
+			content: '';
+			position: absolute;
+			top: 1rem;
+			left: 1rem;
+			width: .5rem;
+			height: .5rem;
+			border-radius: 50%;
+			display: block;
+		}
+	}
+	#login_error:before {
+		background-color: var(--color-error);
+	}
+	.message:before {
+		background-color: #29b6f6;
+	}
+	.success:before {
+		background-color: var(--color-success);
+	}
+}
+
+
+// Password
+.wp-pwd button {
+	color: var(--color-primary) !important;
+	&:focus,
+	&:focus-visible {
+		outline: none !important;
+		box-shadow: none !important;
+		border: none !important;
+	}
+}
+
+// Privacy
+a.privacy-policy-link {
+	color: var(--color-primary);
+	font-weight: 700;
+}
+
+// Language switcher
+.language-switcher {
+	form {
+		display: flex !important;
+		justify-content: center;
+	}
+	label {
+		display: none !important;
+	}
+	#language-switcher {
+		select {
+			margin-right: 0 !important;
+			border: 1px solid var(--color-black) !important;
+			border-radius: 0 !important;
+			&:hover {
+				color: var(--color-black) !important;
+			}
+			&:focus,
+			&:focus-visible {
+				color: var(--color-black) !important;
+				box-shadow: none !important;
+			}
+		}
+	}
+	input[type=submit] {
+		border: 1px solid var(--color-black) !important;
+		color: var(--color-black) !important;
+		background-color: transparent !important;
+		border-radius: 0 !important;
+		margin-left: -1px;
+		transition: .2s all ease-in-out !important;
+		&:hover {
+			color: var(--color-bg) !important;
+			background-color: var(--color-black) !important;
+		}
+	}
+
+}
+@media only screen and (max-width: 782px) {
+	.language-switcher {
+		#language-switcher select,
+		input[type=submit] {
+			height: 44px !important;
+		}
+	}
+}
+
+/*
+.login-action-confirm_admin_email #login {
+    width:60vw;
+    max-width:650px;
+    margin-top:-2vh
+}
+@media screen and (max-width:782px) {
+    .login-action-confirm_admin_email #login {
+        box-sizing:border-box;
+        margin-top:0;
+        padding-left:4vw;
+        padding-right:4vw;
+        width:100vw
+    }
+}
+.login .admin-email-confirm-form .submit {
+    text-align:center
+}
+.admin-email__later {
+    text-align:left
+}
+.login form p.admin-email__details {
+    margin:1.1em 0
+}
+.login h1.admin-email__heading {
+    border-bottom:1px #f0f0f1 solid;
+    color:#50575e;
+    font-weight:400;
+    padding-bottom:.5em;
+    text-align:left
+}
+.admin-email__actions div {
+    padding-top:1.5em
+}
+.login .admin-email__actions .button-primary {
+    float:none;
+    margin-left:.25em;
+    margin-right:.25em
+}
+*/

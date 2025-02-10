@@ -1,0 +1,85 @@
+a {
+	text-decoration: var(--link-text-decoration);
+	color: var(--link-color);
+	transition: all .2s ease-in-out;
+	cursor: pointer;
+	&:not(.button) {
+		p, li, span, strong, em {
+			color: var(--color-text);
+		}
+	}
+	&.link-wrap {
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+p a:hover,
+span a:hover,
+li a:hover {
+	color: var(--link-color-hover);
+	text-decoration: var(--link-text-decoration-hover);
+}
+a.link-text,
+.link-text a,
+ol.toc a {
+	color: var(--color-text);
+}
+a.card {
+	text-decoration: none;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+a.button,
+span.button,
+button.button,
+input[type=button],
+input[type=submit],
+input[type=button].button,
+input[type=submit].button {
+	@include button-primary;
+	&.hollow {
+		@include button-hollow;
+	}
+	&.hollow.light {
+		@include button-hollow-light;
+	}
+	&.secondary {
+		@include button-secondary;
+	}
+	&.secondary.light {
+		@include button-secondary-light;
+	}
+	&.small {
+		@include button-small;
+	}
+	&.adjacent {
+		@include button-adjacent;
+	}
+	&.long {
+		@include button-long;
+	}
+}
+input[type=reset],
+input[type=reset].button {
+	@include button-primary;
+	@include button-secondary;
+	&.small {
+		@include button-small;
+	}	
+}
+
+.button-tag {
+	@include button-secondary;
+	@include button-small;
+	margin: 0 1em 1em 0;
+}
+.button-wrap {
+	margin-top: 1rem;
+	@include break-3 {
+		text-align: right;
+	}
+}

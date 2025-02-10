@@ -1,0 +1,41 @@
+.text-body {
+	color: var(--color-text);
+}
+.text-success {
+	color: var(--color-success);
+}
+.bg-success {
+	background-color: var(--color-success);
+}
+.border-success {
+	border-color: var(--color-success);
+}
+.text-alert {
+	color: var(--color-alert);
+}
+.bg-alert {
+	background-color: var(--color-alert);
+}
+.border-alert {
+	border-color: var(--color-alert);
+}
+.text-error,
+.text-required {
+	color: var(--color-error);
+}
+.bg-error,
+.bg-required {
+	background-color: var(--color-error);
+}
+.border-error,
+.border-required {
+	border-color: var(--color-error);
+}
+
+.dot {
+	display: inline-block;
+	width: .5rem;
+	height: .5rem;
+	margin-right: .5rem;
+	border-radius: 50%;
+}

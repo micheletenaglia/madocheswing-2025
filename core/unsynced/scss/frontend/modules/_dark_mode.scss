@@ -1,0 +1,288 @@
+//======================================================================
+// Scroll bar and selection
+//======================================================================
+
+// body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+	background-color: var(--isdark-color-title);
+}
+// body::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track {
+	background-color: var(--color-black);
+}
+// body::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb {
+	background-color: var(--isdark-color-title);
+	border: 5px solid var(--color-black);
+}
+/* html, body {
+	scrollbar-color: var(--isdark-color-title) var(--color-black);
+}*/
+::-moz-selection {
+	color: var(--color-black);
+	background: var(--isdark-color-title);
+}
+::selection {
+	color: var(--color-black);
+	background: var(--isdark-color-title);
+}
+
+//======================================================================
+// Typography
+//======================================================================
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	color: var(--isdark-color-title);
+}
+p, li,
+p a, li a {
+	color: var(--isdark-color-title);
+}
+
+//======================================================================
+// Forms
+//======================================================================
+
+legend,
+label,
+.label,
+input[type=text],
+input[type=number],
+input[type=url],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=search],
+input[type=date],
+input[type=time],
+input[type=datetime-local],
+input[type=week],
+input[type=month],
+input[type=search],
+select,
+textarea  {
+	color: var(--isdark-color-title);
+	border-color: var(--isdark-color-border);
+}
+input[type=text],
+input[type=number],
+input[type=url],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=search],
+input[type=date],
+input[type=time],
+input[type=datetime-local],
+input[type=week],
+input[type=month],
+input[type=search],
+textarea  {
+	background-color: transparent;
+}
+fieldset {
+	border-color: var(--isdark-color-border);
+}
+.select {
+	color: var(--isdark-color-title);
+	border-color: var(--isdark-color-border);
+	background-color: transparent;	
+	background-image: url(../../../core/assets/icons/chevron-down-white.svg);
+}
+.select-multiple option:checked {
+	background-color: var(--color-primary);
+	color: var(--color-bg);
+}
+.money-suffix,
+.input-suffix {
+	&:after {
+		color: var(--isdark-color-title);
+	}
+}
+.checkmark,
+.radio-checkmark {
+	@include rgba-background($color-bg, .25);
+}
+.checkbox:hover input ~ .checkmark,
+.radio:hover input ~ .radio-checkmark {
+	@include rgba-background($color-bg, .5);
+}
+.switch-label {
+	color: var(--isdark-color-title);
+}
+.switch-slider {
+	@include rgba-background($color-bg, .25);
+}
+.switch-slider div {
+	background-color: var(--color-bg);
+}
+.switch-wrap.checked .switch-slider {
+	background-color: var(--color-primary);
+}
+.switch-slider:hover {
+	box-shadow: 0 0 1px var(--color-primary);
+}
+.search-form button {
+	background-color: var(--color-primary);
+	border-color: var(--isdark-color-border);
+	background-image: url(../../../core/assets/icons/search-white.svg);
+	&:hover {
+		background-color: var(--color-bg);
+		background-image: url(../../../core/assets/icons/search.svg);		
+	}
+}
+.input-number .js-input-number-button {
+	background-color: transparent;
+	border-color: var(--isdark-color-text);
+	color: var(--isdark-color-border);
+}
+::-webkit-input-placeholder {
+	@include rgba($color-bg, .5);
+}
+::-moz-placeholder {
+	@include rgba($color-bg, .5);
+}
+:-ms-input-placeholder {
+	@include rgba($color-bg, .5);
+}
+:-moz-placeholder {
+	@include rgba($color-bg, .5);
+}	
+input[type=range] {
+	// Webkit
+	&::-webkit-slider-runnable-track {
+		@include rgba-background($color-bg, .25);
+	}
+	&::-webkit-slider-thumb {
+		// border: 1px solid var(--color-primary);
+		// background: var(--color-primary);
+	}
+	&:focus::-webkit-slider-runnable-track {
+		@include rgba-background($color-bg, .25);
+	}
+	// Moz
+	&::-moz-range-track {
+		@include rgba-background($color-bg, .25);
+	}
+	&::-moz-range-progress {
+		// background: var(--color-primary);
+	}
+	&::-moz-range-thumb {
+		// border: 3px solid var(--color-primary);
+		// background: var(--color-primary);
+	}
+	// Ms
+	&::-ms-fill-lower {
+		@include rgba-background($color-bg, .25);
+	}
+	&::-ms-fill-upper {
+		@include rgba-background($color-bg, .25);
+	}
+	&::-ms-thumb {
+		// border: 1px solid var(--color-primary);
+		// background: var(--color-primary);
+	}
+	&:focus::-ms-fill-lower {
+		@include rgba-background($color-bg, .25);
+	}
+	&:focus::-ms-fill-upper {
+		@include rgba-background($color-bg, .25);
+	}
+}
+progress:not(value) {
+	@include rgba-background($color-bg, .25);
+}
+progress[value] {
+	@include rgba-background($color-bg, .25);
+	// color: var(--color-primary);
+}
+progress[value]::-webkit-progress-bar {
+	@include rgba-background($color-bg, .25);
+}
+progress[value]::-webkit-progress-value {
+	// background-color: var(--color-primary);
+}
+progress[value]::-webkit-progress-value:after {
+	@include rgba-background($color-bg, .25);
+}
+progress[value]::-moz-progress-bar {
+	// background-color: var(--color-primary);
+}
+.progress-bar {
+	@include rgba-background($color-bg, .25);
+}
+.progress-bar span {
+	// background-color: var(--color-primary);
+}
+
+//======================================================================
+// Buttons
+//======================================================================
+
+/*
+.button.secondary {
+	color: var(--isdark-color-title);
+	@include rgba-background($color-bg, .25);
+	&:hover {
+		color: var(--isdark-color-title);
+		@include rgba-background($color-bg, .5);
+	}
+}
+*/
+input[type="reset"], 
+input[type="reset"].button {
+	color: var(--isdark-color-title);
+	border-color: var(--isdark-color-border);
+	background-color: transparent;
+	&:hover {
+		color: var(--color-black);		
+		border-color: var(--isdark-color-title);
+		background-color: var(--isdark-color-title);
+	}
+}
+
+//======================================================================
+// Lists
+//======================================================================
+
+dt {
+	color: var(--isdark-color-text);
+}
+ul.list-check li:before {
+	background-image: url(../../../core/assets/icons/check-white.svg);
+}
+
+ol.list,
+.list ol,
+.content ol,
+ol.toc {
+	li {
+		border-color: var(--isdark-color-border);
+		&::before {
+			border: 1px solid var(--color-bg);
+			color: var(--color-bg);
+			background: transparent;
+		}
+	}
+}
+
+//======================================================================
+// Tables
+//======================================================================
+
+table {
+	color: var(--color-bg);
+	&.striped {
+		tbody tr:nth-child(odd) {
+			@include rgba-background($color-bg, .25);
+		}
+	}	
+	tr, th, td {
+		border-color: rgba($color-bg, .5);
+	}
+}

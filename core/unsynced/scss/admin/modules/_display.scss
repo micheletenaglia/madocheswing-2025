@@ -1,0 +1,24 @@
+//======================================================================
+// Display
+//======================================================================
+.hap-block {
+    display: block;
+}
+.hap-inline-block {
+    display: inline-block;
+}
+.hap-flex {
+    display: flex;
+}
+.hap-inline-flex {
+    display: inline-flex;
+}
+.hap-hide {
+    display: none !important;
+}
+.hap-flex-wrap {
+    flex-wrap: wrap;
+}
+.vertical-justified {
+	@include vertical-justified;
+}

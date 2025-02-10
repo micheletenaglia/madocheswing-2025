@@ -1,0 +1,1223 @@
+// !!! Manca bg-dark, disabled, readonly e altri stati
+//======================================================================
+// Label
+//======================================================================
+label,
+.label {
+	display: block;
+	margin: var(--input-label-margin);
+	color: var(--input-label-color);	
+	font-size: var(--input-label-size);	
+}
+
+//======================================================================
+// Fieldset & legend
+//======================================================================
+fieldset {
+	display: block;
+	padding: 1rem 0;
+	margin: 1rem 0; 
+	border-top: var(--input-border-width) solid var(--input-border-color);
+	border-bottom: var(--input-border-width) solid var(--input-border-color);
+}
+legend {
+	display: block;
+	font-weight: var(--font-weight-bold);
+}
+
+//======================================================================
+// Transition
+//======================================================================
+input,
+label,
+button,
+select,
+textarea {
+	transition: all .4s linear;
+}
+
+//======================================================================
+// Input, textarea and select common styles
+//======================================================================
+input[type=text],
+input[type=number],
+input[type=url],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=search],
+input[type=date],
+input[type=time],
+input[type=datetime-local],
+input[type=week],
+input[type=month],
+select,
+textarea {
+	width: 100%;
+	font-size: 18px;
+	font-family:inherit;
+	padding: .7em 1em;
+	border: var(--input-border-width) solid var(--input-border-color);
+	border-radius: var(--input-radius);
+	color: var(--input-color);
+	background-color: var(--input-bg-color);
+	box-shadow: 0px 0px 3px rgba(0,0,0,.15);
+	margin:0;
+}
+input[type=text],
+input[type=number],
+input[type=url],
+input[type=email],
+input[type=password],
+input[type=tel],
+input[type=search],
+input[type=date],
+input[type=time],
+input[type=datetime-local],
+input[type=week],
+input[type=month],
+input[type=search],
+select {
+	height: var(--input-height);
+}
+textarea{
+	resize: vertical;
+	&.autogrow {
+		overflow: hidden;
+	}
+}
+
+//======================================================================
+// Input hover
+//======================================================================
+input[type=text]:hover,
+input[type=number]:hover,
+input[type=url]:hover,
+input[type=email]:hover,
+input[type=password]:hover,
+input[type=tel]:hover,
+input[type=search]:hover,
+input[type=file]:hover,
+input[type=date]:hover,
+input[type=time]:hover,
+input[type=datetime-local]:hover,
+input[type=week]:hover,
+input[type=month]:hover,
+input[type=search]:hover,
+select:hover,
+textarea:hover {
+	color: var(--input-hover-color);
+	background-color: var(--input-hover-color-bg);
+	border-color: var(--input-hover-border-color);
+}
+input[type=file]:hover,
+select:hover {
+	cursor: pointer;
+}
+
+
+//======================================================================
+// Input focus
+//======================================================================
+input[type=text]:focus,
+input[type=number]:focus,
+input[type=url]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=tel]:focus,
+input[type=search]:focus,
+input[type=file]:focus,
+input[type=date]:focus,
+input[type=time]:focus,
+input[type=datetime-local]:focus,
+input[type=week]:focus,
+input[type=month]:focus,
+input[type=tel]:focus:focus,
+input[type=search]:focus,
+select:focus,
+textarea:focus {
+	color: var(--input-hover-color);
+	border-color: var(--input-hover-border-color);
+	box-shadow: 0 0 1px 3px rgba(0,0,0,.1);
+}
+
+//======================================================================
+// Input focus-visible
+//======================================================================
+input[type=text]:focus-visible,
+input[type=number]:focus-visible,
+input[type=url]:focus-visible,
+input[type=email]:focus-visible,
+input[type=password]:focus-visible,
+input[type=tel]:focus-visible,
+input[type=search]:focus-visible,
+input[type=file]:focus-visible,
+input[type=date]:focus-visible,
+input[type=time]:focus-visible,
+input[type=datetime-local]:focus-visible,
+input[type=week]:focus-visible,
+input[type=month]:focus-visible,
+input[type=tel]:focus-visible:focus-visible,
+input[type=search]:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: none;
+}
+
+//======================================================================
+// Input disabled
+//======================================================================
+input[type=text]:disabled,
+input[type=number]:disabled,
+input[type=url]:disabled,
+input[type=email]:disabled,
+input[type=password]:disabled,
+input[type=tel]:disabled,
+input[type=search]:disabled,
+input[type=date]:disabled,
+input[type=time]:disabled,
+input[type=datetime-local]:disabled,
+input[type=week]:disabled,
+input[type=month]:disabled,
+input[type=tel]:disabled:disabled,
+input[type=search]:disabled,
+input[type=file]:disabled,
+input[type=color]:disabled,
+input[type=range]:disabled,
+input[type=radio]:disabled,
+input[type=checkbox]:disabled,
+select:disabled,
+textarea:disabled,
+.disabled .js-datalist-multiple,
+.disabled .js-datalist-multiple:hover {
+	opacity: .5;
+	cursor: not-allowed;
+}
+
+//======================================================================
+// Input readonly
+//======================================================================
+input[type=text]:read-only,
+input[type=number]:read-only,
+input[type=url]:read-only,
+input[type=email]:read-only,
+input[type=password]:read-only,
+input[type=tel]:read-only,
+input[type=search]:read-only,
+input[type=date]:read-only,
+input[type=time]:read-only,
+input[type=datetime-local]:read-only,
+input[type=week]:read-only,
+input[type=month]:read-only,
+input[type=tel]:read-only:read-only,
+input[type=search]:read-only,
+// input[type=file]:read-only,
+// input[type=color]:read-only,
+// input[type=range]:read-only,
+// input[type=radio]:read-only,
+// input[type=checkbox]:read-only,
+// select:read-only,
+// .readonly .js-datalist-multiple:read-only
+textarea:read-only {
+	cursor: not-allowed;
+}
+
+//======================================================================
+// Range
+// https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+//======================================================================
+input[type=range] {
+	background-color: transparent;
+	// Webkit
+	-webkit-appearance: none;
+	margin: 1rem 0;
+	width: 100%;
+	&:focus {
+		outline: none;
+	}
+	&::-webkit-slider-runnable-track {
+		width: 100%;
+		height: .5rem;
+		cursor: pointer;
+		box-shadow: none;
+		border-radius: .25rem;
+		border: none;
+		@include rgba-background($color-black, .1);
+		transform: .4s all linear;
+	}
+	&::-webkit-slider-thumb {
+		box-shadow: none;
+		border: 1px solid var(--color-primary);
+		background: var(--color-primary);
+		height: .5rem;
+		width: .5rem;
+		border-radius: 50%;
+		cursor: pointer;
+		-webkit-appearance: none;
+		margin-top: -.25rem;
+	}
+	&:focus::-webkit-slider-runnable-track {
+		@include rgba-background($color-black, .1);
+		border-radius: .25rem;
+	}
+	// Moz
+	&::-moz-range-track {
+		width: 100%;
+		height: .5rem;
+		cursor: pointer;
+		box-shadow: none;
+		border-radius: .25rem;
+		border: none;
+		@include rgba-background($color-black, .1);
+	}
+	&::-moz-range-progress {
+		height: .5rem;
+		background: var(--color-primary);
+	}
+	&::-moz-range-thumb {
+		box-shadow: none;
+		border: 3px solid var(--color-primary);
+		background: var(--color-primary);
+		height: .5rem;
+		width: .5rem;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+	// Ms
+	&::-ms-track {
+		width: 100%;
+		height: .5rem;
+		cursor: pointer;
+		background: transparent;
+		border-color: transparent;
+		border-width: 1rem 0;
+		color: transparent;
+	}
+	&::-ms-fill-lower {
+		border-radius: .25rem;
+		box-shadow: none;
+		border: none;
+		@include rgba-background($color-black, .1);
+	}
+	&::-ms-fill-upper {
+		border-radius: .25rem;
+		box-shadow: none;
+		border: none;
+		@include rgba-background($color-black, .1);
+	}
+	&::-ms-thumb {
+		box-shadow: none;
+		border: 1px solid var(--color-primary);
+		background: var(--color-primary);
+		height: .5rem;
+		width: .5rem;
+		border-radius: 50%;
+		cursor: pointer;
+	}
+	&:focus::-ms-fill-lower {
+		@include rgba-background($color-black, .1);
+	}
+	&:focus::-ms-fill-upper {
+		@include rgba-background($color-black, .1);
+	}
+}
+
+//======================================================================
+// Range live
+//======================================================================
+.input-range {
+	position: relative;
+	font-size: .75rem;
+	.js-input-range.min {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.js-input-range.max {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	.js-input-range.current {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		font-weight: var(--font-weight-bold);
+		color: var(--color-primary);
+	}
+}
+
+//======================================================================
+// Progress
+// https://css-tricks.com/html5-progress-element/
+//======================================================================
+progress:not(value) {
+	@include rgba-background($color-black, .05);
+	box-shadow: none;
+	border: none;
+	border-radius: .25rem;
+}
+progress[value] {
+	appearance: none;
+	border: none;
+	width: 100%; 
+	height: .5rem; 
+	@include rgba-background($color-black, .05);
+	border-radius: .25rem;
+	box-shadow: none;
+	// Of all IE, only IE10 supports progress element that too partially. It only allows to change the background-color of the progress value using the 'color' attribute
+	color: var(--color-primary);
+	position: relative;
+	margin: 0 0 1.5em; 
+}
+
+// Webkit browsers provide two pseudo classes that can be use to style HTML5 progress element.
+progress[value]::-webkit-progress-bar {
+	@include rgba-background($color-black, .05);
+	border-radius: .25rem;
+	box-shadow: none;
+}
+progress[value]::-webkit-progress-value {
+	background-color: var(--color-primary);
+	position: relative;
+	border-radius: .25rem;
+}
+// Webkit pseudo elements
+progress[value]::-webkit-progress-value:after {
+	content: '';
+	position: absolute;
+	width: 5px;
+	height: 5px;
+	top: 7px; 
+	right: 7px;
+	@include rgba-background($color-black, .05);
+	border-radius: 100%;
+}
+// Moz pseudo elements
+progress[value]::-moz-progress-bar {
+	background-color: var(--color-primary);
+	border-radius: .25rem;
+}
+// Fallback technique style
+.progress-bar {
+	@include rgba-background($color-black, .05);
+	border-radius: .25rem;
+	box-shadow: none;
+	// Dimensions should be similar to the parent progress element
+	width: 100%; 
+	height: .5rem; 
+}
+.progress-bar span {
+	background-color: var(--color-primary);
+	border-radius: .25rem;
+	display: block;
+	text-indent: -9999px;
+}
+label[data-value] { 
+	position: relative;
+	display: inline-block;
+}
+
+// The percentage will automatically fall in place as soon as we make the width fluid. Now making widths fluid
+label[data-value]:after {
+	content: attr(data-value) '%';
+	position: absolute;
+	right: 0;
+}
+
+//======================================================================
+// Color
+//======================================================================
+input[type="color"] {
+	-webkit-appearance: none;
+	border: var(--input-border-width) solid var(--input-border-color);
+	width: calc( 2 * var(--input-height) );
+	height: var(--input-height);
+	background-color: transparent;
+	border-radius: var(--input-radius);
+	cursor: pointer;
+	&::-webkit-color-swatch-wrapper {
+		padding: .5rem;
+		border-radius: var(--input-radius);
+	}
+	&::-webkit-color-swatch {
+		width: 100%;
+		height: 100%;
+		border-radius: var(--input-radius);
+		border: var(--input-border-width) solid var(--input-border-color);
+	}
+	&::-moz-color-swatch-wrapper {
+		padding: .5rem;
+		border-radius: var(--input-radius);
+	}
+	&::-moz-color-swatch {
+		width: 100%;
+		height: 100%;
+		border-radius: var(--input-radius);
+		border: var(--input-border-width) solid var(--input-border-color);
+	}	
+}
+
+//======================================================================
+// Radio
+//======================================================================
+.radio {
+	display: block;
+	position: relative;
+	padding-left: $radio-checkbox-size+.5rem;
+	margin-bottom: .75*$radio-checkbox-size;
+	font-size: 1rem;
+	cursor: pointer;
+	line-height: $radio-checkbox-size;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+// Hide the browser's default radio button
+.radio input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+// Create a custom radio button
+.radio-checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: $radio-checkbox-size;
+	width: $radio-checkbox-size;
+	@include rgba-background($color-black, .1);
+	border-radius: 50%;
+	transition: var(--transition-default);
+}
+
+// On mouse-over, add a grey background color
+.radio:hover input ~ .radio-checkmark {
+	@include rgba-background($color-black, .2);
+}
+
+// When the radio button is checked, add a background
+.radio input:checked ~ .radio-checkmark {
+	background-color: var(--color-bg);
+	border: .5rem solid var(--color-primary);
+}
+
+// Create the indicator (the dot/circle - hidden when not checked)
+.radio-checkmark:after {
+	content: '';
+	position: absolute;
+	display: none;
+}
+
+// Show the indicator (dot/circle) when checked
+.radio input:checked ~ .radio-checkmark:after {
+	display: block;
+}
+
+// Style the indicator (dot/circle)
+.radio.radio-checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--color-bg);
+}
+// Disabled
+.radio input:disabled,
+.radio:disabled input {
+	opacity: 0;
+}
+.radio.disabled {
+	opacity: .5;
+	cursor: not-allowed;
+}
+
+//======================================================================
+// Checkbox
+//======================================================================
+.checkbox {
+	display: block;
+	position: relative;
+	padding-left: $radio-checkbox-size+.5rem;
+	margin-bottom: .75*$radio-checkbox-size;
+	font-size: 1rem;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+.checkbox input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+.checkmark {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: $radio-checkbox-size;
+	width: $radio-checkbox-size;
+	@include rgba-background($color-black, .1);
+	border-radius: .25em;
+	transition: var(--transition-default);
+}
+.checkbox:hover input ~ .checkmark {
+	@include rgba-background($color-black, .2);
+}
+.checkbox input:checked ~ .checkmark {
+	background-color: var(--color-primary);
+}
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+.checkbox input:checked ~ .checkmark:after {
+	display: block;
+}
+.checkbox .checkmark:after {
+	left: calc( 50% - 2.5px );
+	top: calc( 50% - 5px );
+  	width: 5px;
+  	height: 10px;
+	border-style: solid;
+	border-color: var(--color-bg);
+	border-width: 0 3px 3px 0;
+	transform: rotate(45deg);
+}
+// Disabled
+.checkbox input:disabled,
+.checkbox:disabled input {
+	opacity: 0;
+}
+.checkbox.disabled {
+	opacity: .5;
+	cursor: not-allowed;
+}
+
+//======================================================================
+// Select
+//======================================================================
+.select,
+.wpcf7-select {
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 400;
+	color: var(--input-color);
+	line-height: 1;
+	padding: .5rem .1rem .5rem 1rem;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+	border: var(--input-border-width) solid var(--input-border-color);
+	box-shadow: 0px 0px 3px rgba(0,0,0,.15);
+	border-radius: var(--input-radius);
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: var(--input-bg-color);
+	background-image: url(../../../core/assets/icons/chevron-down.svg);
+	background-repeat: no-repeat, repeat;
+	background-position: right 1em top .875em, 0 0;
+	background-size: .9em auto, contain;
+	&.select::-ms-expand {
+		display: none;
+	}
+	&:hover {
+		border-color: #888;
+	}
+	&:focus {
+		outline: none;
+		border-color: var(--color-primary);
+		color: var(--input-color);
+		box-shadow: 0 0 1px 3px var(--color-primary);
+	}
+	option {
+		font-weight:normal;
+	}
+	// Disabled styles
+	&:disabled, 
+	&[aria-disabled=true], 
+	&:disabled:hover, 
+	&[aria-disabled=true]:hover {
+		opacity: .5;
+		cursor: not-allowed;
+	}
+	&.hollow,
+	&.hollow.light {
+		color: var(--color-button-hollow-text);
+		border-color: var(--color-button-hollow-border);
+		background-color: transparent;	
+		background-image: url(../icons/chevron-down-project.svg);
+	}
+	&.hollow.light {
+		background-image: url(../../../core/assets/icons/chevron-down-white.svg);
+		color: var(--color-button-hollow-light-text);
+		border-color: var(--color-button-hollow-light-border);			
+	}
+}
+
+// Support for rtl text, explicit support for Arabic and Hebrew
+*[dir="rtl"] .select, 
+:root:lang(ar) .select,
+:root:lang(iw) .select {
+	background-position: left .7em top 50%, 0 0;
+	padding: .6em .8em .5em 1.4em;
+}
+
+//======================================================================
+// Select multiple
+//======================================================================
+.select-multiple {
+	width: 100%;
+	padding: 1rem;
+	min-height: 12rem;
+	option {
+		overflow: hidden;
+		@include rgba-background($color-black, .05);
+		margin-bottom: .25rem;
+		border-radius: var(--input-radius);
+		padding: .5rem;
+		transition: .4s all ease-in-out;
+		&:checked {
+			@include rgba-background($color-black, .05);
+		}
+		&:checked:before {
+			content: '✓ ';
+			white-space: pre;
+			color: inherit;
+		}
+	}
+}
+
+//======================================================================
+// Placeholder
+//======================================================================
+
+// Placeholder: default
+::-webkit-input-placeholder {
+	color: var(--input-placeholder-color);
+}
+::-moz-placeholder {
+	color: var(--input-placeholder-color);
+	opacity: 1;
+}
+:-ms-input-placeholder {
+	color: var(--input-placeholder-color);
+}
+:-moz-placeholder {
+	color: var(--input-placeholder-color);
+opacity: 1;
+}	
+
+// Placeholder: disabled
+input:disabled::-webkit-input-placeholder {
+ 	color: var(--input-placeholder-color);
+}
+input:disabled::-moz-placeholder {
+	color: var(--input-placeholder-color);
+}
+input:disabled:-ms-input-placeholder {
+	color: var(--input-placeholder-color);
+}
+input:disabled:-moz-placeholder {
+	color: var(--input-placeholder-color);
+}
+
+// Placeholder: hover
+:hover::-webkit-input-placeholder {
+	opacity: 0.75;
+	-webkit-transition: opacity 0.35s ease-in-out;
+	transition: opacity 0.35s ease-in-out;
+}
+:hover:-moz-placeholder {
+	opacity: 0.75;
+	-moz-transition: opacity 0.35s ease-in-out;
+	transition: opacity 0.35s ease-in-out;
+}
+:hover::-moz-placeholder {
+	opacity: 0.75;
+	-moz-transition: opacity 0.35s ease-in-out;
+	transition: opacity 0.35s ease-in-out;
+}
+:hover:-ms-input-placeholder {  
+	opacity: 0.75;
+	-ms-transition: opacity 0.35s ease-in-out;
+	transition: opacity 0.35s ease-in-out;
+}
+
+// Placeholder: focus
+:focus::-webkit-input-placeholder {
+	opacity: 0;
+	-webkit-transition: opacity 0.35s ease-in-out;
+	transition: opacity 0.35s ease-in-out;
+}
+:focus:-moz-placeholder {
+	opacity: 0;
+	-moz-transition: opacity 0.35s ease-in-out;
+	transition: opacity 0.35s ease-in-out;
+}
+:focus::-moz-placeholder {
+	opacity: 0;
+	-moz-transition: opacity 0.35s ease-in-out;
+	transition: opacity 0.35s ease-in-out;
+}
+:focus:-ms-input-placeholder {  
+	opacity: 0;
+	-ms-transition: opacity 0.35s ease-in-out;
+	transition: opacity 0.35s ease-in-out;
+}
+
+//======================================================================
+// Required input
+//======================================================================
+.required-input:after {
+	content: '*';
+	color: var(--color-error);
+}
+
+//======================================================================
+// Switch
+//======================================================================
+.switch-wrap {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	&.disabled {
+		opacity: .5;
+		cursor: not-allowed;
+	}
+}
+.switch-label {
+	margin-left: .5rem;
+	color: var(--input-color);
+}
+.switch {
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+	position: relative;
+}
+.switch-slider {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	@include rgba-background($color-black, .1);
+	transition: .2s all ease-in-out;
+	border-radius: 34px;
+}
+.switch-slider div {
+	position: absolute;
+	content: "";
+	width: 26px;
+	height: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: var(--color-bg);
+	transition: .2s all ease-in-out;
+	border-radius: 1em;
+}
+.switch-wrap.checked .switch-slider {
+	background-color: var(--color-primary);
+}
+.switch-slider:hover {
+	box-shadow: 0 0 1px var(--color-primary);
+}
+.switch-wrap.checked .switch-slider div {
+	transform: translateX(26px);
+}
+
+
+//======================================================================
+// Input number with buttons
+//======================================================================
+.input-number {
+	position: relative;
+	input[type=number] { 
+		-moz-appearance: textfield;
+		appearance: textfield;
+		margin: 0; 
+	}
+	input[type=number]::-webkit-inner-spin-button,
+	input[type=number]::-webkit-outer-spin-button { 
+		-webkit-appearance: none; 
+		margin: 0; 
+	}
+	.js-input-number-button {
+		position: absolute;
+		display: block;
+		top: 5px;
+		width: calc( var(--input-height) - 10px );
+		height: calc( 100% - 10px );
+		overflow: hidden;
+		padding: .25rem .5rem;
+		border-radius: var(--input-radius);
+		font-size: 1rem;
+		cursor: pointer;
+		transition: all .4s linear;
+		color: var(--input-color);
+		@include rgba-background($color-black, .1);
+		@include flex-center;
+		&:hover {
+			color: var(--color-bg);
+			background-color: var(--color-primary);
+			
+		}
+		&.minus {
+			left: 5px;		
+		}
+		&.plus {
+			left: calc( var(--input-height) + 2px );	
+		}
+	}
+	&.disabled {
+		opacity: .5;
+		.js-input-number-button {
+			cursor: not-allowed;
+		}
+	}
+}
+
+//======================================================================
+// Money suffix
+//======================================================================
+.money-suffix {
+	position: relative;
+	input[type=number] {
+		padding-right: var(--input-height);
+	}
+	&:after {
+		content: '€';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: var(--input-height);
+		height: var(--input-height);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&:has(input:disabled):after {
+		opacity: .5;
+	}	
+}
+
+//======================================================================
+// Input suffix
+//======================================================================
+.input-suffix {
+	position: relative;
+	input {
+		padding-right: var(--input-height);
+	}
+	&:after {
+		content: attr(data-suffix);
+		position: absolute;
+		top: 0;
+		right: .5rem;
+		height: var(--input-height);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&.icon-suffix:after {
+		content: '';
+		width: 1rem;
+		background-repeat: no-repeat;
+		background-position: center;		
+	}
+	&:has(input:disabled):after {
+		opacity: .5;
+	}
+}
+
+//======================================================================
+// Search form
+//======================================================================
+.search-form {
+	position: relative;
+	input[type=search] {
+		padding-right: var(--input-height);
+	}
+	button{
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		right: 0;
+		width: var(--input-height);
+		height: var(--input-height);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-image: url(../../../core/assets/icons/search.svg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: .9rem auto;
+		border-top-right-radius: var(--input-radius);
+		border-bottom-right-radius: var(--input-radius);
+		background-color: transparent;
+		border: var(--input-border-width) solid transparent;
+		&:hover {
+			border-color: var(--input-hover-border-color);
+			background-color: var(--color-gray-100);
+		}
+		span {
+			display: none;
+		}
+	}
+	&:has(input:disabled) {
+		button {
+			opacity: .5;
+			cursor: not-allowed;
+			&:hover {
+				background-color: transparent;
+				border-color: transparent;
+			}
+		}
+	}
+}
+
+//======================================================================
+// Datalist multiple
+//======================================================================
+.datalist-multiple {
+	position: relative;
+	margin-bottom: 1rem;
+	input[type="text"] {
+		padding-right: 50px;
+		grid-column: span 3/span 3;
+		&.datalist-error {
+			border-color: var(--color-error);
+		}
+		&.datalist-error::-webkit-input-placeholder {
+			color: var(--color-error);
+		}
+		&.datalist-error::-moz-placeholder{
+			color: var(--color-error);
+			opacity: 1;
+		}
+		&.datalist-error:-ms-input-placeholder {
+			color: var(--color-error);
+		}
+		&.datalist-error:-moz-placeholder {
+			color: var(--color-error);
+			opacity: 1;
+		}
+		@include break-2 {
+			padding-right: 25%;
+		}
+	}
+	.js-datalist-multiple {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		width: calc( var(--input-height) - 10px );
+		height: calc( 100% - 10px );
+		overflow: hidden;
+		padding: .25rem .5rem;
+		color: var(--input-color);
+		@include rgba-background($color-black, .1);
+		border-radius: var(--input-radius);
+		font-size: .75rem;
+		font-weight: var(--font-weight-bold);
+		cursor: pointer;
+		transition: all .4s linear;
+		span:first-child {
+			display: none;
+		}
+		@include break-2 {
+			width: 20%;
+			span:first-child {
+				display: block;
+			}			
+			span:last-child {
+				display: none;
+			}			
+		}
+		@include flex-center;
+		&:hover {
+			color: var(--color-bg);
+			background-color: var(--color-primary);
+			
+		}
+	}
+}
+.datalist-multiple-tags {
+	.button-tag:hover {
+		background-color: var(--input-border-color);
+		color: var(--color-black);
+		cursor: pointer;
+	}
+}
+
+//======================================================================
+// Password
+//======================================================================
+.pw-wrap {
+	position: relative;
+	span {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		height: calc( var(--input-height) - 10px );
+		width: calc( var(--input-height) - 10px );
+		padding: .25rem .5rem;
+		color: var(--input-color);
+		font-size: .75rem;
+		cursor: pointer;
+		transition: all .4s linear;
+		@include flex-center;
+	}
+	&.hap-woo span:after {
+		content: '\e010';
+		font-family: WooCommerce;
+	}
+	&:not(.hap-woo) span:after {
+		content: '';
+		display: block;
+		width: 1rem;
+		height: 1rem;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: .9rem auto;
+	}
+	&:not(.hap-woo) input[type="password"] + span:after {
+		// Open eye
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath d='M288 288a64 64 0 0 0 0-128c-1 0-1.88.24-2.85.29a47.5 47.5 0 0 1-60.86 60.86c0 1-.29 1.88-.29 2.85a64 64 0 0 0 64 64zm284.52-46.6C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 96a128 128 0 1 1-128 128A128.14 128.14 0 0 1 288 96zm0 320c-107.36 0-205.46-61.31-256-160a294.78 294.78 0 0 1 129.78-129.33C140.91 153.69 128 187.17 128 224a160 160 0 0 0 320 0c0-36.83-12.91-70.31-33.78-97.33A294.78 294.78 0 0 1 544 256c-50.53 98.69-148.64 160-256 160z'/%3E%3C/svg%3E");
+	}
+	&:not(.hap-woo) input[type="text"] + span:after {
+		// Closed eye
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath d='M637 485.25L23 1.75A8 8 0 0 0 11.76 3l-10 12.51A8 8 0 0 0 3 26.75l614 483.5a8 8 0 0 0 11.25-1.25l10-12.51a8 8 0 0 0-1.25-11.24zM320 96a128.14 128.14 0 0 1 128 128c0 21.62-5.9 41.69-15.4 59.57l25.45 20C471.65 280.09 480 253.14 480 224c0-36.83-12.91-70.31-33.78-97.33A294.88 294.88 0 0 1 576.05 256a299.73 299.73 0 0 1-67.77 87.16l25.32 19.94c28.47-26.28 52.87-57.26 70.93-92.51a32.35 32.35 0 0 0 0-29.19C550.3 135.59 442.94 64 320 64a311.23 311.23 0 0 0-130.12 28.43l45.77 36C258.24 108.52 287.56 96 320 96zm60.86 146.83A63.15 63.15 0 0 0 320 160c-1 0-1.89.24-2.85.29a45.11 45.11 0 0 1-.24 32.19zm-217.62-49.16A154.29 154.29 0 0 0 160 224a159.39 159.39 0 0 0 226.27 145.29L356.69 346c-11.7 3.53-23.85 6-36.68 6A128.15 128.15 0 0 1 192 224c0-2.44.59-4.72.72-7.12zM320 416c-107.36 0-205.47-61.31-256-160 17.43-34 41.09-62.72 68.31-86.72l-25.86-20.37c-28.48 26.28-52.87 57.25-70.93 92.5a32.35 32.35 0 0 0 0 29.19C89.71 376.41 197.07 448 320 448a311.25 311.25 0 0 0 130.12-28.43l-29.25-23C389.06 408.84 355.15 416 320 416z'/%3E%3C/svg%3E");
+	}
+	&:not(.hap-woo):has(input:disabled) span {
+		opacity: .5;
+		cursor: not-allowed;
+	}
+}
+
+//======================================================================
+// Password strength
+//======================================================================
+#pw-strength {
+	padding: 3px .5em;
+	text-align: center;
+	font-weight: var(--font-weight-bold);
+}
+
+// Help
+.help {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 1.5rem;
+	height: 1.5rem;
+	border: 1px solid var(--color-border);
+	border-radius: 50%;
+	&:hover {
+		color: var(--color-bg);
+		border-color: var(--color-bg);
+		background-color: var(--color-error);
+	}
+}
+.input-info {
+	display: none;
+	font-size: .75rem;
+	line-height: 1.2em;
+	text-align: left;
+	padding-right: 1em;
+	&.show {
+		display: block;
+	}
+}
+
+
+//======================================================================
+// Light background
+//======================================================================
+.islight {
+	label,
+	legend {
+		color: var(--input-label-color);
+	}
+	input[type=text],
+	input[type=number],
+	input[type=url],
+	input[type=email],
+	input[type=password],
+	input[type=tel],
+	input[type=search],
+	input[type=date],
+	input[type=time],
+	input[type=datetime-local],
+	input[type=week],
+	input[type=month],
+	input[type=search],
+	select,
+	textarea {
+		color: var(--input-color);	
+		background-color: var(--input-bg-color);
+	}	
+	.checkmark {
+		background-color: rgba(0,0,0,.1);	
+	}
+	.checkbox:hover input ~ .checkmark {
+		background-color: rgba(0,0,0,.2);
+	}
+	.select {
+		color: var(--input-color);
+		border: var(--input-border-width) solid var(--input-border-color);
+		background-color: var(--input-bg-color);
+		background-image: url(../../../core/assets/icons/chevron-down.svg);
+	}
+}
+
+//======================================================================
+// !!! Verificare
+//======================================================================
+// Error
+.input-error {
+	box-shadow: 0 0 1px 3px var(--color-error);	
+}
+.input-error-msg {
+	color: var(--color-error);
+	font-size: .75rem;
+	font-weight: var(--font-weight-bold);
+	line-height: 1.2em;
+	margin-top: .5rem;
+}
+
+// Tag sidebar
+.tag-wrap {
+	max-height: 25vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+	border: 1px solid var(--input-border-color);
+	padding: 1rem;
+	display: grid;
+	gap: .25rem;
+	border-radius: var(--input-radius);
+}
+.tag-wrap-error {
+	display: none;
+	margin-top: .25rem;
+	font-size: .75rem;
+	font-weight: var(--font-weight-bold);
+	color: var(--color-error);
+}
+
+// wp comments fix
+p.form-submit {
+	padding-bottom: 0;
+}

@@ -1,0 +1,79 @@
+.cursor-auto {
+	cursor:auto
+}
+.cursor-default {
+	cursor:default
+}
+.cursor-pointer {
+	cursor:pointer
+}
+.cursor-wait {
+	cursor:wait
+}
+.cursor-text {
+	cursor:text
+}
+.cursor-move {
+	cursor:move
+}
+.cursor-help {
+	cursor:help
+}
+.cursor-not-allowed {
+	cursor:not-allowed
+}
+.select-none {
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none
+}
+.select-text {
+	-webkit-user-select:text;
+	-moz-user-select:text;
+	-ms-user-select:text;
+	user-select:text
+}
+.select-all {
+	-webkit-user-select:all;
+	-moz-user-select:all;
+	user-select:all
+}
+.select-auto {
+	-webkit-user-select:auto;
+	-moz-user-select:auto;
+	-ms-user-select:auto;
+	user-select:auto
+}
+.resize-none {
+	resize:none
+}
+.resize-y {
+	resize:vertical
+}
+.resize-x {
+	resize:horizontal
+}
+.resize {
+	resize:both
+}
+.list-inside {
+	list-style-position:inside
+}
+.list-outside {
+	list-style-position:outside
+}
+.list-none {
+	list-style-type:none
+}
+.list-disc {
+	list-style-type:disc
+}
+.list-decimal {
+	list-style-type:decimal
+}
+.appearance-none {
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	appearance:none
+}

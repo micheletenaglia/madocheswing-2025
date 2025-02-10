@@ -1,0 +1,53 @@
+//======================================================================
+// Admin style v 1.0.0
+//======================================================================
+
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Overpass:ital,wght@0,400;1,400;1,700&display=swap');
+
+:root {
+    --font-theme: "Overpass", "Helvetica", sans-serif;
+    --font-mono: "Cutive Mono", monospace;
+}
+
+// Import styles from frontend core
+@import '../frontend/modules/mixin';
+@import '../frontend/modules/breakpoints';
+@import '../frontend/modules/variables';
+@import '../frontend/modules/charts';
+@import '../../../../project/unsynced/scss/project-variables';
+@import '../../../../project/unsynced/scss/project-admin';
+
+// Import custom admin styles
+@import 'modules/html-body';
+@import 'modules/display';
+@import 'modules/core';
+@import 'modules/spacing';
+@import 'modules/typography';
+@import 'modules/colors';
+@import 'modules/images';
+@import 'modules/grid';
+@import 'modules/acf';
+@import 'modules/admin-pages';
+@import 'modules/options-page';
+@import 'modules/progress';
+@import 'modules/login';
+@import 'modules/block-preview';
+@import 'modules/blocks';
+@import 'modules/modals';
+@import 'modules/rainbow';
+.hap-form {
+	@import '../frontend/modules/form';
+	label {
+		font-size: 1rem;
+	}
+	.select {
+		background-image: url(../icons/chevron-down-project.svg);
+	}
+	p.input-info {
+		display: block;
+		color: #646464;
+	}
+	button {
+		@include button-primary();
+	}
+}
