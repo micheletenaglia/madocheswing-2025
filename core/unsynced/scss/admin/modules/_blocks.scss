@@ -26,12 +26,12 @@
 	}
 }
 // Container
-.hap-wp-block-content .container {
+.mkcb-wp-block-content .container {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 }
-.hap-wp-block-bg-preview {
+.mkcb-wp-block-bg-preview {
 	img {
 		height: 3rem;
 		width: auto;
@@ -61,7 +61,7 @@
 // Hero video
 // Icon text
 // Image sticker
-.hap-wp-block-content .sticker-wrap {
+.mkcb-wp-block-content .sticker-wrap {
 	position: relative;
 	.sticker,
 	.wp-block-image {
@@ -97,13 +97,13 @@
 // Modal form cf7
 // Post selector
 // Simple button
-.hap-wp-block-content a.button,
-.hap-wp-block-content span.button,
-.hap-wp-block-content button.button,
-.hap-wp-block-content input[type=button],
-.hap-wp-block-content input[type=submit],
-.hap-wp-block-content input[type=button].button,
-.hap-wp-block-content input[type=submit].button {
+.mkcb-wp-block-content a.button,
+.mkcb-wp-block-content span.button,
+.mkcb-wp-block-content button.button,
+.mkcb-wp-block-content input[type=button],
+.mkcb-wp-block-content input[type=submit],
+.mkcb-wp-block-content input[type=button].button,
+.mkcb-wp-block-content input[type=submit].button {
 	@include button-primary;
 	&.hollow {
 		@include button-hollow;
@@ -134,7 +134,7 @@
 	height: 2rem;
 }
 // Text icon
-.hap-wp-block-content .icon-text {
+.mkcb-wp-block-content .icon-text {
 	@include break-3 {
 		display: flex;
 		.icon-text-svg {
@@ -151,8 +151,7 @@
 	}
 }
 
-
-.hap-wp-block-img-preview {
+.mkcb-wp-block-img-preview {
 	width: 4rem;
 	height: 4rem;
 	margin: 0 0 0 1rem;
@@ -163,7 +162,7 @@
 
 // Logo
 .wp-block-acf-logo {
-	.hap-wp-block-content {
+	.mkcb-wp-block-content {
 		img, svg {
 			height: 1.5rem;
 			width: auto;

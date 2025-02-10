@@ -1,9 +1,9 @@
 //======================================================================
 // Admin pages: h1
 //======================================================================
-body.hap-page-acf .wrap h1,
-body.toplevel_page_website-keys h1,
-.wrap .hap-h1 {
+body.mkt-page-acf .wrap h1,
+// body.toplevel_page_website-keys h1,
+.wrap .mkcb-h1 {
 	display: block;
 	padding: 1rem 1rem 1rem 4rem;
 	margin: 2rem 0 1rem 0;
@@ -31,13 +31,13 @@ body.toplevel_page_website-keys h1,
 
 // ACF Pages
 .toplevel_page_options h1:before {
-	background-image: url('../../../../core/assets/icons/comment-alt-smile.svg');
+	background-image: url('../../../core/assets/icons/comment-alt-smile.svg');
 }
-.hap-options_page_options-layout h1:before {
-	background-image: url('../../../../core/assets/icons/sliders-h.svg');
+.theme-options_page_options-layout h1:before {
+	background-image: url('../../../core/assets/icons/sliders-h.svg');
 }
-.hap-options_page_options-other h1:before {
-	background-image: url('../../../../core/assets/icons/plus.svg');
+.theme-options_page_options-other h1:before {
+	background-image: url('../../../core/assets/icons/plus.svg');
 }
 
 // Custom option pages
@@ -48,8 +48,8 @@ body.toplevel_page_website-keys h1,
 //======================================================================
 // Admin pages: Page wrap defaults
 //======================================================================
-.hap-admin-page-wrap,
-body.toplevel_page_website-keys .wrap form {
+// body.toplevel_page_website-keys .wrap form,
+.mkcb-admin-page-wrap {
 	font-size: 16px;
 	h2 {
 		line-height: 1.2em;
@@ -95,14 +95,11 @@ body.toplevel_page_website-keys .wrap form {
 //======================================================================
 // Admin pages: Cards
 //======================================================================
-.hap-card {
+.mkcb-card {
 	//padding: .5rem;
 	//border: 1px solid #efefef;
 	//@include break-3 {
 	//	padding: 1rem;
-	//}
-}
-.hap-card {
 	position: relative;
 	z-index: 1;
 	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
@@ -139,7 +136,7 @@ body.toplevel_page_website-keys .wrap form {
 //======================================================================
 // Admin pages: Unordered lists
 //======================================================================
-.hap-admin-page-wrap ul {
+.mkcb-admin-page-wrap ul {
 	padding: 0 0 1em 0;
 	li {
 		position: relative;
@@ -153,7 +150,7 @@ body.toplevel_page_website-keys .wrap form {
 		}
 	}
 }
-.hap-admin-page-wrap ul li:before {
+.mkcb-admin-page-wrap ul li:before {
     content: '';
     width: .25em;
     height: .25em;
@@ -166,7 +163,7 @@ body.toplevel_page_website-keys .wrap form {
     position: absolute;
 	@include border-radius(50%);
 }
-.hap-admin-page-wrap ul li li:before {
+.mkcb-admin-page-wrap ul li li:before {
     width: 1em;
     height: 1px;
     top: 1.25em;
@@ -185,7 +182,7 @@ ul.short-list {
 //======================================================================
 // Admin pages: Ordered lists
 //======================================================================
-.hap-admin-page-wrap ol:not(.list-super) {
+.mkcb-admin-page-wrap ol:not(.list-super) {
 	padding: 0 0 1em 0;
 	margin: 0 0 2em 0;
 	list-style: none;
@@ -299,7 +296,7 @@ ol.list-super {
 		color: var(--color-primary);
 	}
 }
-.hap-content {
+.mkcb-content {
 	display: none;
 }
 

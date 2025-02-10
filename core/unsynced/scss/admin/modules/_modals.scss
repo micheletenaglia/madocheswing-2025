@@ -20,7 +20,7 @@
 	background-color: rgba(0,0,0,.4);
 	display: none;
 }
-.hap-modal {
+.mkcb-modal {
 	position: fixed;
 	z-index: 99999;
 	top: 0;
@@ -37,7 +37,7 @@
 			transform: scale(1);
 		}
 	}
-	.hap-modal-content {
+	.mkcb-modal-content {
 		position: relative;
 		background-color: var(--color-bg);
 		padding: 1.5rem 1rem 1rem 1rem;

@@ -18,7 +18,7 @@ $font-weight-bold: 600;
 //======================================================================
 // Color: primary
 //======================================================================
-$color-primary: #e61e29;
+$color-primary: #ea4335;
 $color-primary-rgb: toRGB($color-primary);
 $color-primary-light: lighten($color-primary, 10%);
 $color-primary-dark: darken($color-primary, 10%);
@@ -26,8 +26,8 @@ $color-primary-dark: darken($color-primary, 10%);
 //======================================================================
 // Color: secondary
 //======================================================================
-// $color-secondary: #5cc4f1;
-$color-secondary: darken($color-primary, 10%);
+// $color-secondary: #002740;
+$color-secondary: #fcb9b2;
 $color-secondary-rgb: toRGB($color-secondary);
 $color-secondary-light: lighten($color-secondary, 10%);
 $color-secondary-dark: darken($color-secondary, 10%);
@@ -35,7 +35,7 @@ $color-secondary-dark: darken($color-secondary, 10%);
 //======================================================================
 // Color: accent
 //======================================================================
-$color-accent: #f8b03c;
+$color-accent: #94b0da;
 $color-accent-rgb: toRGB($color-accent);
 $color-accent-light: lighten($color-accent, 10%);
 $color-accent-dark: darken($color-accent, 10%);
@@ -84,32 +84,32 @@ $color-gray-900-rgb: toRGB($color-gray-900);
 //======================================================================
 // Body text
 //======================================================================
-$body-size-min: 18px;
-$body-size-md: 20px;
+$body-size-min: 16px;
+$body-size-md: 18px;
 $body-size-max: 21px;
 
 //======================================================================
 // Titles
 //======================================================================
 // h1
-$h1-min: 2rem;
-$h1-med: 2vw;
-$h1-max: 3rem;
+$h1-min: 1.9rem;
+$h1-med: 4vw;
+$h1-max: 4rem;
 $h1-font-weight: $font-weight-bold;
 // h2
-$h2-min: 1.8rem;
-$h2-med: 1.8vw;
-$h2-max: 2.5rem;
-$h2-font-weight: $font-weight;
+$h2-min: 1.7rem;
+$h2-med: 3vw;
+$h2-max: 3rem;
+$h2-font-weight: $font-weight-bold;
 // h3
-$h3-min: 1.6rem;
-$h3-med: 1.6vw;
-$h3-max: 2rem;
+$h3-min: 1.5rem;
+$h3-med: 2.5vw;
+$h3-max: 2.5rem;
 $h3-font-weight: $font-weight-bold;
 // h4
-$h4-min: 1.2rem;
-$h4-med: 1.2vw;
-$h4-max: 1.8rem;
+$h4-min: 1.25rem;
+$h4-med: 1.5vw;
+$h4-max: 2rem;
 $h4-font-weight: $font-weight-bold;
 // h5
 $h5-size: 1rem;
@@ -129,7 +129,7 @@ $radio-checkbox-color-accent: $color-black;
 //======================================================================
 // Logo
 //======================================================================
-$logo-height: 4rem;
+$logo-height: 1.5rem;
 
 //======================================================================
 // Nav
@@ -170,8 +170,8 @@ $button-small-height: 2.5em;
 	--logo-height: #{$logo-height};
 
 	// Typography
-	--font-primary: 'DM Sans', sans-serif;
-	--font-secondary: 'DM Sans', sans-serif;
+	--font-primary: 'Roboto', sans-serif;
+	--font-secondary: 'Roboto', sans-serif;
 	--font-weight: #{$font-weight};
 	--font-weight-bold: #{$font-weight-bold};
 	--line-height: 1.45em;
@@ -198,8 +198,8 @@ $button-small-height: 2.5em;
 
 	// Color: Status
 	--color-success: #66bb6a; // Green
-	--color-alert: #f8b03c; // Yellow
-	--color-error: #e61e29; // Red
+	--color-alert: #ffa726; // Yellow
+	--color-error: #ef5350; // Red
 
 	// Color: Primary
 	--color-primary: #{$color-primary};
@@ -230,7 +230,7 @@ $button-small-height: 2.5em;
 		
 	// Buttons
 	--button-border-radius: .25em;
-	--button-font-weight: 1000;
+	--button-font-weight: $font-weight-bold;
 	--button-border-width: 2px;
 	--button-small-height: #{$button-small-height};
 
@@ -238,9 +238,9 @@ $button-small-height: 2.5em;
 	--color-button-bg: #{$color-primary};
 	--color-button-text: #{$color-bg};
 	--color-button-border: #{$color-primary};
-	--color-button-bg-hover: #{$color-primary-dark};
+	--color-button-bg-hover: #{$color-primary};
 	--color-button-text-hover: #{$color-bg};
-	--color-button-border-hover: #{$color-primary-dark};
+	--color-button-border-hover: #{$color-primary};
 	
 	// Button: Hollow
 	--color-button-hollow-text: #{$color-primary};
@@ -292,7 +292,7 @@ $button-small-height: 2.5em;
 	--transition-default: all .4s ease-in-out;
 	
 	// Map
-	--map-height: 420px;
+	--map-height: 100vh;
 		
 	// Block unit
 	--bu: .375rem;

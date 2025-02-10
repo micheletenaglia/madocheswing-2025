@@ -4,13 +4,13 @@ body:not(.logged-in) {
 		display: none;
 	}
 }
-.hap-wpml-switcher-wrap {
+.mkcf-wpml-switcher-wrap {
 	.js-wpml-switcher {
 		text-transform: uppercase;
 		cursor: pointer;
 	}
 }
-.hap-wpml-switcher {
+.mkcf-wpml-switcher {
 	display: none;
 	position: absolute;
 	top: 100%;

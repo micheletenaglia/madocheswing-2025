@@ -68,6 +68,7 @@
 }
 
 // Action link
+/*
 .action-link {
 	svg {
 		height: 1.5rem;
@@ -97,6 +98,7 @@
 .action-link-sub-title {
 	display: block;
 }
+*/
 
 // Key number
 .key-number-title {
@@ -194,10 +196,10 @@
 		padding: calc( 2 * var(--bu) );
 		background-color: var(--color-bg);
 	}
-	#hap-cf-7-loader {
+	#mkcf-cf-7-loader {
 		position: absolute;
 	}
-	.wpcf7-response-output.hap-cf7-modal {
+	.wpcf7-response-output.mkcf-cf7-modal {
 		position: absolute;
 		top: 0;
 		left: 0;

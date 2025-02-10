@@ -48,7 +48,7 @@ $cs: .5rem;
 //======================================================================
 // Block preview: Disabled block
 //======================================================================
-.hap-disabled {
+.mkcb-disabled {
 	opacity: .5;
 	position: relative;
 	overflow: hidden;
@@ -86,49 +86,49 @@ body .editor-styles-wrapper {
 		box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
 	}
 }
-.hap-wp-block {
+.mkcb-wp-block {
 	border: 1px dotted rgba(0,0,0,.2);
 }
 
 //======================================================================
 // Block preview: SVG icons
 //======================================================================
-.hap-icon-accent {
+.mkcb-icon-accent {
 	fill: var(--color-primary) !important;
 }
 
 //======================================================================
 // Block preview: Block header
 //======================================================================
-.hap-wp-block-info {
+.mkcb-wp-block-info {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	border-bottom: 1px dotted rgba(0,0,0,.2);
 }
-.hap-wp-block-info-left,
-.hap-wp-block-info-right {
+.mkcb-wp-block-info-left,
+.mkcb-wp-block-info-right {
 	display: flex;
 	align-items: center;
 	padding: .25rem .5rem;
 }
-.hap-wp-block-info-icon {
+.mkcb-wp-block-info-icon {
 	width: 3rem;
 	height: auto;
 	margin: 0 .5rem 0 0;
 }
-.hap-wp-block-title {
+.mkcb-wp-block-title {
 	display: block;
 	font-size: .75rem;
 	font-weight: 700;
 	color: #000;
 }
-.hap-wp-block-desc {
+.mkcb-wp-block-desc {
 	display: block;
 	font-size: .75rem;
 	color: #000;
 }
-.hap-wp-block-content {
+.mkcb-wp-block-content {
 	padding: 1rem;
 }
 

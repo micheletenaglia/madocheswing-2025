@@ -4,17 +4,9 @@
 %BeginFont
 Handler:DirectoryHandler
 FontType:Invalid
-OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Themes/Hap-Studio-Theme/Hap-Studio-Theme/core/open-files/Document fonts/AdobeFnt23.lst
-FileLength:1017
-FileModTime:738140935
-%EndFont
-
-%BeginFont
-Handler:DirectoryHandler
-FontType:Invalid
-OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Themes/Hap-Studio-Theme/Hap-Studio-Theme/core/open-files/Document fonts/AdobeFnt24.lst
-FileLength:804
-FileModTime:738182814
+OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Themes/Mkt-Theme/mkt-theme/core/unsynced/open-files/Cartella mkt-icons/Document fonts/AdobeFnt24.lst
+FileLength:574
+FileModTime:760289301
 %EndFont
 
 %BeginFont
@@ -30,7 +22,7 @@ WidthClass:5
 AngleClass:0
 FullName:Roboto Bold
 WritingScript:Roman
-OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Themes/Hap-Studio-Theme/Hap-Studio-Theme/core/open-files/Document fonts/Roboto-Bold.ttf
+OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Themes/Mkt-Theme/mkt-theme/core/unsynced/open-files/Cartella mkt-icons/Document fonts/Roboto-Bold.ttf
 DataFormat:sfntData
 hasSVG:no
 hasSBIX:no

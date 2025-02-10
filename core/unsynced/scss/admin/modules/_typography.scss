@@ -32,40 +32,40 @@ strong, b {
 //======================================================================
 // Typography: Fonts
 //======================================================================
-.hap-font-theme {
+.theme-font {
     font-family: var(--font-theme);
 }
 
 //======================================================================
 // Typography: Font size
 //======================================================================
-.hap-text-xl {
+.mkcb-text-xl {
     font-size: 4rem;
 	line-height: 1em;
 }
-.hap-text-sm {
+.mkcb-text-sm {
     font-size: .875rem;
 }
-.hap-text-xs {
+.mkcb-text-xs {
     font-size: .75rem !important;
 }
 
 //======================================================================
 // Typography: Paragraph
 //======================================================================
-.hap-text-left {
+.mkcb-text-left {
     text-align: left;
 }
-.hap-text-right {
+.mkcb-text-right {
     text-align: right;
 }
-.hap-text-center {
+.mkcb-text-center {
     text-align: center;
 }
 
 //======================================================================
 // Typography: Font style
 //======================================================================
-.hap-uppercase {
+.mkcb-uppercase {
     text-transform: uppercase;
 }
