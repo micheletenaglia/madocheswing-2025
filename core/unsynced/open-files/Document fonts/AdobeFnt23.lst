@@ -1,0 +1,42 @@
+%!Adobe-FontList 1.23
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Siteground/Vergnano/Vergnano/core/blocks/open-files/Document fonts/.DS_Store
+FileLength:6148
+FileModTime:712483099
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Siteground/Vergnano/Vergnano/core/blocks/open-files/Document fonts/AdobeFnt23.lst
+FileLength:1064
+FileModTime:712497901
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Roboto-Bold
+FamilyName:Roboto
+StyleName:Bold
+MenuName:Roboto
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Roboto Bold
+WritingScript:Roman
+OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Siteground/Vergnano/Vergnano/core/blocks/open-files/Document fonts/Roboto-Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:167336
+FileModTime:712497901
+NameArray:0,Win,1,Roboto
+%EndFont
+

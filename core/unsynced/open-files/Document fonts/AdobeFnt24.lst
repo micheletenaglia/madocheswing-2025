@@ -1,0 +1,43 @@
+%!Adobe-FontList 1.24
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Themes/Hap-Studio-Theme/Hap-Studio-Theme/core/open-files/Document fonts/AdobeFnt23.lst
+FileLength:1017
+FileModTime:738140935
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Themes/Hap-Studio-Theme/Hap-Studio-Theme/core/open-files/Document fonts/AdobeFnt24.lst
+FileLength:804
+FileModTime:738182814
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Roboto-Bold
+FamilyName:Roboto
+StyleName:Bold
+MenuName:Roboto
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Roboto Bold
+WritingScript:Roman
+OutlineFileName:/Users/micheletenaglia/Lavori/Siti/root/Themes/Hap-Studio-Theme/Hap-Studio-Theme/core/open-files/Document fonts/Roboto-Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+hasSBIX:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:167336
+FileModTime:738140935
+NameArray:0,Win,1,Roboto
+%EndFont
+
