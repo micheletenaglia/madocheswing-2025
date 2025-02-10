@@ -1,0 +1,4922 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Hap Studio Theme FR\n"
+"POT-Creation-Date: 2025-01-28 13:26+0100\n"
+"PO-Revision-Date: 2025-01-28 13:29+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr__e;esc_html__;esc_html__e\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: _deprecated\n"
+"X-Poedit-SearchPathExcluded-1: __old\n"
+"X-Poedit-SearchPathExcluded-2: acf\n"
+"X-Poedit-SearchPathExcluded-3: assets\n"
+"X-Poedit-SearchPathExcluded-4: unsynced\n"
+
+#: blocks/accordion-item/accordion-item.php:56
+#: blocks/anchor-content/anchor-content.php:83
+#: blocks/banner-col-2/banner-col-2.php:80 blocks/bar-chart/bar-chart.php:62
+#: blocks/company-data/company-data.php:66
+#: blocks/get-template/get-template.php:58 blocks/hap-image/hap-image.php:57
+#: blocks/icon-text/icon-text.php:106
+#: blocks/link-with-icon/link-with-icon.php:55 blocks/menu/menu.php:72
+#: blocks/modal-form-cf7/modal-form-cf7.php:65
+#: blocks/pie-chart/pie-chart.php:124 blocks/query/query.php:91
+#: blocks/simple-button/simple-button.php:66
+#: blocks/social-links/social-links.php:60 blocks/svg-image/svg-image.php:52
+#: blocks/tabs/tabs.php:74
+msgid "Fill in the required fields."
+msgstr "Remplissez les champs obligatoires."
+
+#: blocks/accordion/accordion.php:32 blocks/advanced-list/advanced-list.php:43
+#: blocks/description-list/description-list.php:32 blocks/swiper/swiper.php:29
+#: blocks/tabs/tabs.php:35
+msgid "Insert blocks"
+msgstr "Insérer des blocs"
+
+#: blocks/company-data/company-data.php:23
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
+#: blocks/company-data/company-data.php:24
+msgid "Cookie Policy"
+msgstr "Politique relative aux cookies"
+
+#: blocks/company-data/company-data.php:25
+#: functions/fn-acf-fields-blocks.php:2984
+msgid "Cookie Preferences"
+msgstr "Préférences en matière de cookies"
+
+#: blocks/company-data/company-data.php:26
+#: functions/fn-acf-fields-blocks.php:3000
+#: functions/fn-acf-fields-blocks.php:3005
+msgid "Terms and Conditions"
+msgstr "Termes et conditions"
+
+#: blocks/company-data/company-data.php:27
+msgid "Copyright"
+msgstr "Droits d'auteur"
+
+#: blocks/company-data/company-data.php:28
+msgid "VAT No."
+msgstr "Numéro de TVA"
+
+#: blocks/company-data/company-data.php:29
+#: functions/fn-acf-fields-blocks.php:3057
+#: functions/fn-acf-fields-theme.php:224
+msgid "Fiscal Code"
+msgstr "Code fiscal"
+
+#: blocks/company-data/company-data.php:30
+msgid "Whistleblowing"
+msgstr "Whistleblowing"
+
+#: blocks/company-data/company-data.php:32
+#: functions/fn-acf-fields-blocks.php:3105
+msgid "Credits"
+msgstr "Crédits"
+
+#: blocks/company-data/company-data.php:33
+#: functions/fn-acf-fields-blocks.php:3121
+#: functions/fn-acf-fields-theme.php:146 functions/fn-acf-fields-theme.php:3044
+#: functions/fn-acf-fields-theme.php:3051 templates/store/single-store.php:89
+msgid "Phone"
+msgstr "Téléphone"
+
+#: blocks/company-data/company-data.php:34
+#: functions/fn-acf-fields-theme.php:153
+msgid "Mobile Phone"
+msgstr "Téléphone mobile"
+
+#: blocks/company-data/company-data.php:35
+#: functions/fn-acf-fields-theme.php:160
+msgid "Toll Free Phone Number"
+msgstr "Numéro de téléphone sans frais"
+
+#: blocks/company-data/company-data.php:36
+#: functions/fn-acf-fields-theme.php:167 functions/fn-acf-fields-theme.php:3023
+#: functions/fn-acf-fields-theme.php:3030 templates/store/single-store.php:58
+msgid "Email"
+msgstr "E-mail"
+
+#: blocks/company-data/company-data.php:37
+#: functions/fn-acf-fields-blocks.php:3185
+#: functions/fn-acf-fields-theme.php:175 functions/fn-acf-fields-theme.php:3037
+#: templates/store/single-store.php:78
+msgid "PEC Email"
+msgstr "E-mail PEC"
+
+#: blocks/company-data/company-data.php:38
+#: blocks/company-data/company-data.php:198
+#: functions/fn-acf-fields-blocks.php:3201
+#: functions/fn-acf-fields-theme.php:131
+msgid "Company Name"
+msgstr "Nom de l’entreprise"
+
+#: blocks/company-data/company-data.php:39
+#: blocks/company-data/company-data.php:196
+#: blocks/company-data/company-data.php:375
+#: functions/fn-acf-fields-blocks.php:3217
+#: functions/fn-acf-fields-theme.php:2939
+msgid "Business Name"
+msgstr "Nom de l'entreprise"
+
+#: blocks/company-data/company-data.php:40
+#: functions/fn-acf-fields-blocks.php:3233
+msgid "Registered office"
+msgstr "Bureau d'inscription"
+
+#: blocks/company-data/company-data.php:41
+#: functions/fn-acf-fields-blocks.php:3249
+msgid "REA Number"
+msgstr "Numéro REA"
+
+#: blocks/company-data/company-data.php:42
+#: functions/fn-acf-fields-blocks.php:3265
+#: functions/fn-acf-fields-theme.php:139
+msgid "Legal Representative"
+msgstr "Représentant légal"
+
+#: blocks/company-data/company-data.php:43
+#: functions/fn-acf-fields-blocks.php:3281
+#: functions/fn-acf-fields-theme.php:238
+msgid "Share Capital"
+msgstr "Capital social"
+
+#: blocks/company-data/company-data.php:44
+#: functions/fn-acf-fields-blocks.php:3297
+msgid "Custom Item"
+msgstr "Article personnalisé"
+
+#: blocks/company-data/company-data.php:47
+#, php-format
+msgid ""
+"Site protected by Google reCAPTCHA. <a href=\"%s\" target=\"_blank\" "
+"rel=\"nofollow noopener noreferrer\">Privacy</a> | <a href=\"%s\" "
+"target=\"_blank\" rel=\"nofollow noopener noreferrer\">Terms</a>"
+msgstr ""
+"Site protégé par Google reCAPTCHA. <a href=\"%s\" target=\"_blank\" "
+"rel=\"nofollow noopener noreferrer\">Confidentialité</a> | <a href=\"%s\" "
+"target=\"_blank\" rel=\"nofollow noopener noreferrer\">Conditions</a>"
+
+#: blocks/company-data/company-data.php:60
+#, php-format
+msgid ""
+"Data and links filled in on the <a href=\"%s\" target=\"_blank\" "
+"rel=\"noopener noreferrer nofollow\">options page</a>."
+msgstr ""
+"Données et liens renseignés sur la <a href=\"%s\" target=\"_blank\" "
+"rel=\"noopener noreferrer nofollow\">page d'options</a>."
+
+#: blocks/company-data/company-data.php:78
+#: blocks/company-data/company-data.php:86
+#: blocks/company-data/company-data.php:108
+#: blocks/company-data/company-data.php:116
+#: blocks/company-data/company-data.php:150
+#: blocks/company-data/company-data.php:158
+#: blocks/company-data/company-data.php:166
+#: blocks/company-data/company-data.php:174
+#: blocks/company-data/company-data.php:182
+#: blocks/company-data/company-data.php:190
+#: blocks/company-data/company-data.php:198
+#: blocks/company-data/company-data.php:206
+#: blocks/company-data/company-data.php:237
+#: blocks/company-data/company-data.php:244
+#: blocks/company-data/company-data.php:261
+#: blocks/social-links/social-links.php:68
+#, php-format
+msgid "The field <strong>%s</strong> has no value."
+msgstr "Le champ <strong>%s</strong> n’a aucune valeur."
+
+#: blocks/company-data/company-data.php:84
+#: blocks/company-data/company-data.php:289 functions/fn-frontend.php:1748
+msgid "Cookie policy"
+msgstr "Politique relative aux cookies"
+
+#: blocks/company-data/company-data.php:91
+#: blocks/company-data/company-data.php:294 functions/fn-frontend.php:1757
+msgid "Update cookie tracking preferences"
+msgstr "Mettre à jour les préférences de suivi des cookies"
+
+#: blocks/company-data/company-data.php:93
+msgid "This option only works when the Iubenda plugin is installed."
+msgstr "Cette option ne fonctionne que lorsque le plugin Iubenda est installé."
+
+#: blocks/company-data/company-data.php:100
+msgid "Select the terms and conditions page."
+msgstr "Sélectionnez la page des conditions générales."
+
+#: blocks/company-data/company-data.php:114
+#: blocks/company-data/company-data.php:311
+msgid "FC"
+msgstr "CF"
+
+#: blocks/company-data/company-data.php:120
+msgid "Copyright start year is missing."
+msgstr "L’année de début du copyright d’auteur est manquante."
+
+#: blocks/company-data/company-data.php:122
+#: blocks/company-data/company-data.php:317 functions/fn-frontend.php:1762
+msgid "All rights reserved"
+msgstr "Tous les droits sont réservés"
+
+#: blocks/company-data/company-data.php:136
+#, php-format
+msgid ""
+"Contact Form 7 is installed but the Google reCAPTCHA keys are not set. "
+"Please visit <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer "
+"nofollow\">this page</a> to set up your keys."
+msgstr ""
+"Contact Form 7 est installé mais les clés de Google reCAPTCHA ne sont pas "
+"définies. Veuillez visiter <a href=\"%s\" target=\"_blank\" rel=\"noopener "
+"noreferrer nofollow\">cette page</a> pour configurer vos clés."
+
+#: blocks/company-data/company-data.php:139
+msgid "Contact Form 7 is not installed."
+msgstr "Le formulaire de contact 7 n’est pas installé."
+
+#: blocks/company-data/company-data.php:229
+msgid "Address, postcode, city and country fields are missing."
+msgstr "Les champs adresse, code postal, ville et pays sont manquants."
+
+#: blocks/company-data/company-data.php:261
+#: functions/fn-acf-fields-blocks.php:967
+#: functions/fn-acf-fields-blocks.php:2218
+#: functions/fn-acf-fields-blocks.php:2288
+#: functions/fn-acf-fields-blocks.php:3302
+msgid "Label"
+msgstr "Étiqueter"
+
+#: blocks/company-data/company-data.php:404
+msgid "No data"
+msgstr "Pas de données"
+
+#: blocks/container/container.php:24 blocks/simple-div/simple-div.php:24
+msgid "A simple DIV."
+msgstr "Un simple DIV."
+
+#: blocks/container/container.php:28 blocks/simple-div/simple-div.php:28
+msgid "The main content (can only be used once per page)."
+msgstr "Le contenu principal (ne peut être utilisé qu’une seule fois par page)"
+
+#: blocks/container/container.php:32 blocks/simple-div/simple-div.php:32
+msgid "Related content."
+msgstr "Contenu connexe."
+
+#: blocks/container/container.php:36 blocks/simple-div/simple-div.php:36
+msgid "Article."
+msgstr "Article."
+
+#: blocks/container/container.php:40 blocks/simple-div/simple-div.php:40
+msgid "Section."
+msgstr "Section."
+
+#: blocks/container/container.php:44 blocks/simple-div/simple-div.php:44
+msgid "Header."
+msgstr "Entête."
+
+#: blocks/container/container.php:48 blocks/simple-div/simple-div.php:48
+msgid "Footer."
+msgstr "Bas de page."
+
+#: blocks/container/container.php:52 blocks/simple-div/simple-div.php:52
+msgid "Navigation."
+msgstr "Navigation."
+
+#: blocks/container/container.php:56 blocks/simple-div/simple-div.php:56
+msgid "Address."
+msgstr "Adresse."
+
+#: blocks/container/container.php:60 blocks/simple-div/simple-div.php:60
+msgid "Unordered list."
+msgstr "Liste non ordonnée."
+
+#: blocks/container/container.php:64 blocks/simple-div/simple-div.php:64
+msgid "Ordered list."
+msgstr "Liste ordonnée."
+
+#: blocks/container/container.php:68 blocks/simple-div/simple-div.php:68
+msgid "List item."
+msgstr "Élément de liste."
+
+#: blocks/hero-primary/hero-primary.php:64
+msgid "Title goes here"
+msgstr "Le titre va ici"
+
+#: blocks/hero-primary/hero-primary.php:67
+msgid "Content goes here"
+msgstr "Le contenu va ici"
+
+#: blocks/hero-video/hero-video.php:101
+msgid "Your browser does not support HTML5 video."
+msgstr "Votre navigateur ne prend pas en charge la vidéo HTML5."
+
+#: blocks/icon-text/icon-text.php:58
+#: blocks/modal-form-cf7/modal-form-cf7.php:70
+#: functions/fn-acf-fields-blocks.php:824
+#: functions/fn-acf-fields-blocks.php:1841
+#: functions/fn-acf-fields-blocks.php:1935
+#: functions/fn-acf-fields-blocks.php:1971
+#: functions/fn-acf-fields-blocks.php:2251
+#: functions/fn-acf-fields-blocks.php:2476
+#: functions/fn-acf-fields-theme.php:2567
+#: functions/fn-acf-fields-theme.php:3112
+msgid "Title"
+msgstr "Titre"
+
+#: blocks/icon-text/icon-text.php:61 blocks/key-number/key-number.php:37
+msgid "Content"
+msgstr "Contenu"
+
+#: blocks/image-sticker/image-sticker.php:33
+#: functions/fn-acf-fields-blocks.php:1108
+#: functions/fn-acf-fields-blocks.php:1144
+#: functions/fn-acf-fields-blocks.php:2807
+#: functions/fn-acf-fields-theme.php:431 functions/fn-acf-fields-theme.php:478
+#: functions/fn-acf-fields-theme.php:525 functions/fn-acf-fields-theme.php:2652
+#: functions/fn-backend.php:487
+msgid "Image"
+msgstr "Image"
+
+#: blocks/image-sticker/image-sticker.php:37
+#: blocks/image-sticker/image-sticker.php:38
+msgid "Sticker"
+msgstr "Sticker"
+
+#: blocks/key-number/key-number.php:29 functions/fn-acf-fields-blocks.php:2443
+msgid "Number"
+msgstr "Nombre"
+
+#: blocks/key-number/key-number.php:33 functions/fn-acf-fields-blocks.php:830
+#: functions/fn-acf-fields-theme.php:2574
+msgid "Subtitle"
+msgstr "Sous-titre"
+
+#: blocks/logo/logo.php:59 menus/menu-desktop-default.php:21
+#: menus/menu-mobile-default.php:21
+msgid "Homepage"
+msgstr "Page d’accueil"
+
+#: blocks/menu/menu.php:78
+msgid "Error: no menu found"
+msgstr "Erreur : aucun menu trouvé"
+
+#: blocks/modal-form-cf7/modal-form-cf7.php:16
+msgid "Show the form"
+msgstr "Afficher le formulaire"
+
+#: blocks/modal-form-cf7/modal-form-cf7.php:61
+msgid ""
+"Contact form 7 not found. This block only works with Contact Form 7 forms."
+msgstr ""
+"Contact form 7 introuvable. Ce bloc ne fonctionne qu’avec les formulaires "
+"Contact Form 7."
+
+#: blocks/photoswipe-gallery/photoswipe-gallery.php:66
+msgid "Fill in the mandatory fields."
+msgstr "Remplissez les champs obligatoires."
+
+#: blocks/post-selector/post-selector.php:64
+msgid "Select at least one post"
+msgstr "Sélectionnez au moins un article"
+
+#: blocks/query/query.php:83
+msgid "No posts match the query"
+msgstr "Aucun article ne correspond à la requête"
+
+#: blocks/social-links/social-links.php:54
+#, php-format
+msgid ""
+"Social media links filled in on the <a href=\"%s\" target=\"_blank\" "
+"rel=\"nofollow noopener noreferrer\">options page</a>."
+msgstr ""
+"Liens vers les social media renseignés sur la <a href=\"%s\" "
+"target=\"_blank\" rel=\"noopener noreferrer nofollow\">page d'options</a>."
+
+#: blocks/toc/toc.php:55
+msgid "Refresh index"
+msgstr "Actualiser l’index"
+
+#: blocks/wpml-switcher/wpml-switcher.php:67
+msgid "WPML is not active."
+msgstr "WPML n’est pas actif."
+
+#: functions/fn-acf-fields-blocks.php:52
+#: functions/fn-acf-register-blocks.php:182
+msgid "Container"
+msgstr "Récipient"
+
+#: functions/fn-acf-fields-blocks.php:56 functions/fn-acf-fields-blocks.php:465
+msgid "Admin label"
+msgstr "Étiquette d’administration"
+
+#: functions/fn-acf-fields-blocks.php:62 functions/fn-acf-fields-blocks.php:471
+#: functions/fn-acf-fields-blocks.php:805
+msgid "Show/Hide"
+msgstr "Afficher/Masquer"
+
+#: functions/fn-acf-fields-blocks.php:65 functions/fn-acf-fields-blocks.php:474
+#: functions/fn-acf-fields-blocks.php:808
+#: functions/fn-acf-fields-theme.php:1074
+msgid "Hide"
+msgstr "Masquer"
+
+#: functions/fn-acf-fields-blocks.php:66 functions/fn-acf-fields-blocks.php:475
+#: functions/fn-acf-fields-blocks.php:809
+#: functions/fn-acf-fields-theme.php:1075
+msgid "Show"
+msgstr "Afficher"
+
+#: functions/fn-acf-fields-blocks.php:82
+msgid "Preview grid"
+msgstr "Aperçu de la grille"
+
+#: functions/fn-acf-fields-blocks.php:94 functions/fn-acf-fields-blocks.php:378
+#: functions/fn-acf-fields-blocks.php:530
+#: functions/fn-acf-fields-blocks.php:679
+#: functions/fn-acf-fields-blocks.php:1768
+#: functions/fn-acf-fields-blocks.php:2179
+#: functions/fn-acf-fields-blocks.php:2386
+#: functions/fn-acf-fields-blocks.php:3329
+#: functions/fn-acf-fields-theme.php:614 functions/fn-acf-fields-theme.php:773
+#: functions/fn-acf-fields-theme.php:809 functions/fn-acf-fields-theme.php:838
+#: functions/fn-acf-fields-theme.php:867 functions/fn-acf-fields-theme.php:900
+#: functions/fn-acf-fields-theme.php:1005
+#: functions/fn-acf-fields-theme.php:1141
+#: functions/fn-acf-fields-theme.php:1152
+#: functions/fn-acf-fields-theme.php:1162
+#: functions/fn-acf-fields-theme.php:1172
+#: functions/fn-acf-fields-theme.php:1325
+#: functions/fn-acf-fields-theme.php:1359
+#: functions/fn-acf-fields-theme.php:1500
+#: functions/fn-acf-fields-theme.php:1605
+#: functions/fn-acf-fields-theme.php:1696
+#: functions/fn-acf-fields-theme.php:1735
+#: functions/fn-acf-fields-theme.php:2383
+#: functions/fn-acf-fields-theme.php:2698
+#: functions/fn-acf-fields-theme.php:2717
+#: functions/fn-acf-fields-theme.php:2736
+#: functions/fn-acf-fields-theme.php:2755
+#: functions/fn-acf-fields-theme.php:2774
+#: functions/fn-acf-fields-theme.php:2793
+#: functions/fn-acf-fields-theme.php:2812
+#: functions/fn-acf-fields-theme.php:2831
+#: functions/fn-acf-fields-theme.php:2850
+#: functions/fn-acf-fields-theme.php:2869
+#: functions/fn-acf-fields-theme.php:2888
+#: functions/fn-acf-fields-theme.php:2907
+msgid "On"
+msgstr "On"
+
+#: functions/fn-acf-fields-blocks.php:95 functions/fn-acf-fields-blocks.php:379
+#: functions/fn-acf-fields-blocks.php:531
+#: functions/fn-acf-fields-blocks.php:680
+#: functions/fn-acf-fields-blocks.php:1769
+#: functions/fn-acf-fields-blocks.php:2180
+#: functions/fn-acf-fields-blocks.php:2387
+#: functions/fn-acf-fields-blocks.php:3330
+#: functions/fn-acf-fields-theme.php:615 functions/fn-acf-fields-theme.php:774
+#: functions/fn-acf-fields-theme.php:810 functions/fn-acf-fields-theme.php:839
+#: functions/fn-acf-fields-theme.php:868 functions/fn-acf-fields-theme.php:901
+#: functions/fn-acf-fields-theme.php:1006
+#: functions/fn-acf-fields-theme.php:1140
+#: functions/fn-acf-fields-theme.php:1151
+#: functions/fn-acf-fields-theme.php:1161
+#: functions/fn-acf-fields-theme.php:1171
+#: functions/fn-acf-fields-theme.php:1326
+#: functions/fn-acf-fields-theme.php:1360
+#: functions/fn-acf-fields-theme.php:1501
+#: functions/fn-acf-fields-theme.php:1606
+#: functions/fn-acf-fields-theme.php:1697
+#: functions/fn-acf-fields-theme.php:1736
+#: functions/fn-acf-fields-theme.php:2384
+#: functions/fn-acf-fields-theme.php:2699
+#: functions/fn-acf-fields-theme.php:2718
+#: functions/fn-acf-fields-theme.php:2737
+#: functions/fn-acf-fields-theme.php:2756
+#: functions/fn-acf-fields-theme.php:2775
+#: functions/fn-acf-fields-theme.php:2794
+#: functions/fn-acf-fields-theme.php:2813
+#: functions/fn-acf-fields-theme.php:2832
+#: functions/fn-acf-fields-theme.php:2851
+#: functions/fn-acf-fields-theme.php:2870
+#: functions/fn-acf-fields-theme.php:2889
+#: functions/fn-acf-fields-theme.php:2908
+msgid "Off"
+msgstr "Off"
+
+#: functions/fn-acf-fields-blocks.php:100
+#: functions/fn-acf-fields-blocks.php:490
+msgid "Semantic tag"
+msgstr "Tag sémantique"
+
+#: functions/fn-acf-fields-blocks.php:374
+#: functions/fn-acf-fields-blocks.php:675
+msgid "Show background image preview"
+msgstr "Afficher l’aperçu de l’image d’arrière-plan"
+
+#: functions/fn-acf-fields-blocks.php:411
+#: functions/fn-acf-fields-blocks.php:741
+#: functions/fn-acf-fields-blocks.php:836
+msgid "Typography"
+msgstr "Typographie"
+
+#: functions/fn-acf-fields-blocks.php:421
+#: functions/fn-acf-fields-blocks.php:751
+msgid "Paragraph"
+msgstr "Paragraphe"
+
+#: functions/fn-acf-fields-blocks.php:430
+#: functions/fn-acf-fields-blocks.php:760
+#: functions/fn-acf-fields-blocks.php:846
+#: functions/fn-acf-fields-blocks.php:975
+#: functions/fn-acf-fields-blocks.php:1566
+msgid "Text color"
+msgstr "Couleur du texte"
+
+#: functions/fn-acf-fields-blocks.php:527
+msgid "Vertically justified"
+msgstr "Justifié verticalement"
+
+#: functions/fn-acf-fields-blocks.php:693
+msgid "Image for mobile"
+msgstr "Image pour mobile"
+
+#: functions/fn-acf-fields-blocks.php:703
+msgid "Mobile layout image position"
+msgstr ""
+
+#: functions/fn-acf-fields-blocks.php:717
+msgid "Mobile layout image CSS classes"
+msgstr ""
+
+#: functions/fn-acf-fields-blocks.php:791
+#: functions/fn-acf-register-blocks.php:348
+msgid "Hero primary"
+msgstr "Héros principal"
+
+#: functions/fn-acf-fields-blocks.php:814
+msgid "Titles"
+msgstr "Titres"
+
+#: functions/fn-acf-fields-blocks.php:855
+#: functions/fn-acf-fields-blocks.php:865
+msgid "Filter"
+msgstr "Filtre"
+
+#: functions/fn-acf-fields-blocks.php:869
+#: functions/fn-acf-fields-blocks.php:1808
+#: functions/fn-acf-fields-theme.php:940
+msgid "Default"
+msgstr "Défaut"
+
+#: functions/fn-acf-fields-blocks.php:870
+#: functions/fn-acf-fields-blocks.php:871
+#: functions/fn-acf-fields-blocks.php:872
+msgid "Custom filter"
+msgstr "Filtre personnalisé"
+
+#: functions/fn-acf-fields-blocks.php:901
+#: functions/fn-acf-register-blocks.php:456
+msgid "Simple button"
+msgstr "Bouton simple"
+
+#: functions/fn-acf-fields-blocks.php:905
+#: functions/fn-acf-fields-blocks.php:988
+#: functions/fn-acf-fields-blocks.php:1067
+#: functions/fn-acf-fields-blocks.php:2052
+msgid "Link"
+msgstr "Lien"
+
+#: functions/fn-acf-fields-blocks.php:913
+#: functions/fn-acf-fields-blocks.php:996
+#: functions/fn-acf-fields-blocks.php:2901
+msgid "Style"
+msgstr "Style"
+
+#: functions/fn-acf-fields-blocks.php:921
+#: functions/fn-acf-fields-blocks.php:1014
+#: functions/fn-acf-fields-blocks.php:2307
+#: functions/fn-acf-fields-blocks.php:2818
+msgid "Size"
+msgstr "Taille"
+
+#: functions/fn-acf-fields-blocks.php:951
+msgid "Contact Form 7 Modal"
+msgstr "Modaux Contact Form 7"
+
+#: functions/fn-acf-fields-blocks.php:955
+msgid "CF7 Form"
+msgstr "Formulaire CF7"
+
+#: functions/fn-acf-fields-blocks.php:983 functions/fn-backend-cleanup.php:244
+msgid "Appearance"
+msgstr "Apparence"
+
+#: functions/fn-acf-fields-blocks.php:989
+msgid "Button"
+msgstr "Bouton"
+
+#: functions/fn-acf-fields-blocks.php:1053
+msgid "Anchor element"
+msgstr "Élément d’ancrage"
+
+#: functions/fn-acf-fields-blocks.php:1057
+msgid "Anchor"
+msgstr "Ancre"
+
+#: functions/fn-acf-fields-blocks.php:1074
+msgid "Display"
+msgstr "Display"
+
+#: functions/fn-acf-fields-blocks.php:1104
+msgid "Svg icon"
+msgstr "Icône SVG"
+
+#: functions/fn-acf-fields-blocks.php:1140
+msgid "Icon &amp; text"
+msgstr "Icône et texte"
+
+#: functions/fn-acf-fields-blocks.php:1176
+#: functions/fn-acf-register-blocks.php:475
+msgid "Action link"
+msgstr "Lien action"
+
+#: functions/fn-acf-fields-blocks.php:1483
+#: functions/fn-acf-register-blocks.php:843
+msgid "Post selector"
+msgstr "Sélecteur d’articles"
+
+#: functions/fn-acf-fields-blocks.php:1487
+msgid "Select posts"
+msgstr "Sélectionnez des articles"
+
+#: functions/fn-acf-fields-blocks.php:1499
+msgid "Template name"
+msgstr "Nom du modèle"
+
+#: functions/fn-acf-fields-blocks.php:1502
+#: functions/fn-acf-fields-theme.php:2074
+#: functions/fn-acf-fields-theme.php:2082
+#: functions/fn-acf-fields-theme.php:2090
+#: functions/fn-acf-fields-theme.php:2098
+#: functions/fn-acf-fields-theme.php:2106
+#: functions/fn-acf-fields-theme.php:2504
+#: functions/fn-acf-fields-theme.php:2970
+#: functions/fn-acf-fields-theme.php:3047
+#: functions/fn-acf-fields-theme.php:3054
+#: functions/fn-acf-fields-theme.php:3061
+#: functions/fn-acf-fields-theme.php:3068
+#: functions/fn-acf-fields-theme.php:3075
+#: functions/fn-acf-fields-theme.php:3154
+#: functions/fn-acf-fields-theme.php:3166
+#: functions/fn-acf-fields-theme.php:3178
+#: functions/fn-acf-fields-theme.php:3191
+#: functions/fn-acf-fields-theme.php:3204
+#: functions/fn-acf-fields-theme.php:3216
+#: functions/fn-acf-fields-theme.php:3228
+msgid "Ex:"
+msgstr "Ex:"
+
+#: functions/fn-acf-fields-blocks.php:1528
+msgid "WP Menu"
+msgstr "Menu WP"
+
+#: functions/fn-acf-fields-blocks.php:1532
+#: functions/fn-acf-register-blocks.php:863
+msgid "Menu"
+msgstr "Menu"
+
+#: functions/fn-acf-fields-blocks.php:1562
+msgid "Banner 2 columns"
+msgstr "Bannière 2 colonnes"
+
+#: functions/fn-acf-fields-blocks.php:1574
+msgid "Shadow color"
+msgstr "Couleur de l’ombre"
+
+#: functions/fn-acf-fields-blocks.php:1578 functions/fn-utilities.php:3167
+#: functions/fn-utilities.php:3168 functions/fn-utilities.php:3169
+#: functions/fn-utilities.php:3170 functions/fn-utilities.php:3171
+#: functions/fn-utilities.php:3172 functions/fn-utilities.php:3173
+#: functions/fn-utilities.php:3174 functions/fn-utilities.php:3175
+#: functions/fn-utilities.php:3176
+msgid "Gray"
+msgstr "Gris"
+
+#: functions/fn-acf-fields-blocks.php:1579 functions/fn-utilities.php:3164
+msgid "Accent color"
+msgstr "Couleur d’accentuation"
+
+#: functions/fn-acf-fields-blocks.php:1580
+#: functions/fn-acf-fields-blocks.php:1809 functions/fn-utilities.php:3162
+msgid "Primary color"
+msgstr "Couleur primaire"
+
+#: functions/fn-acf-fields-blocks.php:1581 functions/fn-utilities.php:3163
+msgid "Secondary color"
+msgstr "Couleur secondaire"
+
+#: functions/fn-acf-fields-blocks.php:1587
+msgid "Background color"
+msgstr "Couleur de l’arrière plan"
+
+#: functions/fn-acf-fields-blocks.php:1628
+#: functions/fn-acf-fields-blocks.php:1632
+#: functions/fn-acf-fields-blocks.php:1642
+msgid "Custom attributes"
+msgstr "Attributs personnalisés"
+
+#: functions/fn-acf-fields-blocks.php:1670
+msgid "Simple span"
+msgstr "Span simple"
+
+#: functions/fn-acf-fields-blocks.php:1674
+msgid "Span content"
+msgstr "Contenu du span"
+
+#: functions/fn-acf-fields-blocks.php:1706
+msgid "List style"
+msgstr "Style de liste"
+
+#: functions/fn-acf-fields-blocks.php:1710
+msgid "Default list"
+msgstr "Liste défaut"
+
+#: functions/fn-acf-fields-blocks.php:1711
+msgid "Formatted list"
+msgstr "Liste formatée"
+
+#: functions/fn-acf-fields-blocks.php:1712
+msgid "Check list"
+msgstr "Liste de contrôle"
+
+#: functions/fn-acf-fields-blocks.php:1713
+msgid "Inline list"
+msgstr "Liste en ligne"
+
+#: functions/fn-acf-fields-blocks.php:1714
+msgid "Inline list (hyphen)"
+msgstr "Liste en ligne (trait d’union)"
+
+#: functions/fn-acf-fields-blocks.php:1715
+msgid "Inline list (comma)"
+msgstr "Liste en ligne (virgule)"
+
+#: functions/fn-acf-fields-blocks.php:1716
+msgid "Justified list"
+msgstr "Liste justifiée"
+
+#: functions/fn-acf-fields-blocks.php:1717
+msgid "Icons list"
+msgstr ""
+
+#: functions/fn-acf-fields-blocks.php:1724
+msgid "List columns"
+msgstr ""
+
+#: functions/fn-acf-fields-blocks.php:1737
+msgid "Columns gap"
+msgstr "Espacement des colonnes"
+
+#: functions/fn-acf-fields-blocks.php:1757
+msgid "Columns separator"
+msgstr "Séparateur de colonnes"
+
+#: functions/fn-acf-fields-blocks.php:1774
+msgid "Columns separator style"
+msgstr "Style de séparateur de colonnes"
+
+#: functions/fn-acf-fields-blocks.php:1795
+msgid "Columns separator color"
+msgstr "Couleur du séparateur de colonnes"
+
+#: functions/fn-acf-fields-blocks.php:1837
+#: functions/fn-acf-register-blocks.php:991
+msgid "Description list item"
+msgstr "Élément de liste de description"
+
+#: functions/fn-acf-fields-blocks.php:1848
+msgid "Description"
+msgstr "Description"
+
+#: functions/fn-acf-fields-blocks.php:1877
+#: functions/fn-acf-register-blocks.php:658
+msgid "Tab"
+msgstr "Tab"
+
+#: functions/fn-acf-fields-blocks.php:1881
+#: functions/fn-acf-fields-blocks.php:2455
+msgid "Order"
+msgstr "Ordre"
+
+#: functions/fn-acf-fields-blocks.php:1920
+#: functions/fn-acf-register-blocks.php:638
+msgid "Tabs"
+msgstr "Tabs"
+
+#: functions/fn-acf-fields-blocks.php:1924
+msgid "Tab titles"
+msgstr "Titre des Tabs"
+
+#: functions/fn-acf-fields-blocks.php:1967
+#: functions/fn-acf-register-blocks.php:699
+msgid "Accordion item"
+msgstr "Élément de l’accordéon"
+
+#: functions/fn-acf-fields-blocks.php:2000
+#: functions/fn-acf-register-blocks.php:617
+msgid "Table of contents"
+msgstr "Table des matières"
+
+#: functions/fn-acf-fields-blocks.php:2004
+msgid "List type"
+msgstr "Type de liste"
+
+#: functions/fn-acf-fields-blocks.php:2007
+msgid ""
+"Select the type of list and then click on the \"Refresh Index\" button. All "
+"h2 tags will be mapped to create the table of contents. In the modal click "
+"on the \"Copy\" button and then paste the html code into the block. Remember "
+"to check the links on the frontend as sometimes they may not match the "
+"anchors."
+msgstr ""
+"Sélectionnez le type de liste puis cliquez sur le bouton \"Actualiser "
+"l'index\". Toutes les balises h2 seront mappées pour créer la table des "
+"matières. Dans le modal cliquez sur le bouton \"Copier\" puis collez le code "
+"html dans le bloc. N'oubliez pas de vérifier les liens sur le frontend car "
+"parfois ils peuvent ne pas correspondre aux ancres."
+
+#: functions/fn-acf-fields-blocks.php:2009
+msgid "Ordered list"
+msgstr "Liste ordonnée"
+
+#: functions/fn-acf-fields-blocks.php:2010
+#: functions/fn-acf-fields-blocks.php:2774
+msgid "Unordered list"
+msgstr "Liste non ordonnée"
+
+#: functions/fn-acf-fields-blocks.php:2041
+msgid "Version"
+msgstr "Version"
+
+#: functions/fn-acf-fields-blocks.php:2045
+msgid "Light background"
+msgstr "Fond clair"
+
+#: functions/fn-acf-fields-blocks.php:2046
+msgid "Dark background"
+msgstr "Fond sombre"
+
+#: functions/fn-acf-fields-blocks.php:2056
+msgid "With link (homepage)"
+msgstr "Avec lien (page d'accueil)"
+
+#: functions/fn-acf-fields-blocks.php:2057
+msgid "Without link"
+msgstr "Sans lien"
+
+#: functions/fn-acf-fields-blocks.php:2085
+#: functions/fn-acf-register-blocks.php:882
+msgid "Get template"
+msgstr "Obtenir le modèle"
+
+#: functions/fn-acf-fields-blocks.php:2089
+msgid "Template path"
+msgstr "Chemin du modèle"
+
+#: functions/fn-acf-fields-blocks.php:2119
+#: functions/fn-acf-register-blocks.php:368
+msgid "Hero video"
+msgstr "Hero vidéo"
+
+#: functions/fn-acf-fields-blocks.php:2123
+msgid "Video"
+msgstr "Vidéo"
+
+#: functions/fn-acf-fields-blocks.php:2134
+msgid "Poster"
+msgstr "Poster"
+
+#: functions/fn-acf-fields-blocks.php:2145
+msgid "Video controls"
+msgstr "Commandes vidéo"
+
+#: functions/fn-acf-fields-blocks.php:2168
+msgid "Filter classes"
+msgstr "Classes de filtre"
+
+#: functions/fn-acf-fields-blocks.php:2174
+msgid "Play on scroll"
+msgstr "Jouer au défilement"
+
+#: functions/fn-acf-fields-blocks.php:2206
+#: functions/fn-acf-register-blocks.php:306
+msgid "Bar chart"
+msgstr "Diagramme à bandes"
+
+#: functions/fn-acf-fields-blocks.php:2210
+#: functions/fn-acf-fields-blocks.php:2277
+msgid "Value"
+msgstr "Valeur"
+
+#: functions/fn-acf-fields-blocks.php:2247
+#: functions/fn-acf-register-blocks.php:325
+msgid "Pie chart"
+msgstr "Diagramme circulaire"
+
+#: functions/fn-acf-fields-blocks.php:2264
+msgid "Values"
+msgstr "Valeurs"
+
+#: functions/fn-acf-fields-blocks.php:2267
+msgid ""
+"The sum of the values must be 100. If no color is set, the default colors "
+"will be used."
+msgstr ""
+"La somme des valeurs doit être de 100. Si aucune couleur n'est définie, les "
+"couleurs par défaut seront utilisées."
+
+#: functions/fn-acf-fields-blocks.php:2272
+msgid "Add value"
+msgstr "Ajouter valeur"
+
+#: functions/fn-acf-fields-blocks.php:2296
+#: functions/fn-acf-fields-theme.php:2508
+#: functions/fn-acf-fields-theme.php:3125
+msgid "Color"
+msgstr "Couleur"
+
+#: functions/fn-acf-fields-blocks.php:2339
+#: functions/fn-acf-register-blocks.php:720
+msgid "Photoswipe gallery"
+msgstr "Galery Photoswipe"
+
+#: functions/fn-acf-fields-blocks.php:2343
+msgid "Images"
+msgstr "Images"
+
+#: functions/fn-acf-fields-blocks.php:2363
+msgid "Preview image size"
+msgstr "Taille de l'image d'aperçu"
+
+#: functions/fn-acf-fields-blocks.php:2369
+msgid "Full image size"
+msgstr "Taille complète de l'image"
+
+#: functions/fn-acf-fields-blocks.php:2375
+msgid "Card template"
+msgstr "Modèle de card"
+
+#: functions/fn-acf-fields-blocks.php:2381
+msgid "Remove wrapper"
+msgstr "Supprimer le wrapper"
+
+#: functions/fn-acf-fields-blocks.php:2384
+msgid ""
+"Add the class \"hap-gallery\" to the new wrapper if you remove the default "
+"wrapper element."
+msgstr ""
+"Ajoutez la classe \"hap-gallery\" au nouveau wrapper si vous supprimez "
+"l'élément wrapper par défaut."
+
+#: functions/fn-acf-fields-blocks.php:2439
+#: functions/fn-acf-fields-blocks.php:2667
+msgid "Add new post type"
+msgstr "Ajouter un nouveau type de article"
+
+#: functions/fn-acf-fields-blocks.php:2451
+#: functions/fn-acf-fields-blocks.php:2620 functions/fn-backend-cleanup.php:239
+msgid "Posts"
+msgstr "Articles"
+
+#: functions/fn-acf-fields-blocks.php:2459
+msgid "Descending"
+msgstr "Descendant"
+
+#: functions/fn-acf-fields-blocks.php:2460
+msgid "Ascending"
+msgstr "Ascendant"
+
+#: functions/fn-acf-fields-blocks.php:2471
+msgid "Order by"
+msgstr "Trier par"
+
+#: functions/fn-acf-fields-blocks.php:2475
+msgid "Date"
+msgstr "Date"
+
+#: functions/fn-acf-fields-blocks.php:2477
+#: functions/fn-acf-fields-blocks.php:2647
+msgid "Post type"
+msgstr "Type de article"
+
+#: functions/fn-acf-fields-blocks.php:2478
+msgid "Parent post"
+msgstr "Post parent"
+
+#: functions/fn-acf-fields-blocks.php:2479
+msgid "Random"
+msgstr "Aléatoire"
+
+#: functions/fn-acf-fields-blocks.php:2480
+#: functions/fn-acf-fields-theme.php:2500
+msgid "Menu order"
+msgstr "Ordre de menu"
+
+#: functions/fn-acf-fields-blocks.php:2481
+msgid "Meta value"
+msgstr "Méta valeur"
+
+#: functions/fn-acf-fields-blocks.php:2482
+msgid "Meta value number"
+msgstr "Numéro de la méta-valeur"
+
+#: functions/fn-acf-fields-blocks.php:2516
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+#: functions/fn-acf-fields-blocks.php:2522
+msgid "Term slug"
+msgstr "Slug de terme"
+
+#: functions/fn-acf-fields-blocks.php:2550
+#: functions/fn-acf-register-blocks.php:800
+msgid "Icon link"
+msgstr "Icône avec lien"
+
+#: functions/fn-acf-fields-blocks.php:2562
+msgid "Icon (only SVG)"
+msgstr "Icône (uniquement SVG)"
+
+#: functions/fn-acf-fields-blocks.php:2600
+#: functions/fn-acf-register-blocks.php:781
+msgid "Map"
+msgstr "Carte"
+
+#: functions/fn-acf-fields-blocks.php:2604
+msgid "Post selection"
+msgstr "Sélection d’articles"
+
+#: functions/fn-acf-fields-blocks.php:2693
+#: functions/fn-acf-fields-blocks.php:2697
+#: functions/fn-acf-register-blocks.php:283
+msgid "Social links"
+msgstr "Liens social media"
+
+#: functions/fn-acf-fields-blocks.php:2723
+msgid "Display options"
+msgstr "Option d’affichage"
+
+#: functions/fn-acf-fields-blocks.php:2729
+msgid "Show icon"
+msgstr "Montrer l’icône"
+
+#: functions/fn-acf-fields-blocks.php:2730
+msgid "Show label"
+msgstr "Afficher l’étiquette"
+
+#: functions/fn-acf-fields-blocks.php:2731
+msgid "Show icon and label"
+msgstr "Afficher l’icône et l’étiquette"
+
+#: functions/fn-acf-fields-blocks.php:2737
+msgid "Icon classes"
+msgstr "Classes de icône"
+
+#: functions/fn-acf-fields-blocks.php:2753
+msgid "Link classes"
+msgstr "Classes du lien"
+
+#: functions/fn-acf-fields-blocks.php:2769
+msgid "Wrapper"
+msgstr "Wrapper"
+
+#: functions/fn-acf-fields-blocks.php:2775
+msgid "None"
+msgstr "Aucun"
+
+#: functions/fn-acf-fields-blocks.php:2803
+#: functions/fn-acf-register-blocks.php:393
+msgid "Custom image"
+msgstr "Custom image"
+
+#: functions/fn-acf-fields-blocks.php:2823
+msgid "Thumbnail"
+msgstr "Vignette"
+
+#: functions/fn-acf-fields-blocks.php:2824
+msgid "Medium"
+msgstr "Moyen"
+
+#: functions/fn-acf-fields-blocks.php:2825
+msgid "Medium large"
+msgstr "Moyen large"
+
+#: functions/fn-acf-fields-blocks.php:2826
+msgid "Large"
+msgstr "Grand"
+
+#: functions/fn-acf-fields-blocks.php:2828
+msgid "Full"
+msgstr ""
+
+#: functions/fn-acf-fields-blocks.php:2829
+msgid "Original"
+msgstr ""
+
+#: functions/fn-acf-fields-blocks.php:2836
+msgid "Above the fold"
+msgstr "Au-dessus du pli (Above the fold)"
+
+#: functions/fn-acf-fields-blocks.php:2846
+#: functions/fn-acf-fields-theme.php:768 functions/fn-acf-fields-theme.php:804
+#: functions/fn-acf-fields-theme.php:833 functions/fn-acf-fields-theme.php:862
+#: functions/fn-acf-fields-theme.php:895
+msgid "Preload"
+msgstr "Précharge"
+
+#: functions/fn-acf-fields-blocks.php:2857
+msgid "If this is the main Above the Fold image, you may want to preload it."
+msgstr ""
+"S’il s’agit de l’image principale Above the Fold, vous souhaiterez peut-être "
+"la précharger."
+
+#: functions/fn-acf-fields-blocks.php:2861
+msgid "Figure tag"
+msgstr "Tag de figure"
+
+#: functions/fn-acf-fields-blocks.php:2871
+msgid "Figure class"
+msgstr "Classes de figure"
+
+#: functions/fn-acf-fields-blocks.php:2886
+msgid "Figure caption"
+msgstr "Légende de la figure"
+
+#: functions/fn-acf-fields-blocks.php:2907
+msgid "Background image"
+msgstr "Image de fond"
+
+#: functions/fn-acf-fields-blocks.php:2939
+#: functions/fn-acf-fields-blocks.php:2943
+#: functions/fn-acf-register-blocks.php:264
+msgid "Company data and footer links"
+msgstr "Données de l'entreprise et liens de pied de page"
+
+#: functions/fn-acf-fields-blocks.php:2952
+msgid "Privacy"
+msgstr "Confidentialité"
+
+#: functions/fn-acf-fields-blocks.php:2957
+#: functions/fn-acf-fields-blocks.php:2973
+#: functions/fn-acf-fields-blocks.php:2989
+msgid "Info"
+msgstr "Info"
+
+#: functions/fn-acf-fields-blocks.php:2960
+msgid "Add a link to the privacy policy page (set on the options page)."
+msgstr ""
+"Ajoutez un lien vers la page de politique de confidentialité (définie sur la "
+"page d’options)."
+
+#: functions/fn-acf-fields-blocks.php:2976
+msgid "Add a link to the cookie policy page (set on the options page)."
+msgstr ""
+"Ajoutez un lien vers la page de politique de cookies (définie sur la page "
+"d’options)."
+
+#: functions/fn-acf-fields-blocks.php:2992
+msgid ""
+"Add a link to cookie tracking preferences (only if you are using Iubenda)."
+msgstr ""
+"Ajoutez un lien vers les préférences de suivi des cookies (uniquement si "
+"vous utilisez Iubenda)."
+
+#: functions/fn-acf-fields-blocks.php:3033
+msgid ""
+"Add the copyright notice. Ex: ©2020/2024, Company name. All rights reserved."
+msgstr ""
+"Ajoutez l’avis de droit d’auteur. Ex : ©2020/2024, Nom de l’entreprise. Tous "
+"droits réservés."
+
+#: functions/fn-acf-fields-blocks.php:3041
+#: functions/fn-acf-fields-theme.php:217
+msgid "VAT Number"
+msgstr "Numéro de TVA"
+
+#: functions/fn-acf-fields-blocks.php:3049
+msgid "Add the company VAT number."
+msgstr "Ajoutez le numéro de TVA de l’entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3065
+msgid "Add the company fiscal code."
+msgstr "Ajoutez le code fiscal de l’entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3081
+msgid ""
+"Add a link with class \"whistleblowing\" to be used to display the "
+"whistleblowing modal. Whistleblowing compliance is mandatory only for "
+"companies with at least 50 employees."
+msgstr ""
+"Ajoutez un lien avec la classe « whistleblowing » à utiliser pour afficher "
+"le modal du whistleblowing. La conformité en matière de whistleblowing n’est "
+"obligatoire que pour les entreprises d’au moins 50 salariés."
+
+#: functions/fn-acf-fields-blocks.php:3097
+msgid "Add Google reCAPTCHA links."
+msgstr "Ajoutez les liens de Google reCAPTCHA."
+
+#: functions/fn-acf-fields-blocks.php:3113
+msgid ""
+"Add the Tenaglia Studio credit and link. Ex: Design & code by Tenaglia "
+"Studio."
+msgstr ""
+"Ajoutez le crédit et le lien Tenaglia Studio. Ex : Design & code by Tenaglia "
+"Studio."
+
+#: functions/fn-acf-fields-blocks.php:3129
+msgid "Add the company phone number."
+msgstr "Ajoutez le numéro de téléphone de l’entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3137 templates/store/single-store.php:99
+msgid "Mobile phone"
+msgstr "Téléphone mobile"
+
+#: functions/fn-acf-fields-blocks.php:3145
+msgid "Add the company mobile phone number."
+msgstr "Ajoutez le numéro de téléphone portable de l'entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3153 templates/store/single-store.php:109
+msgid "Toll free phone"
+msgstr "Téléphone sans frais"
+
+#: functions/fn-acf-fields-blocks.php:3161
+msgid "Add the company toll free phone number."
+msgstr "Ajoutez le numéro de téléphone gratuit de l’entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3177
+msgid "Add the company email."
+msgstr "Ajoutez l’e-mail de l’entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3193
+msgid "Add the company PEC email."
+msgstr "Ajoutez l’e-mail PEC de l’entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3209
+msgid "Add the company name."
+msgstr "Ajoutez le nom de l’entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3225
+msgid "Add the business name."
+msgstr "Ajoutez le nom de l’entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3241
+msgid "Add the company registered office address."
+msgstr "Ajoutez l'adresse du siège social de la société."
+
+#: functions/fn-acf-fields-blocks.php:3257
+msgid "Add the company REA number."
+msgstr "Ajoutez le numéro REA de l’entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3273
+msgid "Add the company legal representative name."
+msgstr "Ajoutez le nom du représentant légal de l'entreprise."
+
+#: functions/fn-acf-fields-blocks.php:3289
+msgid "Add the company share capital."
+msgstr "Ajoutez le capital social de la société."
+
+#: functions/fn-acf-fields-blocks.php:3317
+msgid "Open in a new tab"
+msgstr "Ouvrir dans un nouvel onglet"
+
+#: functions/fn-acf-fields-blocks.php:3335
+#: functions/fn-acf-fields-theme.php:446 functions/fn-acf-fields-theme.php:493
+msgid "CSS Classes"
+msgstr "Classes CSS"
+
+#: functions/fn-acf-fields-blocks.php:3343
+#: functions/fn-acf-fields-theme.php:1032
+msgid "Add item"
+msgstr "Ajouter un item"
+
+#: functions/fn-acf-fields-theme.php:54
+msgid "Mkt Theme Options"
+msgstr "Options de thème Mot"
+
+#: functions/fn-acf-fields-theme.php:55
+msgid "Hap options"
+msgstr "Options Hap"
+
+#: functions/fn-acf-fields-theme.php:62
+msgid "Save"
+msgstr "Enregistrer"
+
+#: functions/fn-acf-fields-theme.php:63
+msgid "Options saved"
+msgstr "Options enregistrées"
+
+#: functions/fn-acf-fields-theme.php:68
+msgid "Mkt Theme Layout"
+msgstr "Disposition du thème Mot"
+
+#: functions/fn-acf-fields-theme.php:69 functions/fn-acf-fields-theme.php:396
+msgid "Layout"
+msgstr "Mise en page"
+
+#: functions/fn-acf-fields-theme.php:77 functions/fn-acf-fields-theme.php:78
+#: functions/fn-acf-fields-theme.php:2043
+msgid "Other options"
+msgstr "Autres options"
+
+#: functions/fn-acf-fields-theme.php:106
+msgid "Main settings"
+msgstr "Réglages principaux"
+
+#: functions/fn-acf-fields-theme.php:110
+msgid "Contacts"
+msgstr "Contacts"
+
+#: functions/fn-acf-fields-theme.php:120 functions/fn-acf-fields-theme.php:265
+#: functions/fn-acf-fields-theme.php:411 functions/fn-acf-fields-theme.php:689
+#: functions/fn-acf-fields-theme.php:734 functions/fn-acf-fields-theme.php:918
+#: functions/fn-acf-fields-theme.php:1047
+#: functions/fn-acf-fields-theme.php:1090
+#: functions/fn-acf-fields-theme.php:1123
+#: functions/fn-acf-fields-theme.php:1186
+#: functions/fn-acf-fields-theme.php:1264
+#: functions/fn-acf-fields-theme.php:1342
+#: functions/fn-acf-fields-theme.php:1387
+#: functions/fn-acf-fields-theme.php:1447
+#: functions/fn-acf-fields-theme.php:1574
+#: functions/fn-acf-fields-theme.php:1620
+#: functions/fn-acf-fields-theme.php:1680
+#: functions/fn-acf-fields-theme.php:1712
+#: functions/fn-acf-fields-theme.php:1865
+#: functions/fn-acf-fields-theme.php:1935
+#: functions/fn-acf-fields-theme.php:1974
+#: functions/fn-acf-fields-theme.php:2058
+#: functions/fn-acf-fields-theme.php:2489
+#: functions/fn-acf-fields-theme.php:2549
+#: functions/fn-acf-fields-theme.php:2604
+msgid "About"
+msgstr "À propos"
+
+#: functions/fn-acf-fields-theme.php:127
+msgid "In this tab you can add all the details about the company."
+msgstr ""
+"Dans cet onglet, vous pouvez ajouter tous les détails sur l’entreprise."
+
+#: functions/fn-acf-fields-theme.php:182 templates/store/single-store.php:48
+msgid "Address"
+msgstr "Adresse"
+
+#: functions/fn-acf-fields-theme.php:189 functions/fn-acf-fields-theme.php:2967
+msgid "Postcode"
+msgstr "Code postal"
+
+#: functions/fn-acf-fields-theme.php:196 functions/fn-acf-fields-theme.php:2974
+msgid "City"
+msgstr "Ville"
+
+#: functions/fn-acf-fields-theme.php:203 functions/fn-acf-fields-theme.php:2993
+msgid "Region"
+msgstr "Région"
+
+#: functions/fn-acf-fields-theme.php:210 functions/fn-acf-fields-theme.php:3002
+msgid "Country"
+msgstr "Pays"
+
+#: functions/fn-acf-fields-theme.php:231
+msgid "REA number"
+msgstr "Numéro REA"
+
+#: functions/fn-acf-fields-theme.php:245
+msgid "Copyright start year"
+msgstr "Année de début du droit d'auteur"
+
+#: functions/fn-acf-fields-theme.php:249
+msgid "This value will be printed in footer into the the copyright statement."
+msgstr ""
+"Cette valeur sera imprimée en pied de page dans la déclaration de droit "
+"d'auteur."
+
+#: functions/fn-acf-fields-theme.php:254
+msgid "Social Media & Newsletter"
+msgstr "Médias sociaux et newsletter"
+
+#: functions/fn-acf-fields-theme.php:272
+msgid ""
+"In this tab you can add any social media in use by the company. "
+"<br>Shortcode default values: <ul><li><strong>icon=\"show\"</strong><br> Set "
+"to \"hide\" if you want to show only text</li><li><strong>icon_classes=\"svg-"
+"icon fill-current h-4\"</strong><br> The CSS classes assigned to the icon "
+"element</li><li><strong>a_classes=\"\"</strong><br> The CSS classes assigned "
+"to the anchor element</li><li><strong>path=\"core\"</strong><br> The path "
+"from where the icon file is loaded: change to project if you have uploaded a "
+"custom icon in project folder</li></ul>"
+msgstr ""
+"Dans cet onglet, vous pouvez ajouter tous les médias sociaux utilisés par "
+"l'entreprise. <br>Valeurs par défaut du shortcode : "
+"<ul><li><strong>icon=\"show\"</strong><br> Définissez sur \"masquer\" si "
+"vous souhaitez afficher uniquement le texte</li><li><strong> "
+"icon_classes=\"svg-icon fill-current h-4\"</strong><br> Les classes CSS "
+"affectées à l'élément icon</li><li><strong>a_classes=\"\"</strong><br> "
+"Classes CSS affectées à l'élément d'ancrage</li><li><strong>path=\"core\"</"
+"strong><br> Le chemin à partir duquel le fichier d'icône est chargé : passez "
+"à projet si vous avez téléchargé une icône personnalisée dans dossier du "
+"projet</li></ul>"
+
+#: functions/fn-acf-fields-theme.php:390
+msgid "General settings for Mkt Theme (editable by editors)."
+msgstr "Paramètres généraux du thème Mkt (modifiables par les éditeurs)."
+
+#: functions/fn-acf-fields-theme.php:400
+msgid "Logo & Images"
+msgstr "Logo et images"
+
+#: functions/fn-acf-fields-theme.php:419
+msgid ""
+"In this tab you can add the logo, favicon and placeholder image for this "
+"website. To be able to upload SVG files remember to add "
+"<strong>define('ALLOW_UNFILTERED_UPLOADS', true);</strong> in wp-config.php"
+msgstr ""
+"Dans cet onglet, vous pouvez ajouter le logo, le favicon et l'image d'espace "
+"réservé pour ce site Web. Pour pouvoir télécharger des fichiers SVG, "
+"n'oubliez pas d'ajouter <strong>define('ALLOW_UNFILTERED_UPLOADS', true);</"
+"strong> dans wp-config.php"
+
+#: functions/fn-acf-fields-theme.php:423
+msgid "Logo Light Mode"
+msgstr "Logo mode clair"
+
+#: functions/fn-acf-fields-theme.php:426
+msgid ""
+"Upload the default logo image for this website. The allowed file types are "
+"svg, png and jpg but it is always advisable to use an svg file because it is "
+"lighter and more easily manipulated using CSS styles."
+msgstr ""
+"Téléchargez l'image du logo par défaut pour ce site Web. Les types de "
+"fichiers autorisés sont svg, png et jpg mais il est toujours conseillé "
+"d'utiliser un fichier svg car il est plus léger et plus facilement "
+"manipulable à l'aide des styles CSS."
+
+#: functions/fn-acf-fields-theme.php:457 functions/fn-acf-fields-theme.php:504
+msgid "SVG Inline"
+msgstr "SVG en ligne"
+
+#: functions/fn-acf-fields-theme.php:470
+msgid "Logo Dark Mode"
+msgstr "Logo mode sombre"
+
+#: functions/fn-acf-fields-theme.php:473
+msgid ""
+"Upload the logo image to be used on dark backgrounds. The allowed file types "
+"are svg, png and jpg but it is always advisable to use an svg file because "
+"it is lighter and more easily manipulated using CSS styles. If you have "
+"uploaded an svg file as the default logo image it may not be necessary to "
+"add a version for dark backgrounds because svg files, when included as "
+"inline HTML, can be manipulated using CSS rules."
+msgstr ""
+"Téléchargez l'image du logo à utiliser sur des arrière-plans sombres. Les "
+"types de fichiers autorisés sont svg, png et jpg mais il est toujours "
+"conseillé d'utiliser un fichier svg car il est plus léger et plus facilement "
+"manipulable à l'aide des styles CSS. Si vous avez téléchargé un fichier SVG "
+"comme image de logo par défaut, il n'est peut-être pas nécessaire d'ajouter "
+"une version pour les arrière-plans sombres, car les fichiers SVG, lorsqu'ils "
+"sont inclus au format HTML en ligne, peuvent être manipulés à l'aide de "
+"règles CSS."
+
+#: functions/fn-acf-fields-theme.php:517
+msgid "Logo other version"
+msgstr "Logo other version"
+
+#: functions/fn-acf-fields-theme.php:520
+msgid ""
+"The logo in PNG or JPG format. This version is used in some specific cases "
+"such as signing Contact Form 7 forms."
+msgstr ""
+"Le logo au format PNG ou JPG. Cette version est utilisée dans certains cas "
+"précis comme la signature des formulaires Contact Form 7."
+
+#: functions/fn-acf-fields-theme.php:528
+msgid "JPG and PNG only."
+msgstr "JPG et PNG uniquement."
+
+#: functions/fn-acf-fields-theme.php:541
+msgid "Width"
+msgstr "Largeur"
+
+#: functions/fn-acf-fields-theme.php:555
+msgid "Height"
+msgstr "Hauteur"
+
+#: functions/fn-acf-fields-theme.php:572
+msgid "Favicons"
+msgstr "Favicons"
+
+#: functions/fn-acf-fields-theme.php:582 functions/fn-acf-fields-theme.php:597
+msgid ""
+"Add a favicon to the website. The best way to reach cross-browsers "
+"compatibility is to add both SVG and PNG files. The file must be square and "
+"measure 512 x 512 pixels."
+msgstr ""
+"Ajoutez une favicon au site Web. La meilleure façon d’atteindre la "
+"compatibilité entre navigateurs est d’ajouter des fichiers SVG et PNG. Le "
+"fichier doit être carré et mesurer 512 x 512 pixels."
+
+#: functions/fn-acf-fields-theme.php:609
+msgid "Regenerate favicon versions"
+msgstr "Régénérer les versions de favicon"
+
+#: functions/fn-acf-fields-theme.php:612
+msgid ""
+"Activate this option if you want to generate: favicon versions for all "
+"devices and browsers, JSON code for \"manifest.webmanifest\" file and "
+"\"browserconfig.xml\" file."
+msgstr ""
+"Activez cette option si vous souhaitez générer : des versions de favicon "
+"pour tous les appareils et navigateurs, le code JSON pour le fichier "
+"\"manifest.webmanifest\" et le fichier \"browserconfig.xml\"."
+
+#: functions/fn-acf-fields-theme.php:619
+msgid "Favicon code in head"
+msgstr "Code Favicon en head"
+
+#: functions/fn-acf-fields-theme.php:622
+msgid ""
+"This value is generated automatically after adding a favicon file. If you "
+"have changed the favicon, flag \"Regenerate favicon versions\" field and "
+"then save this page. It is also possible to edit this field manually if you "
+"need to customize the code."
+msgstr ""
+"Cette valeur est générée automatiquement après l'ajout d'un fichier favicon. "
+"Si vous avez modifié le favicon, cochez le champ \"Régénérer les versions du "
+"favicon\", puis enregistrez cette page. Il est également possible d'éditer "
+"ce champ manuellement si vous devez personnaliser le code."
+
+#: functions/fn-acf-fields-theme.php:631
+msgid "Favicon JSON file for Android apps"
+msgstr "Fichier Favicon JSON pour les applications Android"
+
+#: functions/fn-acf-fields-theme.php:634
+msgid ""
+"This JSON code is automatically generated and copied to \"manifest."
+"webmanifest\" file located in theme/core/favicons directory."
+msgstr ""
+"Ce code JSON est automatiquement généré et copié dans le fichier \"manifest."
+"webmanifest\" situé dans le répertoire theme/core/favicons."
+
+#: functions/fn-acf-fields-theme.php:643
+msgid "Favicon XML file for Windows"
+msgstr "Fichier XML Favicon pour Windows"
+
+#: functions/fn-acf-fields-theme.php:646
+msgid ""
+"This XML code is automatically generated and copied to \"browserconfig.xml\" "
+"file located in theme/core/favicons directory."
+msgstr ""
+"Ce code XML est automatiquement généré et copié dans le fichier "
+"\"browserconfig.xml\" situé dans le répertoire theme/core/favicons."
+
+#: functions/fn-acf-fields-theme.php:657
+msgid "Placeholder image"
+msgstr "Image d'espace réservé"
+
+#: functions/fn-acf-fields-theme.php:660
+msgid "Image to be used as fallback when the post has no related image."
+msgstr ""
+"Image à utiliser comme solution de secours lorsque l'article n’a pas d’image "
+"associée."
+
+#: functions/fn-acf-fields-theme.php:668
+msgid "Max image size"
+msgstr "Taille maximale de l'image"
+
+#: functions/fn-acf-fields-theme.php:671
+msgid ""
+"The maximum size in kilobytes of the images uploaded in the media library. "
+"The image formats included are JPG, JPEG, PNG, SVG and any other image "
+"format."
+msgstr ""
+"La taille maximale en kilobytes des images téléchargées dans la médiathèque. "
+"Les formats d'image inclus sont JPG, JPEG, PNG, SVG et tout autre format "
+"d'image."
+
+#: functions/fn-acf-fields-theme.php:679
+msgid "Colors"
+msgstr "Couleurs"
+
+#: functions/fn-acf-fields-theme.php:696
+msgid ""
+"In this tab you can set the color palette of the website. These values will "
+"be used to customize the backend and the login page."
+msgstr ""
+"Dans cet onglet, vous pouvez définir la palette de couleurs du site Web. Ces "
+"valeurs seront utilisées pour personnaliser le backend et la page de "
+"connexion."
+
+#: functions/fn-acf-fields-theme.php:700
+msgid "Primary Color"
+msgstr "Couleur primaire"
+
+#: functions/fn-acf-fields-theme.php:703
+msgid "Set the primary color of the website."
+msgstr "Définissez la couleur principale du site Web."
+
+#: functions/fn-acf-fields-theme.php:708
+msgid "Secondary Color"
+msgstr "Couleur secondaire"
+
+#: functions/fn-acf-fields-theme.php:711
+msgid "Set the secondary color of the website."
+msgstr "Définissez la couleur secondaire du site Web."
+
+#: functions/fn-acf-fields-theme.php:716
+msgid "Mobile Bar Color"
+msgstr "Couleur de la barre mobile"
+
+#: functions/fn-acf-fields-theme.php:719
+msgid "Set the color of browser bar on mobile devices."
+msgstr ""
+"Définissez la couleur de la barre du navigateur sur les appareils mobiles."
+
+#: functions/fn-acf-fields-theme.php:724
+msgid "Fonts"
+msgstr "Polices"
+
+#: functions/fn-acf-fields-theme.php:741
+msgid ""
+"In this tab you can set the fonts to be used in this website. You can choose "
+"to use Google Fonts, Adobe fonts, custom fonts, or a combination of the "
+"three options."
+msgstr ""
+"Dans cet onglet, vous pouvez définir les polices à utiliser sur ce site Web. "
+"Vous pouvez choisir d'utiliser des polices Google, des polices Adobe, des "
+"polices personnalisées ou une combinaison des trois options."
+
+#: functions/fn-acf-fields-theme.php:746 functions/fn-acf-fields-theme.php:752
+msgid "Google Fonts"
+msgstr "Polices Google"
+
+#: functions/fn-acf-fields-theme.php:759 functions/fn-acf-fields-theme.php:887
+msgid "Font Url"
+msgstr "URL de la police"
+
+#: functions/fn-acf-fields-theme.php:762
+msgid "Copy and paste the url of selected Google font stylesheet."
+msgstr ""
+"Copiez et collez l'URL de la feuille de style de police Google sélectionnée."
+
+#: functions/fn-acf-fields-theme.php:771 functions/fn-acf-fields-theme.php:807
+#: functions/fn-acf-fields-theme.php:836 functions/fn-acf-fields-theme.php:865
+#: functions/fn-acf-fields-theme.php:898
+msgid ""
+"Activate this option if you want to preload the font (better performances)."
+msgstr ""
+"Activez cette option si vous souhaitez précharger la police (meilleures "
+"performances)."
+
+#: functions/fn-acf-fields-theme.php:780
+msgid "Woff Fonts"
+msgstr "Polices Woff"
+
+#: functions/fn-acf-fields-theme.php:787
+msgid "Primary Font (Woff)"
+msgstr "Police principale (Woff)"
+
+#: functions/fn-acf-fields-theme.php:794 functions/fn-acf-fields-theme.php:823
+#: functions/fn-acf-fields-theme.php:852
+msgid "Font File"
+msgstr "Fichier de police"
+
+#: functions/fn-acf-fields-theme.php:797 functions/fn-acf-fields-theme.php:826
+#: functions/fn-acf-fields-theme.php:855
+msgid "Load a WOFF or WOFF2 font file."
+msgstr "Chargez un fichier de police WOFF ou WOFF2."
+
+#: functions/fn-acf-fields-theme.php:816
+msgid "Secondary Font (Woff)"
+msgstr "Police secondaire (Woff)"
+
+#: functions/fn-acf-fields-theme.php:845
+msgid "Extra Font (Woff)"
+msgstr "Police supplémentaire (Woff)"
+
+#: functions/fn-acf-fields-theme.php:874 functions/fn-acf-fields-theme.php:880
+msgid "Adobe Fonts"
+msgstr "Polices Adobe"
+
+#: functions/fn-acf-fields-theme.php:890
+msgid "Copy and paste the url of selected Adobe font stylesheet."
+msgstr ""
+"Copiez et collez l'URL de la feuille de style de police Adobe sélectionnée."
+
+#: functions/fn-acf-fields-theme.php:908
+msgid "Menus"
+msgstr "Menus"
+
+#: functions/fn-acf-fields-theme.php:926
+msgid ""
+"Select which menus to use for desktop and mobile, and other menu options."
+msgstr ""
+"Sélectionnez les menus à utiliser pour le bureau et le mobile, ainsi que "
+"d'autres options de menu."
+
+#: functions/fn-acf-fields-theme.php:930
+msgid "Desktop menu"
+msgstr "Menu desktop"
+
+#: functions/fn-acf-fields-theme.php:936
+msgid "Type"
+msgstr "Type"
+
+#: functions/fn-acf-fields-theme.php:941
+msgid "Centered"
+msgstr "Centré"
+
+#: functions/fn-acf-fields-theme.php:942
+msgid "Fade in"
+msgstr "Fondu entrant"
+
+#: functions/fn-acf-fields-theme.php:943
+msgid "Slide in"
+msgstr "Glissez-y"
+
+#: functions/fn-acf-fields-theme.php:944
+msgid "Custom block"
+msgstr "Bloc personnalisé"
+
+#: functions/fn-acf-fields-theme.php:945 functions/fn-acf-fields-theme.php:2538
+msgid "Custom template"
+msgstr "Modèle personnalisé"
+
+#: functions/fn-acf-fields-theme.php:952
+msgid "Menu block"
+msgstr ""
+
+#: functions/fn-acf-fields-theme.php:973
+msgid "Menu template"
+msgstr "Modèle de menu"
+
+#: functions/fn-acf-fields-theme.php:989
+msgid "Position"
+msgstr "Position"
+
+#: functions/fn-acf-fields-theme.php:993
+msgid "Static"
+msgstr "Statique"
+
+#: functions/fn-acf-fields-theme.php:994
+msgid "Absolute"
+msgstr "Absolu"
+
+#: functions/fn-acf-fields-theme.php:995
+msgid "Fixed"
+msgstr "Fixé"
+
+#: functions/fn-acf-fields-theme.php:1002
+msgid "Hide on scroll"
+msgstr "Masquer lors du défilement"
+
+#: functions/fn-acf-fields-theme.php:1011
+msgid "Add custom items after menu"
+msgstr "Ajouter des éléments personnalisés après le menu"
+
+#: functions/fn-acf-fields-theme.php:1026
+msgid "Cart"
+msgstr "Panier"
+
+#: functions/fn-acf-fields-theme.php:1054
+msgid ""
+"In this tab you can set the patterns to be used in footer and other info "
+"displayed in the footer."
+msgstr ""
+"Dans cet onglet, vous pouvez définir les modèles à utiliser dans le pied de "
+"page et d'autres informations affichées dans le pied de page."
+
+#: functions/fn-acf-fields-theme.php:1058
+msgid "Footer patterns"
+msgstr "Modèles de pied de page"
+
+#: functions/fn-acf-fields-theme.php:1071
+msgid "Hide credit in footer"
+msgstr "Masquer le crédit dans le rooter"
+
+#: functions/fn-acf-fields-theme.php:1080
+msgid "Page 404"
+msgstr "Page 404"
+
+#: functions/fn-acf-fields-theme.php:1097
+msgid "In this tab you can set the pattern to be used in 404 page."
+msgstr ""
+"Dans cet onglet, vous pouvez définir le modèle à utiliser dans la page 404."
+
+#: functions/fn-acf-fields-theme.php:1101
+msgid "404 Pattern"
+msgstr "Modèle 404"
+
+#: functions/fn-acf-fields-theme.php:1113
+msgid "Archives"
+msgstr "Archives"
+
+#: functions/fn-acf-fields-theme.php:1130
+#, php-format
+msgid ""
+"Enable or disable archives (author, date, category, tag). Some of these "
+"options are available also in <a href=\"%s\" rel=\"noopener noreferrer "
+"nofollow\" target=\"_blank\">Yoast Seo plugin</a>."
+msgstr ""
+"Activer ou désactiver les archives (auteur, date, catégorie, tag). Certaines "
+"de ces options sont également disponibles dans le <a href=\"%s\" "
+"rel=\"noopener noreferrer nofollow\" target=\"_blank\">plugin Yoast Seo</a>."
+
+#: functions/fn-acf-fields-theme.php:1134
+msgid "Archive by date"
+msgstr "Archive par date"
+
+#: functions/fn-acf-fields-theme.php:1137
+#, php-format
+msgid "Enable or disable archives by date. <br><a href=\"%s\">Example</a>"
+msgstr ""
+"Activer ou désactiver les archives par date. <br><a href=\"%s\">Exemple</a>"
+
+#: functions/fn-acf-fields-theme.php:1145
+msgid "Archive by author"
+msgstr "Archive par auteur"
+
+#: functions/fn-acf-fields-theme.php:1148
+#, php-format
+msgid "Enable or disable archives by author. <br><a href=\"%s\">Example</a>"
+msgstr ""
+"Activer ou désactiver les archives par auteur. <br><a href=\"%s\">Exemple</a>"
+
+#: functions/fn-acf-fields-theme.php:1156
+msgid "Category archive"
+msgstr "Archives de catégorie"
+
+#: functions/fn-acf-fields-theme.php:1166
+msgid "Tag archive"
+msgstr "Archives de balises"
+
+#: functions/fn-acf-fields-theme.php:1169
+msgid "Enable or disable tag terms archives."
+msgstr "Activez ou désactivez les archives de termes de balises."
+
+#: functions/fn-acf-fields-theme.php:1176
+msgid "Maps"
+msgstr "Plans"
+
+#: functions/fn-acf-fields-theme.php:1193
+msgid "API Keys and styles of Google Maps."
+msgstr "Clés API et styles de Google Maps."
+
+#: functions/fn-acf-fields-theme.php:1197
+msgid "Google Maps Api Key"
+msgstr "Clé API de Google Maps"
+
+#: functions/fn-acf-fields-theme.php:1200
+msgid ""
+"The Google Map API KEY used to display the map in both backend and frontend."
+msgstr ""
+"La clé API Google Map utilisée pour afficher la carte à la fois en backend "
+"et en frontend."
+
+#: functions/fn-acf-fields-theme.php:1204
+msgid "Google Maps Api Key 2 (Used only for web service)"
+msgstr "Google Maps Api Key 2 (utilisé uniquement pour le service Web)"
+
+#: functions/fn-acf-fields-theme.php:1207
+msgid ""
+"The Google Map API KEY used to retrieve info about a place and save it into "
+"an ACF map field. This key is different form the previous key because it "
+"must have set IP address as restriction (previous key use http referrer as "
+"restriction). Places API must be activated for this key."
+msgstr ""
+"La clé API Google Map utilisée pour récupérer des informations sur un lieu "
+"et les enregistrer dans un champ de carte ACF. Cette clé est différente de "
+"la clé précédente car elle doit avoir défini l'adresse IP comme restriction "
+"(la clé précédente utilise le référent http comme restriction). L'API Places "
+"doit être activée pour cette clé."
+
+#: functions/fn-acf-fields-theme.php:1211
+msgid "Google Map color light"
+msgstr "Couleur claire de la carte Google"
+
+#: functions/fn-acf-fields-theme.php:1214
+msgid "Set the lighter color of the customized Google Map."
+msgstr "Définissez la couleur plus claire de la carte Google personnalisée."
+
+#: functions/fn-acf-fields-theme.php:1218
+msgid "Google Map color dark"
+msgstr "Couleur foncée de la carte Google"
+
+#: functions/fn-acf-fields-theme.php:1221
+msgid "Set the darker color of the customized Google Map."
+msgstr "Définissez la couleur la plus foncée de la carte Google personnalisée."
+
+#: functions/fn-acf-fields-theme.php:1225
+msgid "Google Maps Style"
+msgstr "Style de Google Maps"
+
+#: functions/fn-acf-fields-theme.php:1228
+msgid ""
+"This field accepts a Google Maps JSON style. This option will overwrite the "
+"two previous settings (Google Map color light and Google Map color dark)."
+msgstr ""
+"Ce champ accepte un style Google Maps JSON. Cette option écrasera les deux "
+"paramètres précédents (couleur claire de Google Map et couleur sombre de "
+"Google Map)."
+
+#: functions/fn-acf-fields-theme.php:1237
+msgid "Map marker"
+msgstr "Marqueur de carte"
+
+#: functions/fn-acf-fields-theme.php:1240
+msgid "Upload a PNG image to be used as default map marker in Google Maps."
+msgstr ""
+"Téléchargez une image PNG à utiliser comme marqueur de carte par défaut dans "
+"Google Maps."
+
+#: functions/fn-acf-fields-theme.php:1253
+msgid "Privacy GDPR"
+msgstr "Confidentialité RGPD"
+
+#: functions/fn-acf-fields-theme.php:1271
+msgid "Set cookie and privacy policy pages."
+msgstr "Définir les pages de cookies et de politique de confidentialité."
+
+#: functions/fn-acf-fields-theme.php:1275 functions/fn-backend.php:676
+#: functions/fn-backend.php:691
+msgid "Cookie Policy Page"
+msgstr "Page de la politique des cookies"
+
+#: functions/fn-acf-fields-theme.php:1278
+#, php-format
+msgid ""
+"In case of new tracking scripts see <a target=\"_blank\" rel=\"noopener "
+"noreferrer nofollow\" href=\"%s\">this page</a>."
+msgstr ""
+"En cas de nouveaux scripts de suivi, consultez <a target=\"_blank\" "
+"rel=\"noopener noreferrer nofollow\" href=\"%s\">cette page</a>."
+
+#: functions/fn-acf-fields-theme.php:1288
+msgid "Privacy Policy Page"
+msgstr "Page Politique de confidentialité"
+
+#: functions/fn-acf-fields-theme.php:1301
+msgid "Custom post types"
+msgstr "Types de articles personnalisés"
+
+#: functions/fn-acf-fields-theme.php:1318
+msgid "Activate custom post types."
+msgstr "Activez les types de publication personnalisés."
+
+#: functions/fn-acf-fields-theme.php:1322
+#: functions/fn-acf-fields-theme.php:2935 functions/fn-cpt-stores.php:47
+#: functions/fn-cpt-stores.php:49 functions/fn-cpt-stores.php:53
+msgid "Stores"
+msgstr "Magasins"
+
+#: functions/fn-acf-fields-theme.php:1349
+msgid "Some options for handling CSS during development."
+msgstr "Quelques options pour gérer CSS pendant le développement."
+
+#: functions/fn-acf-fields-theme.php:1354
+msgid "Custom CSS file"
+msgstr "Fichier CSS personnalisé"
+
+#: functions/fn-acf-fields-theme.php:1357
+#: functions/fn-acf-fields-theme.php:1367
+msgid "To be used only if you don't have access to scss file system."
+msgstr ""
+"A utiliser uniquement si vous n'avez pas accès au système de fichiers scss."
+
+#: functions/fn-acf-fields-theme.php:1364
+msgid "CSS inline"
+msgstr "CSS en ligne"
+
+#: functions/fn-acf-fields-theme.php:1377
+msgid "Login"
+msgstr "Connexion"
+
+#: functions/fn-acf-fields-theme.php:1394
+msgid "In this tab you can add custom styles for the login page."
+msgstr ""
+"Dans cet onglet, vous pouvez ajouter des styles personnalisés pour la page "
+"de connexion."
+
+#: functions/fn-acf-fields-theme.php:1399
+msgid "Login page custom CSS"
+msgstr "CSS personnalisée de la page de connexion"
+
+#: functions/fn-acf-fields-theme.php:1402
+msgid ""
+"Font fields and color fields are used to automatically generate custom "
+"styles for the login page. You can add more CSS rules here if needed."
+msgstr ""
+"Les champs de police et les champs de couleur sont utilisés pour générer "
+"automatiquement des styles personnalisés pour la page de connexion. Vous "
+"pouvez ajouter plus de règles CSS ici si nécessaire."
+
+#: functions/fn-acf-fields-theme.php:1427
+msgid "General layout settings for Mkt Theme."
+msgstr "Paramètres de mise en page généraux pour le thème Mkt."
+
+#: functions/fn-acf-fields-theme.php:1433
+msgid "Monitoring"
+msgstr "Surveillance"
+
+#: functions/fn-acf-fields-theme.php:1437
+msgid "Inline scripts"
+msgstr "Scripts en ligne"
+
+#: functions/fn-acf-fields-theme.php:1454
+msgid ""
+"In this tab you can add custom scripts in three different positions. Useful "
+"for monitoring codes like Google Analytics."
+msgstr ""
+"Dans cet onglet, vous pouvez ajouter des scripts personnalisés dans trois "
+"positions différentes. Utile pour surveiller les codes comme Google "
+"Analytics."
+
+#: functions/fn-acf-fields-theme.php:1458
+msgid "Scripts before &lt;/head&gt;"
+msgstr "Scripts avant &lt;/head&gt;"
+
+#: functions/fn-acf-fields-theme.php:1469
+msgid "Scripts after &lt;body&gt;"
+msgstr "Les scripts après &lt;body&gt;"
+
+#: functions/fn-acf-fields-theme.php:1564
+msgid "Google Tools"
+msgstr "Outils Google"
+
+#: functions/fn-acf-fields-theme.php:1581
+msgid "In this tab you can set options for Google Analytics and Google Maps."
+msgstr ""
+"Dans cet onglet, vous pouvez définir des options pour Google Analytics et "
+"Google Maps."
+
+#: functions/fn-acf-fields-theme.php:1585
+msgid "Google Analytics ID"
+msgstr "Identifiant Google Analytics"
+
+#: functions/fn-acf-fields-theme.php:1588
+msgid "The ID of the Google Analytics account associated with this domain."
+msgstr "L'ID du compte Google Analytics associé à ce domaine."
+
+#: functions/fn-acf-fields-theme.php:1592
+msgid "Google Tag Manager ID"
+msgstr "Identifiant Google Tag Manager"
+
+#: functions/fn-acf-fields-theme.php:1595
+msgid "The ID of the Google Tag Manager account associated with this domain."
+msgstr "L'ID du compte Google Tag Manager associé à ce domaine."
+
+#: functions/fn-acf-fields-theme.php:1599
+msgid "Ip Anonymizer"
+msgstr "Anonymiseur IP"
+
+#: functions/fn-acf-fields-theme.php:1602
+msgid ""
+"Toggle anonymize IP (this option will likely be deprecated starting with "
+"version 4 of Google Analytics)."
+msgstr ""
+"Activez l'anonymisation de l'adresse IP (cette option sera probablement "
+"obsolète à partir de la version 4 de Google Analytics)."
+
+#: functions/fn-acf-fields-theme.php:1610
+msgid "Facebook Tools"
+msgstr "Outils Facebook"
+
+#: functions/fn-acf-fields-theme.php:1627
+msgid "In this tab you can set Facebook Pixel Id and Facebook App id."
+msgstr ""
+"Dans cet onglet, vous pouvez définir l'identifiant du pixel Facebook et "
+"l'identifiant de l'application Facebook."
+
+#: functions/fn-acf-fields-theme.php:1665
+msgid "Site mode"
+msgstr "Mode site"
+
+#: functions/fn-acf-fields-theme.php:1670
+msgid "Staging"
+msgstr "Staging"
+
+#: functions/fn-acf-fields-theme.php:1687
+msgid ""
+"You can use this option to make conditionally changes based on production/"
+"staging status."
+msgstr ""
+"Vous pouvez utiliser cette option pour apporter des modifications "
+"conditionnelles en fonction de l'état production/staging."
+
+#: functions/fn-acf-fields-theme.php:1694
+msgid "Enable if this is a staging site."
+msgstr "Activez s'il s'agit d'un site de staging."
+
+#: functions/fn-acf-fields-theme.php:1702
+#: functions/fn-acf-fields-theme.php:1723
+#: functions/fn-acf-fields-theme.php:1730
+msgid "Maintenance Mode"
+msgstr "Mode de Maintenance"
+
+#: functions/fn-acf-fields-theme.php:1719
+msgid ""
+"In this tab you can activate the maintenance mode. This is useful when you "
+"have to work on the website and want to restrict access to users."
+msgstr ""
+"Dans cet onglet, vous pouvez activer le mode maintenance. Ceci est utile "
+"lorsque vous devez travailler sur le site Web et que vous souhaitez "
+"restreindre l'accès aux utilisateurs."
+
+#: functions/fn-acf-fields-theme.php:1740
+msgid "Custom pattern"
+msgstr "Modèle personnalisé"
+
+#: functions/fn-acf-fields-theme.php:1747
+msgid "Select a custom pattern if you don't want to show the default content."
+msgstr ""
+"Sélectionnez un modèle personnalisé si vous ne souhaitez pas afficher le "
+"contenu par défaut."
+
+#: functions/fn-acf-fields-theme.php:1763
+msgid "Excluded posts"
+msgstr "Messages exclus"
+
+#: functions/fn-acf-fields-theme.php:1766
+msgid ""
+"Cookie and privacy pages are excluded by default. Add any other pages you "
+"want to exclude."
+msgstr ""
+"Les pages de cookies et de confidentialité sont exclues par défaut. Ajoutez "
+"toutes les autres pages que vous souhaitez exclure."
+
+#: functions/fn-acf-fields-theme.php:1789
+msgid "Token"
+msgstr "Jeton"
+
+#: functions/fn-acf-fields-theme.php:1792
+#, php-format
+msgid ""
+"Enter a token of at least 8 alphanumeric characters and use it to bypass "
+"maintenance mode. Visit any page by adding the <strong>skip_token</strong> "
+"parameter with the token value as in  <a target=\"blank\" rel=\"noopener "
+"noreferrer nofollow\" href=\"%s\">this example</a>."
+msgstr ""
+"Saisissez un jeton d'au moins 8 caractères alphanumériques et utilisez-le "
+"pour contourner le mode maintenance. Visitez n'importe quelle page en "
+"ajoutant le paramètre <strong>skip_token</strong> avec la valeur du jeton, "
+"comme dans <a target=\"blank\" rel=\"noopener noreferrer nofollow\" "
+"href=\"%s\">cet exemple</a>."
+
+#: functions/fn-acf-fields-theme.php:1806
+msgid "Deprecated"
+msgstr "Obsolète"
+
+#: functions/fn-acf-fields-theme.php:1806
+msgid "Maintenance Mode Page"
+msgstr "Page du mode de maintenance"
+
+#: functions/fn-acf-fields-theme.php:1850 functions/fn-backend-cleanup.php:245
+msgid "Plugins"
+msgstr "Plugins"
+
+#: functions/fn-acf-fields-theme.php:1872
+#, php-format
+msgid ""
+"Additional options. See also the <a target=\"_blank\" rel=\"noopener "
+"noreferrer nofollow\" href=\"%s\">shortcodes page</a> for other "
+"customizations."
+msgstr ""
+"Options additionelles. Consultez également la <a target=\"_blank\" "
+"rel=\"noopener noreferrer nofollow\" href=\"%s\">page de shortcodes</a> pour "
+"d'autres personnalisations."
+
+#: functions/fn-acf-fields-theme.php:1872
+#: functions/fn-acf-fields-theme.php:1942
+#: functions/fn-acf-fields-theme.php:1981
+msgid "<strong class=\"text-error\">Plugin not found.</strong>"
+msgstr "<strong class=\"text-error\">Plugin introuvable.</strong>"
+
+#: functions/fn-acf-fields-theme.php:1876
+msgid "Plugin optimization"
+msgstr "Optimisation des plugins"
+
+#: functions/fn-acf-fields-theme.php:1880
+msgid ""
+"Plugin assets are disabled globally to improve performance. The Contact Form "
+"7 shortcode is automatically detected when included in the content of a post "
+"via the backend post editor. In these cases the assets are requeued. If you "
+"use the \"do_shortcode\" function within templates you need to set which "
+"post, post type or template it is used in."
+msgstr ""
+"Les actifs du plugin sont désactivés globalement pour améliorer les "
+"performances. Le shortcode Contact Form 7 est automatiquement détecté "
+"lorsqu'il est inclus dans le contenu d'une publication via l'éditeur de "
+"publication backend. Dans ces cas, les actifs sont remis en file d'attente. "
+"Si vous utilisez la fonction \"do_shortcode\" dans les modèles, vous devez "
+"définir dans quelle publication, type de publication ou modèle elle est "
+"utilisée."
+
+#: functions/fn-acf-fields-theme.php:1884
+msgid "Post included"
+msgstr "Article inclus"
+
+#: functions/fn-acf-fields-theme.php:1896
+msgid "Include Contact Form 7 assets only in these posts."
+msgstr ""
+"Incluez les actifs du formulaire de contact 7 uniquement dans ces "
+"publications."
+
+#: functions/fn-acf-fields-theme.php:1900
+msgid "Post types included"
+msgstr "Types de messages inclus"
+
+#: functions/fn-acf-fields-theme.php:1907
+msgid "Include Contact Form 7 assets only in these post types."
+msgstr ""
+"Incluez les actifs du formulaire de contact 7 uniquement dans ces types de "
+"publications."
+
+#: functions/fn-acf-fields-theme.php:1911
+msgid "Templates included"
+msgstr "Modèles inclus"
+
+#: functions/fn-acf-fields-theme.php:1918
+msgid "Include Contact Form 7 assets only in these templates."
+msgstr ""
+"Incluez les actifs du formulaire de contact 7 uniquement dans ces modèles."
+
+#: functions/fn-acf-fields-theme.php:1942
+#: functions/fn-acf-fields-theme.php:1981
+msgid "Additional options."
+msgstr "Options additionelles."
+
+#: functions/fn-acf-fields-theme.php:1953
+msgid "Append link in WPML lang switcher"
+msgstr "Ajouter un lien dans le sélecteur de langue WPML"
+
+#: functions/fn-acf-fields-theme.php:1959
+msgid ""
+"This option allows you to add a link to a language that is not supported by "
+"WPML, such as a language that is located in a subfolder, subdomain or other "
+"domain."
+msgstr ""
+"Cette option vous permet d'ajouter un lien vers une langue qui n'est pas "
+"prise en charge par WPML, comme une langue située dans un sous-dossier, un "
+"sous-domaine ou un autre domaine."
+
+#: functions/fn-acf-fields-theme.php:1992
+msgid "Heading font"
+msgstr "Police de titre"
+
+#: functions/fn-acf-fields-theme.php:1995
+msgid ""
+"Upload the font to be used for PDF headings. Only TTF files are allowed."
+msgstr ""
+"Téléchargez la police à utiliser pour les titres PDF. Seuls les fichiers TTF "
+"sont autorisés."
+
+#: functions/fn-acf-fields-theme.php:2002
+msgid "Body font"
+msgstr "Police du body"
+
+#: functions/fn-acf-fields-theme.php:2005
+msgid ""
+"Upload the font to be used for PDF bodycopy. Only TTF files are allowed."
+msgstr ""
+"Téléchargez la police à utiliser pour le bodycopy du PDF. Seuls les fichiers "
+"TTF sont autorisés."
+
+#: functions/fn-acf-fields-theme.php:2012
+msgid "Filename prefix"
+msgstr "Préfixe du nom de fichier"
+
+#: functions/fn-acf-fields-theme.php:2015
+msgid ""
+"The text to be used as a prefix for PDF files. No space allowed. Example of "
+"filename output: <br>prefix-post-title.pdf."
+msgstr ""
+"Le texte à utiliser comme préfixe pour les fichiers PDF. Aucun espace "
+"autorisé. Exemple de sortie de nom de fichier : <br>prefix-post-title.pdf."
+
+#: functions/fn-acf-fields-theme.php:2048
+msgid "Email notifications"
+msgstr "Notifications par email"
+
+#: functions/fn-acf-fields-theme.php:2065
+msgid ""
+"In this tab there are options useful if you are using custom email "
+"notifications sent directly form the website."
+msgstr ""
+"Dans cet onglet, vous trouverez des options utiles si vous utilisez des "
+"notifications par courrier électronique personnalisées envoyées directement "
+"depuis le site Web."
+
+#: functions/fn-acf-fields-theme.php:2069
+msgid "Email sender (name)"
+msgstr "Expéditeur de l'e-mail (nom)"
+
+#: functions/fn-acf-fields-theme.php:2072
+msgid "Set the name to be used in email header \"from\" field."
+msgstr ""
+"Définissez le nom à utiliser dans le champ \"De\" de l'en-tête de l'e-mail."
+
+#: functions/fn-acf-fields-theme.php:2078
+msgid "Email sender (email)"
+msgstr "Expéditeur d'e-mail (e-mail)"
+
+#: functions/fn-acf-fields-theme.php:2081
+msgid ""
+"Set the email to be used in email header \"from\" field. The email must have "
+"the same domain of the website to avoid spam filters."
+msgstr ""
+"Définissez l'e-mail à utiliser dans le champ \"from\" de l'en-tête de l'e-"
+"mail. L'e-mail doit avoir le même domaine que le site Web pour éviter les "
+"filtres anti-spam."
+
+#: functions/fn-acf-fields-theme.php:2086
+msgid "Reply to (name)"
+msgstr "Répondre à (nom)"
+
+#: functions/fn-acf-fields-theme.php:2089
+msgid "Set the name to be used in email header \"reply-to\" field."
+msgstr ""
+"Définissez le nom à utiliser dans le champ \"reply-to\" de l'en-tête de l'e-"
+"mail."
+
+#: functions/fn-acf-fields-theme.php:2094
+msgid "Reply to (email)"
+msgstr "Répondre à (e-mail)"
+
+#: functions/fn-acf-fields-theme.php:2097
+msgid "Set the email to be used in email header \"reply-to\" field."
+msgstr ""
+"Définissez l'e-mail à utiliser dans le champ \"reply-to\" de l'en-tête de "
+"l'e-mail."
+
+#: functions/fn-acf-fields-theme.php:2102
+msgid "Notifications recipients"
+msgstr "Destinataires des notifications"
+
+#: functions/fn-acf-fields-theme.php:2105
+msgid ""
+"Set one or more emails separated by commas. These are the emails "
+"notifications are sent to."
+msgstr ""
+"Définissez un ou plusieurs e-mails séparés par des virgules. Ce sont les e-"
+"mails auxquels les notifications sont envoyées."
+
+#: functions/fn-acf-fields-theme.php:2110
+msgid "Email disclaimer"
+msgstr "Avis de non-responsabilité par courrier électronique"
+
+#: functions/fn-acf-fields-theme.php:2113
+msgid "You can use this text as a starting point"
+msgstr "Vous pouvez utiliser ce texte comme point de départ"
+
+#: functions/fn-acf-fields-theme.php:2113
+#: functions/fn-acf-fields-theme.php:2119
+msgid ""
+"This e-mail and its attachments may contain confidential information only "
+"for the Recipient specified in the address. The information transmitted "
+"through this e-mail and its attachments are intended exclusively for the "
+"recipient and must be considered confidential with a ban on dissemination "
+"and use unless expressly authorized. If this e-mail and its attachments have "
+"been received by mistake from a person other than the addressee, please "
+"destroy everything received and inform the sender by the same means. Any "
+"use, disclosure or unauthorized copy of this communication is strictly "
+"prohibited and involves a violation of the provisions of the Law on the "
+"protection of personal data European Regulation 2016/679."
+msgstr ""
+"Cet e-mail et ses pièces jointes peuvent contenir des informations "
+"confidentielles uniquement pour le destinataire spécifié dans l'adresse. Les "
+"informations transmises via cet e-mail et ses pièces jointes sont destinées "
+"exclusivement au destinataire et doivent être considérées comme "
+"confidentielles avec une interdiction de diffusion et d'utilisation sauf "
+"autorisation expresse. Si cet e-mail et ses pièces jointes ont été reçus par "
+"erreur d'une personne autre que le destinataire, merci de détruire tout ce "
+"qui a été reçu et d'en informer l'expéditeur par le même moyen. Toute "
+"utilisation, divulgation ou copie non autorisée de cette communication est "
+"strictement interdite et implique une violation des dispositions de la loi "
+"sur la protection des données personnelles Règlement européen 2016/679."
+
+#: functions/fn-acf-fields-theme.php:2145
+msgid "Theme license and updates"
+msgstr "Licence du thème et mises à jour"
+
+#: functions/fn-acf-fields-theme.php:2149
+msgid "License key"
+msgstr "Clé de licence"
+
+#: functions/fn-acf-fields-theme.php:2152 functions/fn-license.php:136
+msgid "Register your license to enable updates."
+msgstr "Enregistrez votre licence pour activer les mises à jour."
+
+#: functions/fn-acf-fields-theme.php:2155
+msgid "36 Alphanumeric characters"
+msgstr "36 caractères alphanumériques"
+
+#: functions/fn-acf-fields-theme.php:2159
+msgid "Update theme"
+msgstr "Mettre à jour le thème"
+
+#: functions/fn-acf-fields-theme.php:2165
+msgid "Update now"
+msgstr "Mettre à jour maintenant"
+
+#: functions/fn-acf-fields-theme.php:2166
+msgid "Keep this version"
+msgstr "Gardez cette version"
+
+#: functions/fn-acf-fields-theme.php:2197
+#: functions/fn-acf-fields-theme.php:2742 functions/fn-backend.php:769
+msgid "Notes"
+msgstr "Remarques"
+
+#: functions/fn-acf-fields-theme.php:2232
+#: functions/fn-acf-fields-theme.php:2236
+msgid "Desktop navigation"
+msgstr "Navigation desktop"
+
+#: functions/fn-acf-fields-theme.php:2270
+#: functions/fn-acf-fields-theme.php:2274
+msgid "Show/Hide navigation"
+msgstr "Afficher/Masquer la navigation"
+
+#: functions/fn-acf-fields-theme.php:2305
+#: functions/fn-acf-fields-theme.php:2309
+msgid "Featured Icon"
+msgstr "Icône en vedette"
+
+#: functions/fn-acf-fields-theme.php:2340
+#: functions/fn-acf-fields-theme.php:2344
+msgid "Preload image"
+msgstr "Précharger l'image"
+
+#: functions/fn-acf-fields-theme.php:2375
+msgid "Maintenance mode for pages"
+msgstr "Mode maintenance des pages"
+
+#: functions/fn-acf-fields-theme.php:2379
+msgid "Maintenance mode"
+msgstr "Mode de Maintenance"
+
+#: functions/fn-acf-fields-theme.php:2385
+msgid "Hide page content and show a maintenance message."
+msgstr "Masquer le contenu de la page et afficher un message de maintenance."
+
+#: functions/fn-acf-fields-theme.php:2389
+msgid "Block"
+msgstr "Bloc"
+
+#: functions/fn-acf-fields-theme.php:2398
+msgid "Select a block to override the default message."
+msgstr "Sélectionnez un bloc pour remplacer le message par défaut."
+
+#: functions/fn-acf-fields-theme.php:2431
+msgid "Page Custom CSS"
+msgstr "Page CSS personnalisée"
+
+#: functions/fn-acf-fields-theme.php:2435
+msgid "Custom CSS"
+msgstr "CSS personnalisé"
+
+#: functions/fn-acf-fields-theme.php:2475
+msgid "Taxonomy Extra Fields"
+msgstr "Champs supplémentaires de taxonomie"
+
+#: functions/fn-acf-fields-theme.php:2479
+msgid "Term options"
+msgstr "Options de terme"
+
+#: functions/fn-acf-fields-theme.php:2496
+msgid ""
+"These fields can be used to add one or more of the following options to the "
+"term: order of appearance, colour, image and logo. The default header of the "
+"term shows only the title but it is possible to override it by filling in "
+"the fields of the \"custom template\" group or by selecting a block in "
+"\"template block\". In order, the \"template block\" overrides the \"custom "
+"template\" which in turn overrides the default template."
+msgstr ""
+"Ces champs peuvent être utilisés pour ajouter une ou plusieurs des options "
+"suivantes au terme : ordre d'apparition, couleur, image et logo. L'en-tête "
+"par défaut du terme affiche uniquement le titre mais il est possible de le "
+"remplacer en remplissant les champs du groupe \"modèle personnalisé\" ou en "
+"sélectionnant un bloc dans \"bloc modèle\". Dans l'ordre, le « bloc modèle » "
+"remplace le « modèle personnalisé » qui à son tour remplace le modèle par "
+"défaut."
+
+#: functions/fn-acf-fields-theme.php:2503
+msgid "Set custom menu order for this term."
+msgstr "Définissez un ordre de menu personnalisé pour ce terme."
+
+#: functions/fn-acf-fields-theme.php:2511
+msgid "Select the color to associate with this term."
+msgstr "Sélectionnez la couleur à associer à ce terme."
+
+#: functions/fn-acf-fields-theme.php:2515
+msgid "Featured image"
+msgstr "L'image sélectionnée"
+
+#: functions/fn-acf-fields-theme.php:2522
+msgid "Select the image to associate with this term."
+msgstr "Sélectionnez l'image à associer à ce terme."
+
+#: functions/fn-acf-fields-theme.php:2526
+#: functions/fn-acf-register-blocks.php:226
+msgid "Logo"
+msgstr "Logo"
+
+#: functions/fn-acf-fields-theme.php:2533
+msgid "Select the logo to associate with this term (SVGs only)."
+msgstr "Sélectionnez le logo à associer à ce terme (SVG uniquement)."
+
+#: functions/fn-acf-fields-theme.php:2556
+msgid "Optional fields for the term template header."
+msgstr "Champs facultatifs pour l’en-tête du modèle de terme."
+
+#: functions/fn-acf-fields-theme.php:2560
+msgid "Top title"
+msgstr "Premier titre"
+
+#: functions/fn-acf-fields-theme.php:2563
+msgid "Ex: News"
+msgstr "Ex : Actualités"
+
+#: functions/fn-acf-fields-theme.php:2570
+msgid "Ex: Company News"
+msgstr "Ex : Actualités de l'entreprise"
+
+#: functions/fn-acf-fields-theme.php:2577
+msgid "Ex: All the news about this company"
+msgstr "Ex : Toute l'actualité de cette entreprise"
+
+#: functions/fn-acf-fields-theme.php:2581
+msgid "Gallery"
+msgstr "Galerie"
+
+#: functions/fn-acf-fields-theme.php:2593
+msgid "Block template"
+msgstr "Modèle de bloc"
+
+#: functions/fn-acf-fields-theme.php:2611
+msgid "Choose a block to use as a header in the term template."
+msgstr "Choisissez un bloc à utiliser comme en-tête dans le modèle de terme."
+
+#: functions/fn-acf-fields-theme.php:2615
+msgid "Term block"
+msgstr "Bloc de terme"
+
+#: functions/fn-acf-fields-theme.php:2648
+msgid "Menu item"
+msgstr "Élément du menu"
+
+#: functions/fn-acf-fields-theme.php:2690
+msgid "Hap user options"
+msgstr "Options utilisateur Hap"
+
+#: functions/fn-acf-fields-theme.php:2694
+msgid "Footer tools on frontend"
+msgstr "Outils de pied de page sur le frontend"
+
+#: functions/fn-acf-fields-theme.php:2704
+msgid "Edit"
+msgstr "Modifier"
+
+#: functions/fn-acf-fields-theme.php:2780
+msgid "Search"
+msgstr "Rechercher"
+
+#: functions/fn-acf-fields-theme.php:2799
+msgid "Notices"
+msgstr "Avis"
+
+#: functions/fn-acf-fields-theme.php:2837
+msgid "Hap theme options"
+msgstr "Options de thème Hap"
+
+#: functions/fn-acf-fields-theme.php:2856
+msgid "Scripts"
+msgstr "Scripts"
+
+#: functions/fn-acf-fields-theme.php:2875
+msgid "Styles"
+msgstr "Styles"
+
+#: functions/fn-acf-fields-theme.php:2894
+msgid "Page load"
+msgstr "Chargement de la page"
+
+#: functions/fn-acf-fields-theme.php:2942
+msgid "Publicly known business name or company name"
+msgstr "Raison sociale ou raison sociale publiquement connue"
+
+#: functions/fn-acf-fields-theme.php:2946
+msgid "Contact person"
+msgstr "Personne de contact"
+
+#: functions/fn-acf-fields-theme.php:2949
+msgid "Ex: John Doe"
+msgstr "EX : Luc Dupont"
+
+#: functions/fn-acf-fields-theme.php:2953
+msgid "Address (map)"
+msgstr "Adresse (carte)"
+
+#: functions/fn-acf-fields-theme.php:2961
+msgid "Address (custom)"
+msgstr "Adresse (personnalisée)"
+
+#: functions/fn-acf-fields-theme.php:2977
+msgid "Ex: London"
+msgstr "Ex : Paris"
+
+#: functions/fn-acf-fields-theme.php:2981
+msgid "Province"
+msgstr "Province"
+
+#: functions/fn-acf-fields-theme.php:3009
+msgid "Ex: Italy"
+msgstr "Ex : France"
+
+#: functions/fn-acf-fields-theme.php:3013
+msgid "Continent"
+msgstr "Continent"
+
+#: functions/fn-acf-fields-theme.php:3019
+msgid "Ex: Europe"
+msgstr "Ex : Europe"
+
+#: functions/fn-acf-fields-theme.php:3026
+#: functions/fn-acf-fields-theme.php:3033
+msgid "Ex: email@store.com"
+msgstr "Ex : email@store.com"
+
+#: functions/fn-acf-fields-theme.php:3040
+msgid "Ex: email@pec.com"
+msgstr "Ex : email@pec.com"
+
+#: functions/fn-acf-fields-theme.php:3058
+msgid "Toll-free phone number"
+msgstr "Numéro de téléphone sans frais"
+
+#: functions/fn-acf-fields-theme.php:3079 templates/store/single-store.php:139
+msgid "Website"
+msgstr "Site Internet"
+
+#: functions/fn-acf-fields-theme.php:3082
+msgid "https://store.com"
+msgstr "https://store.com"
+
+#: functions/fn-acf-fields-theme.php:3086 templates/store/single-store.php:161
+msgid "Services"
+msgstr "Services"
+
+#: functions/fn-acf-fields-theme.php:3091
+msgid "Add service"
+msgstr "Ajouter service"
+
+#: functions/fn-acf-fields-theme.php:3139 templates/store/single-store.php:193
+msgid "Opening hours"
+msgstr "Horaires d’ouvertures"
+
+#: functions/fn-acf-fields-theme.php:3146 functions/fn-utilities.php:1187
+msgid "Monday"
+msgstr "Lundi"
+
+#: functions/fn-acf-fields-theme.php:3158 functions/fn-utilities.php:1188
+msgid "Tuesday"
+msgstr "Mardi"
+
+#: functions/fn-acf-fields-theme.php:3170 functions/fn-utilities.php:1189
+msgid "Wednesday"
+msgstr "Mercredi"
+
+#: functions/fn-acf-fields-theme.php:3183 functions/fn-utilities.php:1190
+msgid "Thursday"
+msgstr "Jeudi"
+
+#: functions/fn-acf-fields-theme.php:3196 functions/fn-utilities.php:1191
+msgid "Friday"
+msgstr "Vendredi"
+
+#: functions/fn-acf-fields-theme.php:3208 functions/fn-utilities.php:1192
+msgid "Saturday"
+msgstr "Samedi"
+
+#: functions/fn-acf-fields-theme.php:3220 functions/fn-utilities.php:1193
+msgid "Sunday"
+msgstr "Dimanche"
+
+#: functions/fn-acf-fields-theme.php:3234
+msgid "Photo Gallery"
+msgstr "Galerie de photos"
+
+#: functions/fn-acf-fields-theme.php:3245
+msgid "Contact form"
+msgstr "Formulaire de contact"
+
+#: functions/fn-acf-register-blocks.php:68
+msgid "Hap Core"
+msgstr "Core Hap"
+
+#: functions/fn-acf-register-blocks.php:74
+msgid "Hap / Layout"
+msgstr "Hap / Layout"
+
+#: functions/fn-acf-register-blocks.php:80
+msgid "Hap / Images"
+msgstr "Hap / Images"
+
+#: functions/fn-acf-register-blocks.php:86
+msgid "Hap / Buttons and links"
+msgstr "Hap / Boutons et liens"
+
+#: functions/fn-acf-register-blocks.php:92
+msgid "Hap / Modals"
+msgstr "Hap / Modaux"
+
+#: functions/fn-acf-register-blocks.php:98
+msgid "Hap / Heros"
+msgstr "Hap / Héros"
+
+#: functions/fn-acf-register-blocks.php:104
+msgid "Hap / Get content"
+msgstr "Hap / Obtenir contenu"
+
+#: functions/fn-acf-register-blocks.php:110
+msgid "Hap / Lists"
+msgstr "Hap / Listes"
+
+#: functions/fn-acf-register-blocks.php:116
+msgid "Hap / UI Elements"
+msgstr "Happ / Éléments IU"
+
+#: functions/fn-acf-register-blocks.php:122
+msgid "Hap / Navigation"
+msgstr "Hap / Navigation"
+
+#: functions/fn-acf-register-blocks.php:128
+msgid "Hap / Charts"
+msgstr "Happ / Graphiques"
+
+#: functions/fn-acf-register-blocks.php:183
+msgid "A block for designing complex layouts."
+msgstr "Un bloc pour concevoir des mises en page complexes."
+
+#: functions/fn-acf-register-blocks.php:202
+msgid "Simple div"
+msgstr "Div simple"
+
+#: functions/fn-acf-register-blocks.php:203
+msgid "A simple DIV block."
+msgstr "Un simple bloc DIV."
+
+#: functions/fn-acf-register-blocks.php:227
+msgid "The logo block."
+msgstr "Le bloc du logo."
+
+#: functions/fn-acf-register-blocks.php:245
+msgid "Hamburger"
+msgstr "Hamburger"
+
+#: functions/fn-acf-register-blocks.php:246
+msgid "The hamburger block."
+msgstr "Le bloc du hamburger."
+
+#: functions/fn-acf-register-blocks.php:265
+msgid "Useful info and links that can be used in the footer or elsewhere."
+msgstr ""
+"Informations utiles et liens pouvant être utilisés dans le pied de page ou "
+"ailleurs."
+
+#: functions/fn-acf-register-blocks.php:284
+msgid "Links to social media."
+msgstr "Liens vers les social media."
+
+#: functions/fn-acf-register-blocks.php:307
+msgid "The bar chart block."
+msgstr "Le bloc de graphique à barres."
+
+#: functions/fn-acf-register-blocks.php:326
+msgid "The pie chart block."
+msgstr "Le bloc graphique à secteurs."
+
+#: functions/fn-acf-register-blocks.php:349
+msgid "The main hero block."
+msgstr "Le bloc de héros principal."
+
+#: functions/fn-acf-register-blocks.php:369
+msgid "The video hero block."
+msgstr "Le bloc de héros vidéo."
+
+#: functions/fn-acf-register-blocks.php:394
+msgid "Add a custom image."
+msgstr "Ajoutez une image personnalisée."
+
+#: functions/fn-acf-register-blocks.php:413
+msgid "Svg image"
+msgstr "Image SVG"
+
+#: functions/fn-acf-register-blocks.php:414
+msgid "Add a svg image."
+msgstr "Ajouter une image svg."
+
+#: functions/fn-acf-register-blocks.php:432
+msgid "Image with sticker"
+msgstr "Image avec sticker"
+
+#: functions/fn-acf-register-blocks.php:433
+msgid "Add an image with sticker."
+msgstr "Ajoutez une image avec un sticker."
+
+#: functions/fn-acf-register-blocks.php:457
+msgid "Add a simple button."
+msgstr "Ajouter un simple bouton."
+
+#: functions/fn-acf-register-blocks.php:476
+msgid "Add an action link to track events."
+msgstr "Ajoutez un lien d’action pour suivre les événements."
+
+#: functions/fn-acf-register-blocks.php:494
+msgid "Link with content"
+msgstr "Lien avec le contenu"
+
+#: functions/fn-acf-register-blocks.php:495
+msgid "Add a link with inner blocks."
+msgstr "Ajoutez un lien avec des blocs internes."
+
+#: functions/fn-acf-register-blocks.php:518
+msgid "WPML Language switcher"
+msgstr "Sélecteur de langue WPML"
+
+#: functions/fn-acf-register-blocks.php:519
+msgid "Add a language switcher."
+msgstr "Ajoutez un sélecteur de langue."
+
+#: functions/fn-acf-register-blocks.php:537
+msgid "Key number"
+msgstr "Numéro de clé"
+
+#: functions/fn-acf-register-blocks.php:538
+msgid "Add an infographic-style key number."
+msgstr "Ajoutez un numéro clé de style infographique."
+
+#: functions/fn-acf-register-blocks.php:557
+msgid "Icon text"
+msgstr "Texte avec icône"
+
+#: functions/fn-acf-register-blocks.php:558
+msgid "Add a block with icon and text."
+msgstr "Ajoutez un bloc avec une icône et du texte."
+
+#: functions/fn-acf-register-blocks.php:577
+msgid "Banner"
+msgstr "Bannière"
+
+#: functions/fn-acf-register-blocks.php:578
+msgid "A banner on two columns with text and image."
+msgstr "Une bannière sur deux colonnes avec texte et image."
+
+#: functions/fn-acf-register-blocks.php:618
+msgid "Add a table of contents."
+msgstr "Ajouter une table des matières."
+
+#: functions/fn-acf-register-blocks.php:639
+msgid "Add a tab component."
+msgstr "Ajoutez un composant tab."
+
+#: functions/fn-acf-register-blocks.php:659
+msgid "A tab item."
+msgstr "Un élément tab."
+
+#: functions/fn-acf-register-blocks.php:679
+msgid "Accordion"
+msgstr "Accordéon"
+
+#: functions/fn-acf-register-blocks.php:680
+msgid "Add an accordion component."
+msgstr "Ajoutez un composant du accordéon."
+
+#: functions/fn-acf-register-blocks.php:700
+msgid "An accordion item."
+msgstr "Un article du accordéon."
+
+#: functions/fn-acf-register-blocks.php:721
+msgid "A Photoswipe gallery."
+msgstr "Une galerie Photoswipe."
+
+#: functions/fn-acf-register-blocks.php:741
+msgid "Add a slider component."
+msgstr "Ajoutez un composant slider."
+
+#: functions/fn-acf-register-blocks.php:760
+msgid "Swiper slide"
+msgstr "Slide Swiper"
+
+#: functions/fn-acf-register-blocks.php:761
+msgid "A slide for Swiper Slider."
+msgstr "Une diapositive pour Swiper Slider."
+
+#: functions/fn-acf-register-blocks.php:782
+msgid "A map block."
+msgstr "Un bloc de carte."
+
+#: functions/fn-acf-register-blocks.php:801
+msgid "A link with an icon."
+msgstr "Un lien avec une icône."
+
+#: functions/fn-acf-register-blocks.php:824
+msgid "Query"
+msgstr "Requête"
+
+#: functions/fn-acf-register-blocks.php:825
+msgid "Query posts and apply custom template."
+msgstr "Recherchez des publications et appliquez un modèle personnalisé."
+
+#: functions/fn-acf-register-blocks.php:844
+msgid "Select posts and apply custom template."
+msgstr "Sélectionnez les articles et appliquez un modèle personnalisé."
+
+#: functions/fn-acf-register-blocks.php:864
+msgid "Add a WP menu."
+msgstr "Ajoutez un menu WP."
+
+#: functions/fn-acf-register-blocks.php:883
+msgid "Get a template as a block."
+msgstr "Obtenez un modèle sous forme de bloc."
+
+#: functions/fn-acf-register-blocks.php:906
+msgid "Contact Form 7 modal"
+msgstr "Modal Contact Form 7"
+
+#: functions/fn-acf-register-blocks.php:907
+msgid "A link/button to open a Contact Form 7 form in a modal."
+msgstr "Un lien/bouton pour ouvrir un formulaire Contact Form 7 dans un modal."
+
+#: functions/fn-acf-register-blocks.php:930
+msgid "Advanced list"
+msgstr "Liste avancée"
+
+#: functions/fn-acf-register-blocks.php:931
+msgid "Add an advanced list."
+msgstr "Ajoutez une liste avancée."
+
+#: functions/fn-acf-register-blocks.php:950
+msgid "List item"
+msgstr "Élément de liste"
+
+#: functions/fn-acf-register-blocks.php:951
+msgid "An advanced list item."
+msgstr "Un élément de liste avancé."
+
+#: functions/fn-acf-register-blocks.php:971
+msgid "Description list"
+msgstr "Liste des descriptions"
+
+#: functions/fn-acf-register-blocks.php:972
+msgid "Add a description list."
+msgstr "Ajouter une liste de description."
+
+#: functions/fn-acf-register-blocks.php:992
+msgid "A description list item."
+msgstr "Un élément de liste de description."
+
+#: functions/fn-backend-cleanup.php:240
+msgid "Media"
+msgstr "Médias"
+
+#: functions/fn-backend-cleanup.php:241
+msgid "Links"
+msgstr "Liens"
+
+#: functions/fn-backend-cleanup.php:242
+msgid "Pages"
+msgstr "Pages"
+
+#: functions/fn-backend-cleanup.php:243
+msgid "Comments"
+msgstr "Commentaires"
+
+#: functions/fn-backend-cleanup.php:246
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: functions/fn-backend-cleanup.php:247
+msgid "Tools"
+msgstr "Outils"
+
+#: functions/fn-backend-cleanup.php:248
+msgid "Settings"
+msgstr "Paramètres"
+
+#: functions/fn-backend-cleanup.php:249
+msgid "options"
+msgstr "choix"
+
+#: functions/fn-backend.php:203
+#, php-format
+msgid ""
+"a theme by <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer "
+"nofollow\">Tenaglia Studio</a>"
+msgstr ""
+"un thème de  <a href=\"%s\" target=\"_blank\" rel=\"noopener noreferrer "
+"nofollow\">Tenaglia Studio</a>"
+
+#: functions/fn-backend.php:329
+msgid "Primary Menu"
+msgstr "Menu primaire"
+
+#: functions/fn-backend.php:330
+msgid "Secondary Menu"
+msgstr "Menu secondaire"
+
+#: functions/fn-backend.php:331
+msgid "Mobile Menu"
+msgstr "Menu mobile"
+
+#: functions/fn-backend.php:677 functions/fn-backend.php:721
+msgid "Contacts Page"
+msgstr "Contacts Page"
+
+#: functions/fn-backend.php:706
+msgid "Terms &amp; Conditions Page"
+msgstr "Page termes et conditions"
+
+#: functions/fn-backend.php:801 functions/fn-backend.php:802
+msgid "Patterns"
+msgstr "Motifs"
+
+#: functions/fn-cpt-register.php:45 functions/fn-cpt-register.php:46
+#: functions/fn-cpt-register.php:47 functions/fn-cpt-register.php:51
+msgid "Progress"
+msgstr "Progrès"
+
+#: functions/fn-cpt-register.php:98 functions/fn-cpt-register.php:100
+#: functions/fn-cpt-register.php:104
+msgid "Page categories"
+msgstr "Catégories de pages"
+
+#: functions/fn-cpt-register.php:99
+msgid "Page category"
+msgstr "Catégorie de pages"
+
+#: functions/fn-cpt-stores.php:48 functions/fn-cpt-stores.php:235
+msgid "Store"
+msgstr "Magasin"
+
+#: functions/fn-cpt-stores.php:55
+msgid "Custom post type to add stores to the website."
+msgstr "Type de article personnalisé pour ajouter des magasins au site Web."
+
+#: functions/fn-cpt-stores.php:103
+msgid "Store categories"
+msgstr "Catégories de magasins"
+
+#: functions/fn-cpt-stores.php:104 functions/fn-cpt-stores.php:105
+#: functions/fn-cpt-stores.php:109
+msgid "Store category"
+msgstr "Catégorie de magasin"
+
+#: functions/fn-cpt-stores.php:206
+msgid ""
+"Error! The post type \"store\" is not active. This class is available only "
+"for the post type \"store\"."
+msgstr ""
+"Erreur! Le type de publication \"store\" n’est pas actif. Cette classe est "
+"disponible uniquement pour le type de publication \"magasin”."
+
+#: functions/fn-cpt-stores.php:210
+#, php-format
+msgid ""
+"Error! You have entered the id of a post of type \"%s\" but this function "
+"can only be used for posts of type \"store\"."
+msgstr ""
+"Erreur! Vous avez saisi l'id d'un article de type \"%s\" mais cette fonction "
+"n'est utilisable que pour les articles de type \"store\"."
+
+#: functions/fn-enforce-pw.php:76
+msgid "User name cannot be empty."
+msgstr "Le nom d'utilisateur ne peut pas être vide."
+
+#: functions/fn-enforce-pw.php:78
+msgid "Password is not strong enough."
+msgstr "Le mot de passe n’est pas assez fort."
+
+#: functions/fn-frontend.php:1556
+msgid "Maintenance in progress"
+msgstr "Maintenance en cours"
+
+#: functions/fn-frontend.php:1557
+msgid ""
+"The site is temporarily under maintenance. We will be back online shortly. "
+"We apologize for the inconvenience."
+msgstr ""
+"Le site est temporairement en maintenance. Nous serons de nouveau en ligne "
+"sous peu. Nous nous excusons pour le dérangement."
+
+#: functions/fn-frontend.php:1587
+msgid "This page is briefly unavailable."
+msgstr "Cette page est momentanément indisponible."
+
+#: functions/fn-frontend.php:1709 templates/error-pages/error-page.php:51
+msgid "Forbidden"
+msgstr "Interdit"
+
+#: functions/fn-frontend.php:1713 templates/error-pages/error-page.php:50
+msgid "Unauthorized"
+msgstr "Non autorisé"
+
+#: functions/fn-frontend.php:1753
+msgid "Privacy policy"
+msgstr "Politique de confidentialité"
+
+#: functions/fn-license.php:127 functions/fn-license.php:140
+msgid "The license key is registered, updates are enabled."
+msgstr "La clé de licence est enregistrée, les mises à jour sont activées."
+
+#: functions/fn-license.php:137
+msgid "The key must contain 36 characters."
+msgstr "La clé doit contenir 36 caractères."
+
+#: functions/fn-license.php:138
+msgid "The key must contain only letters and numbers."
+msgstr "La clé doit contenir uniquement des lettres et des chiffres."
+
+#: functions/fn-license.php:139
+msgid "This key is not valid."
+msgstr "Cette clé n’est pas valide."
+
+#: functions/fn-license.php:148
+msgid "Something went wrong."
+msgstr "Quelque chose s’est mal passé."
+
+#: functions/fn-license.php:292
+msgid "Only administrators can update Mkt Theme."
+msgstr "Seuls les administrateurs peuvent mettre à jour le thème Mkt."
+
+#: functions/fn-license.php:306
+msgid "Enter your Mkt license key to enable updates."
+msgstr "Saisissez votre clé de licence Mkt pour activer les mises à jour."
+
+#: functions/fn-license.php:338
+msgid ""
+"An error occurred while retrieving the file, Mkt Theme core cannot be "
+"updated."
+msgstr ""
+"Une erreur s’est produite lors de la récupération du fichier, le noyau du "
+"thème Mkt ne peut pas être mis à jour."
+
+#: functions/fn-license.php:344
+msgid "Current version"
+msgstr "Version actuelle"
+
+#: functions/fn-license.php:344
+msgid "Remote version"
+msgstr "Version à distance"
+
+#: functions/fn-license.php:348
+msgid ""
+"Remote version is same or older than installed version, Mkt theme core "
+"cannot be updated."
+msgstr ""
+"La version à distance est identique ou antérieure à la version installée, le "
+"cœur du thème Met ne peut pas être mis à jour."
+
+#: functions/fn-license.php:352
+msgid "Remote version is older than current version."
+msgstr "La version distante est plus ancienne que la version actuelle."
+
+#: functions/fn-media.php:222
+msgid "Your browser does not support the video tag."
+msgstr "Votre navigateur ne prend pas en charge le tag vidéo."
+
+#: functions/fn-media.php:359 functions/fn-media.php:379
+msgid "Unable to open file!"
+msgstr "Impossible d’ouvrir le fichier!"
+
+#: functions/fn-media.php:445
+#, php-format
+msgid "Image files must be smaller than %skb"
+msgstr "Les fichiers image doivent être plus petits que %skb"
+
+#: functions/fn-utilities.php:587 functions/fn-utilities.php:2680
+msgid "Get directions"
+msgstr "Obtenir des directions"
+
+#: functions/fn-utilities.php:861
+msgid "Administrator"
+msgstr "Administrateur"
+
+#: functions/fn-utilities.php:862
+msgid "Editor"
+msgstr "Éditeur"
+
+#: functions/fn-utilities.php:863
+msgid "Author"
+msgstr "Auteur"
+
+#: functions/fn-utilities.php:864
+msgid "Contributor"
+msgstr "Collaborateur"
+
+#: functions/fn-utilities.php:865
+msgid "Subscriber"
+msgstr "Souscripteur"
+
+#: functions/fn-utilities.php:867 functions/fn-utilities.php:872
+msgid "SEO Editor"
+msgstr "Éditeur SEO"
+
+#: functions/fn-utilities.php:868
+msgid "SEO Manager"
+msgstr "Responsable SEO"
+
+#: functions/fn-utilities.php:870
+msgid "Shop Manager"
+msgstr "Responsable de shop"
+
+#: functions/fn-utilities.php:871
+msgid "Customer"
+msgstr "Client"
+
+#: functions/fn-utilities.php:1206
+msgid "January"
+msgstr "Janvier"
+
+#: functions/fn-utilities.php:1207
+msgid "February"
+msgstr "Février"
+
+#: functions/fn-utilities.php:1208
+msgid "March"
+msgstr "Mars"
+
+#: functions/fn-utilities.php:1209
+msgid "April"
+msgstr "Avril"
+
+#: functions/fn-utilities.php:1210
+msgid "May"
+msgstr "Mai"
+
+#: functions/fn-utilities.php:1211
+msgid "June"
+msgstr "Juin"
+
+#: functions/fn-utilities.php:1212
+msgid "July"
+msgstr "Juillet"
+
+#: functions/fn-utilities.php:1213
+msgid "August"
+msgstr "Août"
+
+#: functions/fn-utilities.php:1214
+msgid "September"
+msgstr "Septembre"
+
+#: functions/fn-utilities.php:1215
+msgid "October"
+msgstr "Octobre"
+
+#: functions/fn-utilities.php:1216
+msgid "November"
+msgstr "Novembre"
+
+#: functions/fn-utilities.php:1217
+msgid "December"
+msgstr "Décembre"
+
+#: functions/fn-utilities.php:1289
+msgid "Africa"
+msgstr "Afrique"
+
+#: functions/fn-utilities.php:1290
+msgid "Asia"
+msgstr "Asie"
+
+#: functions/fn-utilities.php:1291
+msgid "America"
+msgstr "Amérique"
+
+#: functions/fn-utilities.php:1292
+msgid "North America"
+msgstr "Amérique du Nord"
+
+#: functions/fn-utilities.php:1293
+msgid "South America"
+msgstr "Amérique du Sud"
+
+#: functions/fn-utilities.php:1294
+msgid "Europe"
+msgstr "Europe"
+
+#: functions/fn-utilities.php:1295
+msgid "Oceania"
+msgstr "Océanie"
+
+#: functions/fn-utilities.php:1296 functions/fn-utilities.php:1331
+msgid "Antarctica"
+msgstr "Antarctique"
+
+#: functions/fn-utilities.php:1323
+msgid "United Arab Emirates"
+msgstr "Emirats Arabes Unis"
+
+#: functions/fn-utilities.php:1324
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: functions/fn-utilities.php:1325
+msgid "Albania"
+msgstr "Albanie"
+
+#: functions/fn-utilities.php:1326
+msgid "Algeria"
+msgstr "Algérie"
+
+#: functions/fn-utilities.php:1327
+msgid "American Samoa"
+msgstr "Samoa américaines"
+
+#: functions/fn-utilities.php:1328
+msgid "Andorra"
+msgstr "Andorre"
+
+#: functions/fn-utilities.php:1329
+msgid "Angola"
+msgstr "Angola"
+
+#: functions/fn-utilities.php:1330
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: functions/fn-utilities.php:1332
+msgid "Antigua and Barbuda"
+msgstr "Antigua-et-Barbuda"
+
+#: functions/fn-utilities.php:1333
+msgid "Argentina"
+msgstr "Argentine"
+
+#: functions/fn-utilities.php:1334
+msgid "Armenia"
+msgstr "Arménie"
+
+#: functions/fn-utilities.php:1335
+msgid "Aruba"
+msgstr "Aruba"
+
+#: functions/fn-utilities.php:1336
+msgid "Australia"
+msgstr "Australie"
+
+#: functions/fn-utilities.php:1337
+msgid "Austria"
+msgstr "Autriche"
+
+#: functions/fn-utilities.php:1338
+msgid "Azerbaijan"
+msgstr "Azerbaïdjan"
+
+#: functions/fn-utilities.php:1339
+msgid "Bahamas"
+msgstr "Bahamas"
+
+#: functions/fn-utilities.php:1340
+msgid "Bahrain"
+msgstr "Bahreïn"
+
+#: functions/fn-utilities.php:1341
+msgid "Bangladesh"
+msgstr "Bengladesh"
+
+#: functions/fn-utilities.php:1342
+msgid "Barbados"
+msgstr "Barbade"
+
+#: functions/fn-utilities.php:1343
+msgid "Belarus"
+msgstr "Biélorussie"
+
+#: functions/fn-utilities.php:1344
+msgid "Belgium"
+msgstr "Belgique"
+
+#: functions/fn-utilities.php:1345
+msgid "Belize"
+msgstr "Bélize"
+
+#: functions/fn-utilities.php:1346
+msgid "Benin"
+msgstr "Bénin"
+
+#: functions/fn-utilities.php:1347
+msgid "Bermuda"
+msgstr "Bermudes"
+
+#: functions/fn-utilities.php:1348
+msgid "Bhutan"
+msgstr "Bhoutan"
+
+#: functions/fn-utilities.php:1349
+msgid "Bolivia"
+msgstr "Bolivie"
+
+#: functions/fn-utilities.php:1350
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnie Herzégovine"
+
+#: functions/fn-utilities.php:1351
+msgid "Botswana"
+msgstr "Bostwana"
+
+#: functions/fn-utilities.php:1352
+msgid "Bouvet Island"
+msgstr "Île Bouvet"
+
+#: functions/fn-utilities.php:1353
+msgid "Brazil"
+msgstr "Brésil"
+
+#: functions/fn-utilities.php:1354
+msgid "British Indian Ocean Territory"
+msgstr "Territoire britannique de l'océan Indien"
+
+#: functions/fn-utilities.php:1355
+msgid "Brunei Darussalam"
+msgstr "Brunei Darussalam"
+
+#: functions/fn-utilities.php:1356
+msgid "Bulgaria"
+msgstr "Bulgarie"
+
+#: functions/fn-utilities.php:1357
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: functions/fn-utilities.php:1358
+msgid "Burundi"
+msgstr "Burundi"
+
+#: functions/fn-utilities.php:1359
+msgid "Cambodia"
+msgstr "Cambodge"
+
+#: functions/fn-utilities.php:1360
+msgid "Cameroon"
+msgstr "Cameroun"
+
+#: functions/fn-utilities.php:1361
+msgid "Canada"
+msgstr "Canada"
+
+#: functions/fn-utilities.php:1362
+msgid "Cape Verde"
+msgstr "Cap-Vert"
+
+#: functions/fn-utilities.php:1363
+msgid "Cayman Islands"
+msgstr "Îles Caïmans"
+
+#: functions/fn-utilities.php:1364
+msgid "Central African Republic"
+msgstr "République centrafricaine"
+
+#: functions/fn-utilities.php:1365
+msgid "Chad"
+msgstr "Tchad"
+
+#: functions/fn-utilities.php:1366
+msgid "Chile"
+msgstr "Chili"
+
+#: functions/fn-utilities.php:1367
+msgid "China"
+msgstr "Chine"
+
+#: functions/fn-utilities.php:1368
+msgid "Christmas Island"
+msgstr "Christmas Island"
+
+#: functions/fn-utilities.php:1369
+msgid "Cocos (Keeling) Islands"
+msgstr "Îles Cocos (Keeling)"
+
+#: functions/fn-utilities.php:1370
+msgid "Colombia"
+msgstr "Colombie"
+
+#: functions/fn-utilities.php:1371
+msgid "Comoros"
+msgstr "Comores"
+
+#: functions/fn-utilities.php:1372
+msgid "Congo"
+msgstr "Congo"
+
+#: functions/fn-utilities.php:1373
+msgid "Democratic Republic of the Congo"
+msgstr "République Démocratique du Congo"
+
+#: functions/fn-utilities.php:1374
+msgid "Cook Islands"
+msgstr "Îles Cook"
+
+#: functions/fn-utilities.php:1375
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: functions/fn-utilities.php:1376
+msgid "Ivory Coast"
+msgstr "Côte d'Ivoire"
+
+#: functions/fn-utilities.php:1377
+msgid "Croatia"
+msgstr "Croatie"
+
+#: functions/fn-utilities.php:1378
+msgid "Cuba"
+msgstr "Cuba"
+
+#: functions/fn-utilities.php:1379
+msgid "Cyprus"
+msgstr "Chypre"
+
+#: functions/fn-utilities.php:1380
+msgid "Czech Republic"
+msgstr "République Tchèque"
+
+#: functions/fn-utilities.php:1381
+msgid "Denmark"
+msgstr "Danemark"
+
+#: functions/fn-utilities.php:1382
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: functions/fn-utilities.php:1383
+msgid "Dominica"
+msgstr "Dominique"
+
+#: functions/fn-utilities.php:1384
+msgid "Dominican Republic"
+msgstr "République Dominicaine"
+
+#: functions/fn-utilities.php:1385
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: functions/fn-utilities.php:1386
+msgid "Egypt"
+msgstr "Egypte"
+
+#: functions/fn-utilities.php:1387
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: functions/fn-utilities.php:1388
+msgid "Equatorial Guinea"
+msgstr "Guinée Équatoriale"
+
+#: functions/fn-utilities.php:1389
+msgid "Eritrea"
+msgstr "Érythrée"
+
+#: functions/fn-utilities.php:1390
+msgid "Estonia"
+msgstr "Estonie"
+
+#: functions/fn-utilities.php:1391
+msgid "Ethiopia"
+msgstr "Ethiopie"
+
+#: functions/fn-utilities.php:1392
+msgid "Falkland Islands (Malvinas)"
+msgstr "Îles Falkland (Malouines)"
+
+#: functions/fn-utilities.php:1393
+msgid "Faroe Islands"
+msgstr "Îles Féroé"
+
+#: functions/fn-utilities.php:1394
+msgid "Fiji"
+msgstr "Fidji"
+
+#: functions/fn-utilities.php:1395
+msgid "Finland"
+msgstr "Finlande"
+
+#: functions/fn-utilities.php:1396
+msgid "France"
+msgstr "France"
+
+#: functions/fn-utilities.php:1397
+msgid "French Guiana"
+msgstr "Guyane Française"
+
+#: functions/fn-utilities.php:1398
+msgid "French Polynesia"
+msgstr "Polynésie française"
+
+#: functions/fn-utilities.php:1399
+msgid "French Southern Territories"
+msgstr "Terres australes françaises"
+
+#: functions/fn-utilities.php:1400
+msgid "Gabon"
+msgstr "Gabon"
+
+#: functions/fn-utilities.php:1401
+msgid "Gambia"
+msgstr "Gambie"
+
+#: functions/fn-utilities.php:1402
+msgid "Georgia"
+msgstr "Géorgie"
+
+#: functions/fn-utilities.php:1403
+msgid "Germany"
+msgstr "Allemagne"
+
+#: functions/fn-utilities.php:1404
+msgid "United Kingdom"
+msgstr "Royaume-Uni"
+
+#: functions/fn-utilities.php:1405
+msgid "Ghana"
+msgstr "Ghana"
+
+#: functions/fn-utilities.php:1406
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: functions/fn-utilities.php:1407
+msgid "Greece"
+msgstr "Grèce"
+
+#: functions/fn-utilities.php:1408
+msgid "Greenland"
+msgstr "Groenland"
+
+#: functions/fn-utilities.php:1409
+msgid "Grenada"
+msgstr "Grenade"
+
+#: functions/fn-utilities.php:1410
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+#: functions/fn-utilities.php:1411
+msgid "Guam"
+msgstr "Guam"
+
+#: functions/fn-utilities.php:1412
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: functions/fn-utilities.php:1413
+msgid "Guinea"
+msgstr "Guinée"
+
+#: functions/fn-utilities.php:1414
+msgid "Guinea-Bissau"
+msgstr "Guinée-Bissau"
+
+#: functions/fn-utilities.php:1415
+msgid "Guyana"
+msgstr "Guyane"
+
+#: functions/fn-utilities.php:1416
+msgid "Haiti"
+msgstr "Haïti"
+
+#: functions/fn-utilities.php:1417
+msgid "Heard Island and Mcdonald Islands"
+msgstr "Île Heard et Îles Mcdonald"
+
+#: functions/fn-utilities.php:1418
+msgid "Vatican City State"
+msgstr "État de la Cité du Vatican"
+
+#: functions/fn-utilities.php:1419
+msgid "Honduras"
+msgstr "Honduras"
+
+#: functions/fn-utilities.php:1420
+msgid "Hong Kong"
+msgstr "Hong Kong"
+
+#: functions/fn-utilities.php:1421
+msgid "Hungary"
+msgstr "Hongrie"
+
+#: functions/fn-utilities.php:1422
+msgid "Iceland"
+msgstr "Islande"
+
+#: functions/fn-utilities.php:1423
+msgid "India"
+msgstr "Inde"
+
+#: functions/fn-utilities.php:1424
+msgid "Indonesia"
+msgstr "Indonésie"
+
+#: functions/fn-utilities.php:1426
+msgid "Iran"
+msgstr "Iran"
+
+#: functions/fn-utilities.php:1427
+msgid "Iraq"
+msgstr "Irak"
+
+#: functions/fn-utilities.php:1428
+msgid "Ireland"
+msgstr "Irlande"
+
+#: functions/fn-utilities.php:1429
+msgid "Israel"
+msgstr "Israël"
+
+#: functions/fn-utilities.php:1430
+msgid "Italy"
+msgstr "Italie"
+
+#: functions/fn-utilities.php:1431
+msgid "Jamaica"
+msgstr "Jamaïque"
+
+#: functions/fn-utilities.php:1432
+msgid "Japan"
+msgstr "Japon"
+
+#: functions/fn-utilities.php:1433
+msgid "Jordan"
+msgstr "Jordan"
+
+#: functions/fn-utilities.php:1434
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+#: functions/fn-utilities.php:1435
+msgid "Kenya"
+msgstr "Kenya"
+
+#: functions/fn-utilities.php:1436
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: functions/fn-utilities.php:1438
+msgid "North Korea"
+msgstr "Corée du Nord"
+
+#: functions/fn-utilities.php:1440
+msgid "South Korea"
+msgstr "Corée du Sud"
+
+#: functions/fn-utilities.php:1441
+msgid "Kuwait"
+msgstr "Koweit"
+
+#: functions/fn-utilities.php:1442
+msgid "Kyrgyzstan"
+msgstr "Kirghizistan"
+
+#: functions/fn-utilities.php:1444
+msgid "Laos"
+msgstr "Laos"
+
+#: functions/fn-utilities.php:1445
+msgid "Latvia"
+msgstr "Lettonie"
+
+#: functions/fn-utilities.php:1446
+msgid "Lebanon"
+msgstr "Liban"
+
+#: functions/fn-utilities.php:1447
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: functions/fn-utilities.php:1448
+msgid "Liberia"
+msgstr "Libéria"
+
+#: functions/fn-utilities.php:1449
+msgid "Libyan Arab Jamahiriya"
+msgstr "Jamahiriya arabe libyenne"
+
+#: functions/fn-utilities.php:1450
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: functions/fn-utilities.php:1451
+msgid "Lithuania"
+msgstr "Lituanie"
+
+#: functions/fn-utilities.php:1452
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+#: functions/fn-utilities.php:1453
+msgid "Macao"
+msgstr "Macao"
+
+#: functions/fn-utilities.php:1456
+msgid "North Macedonia"
+msgstr "Macédoine du Nord"
+
+#: functions/fn-utilities.php:1457
+msgid "Madagascar"
+msgstr "Madagascar"
+
+#: functions/fn-utilities.php:1458
+msgid "Malawi"
+msgstr "Malawi"
+
+#: functions/fn-utilities.php:1459
+msgid "Malaysia"
+msgstr "Malaisie"
+
+#: functions/fn-utilities.php:1460
+msgid "Maldives"
+msgstr "Maldives"
+
+#: functions/fn-utilities.php:1461
+msgid "Mali"
+msgstr "Mali"
+
+#: functions/fn-utilities.php:1462
+msgid "Malta"
+msgstr "Malte"
+
+#: functions/fn-utilities.php:1463
+msgid "Marshall Islands"
+msgstr "Iles Marshall"
+
+#: functions/fn-utilities.php:1464
+msgid "Martinique"
+msgstr "Martinique"
+
+#: functions/fn-utilities.php:1465
+msgid "Mauritania"
+msgstr "Mauritanie"
+
+#: functions/fn-utilities.php:1466
+msgid "Mauritius"
+msgstr "Maurice"
+
+#: functions/fn-utilities.php:1467
+msgid "Mayotte"
+msgstr "Mayotte"
+
+#: functions/fn-utilities.php:1468
+msgid "Mexico"
+msgstr "Mexique"
+
+#: functions/fn-utilities.php:1470
+msgid "Federated States of Micronesia"
+msgstr "États fédérés de Micronésie"
+
+#: functions/fn-utilities.php:1472
+msgid "Moldova"
+msgstr "Moldavie"
+
+#: functions/fn-utilities.php:1473
+msgid "Monaco"
+msgstr "Monaco"
+
+#: functions/fn-utilities.php:1474
+msgid "Mongolia"
+msgstr "Mongolie"
+
+#: functions/fn-utilities.php:1475
+msgid "Montserrat"
+msgstr "Montserrat"
+
+#: functions/fn-utilities.php:1476
+msgid "Morocco"
+msgstr "Maroc"
+
+#: functions/fn-utilities.php:1477
+msgid "Mozambique"
+msgstr "Mozambique"
+
+#: functions/fn-utilities.php:1478
+msgid "Myanmar"
+msgstr "Birmanie"
+
+#: functions/fn-utilities.php:1479
+msgid "Namibia"
+msgstr "Namibie"
+
+#: functions/fn-utilities.php:1480
+msgid "Nauru"
+msgstr "Nauru"
+
+#: functions/fn-utilities.php:1481
+msgid "Nepal"
+msgstr "Népal"
+
+#: functions/fn-utilities.php:1482
+msgid "Netherlands"
+msgstr "Pays-Bas"
+
+#: functions/fn-utilities.php:1483
+msgid "Netherlands Antilles"
+msgstr "Antilles néerlandaises"
+
+#: functions/fn-utilities.php:1484
+msgid "New Caledonia"
+msgstr "Nouvelle Calédonie"
+
+#: functions/fn-utilities.php:1485
+msgid "New Zealand"
+msgstr "Nouvelle-Zélande"
+
+#: functions/fn-utilities.php:1486
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: functions/fn-utilities.php:1487
+msgid "Niger"
+msgstr "Niger"
+
+#: functions/fn-utilities.php:1488
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: functions/fn-utilities.php:1489
+msgid "Niue"
+msgstr "Niué"
+
+#: functions/fn-utilities.php:1490
+msgid "Norfolk Island"
+msgstr "Ile de Norfolk"
+
+#: functions/fn-utilities.php:1491
+msgid "Northern Mariana Islands"
+msgstr "Îles Mariannes du Nord"
+
+#: functions/fn-utilities.php:1492
+msgid "Norway"
+msgstr "Norvège"
+
+#: functions/fn-utilities.php:1493
+msgid "Oman"
+msgstr "Oman"
+
+#: functions/fn-utilities.php:1494
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: functions/fn-utilities.php:1495
+msgid "Palau"
+msgstr "Palaos"
+
+#: functions/fn-utilities.php:1498
+msgid "Palestine"
+msgstr "Palestine"
+
+#: functions/fn-utilities.php:1499
+msgid "Panama"
+msgstr "Panama"
+
+#: functions/fn-utilities.php:1500
+msgid "Papua New Guinea"
+msgstr "Papouasie Nouvelle Guinée"
+
+#: functions/fn-utilities.php:1501
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: functions/fn-utilities.php:1502
+msgid "Peru"
+msgstr "Pérou"
+
+#: functions/fn-utilities.php:1503
+msgid "Philippines"
+msgstr "Philippines"
+
+#: functions/fn-utilities.php:1504
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+#: functions/fn-utilities.php:1505
+msgid "Poland"
+msgstr "Pologne"
+
+#: functions/fn-utilities.php:1506
+msgid "Portugal"
+msgstr "Portugal"
+
+#: functions/fn-utilities.php:1507
+msgid "Puerto Rico"
+msgstr "Porto Rico"
+
+#: functions/fn-utilities.php:1508
+msgid "Qatar"
+msgstr "Qatar"
+
+#: functions/fn-utilities.php:1509
+msgid "Reunion"
+msgstr "Réunion"
+
+#: functions/fn-utilities.php:1510
+msgid "Romania"
+msgstr "Roumanie"
+
+#: functions/fn-utilities.php:1511
+msgid "Russian Federation"
+msgstr "Russian Federation"
+
+#: functions/fn-utilities.php:1512
+msgid "Rwanda"
+msgstr "Rwanda"
+
+#: functions/fn-utilities.php:1513
+msgid "Saint Helena"
+msgstr "Sainte-Hélène"
+
+#: functions/fn-utilities.php:1514
+msgid "Saint Kitts and Nevis"
+msgstr "Saint-Christophe-et-Niévès"
+
+#: functions/fn-utilities.php:1515
+msgid "Saint Lucia"
+msgstr "Sainte-Lucie"
+
+#: functions/fn-utilities.php:1516
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint-Pierre-et-Miquelon"
+
+#: functions/fn-utilities.php:1517
+msgid "Saint Vincent and the Grenadines"
+msgstr "Saint-Vincent-et-les-Grenadines"
+
+#: functions/fn-utilities.php:1518
+msgid "Samoa"
+msgstr "Samoa"
+
+#: functions/fn-utilities.php:1519
+msgid "San Marino"
+msgstr "Saint Marin"
+
+#: functions/fn-utilities.php:1520
+msgid "Sao Tome and Principe"
+msgstr "Sao Tomé et Principe"
+
+#: functions/fn-utilities.php:1521
+msgid "Saudi Arabia"
+msgstr "Arabie Saoudite"
+
+#: functions/fn-utilities.php:1522
+msgid "Senegal"
+msgstr "Sénégal"
+
+#: functions/fn-utilities.php:1523
+msgid "Serbia and Montenegro"
+msgstr "Serbie et Monténégro"
+
+#: functions/fn-utilities.php:1524
+msgid "Seychelles"
+msgstr "Seychelles"
+
+#: functions/fn-utilities.php:1525
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: functions/fn-utilities.php:1526
+msgid "Singapore"
+msgstr "Singapour"
+
+#: functions/fn-utilities.php:1527
+msgid "Slovakia"
+msgstr "Slovaquie"
+
+#: functions/fn-utilities.php:1528
+msgid "Slovenia"
+msgstr "Slovénie"
+
+#: functions/fn-utilities.php:1529
+msgid "Solomon Islands"
+msgstr "Îles Salomon"
+
+#: functions/fn-utilities.php:1530
+msgid "Somalia"
+msgstr "Somalie"
+
+#: functions/fn-utilities.php:1531
+msgid "South Africa"
+msgstr "Afrique du Sud"
+
+#: functions/fn-utilities.php:1532
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "Géorgie du Sud et îles Sandwich du Sud"
+
+#: functions/fn-utilities.php:1533
+msgid "Spain"
+msgstr "Espagne"
+
+#: functions/fn-utilities.php:1534
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: functions/fn-utilities.php:1535
+msgid "Sudan"
+msgstr "Soudan"
+
+#: functions/fn-utilities.php:1536
+msgid "Suriname"
+msgstr "Suriname"
+
+#: functions/fn-utilities.php:1537
+msgid "Svalbard and Jan Mayen"
+msgstr "Svalbard et Jan Mayen"
+
+#: functions/fn-utilities.php:1538
+msgid "Swaziland"
+msgstr "Swaziland"
+
+#: functions/fn-utilities.php:1539
+msgid "Sweden"
+msgstr "Suède"
+
+#: functions/fn-utilities.php:1540
+msgid "Switzerland"
+msgstr "Suisse"
+
+#: functions/fn-utilities.php:1542
+msgid "Syria"
+msgstr "Syrie"
+
+#: functions/fn-utilities.php:1543
+msgid "Taiwan"
+msgstr "Taïwan"
+
+#: functions/fn-utilities.php:1545
+msgid "Tajikistan"
+msgstr "Tadjikistan"
+
+#: functions/fn-utilities.php:1546
+msgid "Tanzania, United Republic of"
+msgstr "Tanzanie, République unie de"
+
+#: functions/fn-utilities.php:1547
+msgid "Thailand"
+msgstr "Thaïlande"
+
+#: functions/fn-utilities.php:1548
+msgid "Timor-Leste"
+msgstr "Timor-Leste"
+
+#: functions/fn-utilities.php:1549
+msgid "Togo"
+msgstr "Togo"
+
+#: functions/fn-utilities.php:1550
+msgid "Tokelau"
+msgstr "Tokelau"
+
+#: functions/fn-utilities.php:1551
+msgid "Tonga"
+msgstr "Tonga"
+
+#: functions/fn-utilities.php:1552
+msgid "Trinidad and Tobago"
+msgstr "Trinité-et-Tobago"
+
+#: functions/fn-utilities.php:1553
+msgid "Tunisia"
+msgstr "Tunisie"
+
+#: functions/fn-utilities.php:1554
+msgid "Turkey"
+msgstr "Turquie"
+
+#: functions/fn-utilities.php:1555
+msgid "Turkmenistan"
+msgstr "Turkménistan"
+
+#: functions/fn-utilities.php:1556
+msgid "Turks and Caicos Islands"
+msgstr "Îles Turks et Caicos"
+
+#: functions/fn-utilities.php:1557
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: functions/fn-utilities.php:1558
+msgid "Uganda"
+msgstr "Ouganda"
+
+#: functions/fn-utilities.php:1559
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: functions/fn-utilities.php:1560
+msgid "United States"
+msgstr "États-Unis"
+
+#: functions/fn-utilities.php:1561
+msgid "United States Minor Outlying Islands"
+msgstr "Îles mineures éloignées des États-Unis"
+
+#: functions/fn-utilities.php:1562
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: functions/fn-utilities.php:1563
+msgid "Uzbekistan"
+msgstr "Ouzbékistan"
+
+#: functions/fn-utilities.php:1564
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: functions/fn-utilities.php:1565
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: functions/fn-utilities.php:1566
+msgid "Viet Nam"
+msgstr "Viêt Nam"
+
+#: functions/fn-utilities.php:1567
+msgid "Virgin Islands, British"
+msgstr "Îles Vierges britanniques"
+
+#: functions/fn-utilities.php:1568
+msgid "Virgin Islands, US"
+msgstr "Îles Vierges, États-Unis"
+
+#: functions/fn-utilities.php:1569
+msgid "Wallis and Futuna"
+msgstr "Wallis et Futuna"
+
+#: functions/fn-utilities.php:1570
+msgid "Western Sahara"
+msgstr "Sahara occidental"
+
+#: functions/fn-utilities.php:1571
+msgid "Yemen"
+msgstr "Yémen"
+
+#: functions/fn-utilities.php:1572
+msgid "Zambia"
+msgstr "Zambie"
+
+#: functions/fn-utilities.php:1573
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+#: functions/fn-utilities.php:1601
+msgid "Abruzzo"
+msgstr "Abruzzes"
+
+#: functions/fn-utilities.php:1602
+msgid "Basilicata"
+msgstr "Basilicate"
+
+#: functions/fn-utilities.php:1603
+msgid "Calabria"
+msgstr "Calabre"
+
+#: functions/fn-utilities.php:1604
+msgid "Campania"
+msgstr "Campanie"
+
+#: functions/fn-utilities.php:1605
+msgid "Emilia-Romagna"
+msgstr "Émilie-Romagne"
+
+#: functions/fn-utilities.php:1606
+msgid "Friuli Venezia Giulia"
+msgstr "Frioul Vénétie Julienne"
+
+#: functions/fn-utilities.php:1607
+msgid "Lazio"
+msgstr "Latium"
+
+#: functions/fn-utilities.php:1608
+msgid "Liguria"
+msgstr "Ligurie"
+
+#: functions/fn-utilities.php:1609
+msgid "Lombardy"
+msgstr "Lombardie"
+
+#: functions/fn-utilities.php:1610
+msgid "Marche"
+msgstr "Marches"
+
+#: functions/fn-utilities.php:1611
+msgid "Molise"
+msgstr "Molise"
+
+#: functions/fn-utilities.php:1612
+msgid "Piedmont"
+msgstr "Piémont"
+
+#: functions/fn-utilities.php:1613
+msgid "Apulia"
+msgstr ""
+
+#: functions/fn-utilities.php:1614
+msgid "Sardinia"
+msgstr "Sardaigne"
+
+#: functions/fn-utilities.php:1615
+msgid "Sicily"
+msgstr "Sicile"
+
+#: functions/fn-utilities.php:1616
+msgid "Tuscany"
+msgstr "Toscane"
+
+#: functions/fn-utilities.php:1617
+msgid "Umbria"
+msgstr "Ombrie"
+
+#: functions/fn-utilities.php:1618
+msgid "Aosta Valley"
+msgstr "Vallée d’Aoste"
+
+#: functions/fn-utilities.php:1619
+msgid "Veneto"
+msgstr "Vénétie"
+
+#: functions/fn-utilities.php:1620
+msgid "Trentino-Alto Adige"
+msgstr "Trentin Haut Adige"
+
+#: functions/fn-utilities.php:1647
+msgid "Agrigento"
+msgstr "Agrigente"
+
+#: functions/fn-utilities.php:1648
+msgid "Alessandria"
+msgstr "Alexandrie"
+
+#: functions/fn-utilities.php:1649
+msgid "Ancona"
+msgstr "Ancône"
+
+#: functions/fn-utilities.php:1650
+msgid "Aosta"
+msgstr "Aoste"
+
+#: functions/fn-utilities.php:1651
+msgid "Arezzo"
+msgstr "Arezzo"
+
+#: functions/fn-utilities.php:1652
+msgid "Ascoli Piceno"
+msgstr "Ascoli Piceno"
+
+#: functions/fn-utilities.php:1653
+msgid "Asti"
+msgstr "Asti"
+
+#: functions/fn-utilities.php:1654
+msgid "Avellino"
+msgstr "Avellino"
+
+#: functions/fn-utilities.php:1655
+msgid "Bari"
+msgstr "Bari"
+
+#: functions/fn-utilities.php:1656
+msgid "Barletta-Andria-Trani"
+msgstr "Barletta-Andria-Trani"
+
+#: functions/fn-utilities.php:1657
+msgid "Belluno"
+msgstr "Bellune"
+
+#: functions/fn-utilities.php:1658
+msgid "Benevento"
+msgstr "Bénévent"
+
+#: functions/fn-utilities.php:1659
+msgid "Bergamo"
+msgstr "Bergame"
+
+#: functions/fn-utilities.php:1660
+msgid "Biella"
+msgstr "Bielle"
+
+#: functions/fn-utilities.php:1661
+msgid "Bologna"
+msgstr "Bologne"
+
+#: functions/fn-utilities.php:1662
+msgid "Bolzano"
+msgstr "Bözen"
+
+#: functions/fn-utilities.php:1663
+msgid "Brescia"
+msgstr "Brescia"
+
+#: functions/fn-utilities.php:1664
+msgid "Brindisi"
+msgstr "Brindisi"
+
+#: functions/fn-utilities.php:1665
+msgid "Cagliari"
+msgstr "Cagliari"
+
+#: functions/fn-utilities.php:1666
+msgid "Caltanissetta"
+msgstr "Caltanissetta"
+
+#: functions/fn-utilities.php:1667
+msgid "Campobasso"
+msgstr "Campobasso"
+
+#: functions/fn-utilities.php:1668
+msgid "Caserta"
+msgstr "Caserte"
+
+#: functions/fn-utilities.php:1669
+msgid "Catania"
+msgstr "Catane"
+
+#: functions/fn-utilities.php:1670
+msgid "Catanzaro"
+msgstr "Catanzaro"
+
+#: functions/fn-utilities.php:1671
+msgid "Chieti"
+msgstr "Chieti"
+
+#: functions/fn-utilities.php:1672
+msgid "Como"
+msgstr "Côme"
+
+#: functions/fn-utilities.php:1673
+msgid "Cosenza"
+msgstr "Cosenza"
+
+#: functions/fn-utilities.php:1674
+msgid "Cremona"
+msgstr "Crémone"
+
+#: functions/fn-utilities.php:1675
+msgid "Crotone"
+msgstr "Crotone"
+
+#: functions/fn-utilities.php:1676
+msgid "Cuneo"
+msgstr "Coni"
+
+#: functions/fn-utilities.php:1677
+msgid "Enna"
+msgstr "Enna"
+
+#: functions/fn-utilities.php:1678
+msgid "Fermo"
+msgstr "Fermo"
+
+#: functions/fn-utilities.php:1679
+msgid "Ferrara"
+msgstr "Ferrare"
+
+#: functions/fn-utilities.php:1680
+msgid "Florence"
+msgstr "Florence"
+
+#: functions/fn-utilities.php:1681
+msgid "Foggia"
+msgstr "Foggia"
+
+#: functions/fn-utilities.php:1682
+msgid "Forlì-Cesena"
+msgstr "Forlì-Césène"
+
+#: functions/fn-utilities.php:1683
+msgid "Frosinone"
+msgstr "Frosinone"
+
+#: functions/fn-utilities.php:1684
+msgid "Genova"
+msgstr "Gênes"
+
+#: functions/fn-utilities.php:1685
+msgid "Gorizia"
+msgstr "Gorizia"
+
+#: functions/fn-utilities.php:1686
+msgid "Grosseto"
+msgstr "Grosseto"
+
+#: functions/fn-utilities.php:1687
+msgid "Imperia"
+msgstr "Impéria"
+
+#: functions/fn-utilities.php:1688
+msgid "Isernia"
+msgstr "Isernia"
+
+#: functions/fn-utilities.php:1689
+msgid "La Spezia"
+msgstr "La Spezia"
+
+#: functions/fn-utilities.php:1690
+msgid "L'Aquila"
+msgstr "L'Aquila"
+
+#: functions/fn-utilities.php:1691
+msgid "Latina"
+msgstr "Latina"
+
+#: functions/fn-utilities.php:1692
+msgid "Lecce"
+msgstr "Lecce"
+
+#: functions/fn-utilities.php:1693
+msgid "Lecco"
+msgstr "Lecco"
+
+#: functions/fn-utilities.php:1694
+msgid "Livorno"
+msgstr "Livourne"
+
+#: functions/fn-utilities.php:1695
+msgid "Lodi"
+msgstr "Lodi"
+
+#: functions/fn-utilities.php:1696
+msgid "Lucca"
+msgstr "Lucques"
+
+#: functions/fn-utilities.php:1697
+msgid "Macerata"
+msgstr "Macerata"
+
+#: functions/fn-utilities.php:1698
+msgid "Mantua"
+msgstr "Mantoue"
+
+#: functions/fn-utilities.php:1699
+msgid "Massa and Carrara"
+msgstr "Massa et Carrare"
+
+#: functions/fn-utilities.php:1700
+msgid "Matera"
+msgstr "Matera"
+
+#: functions/fn-utilities.php:1701
+msgid "Messina"
+msgstr "Messine"
+
+#: functions/fn-utilities.php:1702
+msgid "Milan"
+msgstr "Milan"
+
+#: functions/fn-utilities.php:1703
+msgid "Modena"
+msgstr "Modène"
+
+#: functions/fn-utilities.php:1704
+msgid "Monza and Brianza"
+msgstr "Monza et Brianza"
+
+#: functions/fn-utilities.php:1705
+msgid "Naples"
+msgstr "Naples"
+
+#: functions/fn-utilities.php:1706
+msgid "Novara"
+msgstr "Novare"
+
+#: functions/fn-utilities.php:1707
+msgid "Nuoro"
+msgstr "Nuoro"
+
+#: functions/fn-utilities.php:1708
+msgid "Oristano"
+msgstr "Oristano"
+
+#: functions/fn-utilities.php:1709
+msgid "Padua"
+msgstr "Padoue"
+
+#: functions/fn-utilities.php:1710
+msgid "Palermo"
+msgstr "Palerme"
+
+#: functions/fn-utilities.php:1711
+msgid "Parma"
+msgstr "Parme"
+
+#: functions/fn-utilities.php:1712
+msgid "Pavia"
+msgstr "Pavie"
+
+#: functions/fn-utilities.php:1713
+msgid "Perugia"
+msgstr "Pérouse"
+
+#: functions/fn-utilities.php:1714
+msgid "Pesaro and Urbino"
+msgstr "Pesaro-Urbino"
+
+#: functions/fn-utilities.php:1715
+msgid "Pescara"
+msgstr "Pescara"
+
+#: functions/fn-utilities.php:1716
+msgid "Piacenza"
+msgstr "Plaisance"
+
+#: functions/fn-utilities.php:1717
+msgid "Pisa"
+msgstr "Pise"
+
+#: functions/fn-utilities.php:1718
+msgid "Pistoia"
+msgstr "Pistoia"
+
+#: functions/fn-utilities.php:1719
+msgid "Pordenone"
+msgstr "Pordénone"
+
+#: functions/fn-utilities.php:1720
+msgid "Potenza"
+msgstr "Potenza"
+
+#: functions/fn-utilities.php:1721
+msgid "Prato"
+msgstr "Prato"
+
+#: functions/fn-utilities.php:1722
+msgid "Ragusa"
+msgstr "Raguse"
+
+#: functions/fn-utilities.php:1723
+msgid "Ravenna"
+msgstr "Ravenne"
+
+#: functions/fn-utilities.php:1724
+msgid "Reggio Calabria"
+msgstr "Reggio de Calabre"
+
+#: functions/fn-utilities.php:1725
+msgid "Reggio Emilia"
+msgstr "Reggio d'Émilie"
+
+#: functions/fn-utilities.php:1726
+msgid "Rieti"
+msgstr "Rieti"
+
+#: functions/fn-utilities.php:1727
+msgid "Rimini"
+msgstr "Rimini"
+
+#: functions/fn-utilities.php:1728
+msgid "Rome"
+msgstr "Rome"
+
+#: functions/fn-utilities.php:1729
+msgid "Rovigo"
+msgstr "Rovigo"
+
+#: functions/fn-utilities.php:1730
+msgid "Salerno"
+msgstr "Salerne"
+
+#: functions/fn-utilities.php:1731
+msgid "Sassari"
+msgstr "Sassari"
+
+#: functions/fn-utilities.php:1732
+msgid "Savona"
+msgstr "Savone"
+
+#: functions/fn-utilities.php:1733
+msgid "Siena"
+msgstr "Sienne"
+
+#: functions/fn-utilities.php:1734
+msgid "Syracuse"
+msgstr "Syracuse"
+
+#: functions/fn-utilities.php:1735
+msgid "Sondrio"
+msgstr "Sondrio"
+
+#: functions/fn-utilities.php:1736
+msgid "South Sardinia"
+msgstr "Sardaigne du Sud"
+
+#: functions/fn-utilities.php:1737
+msgid "Taranto"
+msgstr "Tarente"
+
+#: functions/fn-utilities.php:1738
+msgid "Teramo"
+msgstr "Téramo"
+
+#: functions/fn-utilities.php:1739
+msgid "Terni"
+msgstr "Terni"
+
+#: functions/fn-utilities.php:1740
+msgid "Turin"
+msgstr "Turin"
+
+#: functions/fn-utilities.php:1741
+msgid "Trapani"
+msgstr "Trapani"
+
+#: functions/fn-utilities.php:1742
+msgid "Trento"
+msgstr "Trente"
+
+#: functions/fn-utilities.php:1743
+msgid "Treviso"
+msgstr "Trévise"
+
+#: functions/fn-utilities.php:1744
+msgid "Trieste"
+msgstr "Trieste"
+
+#: functions/fn-utilities.php:1745
+msgid "Udine"
+msgstr "Udine"
+
+#: functions/fn-utilities.php:1746
+msgid "Varese"
+msgstr "Varèse"
+
+#: functions/fn-utilities.php:1747
+msgid "Venice"
+msgstr "Venise"
+
+#: functions/fn-utilities.php:1748
+msgid "Verbano-Cusio-Ossola"
+msgstr "Verbano-Cusio-Ossola"
+
+#: functions/fn-utilities.php:1749
+msgid "Vercelli"
+msgstr "Verceil"
+
+#: functions/fn-utilities.php:1750
+msgid "Verona"
+msgstr "Vérone"
+
+#: functions/fn-utilities.php:1751
+msgid "Vibo Valentia"
+msgstr "Vibo Valentia"
+
+#: functions/fn-utilities.php:1752
+msgid "Vicenza"
+msgstr "Vicence"
+
+#: functions/fn-utilities.php:1753
+msgid "Viterbo"
+msgstr "Viterbe"
+
+#: functions/fn-utilities.php:1950
+msgid "Error! No data."
+msgstr "Erreur! Pas de date."
+
+#: functions/fn-utilities.php:2419
+msgid "Never logged in"
+msgstr "Jamais connecté"
+
+#: functions/fn-utilities.php:2892
+msgid " queries in "
+msgstr " requêtes dans "
+
+#: functions/fn-utilities.php:2894
+msgid " seconds"
+msgstr " seconds"
+
+#: functions/fn-utilities.php:3161
+msgid "Transparent"
+msgstr "Transparent"
+
+#: functions/fn-utilities.php:3165
+msgid "White"
+msgstr "Blanc"
+
+#: functions/fn-utilities.php:3166
+msgid "Black"
+msgstr "Noir"
+
+#: functions/fn-utilities.php:3180
+msgid "Left"
+msgstr "Gauche"
+
+#: functions/fn-utilities.php:3181
+msgid "Right"
+msgstr "Droit"
+
+#: functions/fn-utilities.php:3182
+msgid "Center"
+msgstr "Centre"
+
+#: functions/fn-utilities.php:3186
+msgid "Dark"
+msgstr "Sombre"
+
+#: functions/fn-utilities.php:3187
+msgid "Light"
+msgstr "Clair"
+
+#: functions/fn-utilities.php:3191
+msgid "Primary"
+msgstr "Primaire"
+
+#: functions/fn-utilities.php:3192
+msgid "Secondary"
+msgstr "Secondaire"
+
+#: functions/fn-utilities.php:3193
+msgid "Secondary light"
+msgstr "Clair secondaire"
+
+#: functions/fn-utilities.php:3194
+msgid "Hollow"
+msgstr "Creux"
+
+#: functions/fn-utilities.php:3195
+msgid "Hollow light"
+msgstr "Clair creux"
+
+#: functions/fn-utilities.php:3199
+msgid "Auto"
+msgstr "Auto"
+
+#: functions/fn-utilities.php:3200
+msgid "Full width"
+msgstr "Pleine largeur"
+
+#: functions/fn-utilities.php:3201
+msgid "Small"
+msgstr "Petit"
+
+#: functions/fn-utilities.php:3202
+msgid "Small full width"
+msgstr "Petit pleine largeur"
+
+#: functions/fn-utilities.php:3309
+msgid "Post"
+msgstr "Article"
+
+#: functions/fn-utilities.php:3310
+msgid "Page"
+msgstr "Page"
+
+#: functions/fn-utilities.php:3357
+#, php-format
+msgid "%s Years, %s months and %s days ago."
+msgstr "Il y a %s années, %s mois et %s jours."
+
+#: functions/fn-utilities.php:3359
+#, php-format
+msgid "%s Months and %s days ago."
+msgstr "Il y a %s mois et %s jours."
+
+#: functions/fn-utilities.php:3361
+#, php-format
+msgid "%s Days and %s hours ago."
+msgstr "Il y a %s jours et %s heures."
+
+#: functions/fn-utilities.php:3363
+#, php-format
+msgid "%s Hours and %s minutes ago."
+msgstr "Il y a %s heures et %s minutes."
+
+#: functions/fn-utilities.php:3365
+#, php-format
+msgid "%s Minutes and %s seconds ago."
+msgstr "Il y a %s minutes et %s secondes."
+
+#: functions/fn-utilities.php:3367
+#, php-format
+msgid "%s Seconds ago."
+msgstr "Il y a %s secondes."
+
+#: templates/store/single-store.php:38
+msgid "Referent"
+msgstr "Référent"
+
+#: templates/store/single-store.php:68
+msgid "Secondary email"
+msgstr "Email secondaire"
