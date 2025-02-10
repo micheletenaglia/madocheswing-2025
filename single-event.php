@@ -64,7 +64,7 @@ $address_data = mkt_address_data(get_field('address',$location));
         <div class="bg-gray-50 p-xs">
             <div>
                 <h3 class="h4"><?php _e('Entrance','project'); ?></h3>
-                <?php echo get_field('entrance') ? esc_html(get_field('entrance')) : __('Not available.','project'); ?>
+                <?php echo get_field('entrance') ? get_field('entrance') : __('Not available.','project'); ?>
             </div>
         </div>
     </div>

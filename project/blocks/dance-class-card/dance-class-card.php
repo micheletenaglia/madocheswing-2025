@@ -18,19 +18,19 @@ $dance_class = get_field('dance_class');
 // Backend
 if( $is_preview ) : ?>
     <!-- Preview -->
-	<div class="mkt-wp-block">
-		<div class="mkt-wp-block-info">
-			<div class="mkt-wp-block-info-left">
-				<figure class="mkt-wp-block-info-icon">
+	<div class="mkcb-wp-block">
+		<div class="mkcb-wp-block-info">
+			<div class="mkcb-wp-block-info-left">
+				<figure class="mkcb-wp-block-info-icon">
 					<?php echo get_svg_icon( 'dance-class-card', null, 'block-project' ); ?>
 				</figure>
 				<div>
-					<span class="mkt-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-					<span class="mkt-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
+					<span class="mkcb-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+					<span class="mkcb-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
 				</div>
 			</div>
 		</div>
-		<div class="mkt-wp-block-content">
+		<div class="mkcb-wp-block-content">
 			<?php if( $dance_class ) : ?>
 				<div>
 					<h4><?php echo get_the_title($dance_class); ?></h4>
