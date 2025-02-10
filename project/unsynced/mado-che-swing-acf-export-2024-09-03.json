@@ -1,0 +1,1108 @@
+[
+    {
+        "key": "group_62adc5882c4b4",
+        "title": "Dance class",
+        "fields": [
+            {
+                "key": "field_62adc5c204a2a",
+                "label": "General info",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_62adc59e04a28",
+                "label": "Subhead",
+                "name": "subhead",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_62adc6eef89a6",
+                "label": "Style",
+                "name": "style",
+                "aria-label": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "style"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "return_format": "id",
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional": 0,
+                "ui": 1,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_633451823080a",
+                "label": "Level",
+                "name": "level",
+                "aria-label": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "level"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "return_format": "id",
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional": 0,
+                "ui": 1,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_62b058a55e2c2",
+                "label": "Teachers",
+                "name": "teachers",
+                "aria-label": "",
+                "type": "relationship",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "teacher"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search",
+                    "taxonomy"
+                ],
+                "return_format": "id",
+                "min": "",
+                "max": "",
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_62b0af2f2e5cd",
+                "label": "Location",
+                "name": "location",
+                "aria-label": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "location"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "return_format": "id",
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional": 0,
+                "ui": 1,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_66d3809517edd",
+                "label": "Trial lesson",
+                "name": "trial_lesson",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui_on_text": "Trial",
+                "ui_off_text": "Regular",
+                "ui": 1
+            },
+            {
+                "key": "field_66d6ddea8f342",
+                "label": "Dates",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_62ade448b621e",
+                "label": "Date",
+                "name": "date",
+                "aria-label": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "l j F Y",
+                "return_format": "Ymd",
+                "first_day": 1
+            },
+            {
+                "key": "field_632f30f56bcd0",
+                "label": "Time",
+                "name": "time",
+                "aria-label": "",
+                "type": "time_picker",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "H:i",
+                "return_format": "H:i"
+            },
+            {
+                "key": "field_6357b110df0da",
+                "label": "End date",
+                "name": "end_date",
+                "aria-label": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "l j F Y",
+                "return_format": "Ymd",
+                "first_day": 1
+            },
+            {
+                "key": "field_6338986b07876",
+                "label": "Generate children",
+                "name": "generate_children",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui_on_text": "On",
+                "ui_off_text": "Off",
+                "ui": 1
+            },
+            {
+                "key": "field_62add8fb7a583",
+                "label": "Registration",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_6336a5324e4da",
+                "label": "Registration",
+                "name": "registration",
+                "aria-label": "",
+                "type": "button_group",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "choices": {
+                    "open": "Open",
+                    "closed": "Closed"
+                },
+                "default_value": "open : Open",
+                "return_format": "value",
+                "allow_null": 0,
+                "layout": "horizontal"
+            },
+            {
+                "key": "field_62add9127a584",
+                "label": "Fee",
+                "name": "fee",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "min": "",
+                "max": "",
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66d4b0bc0a693",
+                "label": "Fee (yearly)",
+                "name": "fee_yearly",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "min": "",
+                "max": "",
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66d4b0d90a694",
+                "label": "Fee (quarterly)",
+                "name": "fee_quarterly",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "min": "",
+                "max": "",
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66d4b0e70a695",
+                "label": "Fee (monthly)",
+                "name": "fee_monthly",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "min": "",
+                "max": "",
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_66d4afecf7cc1",
+                "label": "Early birds",
+                "name": "early_birds_date",
+                "aria-label": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "l j F Y",
+                "return_format": "Ymd",
+                "first_day": 1
+            },
+            {
+                "key": "field_66d4b016f7cc2",
+                "label": "Early birds fee",
+                "name": "early_birds_fee",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_66d4afecf7cc1",
+                            "operator": "!=empty"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "min": "",
+                "max": "",
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": "€"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "dance-class"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_66d04f94b2340",
+        "title": "Dance class card",
+        "fields": [
+            {
+                "key": "field_66d04f9624d50",
+                "label": "Dance class",
+                "name": "dance_class",
+                "aria-label": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "dance-class"
+                ],
+                "post_status": [
+                    "publish"
+                ],
+                "taxonomy": "",
+                "return_format": "id",
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional": 0,
+                "ui": 1,
+                "bidirectional_target": []
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "block",
+                    "operator": "==",
+                    "value": "acf\/dance-class-card"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_632cc5992b5f7",
+        "title": "Event",
+        "fields": [
+            {
+                "key": "field_632e52f1b8c3d",
+                "label": "Settings",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_632d6985308db",
+                "label": "Subhead",
+                "name": "subhead",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_632ccd8b317e3",
+                "label": "Venue",
+                "name": "location",
+                "aria-label": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "location"
+                ],
+                "post_status": [
+                    "publish"
+                ],
+                "taxonomy": [
+                    "location_category:ballroom",
+                    "location_category:outdoor"
+                ],
+                "return_format": "id",
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional": 0,
+                "ui": 1,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_632d7b1e0d950",
+                "label": "Entrance",
+                "name": "entrance",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 1
+            },
+            {
+                "key": "field_632e5310b8c3e",
+                "label": "Dates",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_632cc59a10222",
+                "label": "Start date",
+                "name": "date",
+                "aria-label": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "l j F Y",
+                "return_format": "Ymd",
+                "first_day": 1
+            },
+            {
+                "key": "field_632d68ffbdbff",
+                "label": "End date",
+                "name": "end_date",
+                "aria-label": "",
+                "type": "date_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "l j F Y",
+                "return_format": "Ymd",
+                "first_day": 1
+            },
+            {
+                "key": "field_632d6919bdc00",
+                "label": "Start time",
+                "name": "start_time",
+                "aria-label": "",
+                "type": "time_picker",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "H:i",
+                "return_format": "H:i"
+            },
+            {
+                "key": "field_632d6944bdc01",
+                "label": "End time",
+                "name": "end_time",
+                "aria-label": "",
+                "type": "time_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "H:i",
+                "return_format": "H:i"
+            },
+            {
+                "key": "field_66d61e244f60c",
+                "label": "Generate children",
+                "name": "generate_children",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui_on_text": "On",
+                "ui_off_text": "Off",
+                "ui": 1
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "event"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_632e20ceba487",
+        "title": "Level",
+        "fields": [
+            {
+                "key": "field_632e400a55793",
+                "label": "Related dance style",
+                "name": "style",
+                "aria-label": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "style"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "return_format": "id",
+                "multiple": 0,
+                "allow_null": 0,
+                "bidirectional": 0,
+                "ui": 1,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_66d38a84fc3e0",
+                "label": "Label",
+                "name": "label",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_632e20f418587",
+                "label": "Short description",
+                "name": "short_description",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": 200,
+                "rows": 2,
+                "placeholder": "",
+                "new_lines": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "level"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "field",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_62b0ae648cddd",
+        "title": "Location",
+        "fields": [
+            {
+                "key": "field_632f05255f190",
+                "label": "Category",
+                "name": "type",
+                "aria-label": "",
+                "type": "taxonomy",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "taxonomy": "location_category",
+                "add_term": 0,
+                "save_terms": 1,
+                "load_terms": 1,
+                "return_format": "id",
+                "field_type": "radio",
+                "allow_null": 0,
+                "bidirectional": 0,
+                "multiple": 0,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_6328e0faca659",
+                "label": "Website",
+                "name": "website",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_62b0ae6b152fe",
+                "label": "Address",
+                "name": "address",
+                "aria-label": "",
+                "type": "google_map",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "center_lat": "40.8177825292694",
+                "center_lng": "-73.96026531558991",
+                "zoom": "",
+                "height": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "location"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_62b070ece29e9",
+        "title": "Style",
+        "fields": [
+            {
+                "key": "field_6330b7ca79a04",
+                "label": "Subhead",
+                "name": "subhead",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "style"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "field",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    },
+    {
+        "key": "group_62b050855297a",
+        "title": "Teacher",
+        "fields": [
+            {
+                "key": "field_62b0508c57576",
+                "label": "Last name",
+                "name": "last_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_62b0509857577",
+                "label": "First name",
+                "name": "first_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_62b050a357578",
+                "label": "Styles",
+                "name": "styles",
+                "aria-label": "",
+                "type": "post_object",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "style"
+                ],
+                "taxonomy": "",
+                "allow_null": 0,
+                "multiple": 1,
+                "return_format": "id",
+                "ui": 1,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_6340203a721c0",
+                "label": "Email",
+                "name": "email",
+                "aria-label": "",
+                "type": "email",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_62b050b857579",
+                "label": "Image",
+                "name": "_thumbnail_id",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "preview_size": "thumbnail"
+            },
+            {
+                "key": "field_66d596e61f05a",
+                "label": "Profile image",
+                "name": "profile_image",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "id",
+                "library": "all",
+                "min_width": 640,
+                "min_height": 640,
+                "min_size": "",
+                "max_width": 640,
+                "max_height": 640,
+                "max_size": "",
+                "mime_types": "jpg",
+                "preview_size": "thumbnail"
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "teacher"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "left",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "",
+        "show_in_rest": 0
+    }
+]

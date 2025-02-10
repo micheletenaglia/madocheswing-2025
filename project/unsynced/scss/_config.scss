@@ -1,0 +1,42 @@
+//======================================================================
+// CSS Core
+// This line is required, do not delete!
+//======================================================================
+@import '../../../core/unsynced/scss/frontend/required';
+
+
+//======================================================================
+// Plugin & third party code
+//======================================================================
+// ACF Google Map
+@import '../../../core/unsynced/scss/frontend/modules/map';
+// Contact Form 7
+@import '../../../core/unsynced/scss/frontend/modules/plugin-contact-form-7-default';
+@import '../../../core/unsynced/scss/frontend/modules/plugin-contact-form-7';
+// Iubenda
+@import '../../../core/unsynced/scss/frontend/modules/plugin-iubenda';
+// Google recaptcha
+@import '../../../core/unsynced/scss/frontend/modules/plugin-google-recaptcha';
+// WPML
+// @import '../../../core/unsynced/scss/frontend/modules/plugin-wpml';
+// Woocommerce
+// @import '../../../core/unsynced/scss/frontend/modules/plugin-woocommerce-overwrite-default';
+// @import '../../../core/unsynced/scss/frontend/modules/plugin-woocommerce';
+
+
+//======================================================================
+// JavaSscript Libraries
+// Uncomment to include plugin stylesheet into main stylesheet
+//======================================================================
+
+// Sal
+// @import '../../../core/unsynced/scss/frontend/modules/js-sal';
+
+// Swiper
+// @import '../../../core/unsynced/scss/frontend/modules/js-swiper-bundle.min';
+
+// Photoswipe
+// @import '../../../core/unsynced/scss/frontend/modules/js-photoswipe.min';
+
+// Light Gallery
+// @import '../../../core/unsynced/scss/frontend/modules/js-lightgallery.min';

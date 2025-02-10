@@ -1,0 +1,341 @@
+//======================================================================
+//  ____   ____ ____ ____  
+// / ___| / ___/ ___/ ___| 
+// \___ \| |   \___ \___ \ 
+//  ___) | |___ ___) |__) |
+// |____/ \____|____/____/ 
+//
+//======================================================================
+
+//======================================================================
+// Text
+//======================================================================
+$color-text: #646464;
+$color-title: #000;
+$font-weight: 400;
+$font-weight-bold: 600;
+
+//======================================================================
+// Color: primary
+//======================================================================
+$color-primary: #e61e29;
+$color-primary-rgb: toRGB($color-primary);
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-dark: darken($color-primary, 10%);
+
+//======================================================================
+// Color: secondary
+//======================================================================
+// $color-secondary: #5cc4f1;
+$color-secondary: darken($color-primary, 10%);
+$color-secondary-rgb: toRGB($color-secondary);
+$color-secondary-light: lighten($color-secondary, 10%);
+$color-secondary-dark: darken($color-secondary, 10%);
+
+//======================================================================
+// Color: accent
+//======================================================================
+$color-accent: #f8b03c;
+$color-accent-rgb: toRGB($color-accent);
+$color-accent-light: lighten($color-accent, 10%);
+$color-accent-dark: darken($color-accent, 10%);
+
+//======================================================================
+// Color: Grays
+//======================================================================
+// White
+$color-bg: #fff;
+$color-bg-rgb: toRGB($color-bg);
+// Black
+$color-black: #000;
+$color-black-rgb: toRGB($color-black);
+// 50
+// $color-gray-50: #FAFAFA; // Tailwind
+$color-gray-50: #f2f2f2;
+$color-gray-50-rgb: toRGB($color-gray-50);
+// 100
+$color-gray-100: #F4F4F5; // Tailwind
+$color-gray-100-rgb: toRGB($color-gray-100);
+// 200
+$color-gray-200: #E4E4E7; // Tailwind
+$color-gray-200-rgb: toRGB($color-gray-200);
+// 300
+$color-gray-300: #D4D4D8; // Tailwind
+$color-gray-300-rgb: toRGB($color-gray-300);
+// 400
+$color-gray-400: #A1A1AA; // Tailwind
+$color-gray-400-rgb: toRGB($color-gray-400);
+// 500
+$color-gray-500: #71717A; // Tailwind
+$color-gray-500-rgb: toRGB($color-gray-500);
+// 600
+$color-gray-600: #52525B; // Tailwind
+$color-gray-600-rgb: toRGB($color-gray-600);
+// 700
+$color-gray-700: #3F3F46; // Tailwind
+$color-gray-700-rgb: toRGB($color-gray-700);
+// 800
+$color-gray-800: #27272A; // Tailwind
+$color-gray-800-rgb: toRGB($color-gray-800);
+// 900
+$color-gray-900: #18181B; // Tailwind
+$color-gray-900-rgb: toRGB($color-gray-900);
+
+//======================================================================
+// Body text
+//======================================================================
+$body-size-min: 18px;
+$body-size-md: 20px;
+$body-size-max: 21px;
+
+//======================================================================
+// Titles
+//======================================================================
+// h1
+$h1-min: 2rem;
+$h1-med: 2vw;
+$h1-max: 3rem;
+$h1-font-weight: $font-weight-bold;
+// h2
+$h2-min: 1.8rem;
+$h2-med: 1.8vw;
+$h2-max: 2.5rem;
+$h2-font-weight: $font-weight;
+// h3
+$h3-min: 1.6rem;
+$h3-med: 1.6vw;
+$h3-max: 2rem;
+$h3-font-weight: $font-weight-bold;
+// h4
+$h4-min: 1.2rem;
+$h4-med: 1.2vw;
+$h4-max: 1.8rem;
+$h4-font-weight: $font-weight-bold;
+// h5
+$h5-size: 1rem;
+$h5-font-weight: $font-weight-bold;
+// h6
+$h6-size: .875rem;
+$h6-font-weight: $font-weight-bold;
+
+//======================================================================
+// Forms
+//======================================================================
+$radio-checkbox-size: 1.25rem;
+$radio-checkbox-color-bg: transparent;
+$radio-checkbox-color-border: $color-black;
+$radio-checkbox-color-accent: $color-black;
+
+//======================================================================
+// Logo
+//======================================================================
+$logo-height: 4rem;
+
+//======================================================================
+// Nav
+//======================================================================
+// Menu Desktop
+$menu-text: $color-title;
+$menu-text-hover: $color-secondary;
+$menu-popup-bg: rgba(0,0,0,.9);
+$menu-popup-text: $color-bg;
+$menu-popup-text-hover: $color-bg;
+
+// Menu Mobile
+$menu-mobile-bg: rgba(255,255,255,.95);
+$menu-mobile-padding: 1rem;
+$menu-mobile-color: $color-title;
+
+//======================================================================
+// Buttons
+//======================================================================
+// Buttons
+$button-height: 3em;
+$button-margin: 0 .5rem .5rem 0;
+$button-padding: .5em 2em;
+$button-small-height: 2.5em;
+
+//======================================================================
+//   ____ ____ ____  
+//  / ___/ ___/ ___| 
+// | |   \___ \___ \ 
+// | |___ ___) |__) |
+//  \____|____/____/ 
+//
+//======================================================================
+                  
+:root {
+
+	// Logo
+	--logo-height: #{$logo-height};
+
+	// Typography
+	--font-primary: 'DM Sans', sans-serif;
+	--font-secondary: 'DM Sans', sans-serif;
+	--font-weight: #{$font-weight};
+	--font-weight-bold: #{$font-weight-bold};
+	--line-height: 1.45em;
+	
+	// Titles
+	--title-font-weight: $font-weight-bold;
+	--color-title: #{$color-title};
+	
+	// Color: Body
+	--color-text: #{$color-text};
+
+	// Color: Grays
+	--color-bg: #{$color-bg};
+	--color-gray-50: #fafafa;
+	--color-gray-100: #f4f4F5;
+	--color-gray-200: #e4e4e7;
+	--color-gray-400: #a1a1aa;
+	--color-black: #000;
+
+	// Color: Isdark (light colors on dark backgrounds)
+	--isdark-color-title: #{$color-bg};
+	--isdark-color-text: #{$color-gray-200};
+	--isdark-color-border: #{$color-gray-200};
+
+	// Color: Status
+	--color-success: #66bb6a; // Green
+	--color-alert: #f8b03c; // Yellow
+	--color-error: #e61e29; // Red
+
+	// Color: Primary
+	--color-primary: #{$color-primary};
+	--color-primary-light: #{$color-primary-light};
+	--color-primary-dark: #{$color-primary-dark};
+	
+	// Color: Secondary
+	--color-secondary: #{$color-secondary};
+	--color-secondary-light: #{$color-secondary-light};
+	--color-secondary-dark: #{$color-secondary-dark};
+
+	// Color: Accent
+	--color-accent: #{$color-accent};
+	
+	// Table
+	--table-text-color: #000;
+	
+	// Border
+	--border-color: #{$color-black};
+	--border-width: 1px;
+	--border-style: solid;
+
+	// Links
+	--link-color: #{$color-primary};
+	--link-color-hover: #{$color-secondary};
+	--link-text-decoration: none;
+	--link-text-decoration-hover: underline;
+		
+	// Buttons
+	--button-border-radius: .25em;
+	--button-font-weight: 1000;
+	--button-border-width: 2px;
+	--button-small-height: #{$button-small-height};
+
+	// Button: Primary
+	--color-button-bg: #{$color-primary};
+	--color-button-text: #{$color-bg};
+	--color-button-border: #{$color-primary};
+	--color-button-bg-hover: #{$color-primary-dark};
+	--color-button-text-hover: #{$color-bg};
+	--color-button-border-hover: #{$color-primary-dark};
+	
+	// Button: Hollow
+	--color-button-hollow-text: #{$color-primary};
+	--color-button-hollow-border: #{$color-primary};
+	--color-button-hollow-bg-hover: #{$color-primary};
+	--color-button-hollow-text-hover: #{$color-bg};
+	--color-button-hollow-border-hover: #{$color-primary};
+	
+	// Button: Hollow light
+	--color-button-hollow-light-bg: transparent;
+	--color-button-hollow-light-text: #{$color-bg};
+	--color-button-hollow-light-border: #{$color-bg};
+	--color-button-hollow-light-bg-hover: transparent;
+	--color-button-hollow-light-text-hover: #{$color-bg};
+	--color-button-hollow-light-border-hover: #{$color-bg};
+	
+	// Button: Secondary
+	--color-button-secondary-bg: rgba(0,0,0,.1);
+	--color-button-secondary-text: #{$color-text};
+	--color-button-secondary-border: transparent;
+	--color-button-secondary-bg-hover: rgba(0,0,0,.2);
+	--color-button-secondary-text-hover: #{$color-text};
+	--color-button-secondary-border-hover: transparent;
+		
+	// Button: Secondary light
+	--color-button-secondary-light-bg: rgba(255,255,255,.3);
+	--color-button-secondary-light-text: #{$color-bg};
+	--color-button-secondary-light-border: transparent;
+	--color-button-secondary-light-bg-hover: rgba(255,255,255,.6);
+	--color-button-secondary-light-text-hover: #{$color-bg};
+	--color-button-secondary-light-border-hover: transparent;
+	
+	// Forms
+	--input-label-color: #{$color-black};
+	--input-label-size: .75rem;
+	--input-label-margin: 0 0 .25rem 0;
+	--input-color:  #{$color-black};
+	--input-bg-color: transparent;
+	--input-height: 50px;
+	--input-border-width: 1px;
+	--input-border-color: #{$color-black};
+	--input-radius: .15rem;
+	--input-placeholder-color: #{$color-gray-400};
+	--input-hover-color:  #{$color-black};
+	--input-hover-bg-color: #{$color-bg};
+	--input-hover-border-color: #{$color-gray-500};
+	
+	// Transition
+	--transition-default: all .4s ease-in-out;
+	
+	// Map
+	--map-height: 420px;
+		
+	// Block unit
+	--bu: .375rem;
+	@media screen and ( min-width: #{$breakpoint-2} ) {
+		--bu: .75rem;
+	}
+	@media screen and ( min-width: #{$breakpoint-3} ) {
+		--bu: 1rem;
+	}
+	@media screen and ( min-width: #{$breakpoint-4} ) {
+		--bu: 1.5rem;
+	}
+		
+	// Woocommerce
+	// --woocommerce: #000;
+	// --wc-green: #7ad03a;
+	// --wc-red: #a00;
+	// --wc-orange: #ffba00;
+	// --wc-blue: #2ea2cc;
+	// --wc-primary: #a46497;
+	// --wc-primary-text: #fff;
+	// --wc-secondary: #ebe9eb;
+	// --wc-secondary-text: #515151;
+	// --wc-highlight: #77a464;
+	// --wc-highligh-text: #fff;
+	// --wc-content-bg: #fff;
+	// --wc-subtext: #767676;
+	
+	// Project custom variables
+	--menu-height: 60px;
+	@media screen and ( min-width: #{$breakpoint-3} ) {
+		--menu-height: 120px;
+	}
+	
+	/**
+	// Uncomment these lines to add a dark a layout 
+	// for users that prefer dark scheme
+	@media( prefers-color-scheme: dark) {
+		html, body {
+			color: var(--isdark-color-text);
+			background-color: var(--color-black);
+		}
+		@import '../../../core/unsynced/scss/frontend/modules/dark_mode';
+	}
+	*/
+}

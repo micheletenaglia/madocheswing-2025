@@ -1,0 +1,484 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Mado' che Swing\n"
+"POT-Creation-Date: 2024-09-06 17:27+0200\n"
+"PO-Revision-Date: 2024-09-06 17:27+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr__e;esc_html__;esc_html__e;"
+"_n:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: core\n"
+
+#: 404.php:24
+msgid "Page not found"
+msgstr "Pagina non trovata"
+
+#: 404.php:25
+msgid "The requested page does not exist or has been deleted."
+msgstr "La pagina richiesta non esiste o è stata eliminata."
+
+#: 404.php:26
+msgid "Homepage"
+msgstr "Homepage"
+
+#: category.php:25
+msgid "No news yet."
+msgstr "Ancora nessuna news."
+
+#: comments.php:13
+#, php-format
+msgid "One response to %s"
+msgstr "Una risposta a %s"
+
+#: comments.php:19
+#, php-format
+msgid "%1$s response to %2$s"
+msgid_plural "%1$s responses to %2$s"
+msgstr[0] "%1$s risposta a %s"
+msgstr[1] "%1$s Risposte a %2$s"
+
+#: comments.php:42
+msgid "Comments are closed."
+msgstr "I commenti sono chiusi."
+
+#: functions.php:288 functions.php:290 functions.php:294
+#: page-templates/page-levels.php:24 page-templates/page-levels.php:61
+#: page-templates/page-teachers.php:78 single-dance-class.php:86
+#: single-style.php:61
+msgid "Dance classes"
+msgstr "Corsi di ballo"
+
+#: functions.php:289 project/blocks/fn-acf-fields-blocks.php:23
+msgid "Dance class"
+msgstr "Corso di ballo"
+
+#: functions.php:339 functions.php:341 functions.php:345
+#: page-templates/page-events.php:93
+msgid "Events"
+msgstr "Eventi"
+
+#: functions.php:340 project/functions/fn-acf-fields-project.php:248
+msgid "Event"
+msgstr "Evento"
+
+#: functions.php:387 functions.php:389 functions.php:393
+#: project/functions/fn-acf-fields-project.php:533
+msgid "Styles"
+msgstr "Stili"
+
+#: functions.php:388 project/functions/fn-acf-fields-project.php:36
+#: project/functions/fn-acf-fields-project.php:482
+#: project/templates/dance-class/dance-class-loop-fees.php:33
+#: project/templates/dance-class/dance-class-loop-trial.php:36
+#: single-dance-class.php:100
+msgid "Style"
+msgstr "Stile"
+
+#: functions.php:443 functions.php:445 functions.php:449
+msgid "Levels"
+msgstr "Livelli"
+
+#: functions.php:444 project/functions/fn-acf-fields-project.php:51
+#: project/functions/fn-acf-fields-project.php:371
+#: project/templates/dance-class/dance-class-loop-fees.php:34
+#: project/templates/dance-class/dance-class-loop-trial.php:37
+#: single-dance-class.php:104
+msgid "Level"
+msgstr "Livello"
+
+#: functions.php:494 functions.php:496 functions.php:500
+#: project/functions/fn-acf-fields-project.php:66 single-dance-class.php:108
+msgid "Teachers"
+msgstr "Insegnanti"
+
+#: functions.php:495 project/functions/fn-acf-fields-project.php:515
+msgid "Teacher"
+msgstr "Insegnante"
+
+#: functions.php:545 functions.php:547 functions.php:551
+msgid "Locations"
+msgstr "Luoghi"
+
+#: functions.php:546 project/functions/fn-acf-fields-project.php:85
+#: project/functions/fn-acf-fields-project.php:427
+msgid "Location"
+msgstr "Luogo"
+
+#: functions.php:597 functions.php:602
+msgid "Location categories"
+msgstr "Categorie luoghi"
+
+#: functions.php:598
+msgid "Location category"
+msgstr "Categoria luoghi"
+
+#: home.php:11
+msgid "Posts"
+msgstr "Articoli"
+
+#: page-templates/page-events.php:83
+#, php-format
+msgid "Events from %s to %s"
+msgstr "Eventi da %s a %s"
+
+#: page-templates/page-events.php:119 page-templates/page-levels.php:68
+#: page-templates/page-teachers.php:85
+msgid "Details"
+msgstr "Dettagli"
+
+#: page-templates/page-levels.php:57 page-templates/page-teachers.php:74
+#: single-dance-class.php:175
+msgid "Description not available."
+msgstr "Descrizione non disponibile."
+
+#: page-templates/page-levels.php:73 page-templates/page-teachers.php:90
+msgid "No classes at this time."
+msgstr "Nessun corso al momento."
+
+#: project/blocks/dance-class-card/dance-class-card.php:38
+msgid "Fill in the required fields."
+msgstr "Compila i campi obbligatori."
+
+#: project/blocks/fn-acf-fields-blocks.php:19
+#: project/blocks/fn-acf-register-blocks.php:43
+msgid "Dance class card"
+msgstr "Tessera corso di ballo"
+
+#: project/blocks/fn-acf-register-blocks.php:44
+msgid "Dance class card with minimal data."
+msgstr "Tessera corso di ballo con info minime."
+
+#: project/functions/fn-acf-fields-project.php:23
+msgid "General info"
+msgstr "Info generali"
+
+#: project/functions/fn-acf-fields-project.php:29
+#: project/functions/fn-acf-fields-project.php:258
+#: project/functions/fn-acf-fields-project.php:486
+msgid "Subhead"
+msgstr "Sottotitolo"
+
+#: project/functions/fn-acf-fields-project.php:100 single-dance-class.php:204
+msgid "Trial lesson"
+msgstr "Lezione di prova"
+
+#: project/functions/fn-acf-fields-project.php:103
+msgid "Trial"
+msgstr "Prova"
+
+#: project/functions/fn-acf-fields-project.php:104
+msgid "Regular"
+msgstr "Normale"
+
+#: project/functions/fn-acf-fields-project.php:109
+#: project/functions/fn-acf-fields-project.php:295 single-dance-class.php:185
+msgid "Dates"
+msgstr "Date"
+
+#: project/functions/fn-acf-fields-project.php:115
+#: project/templates/dance-class/dance-class-loop-trial.php:38
+msgid "Date"
+msgstr "Data"
+
+#: project/functions/fn-acf-fields-project.php:125 single-dance-class.php:124
+msgid "Time"
+msgstr "Orario"
+
+#: project/functions/fn-acf-fields-project.php:134
+#: project/functions/fn-acf-fields-project.php:311
+msgid "End date"
+msgstr "Data fine"
+
+#: project/functions/fn-acf-fields-project.php:144
+#: project/functions/fn-acf-fields-project.php:339
+msgid "Generate children"
+msgstr "Genera date"
+
+#: project/functions/fn-acf-fields-project.php:153
+#: project/functions/fn-acf-fields-project.php:159 single-dance-class.php:132
+#: single-dance-class.php:142
+msgid "Registration"
+msgstr "Registrazione"
+
+#: project/functions/fn-acf-fields-project.php:163 single-dance-class.php:68
+msgid "Open"
+msgstr "Aperta"
+
+#: project/functions/fn-acf-fields-project.php:164 single-dance-class.php:69
+msgid "Closed"
+msgstr "Chiusa"
+
+#: project/functions/fn-acf-fields-project.php:172
+#: project/functions/fn-acf-fields-project.php:180
+#: project/functions/fn-acf-fields-project.php:187
+#: project/functions/fn-acf-fields-project.php:194
+msgid "Fee"
+msgstr "Tariffa"
+
+#: project/functions/fn-acf-fields-project.php:180
+msgid "yearly"
+msgstr "annuale"
+
+#: project/functions/fn-acf-fields-project.php:187
+msgid "quarterly"
+msgstr "trimestrale"
+
+#: project/functions/fn-acf-fields-project.php:194
+msgid "monthly"
+msgstr "mensile"
+
+#: project/functions/fn-acf-fields-project.php:210
+msgid "Early birds fee"
+msgstr "Tariffa early birds"
+
+#: project/functions/fn-acf-fields-project.php:252
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: project/functions/fn-acf-fields-project.php:265
+#: project/templates/dance-class/dance-class-loop-trial.php:39
+#: single-dance-class.php:128
+msgid "Venue"
+msgstr "Sede"
+
+#: project/functions/fn-acf-fields-project.php:284 single-event.php:67
+msgid "Entrance"
+msgstr "Ingresso"
+
+#: project/functions/fn-acf-fields-project.php:301
+msgid "Start date"
+msgstr "Data inizio"
+
+#: project/functions/fn-acf-fields-project.php:321
+msgid "Start time"
+msgstr "Ora inizio"
+
+#: project/functions/fn-acf-fields-project.php:330
+msgid "End time"
+msgstr "Ora fine"
+
+#: project/functions/fn-acf-fields-project.php:375
+msgid "Related dance style"
+msgstr "Stile di ballo correlato"
+
+#: project/functions/fn-acf-fields-project.php:389
+msgid "Label"
+msgstr "Etichetta"
+
+#: project/functions/fn-acf-fields-project.php:396
+msgid "Short description"
+msgstr "Descrizione breve"
+
+#: project/functions/fn-acf-fields-project.php:431
+msgid "Category"
+msgstr "Categoria"
+
+#: project/functions/fn-acf-fields-project.php:445
+msgid "Website"
+msgstr "Sito"
+
+#: project/functions/fn-acf-fields-project.php:451
+msgid "Address"
+msgstr "Indirizzo"
+
+#: project/functions/fn-acf-fields-project.php:519
+msgid "Last name"
+msgstr "Cognome"
+
+#: project/functions/fn-acf-fields-project.php:526
+msgid "First name"
+msgstr "Nome"
+
+#: project/functions/fn-acf-fields-project.php:554
+msgid "Image"
+msgstr "Immagine"
+
+#: project/functions/fn-acf-fields-project.php:565
+msgid "Profile image"
+msgstr "Immagine del profilo"
+
+#: project/templates/dance-class/dance-class-loop-fees.php:35
+msgid "Day"
+msgstr "Giorno"
+
+#: project/templates/dance-class/dance-class-loop-fees.php:36
+#: project/templates/dance-class/dance-class-loop-fees.php:44
+#: single-dance-class.php:70
+msgid "Quarterly"
+msgstr "Trimestrale"
+
+#: project/templates/dance-class/dance-class-loop-fees.php:37
+#: project/templates/dance-class/dance-class-loop-fees.php:45
+#: single-dance-class.php:71
+msgid "Monthly"
+msgstr "Mensile"
+
+#: project/templates/dance-class/dance-class-loop-fees.php:43
+msgid ""
+"Classes are always held on the same day at the same time. The duration is "
+"one hour."
+msgstr ""
+"Le lezioni si tengono sempre nello stesso giorno alla stessa ora. La durata "
+"è di un’ora."
+
+#: project/templates/dance-class/dance-class-loop-fees.php:44
+#: project/templates/dance-class/dance-class-loop-fees.php:45
+#: project/templates/dance-class/dance-class-loop-fees.php:46
+#, php-format
+msgid "%s Consecutive lessons."
+msgstr "%s Lezioni consecutive."
+
+#: project/templates/dance-class/dance-class-loop-fees.php:46
+msgid ""
+"For the first trimester only. The offer is valid for one dance class only."
+msgstr ""
+"Solo per il primo trimestre. L’offerta è valida per un solo corso di ballo."
+
+#: project/templates/dance-class/dance-class-loop-fees.php:68
+msgid "Promo"
+msgstr "Promo"
+
+#: project/templates/dance-class/dance-class-loop-fees.php:92
+#: single-dance-class.php:156
+msgid "Until"
+msgstr "Fino al"
+
+#: project/templates/location/location-card.php:29
+msgid "View on map"
+msgstr "Vedi sulla mappa"
+
+#: project/templates/nav/nav-icons.php:16
+msgid "Telephone"
+msgstr "Telefono"
+
+#: project/templates/post/post-card.php:23
+msgid "By"
+msgstr "Di"
+
+#: search.php:23
+#, php-format
+msgid ""
+"If you still can't find what you're looking for, send <a "
+"href=\"%s\">feedback</a> to help improve our site."
+msgstr ""
+"Se ancora non riesci a trovare quello che stai cercando, invia un <a "
+"href=\"%s\">feedback</a> per aiutarci a migliorare il nostro sito."
+
+#: search.php:26
+#, php-format
+msgid ""
+"If you still can't find what you're looking for, send <a href=\"mailto:"
+"%s\">feedback</a> to help improve our site."
+msgstr ""
+"Se ancora non riesci a trovare quello che stai cercando, invia un <a "
+"href=\"mailto:%s\">feedback</a> per aiutarci a migliorare il nostro sito."
+
+#: search.php:36
+msgid "You have searched for"
+msgstr "Hai cercato"
+
+#: search.php:47
+msgid "No results for"
+msgstr "Nessun risultato per"
+
+#: search.php:49
+msgid "We are sorry, we were not able to find a match."
+msgstr "Siamo spiacenti, non siamo riusciti a trovare una corrispondenza."
+
+#: search.php:52
+msgid "Try a different word or phrase."
+msgstr "Prova una parola o una frase diversa."
+
+#: search.php:53
+msgid "Check your search for typos."
+msgstr "Controlla la tua ricerca per errori di battitura."
+
+#: search.php:64 searchform.php:3 searchform.php:4
+msgid "Search"
+msgstr "Cerca"
+
+#: search.php:65
+msgid "Enter at least three letters."
+msgstr "Inserisci almeno tre lettere."
+
+#: searchform.php:3
+msgid "Search..."
+msgstr "Cerca…"
+
+#: single-dance-class.php:116
+msgid "Start"
+msgstr "Inizio"
+
+#: single-dance-class.php:120
+msgid "End"
+msgstr "Fine"
+
+#: single-dance-class.php:163
+msgid "Sign up now"
+msgstr "Iscriviti ora"
+
+#: single-dance-class.php:165
+msgid "Registrations are closed"
+msgstr "Le registrazioni sono chiuse"
+
+#: single-dance-class.php:171
+msgid "Description"
+msgstr "Descrizione"
+
+#: single-dance-class.php:179
+msgid "More info"
+msgstr "Scopri di più"
+
+#: single-dance-class.php:185
+#, php-format
+msgid "%s Lesson"
+msgid_plural "%s Lessons"
+msgstr[0] "%s Lezione"
+msgstr[1] "%s Lezioni"
+
+#: single-dance-class.php:200
+msgid "Lesson"
+msgstr "Lezione"
+
+#: single-event.php:51
+msgid "When"
+msgstr "Quando"
+
+#: single-event.php:53
+#, php-format
+msgid "Every %s from %s to %s."
+msgstr "Ogni %s dal %s al %s."
+
+#: single-event.php:57
+msgid "Where"
+msgstr "Dove"
+
+#: single-event.php:68
+msgid "Not available."
+msgstr "Non disponibile."
+
+#: single-style.php:45
+msgid "Dance styles"
+msgstr "Stili di ballo"
+
+#, php-format
+#~ msgid "Try searching in the archives of these categories: %s."
+#~ msgstr "Prova a cercare negli archivi di queste categorie: %s."
+
+#, php-format
+#~ msgid "Results for %s"
+#~ msgstr "Risultati per %s"
+
+#~ msgid "No."
+#~ msgstr "Nr."
+
+#~ msgid "Notes"
+#~ msgstr "Note"
