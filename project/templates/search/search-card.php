@@ -39,6 +39,6 @@ if( $meta_description ) {
 	<?php if( $description ) : ?>
 		<p class="truncate-2-lines"><?php echo esc_html($description); ?></p>
 	<?php endif; ?>
-	<a href="<?php the_permalink($url_id); ?>"><?php echo get_svg_icon('icon-link','inline-block fill-current h-2 w-auto'); ?> <?php echo hap_url_label(get_the_permalink($url_id)); ?></a>
+	<a href="<?php the_permalink($url_id); ?>"><?php echo get_svg_icon('icon-link','inline-block fill-current h-2 w-auto'); ?> <?php echo mkt_url_label(get_the_permalink($url_id)); ?></a>
 
 </article>
