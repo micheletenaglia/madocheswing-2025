@@ -1,10 +1,9 @@
 <?php
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined('ABSPATH') || exit;
 
+// Menu args
 $menu_args = [
 	'theme_location'	=>	'mobile-menu',
 	'container'			=>	'',
@@ -12,22 +11,15 @@ $menu_args = [
 ];
 
 ?>
-
 <div class="js-menu-mobile menu-mobile-default">
-
 	<div class="nav-mobile">
-	
 		<div class="logo">
-			<a title="<?php _e('Homepage','hap'); ?>" href="<?php echo get_home_url(); ?>"><?php echo hap_get_logo(); ?></a>
+			<a title="<?php _e('Homepage','mklang'); ?>" href="<?php echo get_home_url(); ?>"><?php echo mkt_get_logo(); ?></a>
 		</div>
-
-		<?php hap_get_template('menu/menu-mobile-toggle'); ?>
-
+		<?php mkt_get_template('menu/menu-mobile-toggle'); ?>
 		<nav>
 			<?php wp_nav_menu( $menu_args ); ?>
-			<?php do_action( 'hap_after_mobile_nav'); ?>
+			<?php do_action('mkt_after_mobile_nav'); ?>
 		</nav>
-
 	</div>
-	
 </div>

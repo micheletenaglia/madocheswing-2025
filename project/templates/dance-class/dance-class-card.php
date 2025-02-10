@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Dance class card.
  * 
@@ -26,7 +29,6 @@ $address = get_field('address',$location);
 $address_string = $address['street_name'] . ' ' . $address['street_number'] . ', ' . $address['city'];
 
 ?>
-
 <a href="<?php echo get_the_permalink($post_id); ?>" class="card-dance-class">
     <div class="card-label">
         <span><?php echo get_the_title($style); ?></span>
@@ -35,21 +37,21 @@ $address_string = $address['street_name'] . ' ' . $address['street_number'] . ',
         <?php foreach( $teachers as $teacher ) : ?>
             <span class="block">
                 <?php echo wp_get_attachment_image( get_field('profile_image',$teacher),'full'); ?>
-                <?php echo get_field('first_name',$teacher); ?>
+                <?php echo esc_html(get_field('first_name',$teacher)); ?>
             </span>
         <?php endforeach; ?>
     </div>
     <span class="card-title"><?php echo get_the_title($post_id); ?></span>
     <ul>
         <li class="pb-1">
-            <?php echo get_field('label',$level); ?>
+            <?php echo esc_html(get_field('label',$level)); ?>
         </li>
         <li class="pb-1">
-            <?php echo ucwords(wp_date('l',strtotime(get_field('date',$post_id)))) . ' - ' . get_field('time',$post_id); ?>
+            <?php echo ucwords(wp_date('l',strtotime(get_field('date',$post_id)))) . ' - ' . esc_html(get_field('time',$post_id)); ?>
         </li>
         <li class="pb-1">
             <?php echo get_the_title($location); ?>
-            <span class="block text-xs"><?php echo $address_string; ?></span>
+            <span class="block text-xs"><?php echo esc_html($address_string); ?></span>
         </li>
     </ul>
 </a>

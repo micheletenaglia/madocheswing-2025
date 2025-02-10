@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 // Fonts
 $fonts = [];
 
@@ -47,8 +50,8 @@ if( $logo_size ) {
 
 // Texts
 $captions = [
-    401 =>  __('Unauthorized','hap'),
-    403 =>  __('Forbidden','hap'),
+    401 =>  __('Unauthorized','mklang'),
+    403 =>  __('Forbidden','mklang'),
 ];
 $title = $_REQUEST['status'];
 $caption = $captions[$title];
@@ -56,7 +59,6 @@ $caption = $captions[$title];
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,16 +72,16 @@ $caption = $captions[$title];
     <?php foreach( $fonts as $font_url ) : ?>
         <link rel="stylesheet" href="<?php echo esc_url($font_url); ?>" media="all" />
     <?php endforeach; ?>
-    <link rel="stylesheet" href="<?php echo esc_url(HAP_PROJECT_CSS_URI . 'frontend.css'); ?>" media="all" />
-    <?php echo hap_favicons(); ?>
+    <link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri() . '/project/assets/css/frontend.css'); ?>" media="all" />
+    <?php echo get_option('options_favicons_favicon_code'); ?>
 </head>
 <body <?php body_class(); ?>>
     <div class="h-screen flex flex-col justify-center items-center bg-white text-primary">
-        <div style="width: <?php echo $logo_width; ?>; height: <?php echo $logo_height; ?>;">
-            <?php echo hap_get_logo( 'w-full h-auto' ); ?>
+        <div style="width: <?php echo esc_attr($logo_width); ?>; height: <?php echo esc_attr($logo_height); ?>;">
+            <?php echo mkt_get_logo( 'w-full h-auto' ); ?>
         </div>
-        <div class="font-bold text-9xl"><?php echo $title; ?></div>
-        <strong><?php echo $caption; ?></strong>
+        <div class="font-bold text-9xl"><?php echo esc_html($title); ?></div>
+        <strong><?php echo esc_html($caption); ?></strong>
     </div>
 </body>
 </html>

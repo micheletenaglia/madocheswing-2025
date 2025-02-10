@@ -1,9 +1,11 @@
 <?php
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined('ABSPATH') || exit;
+
+/**
+ * The template to display menu mobile toggle icon. 
+ */
 
 echo get_svg_icon(
 	'bars',

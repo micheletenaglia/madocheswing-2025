@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Banner with 2 columns Block Template.
  *
@@ -12,37 +15,38 @@
 // Get fields
 $dance_class = get_field('dance_class');
 
-?>
-
-<?php if( $is_preview ) : ?>
+// Backend
+if( $is_preview ) : ?>
     <!-- Preview -->
-	<div class="hap-wp-block">
-		<div class="hap-wp-block-info">
-			<div class="hap-wp-block-info-left">
-				<figure class="hap-wp-block-info-icon">
+	<div class="mkt-wp-block">
+		<div class="mkt-wp-block-info">
+			<div class="mkt-wp-block-info-left">
+				<figure class="mkt-wp-block-info-icon">
 					<?php echo get_svg_icon( 'dance-class-card', null, 'block-project' ); ?>
 				</figure>
 				<div>
-					<span class="hap-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-					<span class="hap-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
+					<span class="mkt-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+					<span class="mkt-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
 				</div>
 			</div>
 		</div>
-		<div class="hap-wp-block-content">
+		<div class="mkt-wp-block-content">
 			<?php if( $dance_class ) : ?>
 				<div>
 					<h4><?php echo get_the_title($dance_class); ?></h4>
 				</div>
 			<?php else : ?>
 				<div>
-    				<strong class="text-error"><?php _e('Fill in the required fields.','hap'); ?></strong>
+    				<strong class="text-error"><?php _e('Fill in the required fields.','mklang'); ?></strong>
 				</div>
 			<?php endif; ?>
 		</div>		
 	</div>
-<?php else :
+<?php 
+// Frontend
+else :
     if( $dance_class ) :
-        hap_get_template(
+        mkt_get_template(
             'dance-class/dance-class-card',
             ['post_id'=>$dance_class]
         );

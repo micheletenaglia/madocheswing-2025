@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Block Template: WPML Switcher.
  *
@@ -14,8 +17,8 @@ $current_lang = null;
 $default_lang = null;
 $siteurl = get_option('siteurl');
 $home_url = null;
-$languages = hap_get_languages();
-if( is_wpml_activated() ) {
+$languages = mkt_get_languages();
+if( mkt_plugin_active('wpml') ) {
 	$current_lang = apply_filters( 'wpml_current_language', null );
 	$default_lang = apply_filters('wpml_default_language', NULL );	
 	$home_url = apply_filters( 'wpml_home_url', get_option( 'home' ) );
@@ -33,66 +36,44 @@ if( !empty( $block['anchor'] ) ) {
 	$id = $block['anchor'];
 }
 
-?>
-
-<?php if( $is_preview ) : ?>
-
-	<div class="hap-wp-block"><!-- Start preview -->
-		
-		<div class="hap-wp-block-info"><!-- Start preview header -->
-
-			<div class="hap-wp-block-info-left">
-
-				<figure class="hap-wp-block-info-icon">
-					<?php echo get_svg_icon( 'wpml-switcher', null, 'block-core' ); ?>
+// Backend
+if( $is_preview ) : ?>
+	<div class="mkcb-wp-block">
+		<div class="mkcb-wp-block-info">
+			<div class="mkcb-wp-block-info-left">
+				<figure class="mkcb-wp-block-info-icon">
+					<?php echo get_svg_icon('wpml-switcher',null,'block-core'); ?>
 				</figure>
-
 				<div>
-					<span class="hap-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-					<span class="hap-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
+					<span class="mkcb-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+					<span class="mkcb-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
 				</div>
-
 			</div>
-			
-		</div><!-- End preview header -->
-
-		<div class="hap-wp-block-content"><!-- Start preview content -->
-
-			<?php if( is_wpml_activated() ) : ?>
-			
-				<?php do_action('wpml_add_language_selector'); ?>
-			
-			<?php else : ?>
-			
-				<strong class="text-error"><?php _e('WPML is not active.','hap'); ?></strong>
-			
+		</div>
+		<div class="mkcb-wp-block-content">
+			<?php if( mkt_plugin_active('wpml') ) :
+				do_action('wpml_add_language_selector');
+			else : ?>
+				<strong class="text-error"><?php _e('WPML is not active.','mklang'); ?></strong>
 			<?php endif; ?>
-
-		</div><!-- End preview content -->
-		
-	</div><!-- End preview -->
-
-<?php else : ?>
-
-	<?php if( is_wpml_activated() ) : ?>
-
-		<div class="hap-wpml-switcher-wrap">
-
+		</div>
+	</div>
+<?php else : 
+	// Frontend
+	// !!! Use PHP class or function here
+	if( mkt_plugin_active('wpml') ) : ?>
+		<div class="mkcf-wpml-switcher-wrap">
 			<span class="js-wpml-switcher"><?php echo $current_lang; ?></span>
-
             <?php if( 
                 apply_filters( 'wpml_is_translated_post_type', NULL, get_post_type($post_id) ) ||
                 is_404() ||
                 is_search()
             ) : ?>
-
-				<div class="hap-wpml-switcher">
+				<div class="mkcf-wpml-switcher">
 					<?php do_action('wpml_add_language_selector'); ?>
 				</div>
-
 			<?php else : ?>
-
-				<div class="hap-wpml-switcher">
+				<div class="mkcf-wpml-switcher">
 					<div class="wpml-ls-statics-shortcode_actions wpml-ls wpml-ls-legacy-list-horizontal">
 						<ul>
 							<?php $index = 0; foreach( $languages as $code => $label ) : $index++; ?>
@@ -121,10 +102,7 @@ if( !empty( $block['anchor'] ) ) {
 						</ul>
 					</div>
 				</div>
-
 			<?php endif; ?>
-
 		</div>
-	<?php endif; ?>
-
-<?php endif;
+	<?php endif;
+ endif;

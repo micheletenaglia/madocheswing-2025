@@ -1,5 +1,9 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
+// Levels
 $levels = get_posts([
     'post_type'     =>  'level',
     'numberposts'   =>  -1,

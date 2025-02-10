@@ -1,9 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined('ABSPATH') || exit;
 
 // Get post ID
 $post_id = get_the_ID();
@@ -36,10 +34,8 @@ if( $meta_description ) {
 }
 
 ?>
-
-<article class="search-card">
-		
-	<h2><?php echo strip_tags( get_the_title() ); ?></h2>
+<article class="search-card">		
+	<h2><?php echo strip_tags(get_the_title()); ?></h2>
 	<?php if( $description ) : ?>
 		<p class="truncate-2-lines"><?php echo esc_html($description); ?></p>
 	<?php endif; ?>

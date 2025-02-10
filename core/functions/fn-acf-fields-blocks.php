@@ -1,69 +1,40 @@
 <?php
 
 // Exit if accessed directly
-if( !defined('ABSPATH') ) {
-	exit;
-}
+defined('ABSPATH') || exit;
 
 /**
  * Register core blocks ACF fields.
  *
- * Do not edit directly!
- * The functions.php file must be used 
- * to add functionality to the site.
- * 
- * @since Hap Studio Theme 1.0.0
  */
-
-/****************************************************************************************
-  ____  _     ___   ____ _  __  _____ ___ _____ _     ____  ____  
- | __ )| |   / _ \ / ___| |/ / |  ___|_ _| ____| |   |  _ \/ ___| 
- |  _ \| |  | | | | |   | ' /  | |_   | ||  _| | |   | | | \___ \ 
- | |_) | |__| |_| | |___| . \  |  _|  | || |___| |___| |_| |___) |
- |____/|_____\___/ \____|_|\_\ |_|   |___|_____|_____|____/|____/ 
-
-****************************************************************************************/
-
-/* Filters ----------------------------------------------------------------------------*/
-
-// Programmatically populate ACF select field named "menu_id" with available menus.
-add_filter('acf/load_field/name=menu_id', 'hap_populate_acf_field_menu_id');
-
-// Programmatically populate ACF select field named "post_type"
-add_filter('acf/load_field/name=post_type', 'hap_populate_post_types');
-
-/* Actions ----------------------------------------------------------------------------*/
-
-// Register core blocks fields.
-add_action('acf/init', 'hap_load_fields_blocks');
-
-/* Functions --------------------------------------------------------------------------*/
 
 /**
- * Register core blocks fields
- *
- * @return void
+ * Register core blocks fields.
+ * This function is called in core/functions/fn-acf-fields-theme.php mktFieldsTheme::fields.
  */
-function hap_load_fields_blocks() {
-	
+function mkt_load_fields_blocks() : void {
+	// Bail out early
+	if( !function_exists('acf_add_local_field_group') ) {
+		return;
+	}
 	// Container
 	acf_add_local_field_group(array(
 		'key'		=> 'group_6388fb9362f89',
-		'title'		=> __('Container','hap'),
+		'title'		=> __('Container','mklang'),
 		'fields'	=> array(
 			array(
 				'key'				=> 'field_640627f23056f',
-				'label'				=> __('Admin label','hap'),
+				'label'				=> __('Admin label','mklang'),
 				'name'				=> 'admin_label',
 				'type'				=> 'text',
 			),		
 			array(
 				'key'				=> 'field_63890beaf629b',
-				'label'				=> __('Show/Hide','hap'),
+				'label'				=> __('Show/Hide','mklang'),
 				'name'				=> 'toggle',
 				'type'				=> 'true_false',
-				'ui_on_text'		=> __('Hide','hap'),
-				'ui_off_text'		=> __('Show','hap'),
+				'ui_on_text'		=> __('Hide','mklang'),
+				'ui_off_text'		=> __('Show','mklang'),
 				'ui'				=> 1,
 			),
 			array(
@@ -79,7 +50,7 @@ function hap_load_fields_blocks() {
 			// Display
 			array(
 				'key'				=> 'field_63ab25282952a',
-				'label'				=> __('Preview grid','hap'),
+				'label'				=> __('Preview grid','mklang'),
 				'name'				=> 'toggle_grid_preview',
 				'type'				=> 'true_false',
 				'conditional_logic'	=> array(
@@ -91,16 +62,16 @@ function hap_load_fields_blocks() {
 						),
 					),
 				),
-				'ui_on_text'		=> __('On','hap'),
-				'ui_off_text'		=> __('Off','hap'),
+				'ui_on_text'		=> __('On','mklang'),
+				'ui_off_text'		=> __('Off','mklang'),
 				'ui'				=> 1,
 			),
 			array(
 				'key'				=> 'field_63b2ee2afc206',
-				'label'				=> __('Semantic tag','hap'),
+				'label'				=> __('Semantic tag','mklang'),
 				'name'				=> 'semantic_tag',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('semantic_tag'),
+				'choices'			=> mkt_block_values('semantic_tag'),
 				'default_value'		=> 'div',
 				'return_format'		=> 'value',
 			),
@@ -109,7 +80,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Display',
 				'name'				=> 'display',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('display'),
+				'choices'			=> mkt_block_values('display'),
 				'default_value'		=> 'block',
 				'return_format'		=> 'value',
 			),
@@ -127,7 +98,7 @@ function hap_load_fields_blocks() {
 						),
 					),
 				),
-				'choices'			=> hap_block_values('flex_direction'),
+				'choices'			=> mkt_block_values('flex_direction'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -145,7 +116,7 @@ function hap_load_fields_blocks() {
 						),
 					),
 				),
-				'choices'			=> hap_block_values('justify_content'),
+				'choices'			=> mkt_block_values('justify_content'),
 				'return_format'		=> 'value',
 				'allow_null'		=>	1
 			),
@@ -163,7 +134,7 @@ function hap_load_fields_blocks() {
 						),
 					),
 				),
-				'choices'			=> hap_block_values('align_items'),
+				'choices'			=> mkt_block_values('align_items'),
 				'return_format'		=> 'value',
 				'allow_null'		=>	1,
 			),
@@ -181,7 +152,7 @@ function hap_load_fields_blocks() {
 						),
 					),
 				),
-				'choices'			=> hap_block_values('grid'),
+				'choices'			=> mkt_block_values('grid'),
 				'return_format'		=> 'value',
 			),
 			array(
@@ -198,7 +169,7 @@ function hap_load_fields_blocks() {
 						),
 					),
 				),
-				'choices'			=> hap_block_values('gap'),
+				'choices'			=> mkt_block_values('gap'),
 				'return_format'		=> 'value',
 				'allow_null'		=>	1
 			),
@@ -207,7 +178,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Max width',
 				'name'				=> 'container',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('container'),
+				'choices'			=> mkt_block_values('container'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -216,7 +187,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Height',
 				'name'				=> 'height',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('height'),
+				'choices'			=> mkt_block_values('height'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -225,7 +196,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Min height',
 				'name'				=> 'min_height',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('min_height'),
+				'choices'			=> mkt_block_values('min_height'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -244,7 +215,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Padding',
 				'name'				=> 'padding',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('padding'),
+				'choices'			=> mkt_block_values('padding'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -253,7 +224,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Padding top',
 				'name'				=> 'padding_t',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('padding_t'),
+				'choices'			=> mkt_block_values('padding_t'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),		
@@ -262,7 +233,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Padding bottom',
 				'name'				=> 'padding_b',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('padding_b'),
+				'choices'			=> mkt_block_values('padding_b'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -271,7 +242,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Padding left',
 				'name'				=> 'padding_l',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('padding_l'),
+				'choices'			=> mkt_block_values('padding_l'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -280,7 +251,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Padding right',
 				'name'				=> 'padding_r',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('padding_r'),
+				'choices'			=> mkt_block_values('padding_r'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -299,7 +270,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Margin',
 				'name'				=> 'margin',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('margin'),
+				'choices'			=> mkt_block_values('margin'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -308,7 +279,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Margin top',
 				'name'				=> 'margin_t',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('margin_t'),
+				'choices'			=> mkt_block_values('margin_t'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),		
@@ -317,7 +288,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Margin bottom',
 				'name'				=> 'margin_b',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('margin_b'),
+				'choices'			=> mkt_block_values('margin_b'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -326,7 +297,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Margin left',
 				'name'				=> 'margin_l',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('margin_l'),
+				'choices'			=> mkt_block_values('margin_l'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -335,7 +306,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Margin right',
 				'name'				=> 'margin_r',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('margin_r'),
+				'choices'			=> mkt_block_values('margin_r'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -355,7 +326,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Background color',
 				'name'				=> 'bg_color',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('bg_color'),
+				'choices'			=> mkt_block_values('bg_color'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -371,12 +342,12 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_63ab1cc654bbe',
-				'label'				=> __('Show background image preview','hap'),
+				'label'				=> __('Show background image preview','mklang'),
 				'name'				=> 'toggle_bg_preview',
 				'type'				=> 'true_false',
 				'default_value'		=> 1,
-				'ui_on_text'		=> __('On','hap'),
-				'ui_off_text'		=> __('Off','hap'),
+				'ui_on_text'		=> __('On','mklang'),
+				'ui_off_text'		=> __('Off','mklang'),
 				'ui'				=> 1,
 				'conditional_logic'	=> array(
 					array(
@@ -392,7 +363,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Background blending mode',
 				'name'				=> 'bg_blend_mode',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('bg_blend_mode'),
+				'choices'			=> mkt_block_values('bg_blend_mode'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),			
@@ -401,14 +372,14 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Mix blend mode',
 				'name'				=> 'mix_blend_mode',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('mix_blend_mode'),
+				'choices'			=> mkt_block_values('mix_blend_mode'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),			
 			// Typography
 			array(
 				'key'				=> 'field_63890a6d45d71',
-				'label'				=> __('Typography','hap'),
+				'label'				=> __('Typography','mklang'),
 				'type'				=> 'accordion',
 				'wrapper'			=> array(
 					'width'	=> '',
@@ -418,19 +389,19 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_6389115ede45b',
-				'label'				=> __('Paragraph','hap'),
+				'label'				=> __('Paragraph','mklang'),
 				'name'				=> 'paragraph',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('paragraph'),
+				'choices'			=> mkt_block_values('paragraph'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
 			array(
 				'key'				=> 'field_63890a7b45d72',
-				'label'				=> __('Text color','hap'),
+				'label'				=> __('Text color','mklang'),
 				'name'				=> 'text_color',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('text_color'),
+				'choices'			=> mkt_block_values('text_color'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -462,17 +433,17 @@ function hap_load_fields_blocks() {
 		'fields'				=> array(
 			array(
 				'key'				=> 'field_64d020f7b9912',
-				'label'				=> __('Admin label','hap'),
+				'label'				=> __('Admin label','mklang'),
 				'name'				=> 'admin_label',
 				'type'				=> 'text',
 			),		
 			array(
 				'key'				=> 'field_639064dd00110',
-				'label'				=> __('Show/Hide','hap'),
+				'label'				=> __('Show/Hide','mklang'),
 				'name'				=> 'toggle',
 				'type'				=> 'true_false',
-				'ui_on_text'		=> __('Hide','hap'),
-				'ui_off_text'		=> __('Show','hap'),
+				'ui_on_text'		=> __('Hide','mklang'),
+				'ui_off_text'		=> __('Show','mklang'),
 				'ui'				=> 1,
 			),
 			array(
@@ -487,10 +458,10 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_63b05e39adb5c',
-				'label'				=> __('Semantic tag','hap'),
+				'label'				=> __('Semantic tag','mklang'),
 				'name'				=> 'semantic_tag',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('semantic_tag'),
+				'choices'			=> mkt_block_values('semantic_tag'),
 				'default_value'		=> 'div',
 				'return_format'		=> 'value',
 			),
@@ -499,7 +470,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Height',
 				'name'				=> 'height',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('height'),
+				'choices'			=> mkt_block_values('height'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -508,7 +479,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Min height',
 				'name'				=> 'min_height',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('min_height'),
+				'choices'			=> mkt_block_values('min_height'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -517,18 +488,18 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Col span',
 				'name'				=> 'col_span',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('col_span'),
+				'choices'			=> mkt_block_values('col_span'),
 				'default_value'		=> 'block',
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
 			array(
 				'key'				=> 'field_63b2fbaa244ea',
-				'label'				=> __('Vertically justified','hap'),
+				'label'				=> __('Vertically justified','mklang'),
 				'name'				=> 'vertically_justified',
 				'type'				=> 'true_false',
-				'ui_on_text'		=> __('On','hap'),
-				'ui_off_text'		=> __('Off','hap'),
+				'ui_on_text'		=> __('On','mklang'),
+				'ui_off_text'		=> __('Off','mklang'),
 				'ui'				=> 1,
 			),
 			array(
@@ -546,7 +517,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Padding',
 				'name'				=> 'padding',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('padding'),
+				'choices'			=> mkt_block_values('padding'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -555,7 +526,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Padding top',
 				'name'				=> 'padding_t',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('padding_t'),
+				'choices'			=> mkt_block_values('padding_t'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),		
@@ -564,7 +535,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Padding bottom',
 				'name'				=> 'padding_b',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('padding_b'),
+				'choices'			=> mkt_block_values('padding_b'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -573,7 +544,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Padding left',
 				'name'				=> 'padding_l',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('padding_l'),
+				'choices'			=> mkt_block_values('padding_l'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -582,7 +553,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Padding right',
 				'name'				=> 'padding_r',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('padding_r'),
+				'choices'			=> mkt_block_values('padding_r'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -601,7 +572,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Margin',
 				'name'				=> 'margin',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('margin'),
+				'choices'			=> mkt_block_values('margin'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -610,7 +581,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Margin top',
 				'name'				=> 'margin_t',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('margin_t'),
+				'choices'			=> mkt_block_values('margin_t'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),		
@@ -619,7 +590,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Margin bottom',
 				'name'				=> 'margin_b',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('margin_b'),
+				'choices'			=> mkt_block_values('margin_b'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -628,7 +599,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Margin left',
 				'name'				=> 'margin_l',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('margin_l'),
+				'choices'			=> mkt_block_values('margin_l'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -637,7 +608,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Margin right',
 				'name'				=> 'margin_r',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('margin_r'),
+				'choices'			=> mkt_block_values('margin_r'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -656,7 +627,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Background color',
 				'name'				=> 'bg_color',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('bg_color'),
+				'choices'			=> mkt_block_values('bg_color'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -672,12 +643,12 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_63b05e39adb5b',
-				'label'				=> __('Show background image preview','hap'),
+				'label'				=> __('Show background image preview','mklang'),
 				'name'				=> 'toggle_bg_preview',
 				'type'				=> 'true_false',
 				'default_value'		=> 1,
-				'ui_on_text'		=> __('On','hap'),
-				'ui_off_text'		=> __('Off','hap'),
+				'ui_on_text'		=> __('On','mklang'),
+				'ui_off_text'		=> __('Off','mklang'),
 				'ui'				=> 1,
 				'conditional_logic'	=> array(
 					array(
@@ -690,7 +661,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_6441429ed281f',
-				'label'				=> __('Image for mobile','hap'),
+				'label'				=> __('Image for mobile','mklang'),
 				'name'				=> 'image_mobile',
 				'type'				=> 'image',
 				'return_format'		=> 'id',
@@ -700,7 +671,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_644142e3d2820',
-				'label'				=> __('Mobile layout image position','hap'),
+				'label'				=> __('Mobile layout image position','mklang'),
 				'name' 				=> 'image_mobile_position',
 				'type'				=> 'button_group',
 				'choices'			=> array(
@@ -714,7 +685,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_6441505d44002',
-				'label'				=> __('Mobile layout image CSS classes','hap'),
+				'label'				=> __('Mobile layout image CSS classes','mklang'),
 				'name'				=> 'image_mobile_css',
 				'type'				=> 'text',
 			),
@@ -723,7 +694,7 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Background blending mode',
 				'name'				=> 'bg_blend_mode',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('bg_blend_mode'),
+				'choices'			=> mkt_block_values('bg_blend_mode'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -732,13 +703,13 @@ function hap_load_fields_blocks() {
 				'label'				=> 'Mix blend mode',
 				'name'				=> 'mix_blend_mode',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('mix_blend_mode'),
+				'choices'			=> mkt_block_values('mix_blend_mode'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),			
 			array(
 				'key'				=> 'field_639064dd00138',
-				'label'				=> __('Typography','hap'),
+				'label'				=> __('Typography','mklang'),
 				'type'				=> 'accordion',
 				'wrapper'			=> array(
 					'width'	=> '',
@@ -748,19 +719,19 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_639082721b71c',
-				'label'				=> __('Paragraph','hap'),
+				'label'				=> __('Paragraph','mklang'),
 				'name'				=> 'paragraph',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('paragraph'),
+				'choices'			=> mkt_block_values('paragraph'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
 			array(
 				'key'				=> 'field_639064dd0013a',
-				'label'				=> __('Text color','hap'),
+				'label'				=> __('Text color','mklang'),
 				'name'				=> 'text_color',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('text_color'),
+				'choices'			=> mkt_block_values('text_color'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -788,7 +759,7 @@ function hap_load_fields_blocks() {
 	// Hero primary
 	acf_add_local_field_group(array(
 		'key'					=> 'group_638df89e9c4e5',
-		'title'					=> __('Hero primary','hap'),
+		'title'					=> __('Hero primary','mklang'),
 		'fields'				=> array(
 			array(
 				'key'				=> 'field_638df89e9f7e0',
@@ -802,16 +773,16 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_638df89e9f7e5',
-				'label'				=> __('Show/Hide','hap'),
+				'label'				=> __('Show/Hide','mklang'),
 				'name'				=> 'hero_primary_toggle',
 				'type'				=> 'true_false',
-				'ui_on_text'		=> __('Hide','hap'),
-				'ui_off_text'		=> __('Show','hap'),
+				'ui_on_text'		=> __('Hide','mklang'),
+				'ui_off_text'		=> __('Show','mklang'),
 				'ui' => 1,
 			),
 			array(
 				'key'				=> 'field_638e05c397fc1',
-				'label'				=> __('Titles','hap'),
+				'label'				=> __('Titles','mklang'),
 				'type'				=> 'accordion',
 				'wrapper'			=> array(
 					'width'	=> '',
@@ -821,19 +792,19 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_638e05d297fc2',
-				'label'				=> __('Title','hap'),
+				'label'				=> __('Title','mklang'),
 				'name'				=> 'hero_primary_title',
 				'type'				=> 'text',
 			),
 			array(
 				'key'				=> 'field_638e05e697fc3',
-				'label'				=> __('Subtitle','hap'),
+				'label'				=> __('Subtitle','mklang'),
 				'name'				=> 'hero_primary_subtitle',
 				'type'				=> 'text',
 			),
 			array(
 				'key'				=> 'field_638df89e9f817',
-				'label'				=> __('Typography','hap'),
+				'label'				=> __('Typography','mklang'),
 				'type'				=> 'accordion',
 				'wrapper'			=> array(
 					'width'	=> '',
@@ -843,16 +814,16 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_638df89e9f81d',
-				'label'				=> __('Text color','hap'),
+				'label'				=> __('Text color','mklang'),
 				'name'				=> 'hero_primary_text_color',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('text_color'),
+				'choices'			=> mkt_block_values('text_color'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
 			array(
 				'key'				=> 'field_638df92f55ef7',
-				'label'				=> __('Filter','hap'),
+				'label'				=> __('Filter','mklang'),
 				'type'				=> 'accordion',
 				'wrapper'			=> array(
 					'width'	=> '',
@@ -862,14 +833,14 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_638df93e55ef8',
-				'label'				=> __('Filter','hap'),
+				'label'				=> __('Filter','mklang'),
 				'name'				=> 'hero_primary_filter',
 				'type'				=> 'select',
 				'choices'			=> [
-					'default'			=> __('Default','hap'),
-					'custom-filter-1'	=> __('Custom filter','hap') . ' 1',
-					'custom-filter-2'	=> __('Custom filter','hap') . ' 2',
-					'custom-filter-3'	=> __('Custom filter','hap') . ' 3',
+					'default'			=> __('Default','mklang'),
+					'custom-filter-1'	=> __('Custom filter','mklang') . ' 1',
+					'custom-filter-2'	=> __('Custom filter','mklang') . ' 2',
+					'custom-filter-3'	=> __('Custom filter','mklang') . ' 3',
 				],
 				'return_format' 	=> 'value',
 				
@@ -898,11 +869,11 @@ function hap_load_fields_blocks() {
 	// Simple button 
 	acf_add_local_field_group(array(
 		'key'					=> 'group_639b08f1d2c23',
-		'title'					=> __('Simple button','hap'),
+		'title'					=> __('Simple button','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_639b08f1b6365',
-				'label'			=> __('Link','hap'),
+				'label'			=> __('Link','mklang'),
 				'name'			=> 'button_link',
 				'type'			=> 'link',
 				'return_format'	=> 'array',
@@ -910,18 +881,18 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_639b091cb6366',
-				'label'			=> __('Style','hap'),
+				'label'			=> __('Style','mklang'),
 				'name'			=> 'button_style',
 				'type'			=> 'select',
-				'choices'		=> hap_block_values('button_style'),
+				'choices'		=> mkt_block_values('button_style'),
 				'return_format' => 'value',
 			),
 			array(
 				'key'			=> 'field_639b0946b6367',
-				'label'			=> __('Size','hap'),
+				'label'			=> __('Size','mklang'),
 				'name'			=> 'button_size',
 				'type'			=> 'select',
-				'choices'		=> hap_block_values('button_size'),
+				'choices'		=> mkt_block_values('button_size'),
 				'return_format' => 'value',
 			),
 		),
@@ -948,11 +919,11 @@ function hap_load_fields_blocks() {
 	// Contact Form 7 Modal
 	acf_add_local_field_group(array(
 		'key'					=> 'group_63a5f2da4bb81',
-		'title'					=> __('Contact Form 7 Modal','hap'),
+		'title'					=> __('Contact Form 7 Modal','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_63a5f2daa2bff',
-				'label'			=> __('CF7 Form','hap'),
+				'label'			=> __('CF7 Form','mklang'),
 				'name'			=> 'cf7_form',
 				'type'			=> 'post_object',
 				'required'		=> 1,
@@ -964,7 +935,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_63a6299fac82c',
-				'label'			=> __('Label','hap'),
+				'label'			=> __('Label','mklang'),
 				'name'			=> 'label',
 				'type'			=> 'text',
 				'instructions'	=> '',
@@ -972,28 +943,28 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_63d1589abe23e',
-				'label'				=> __('Text color','hap'),
+				'label'				=> __('Text color','mklang'),
 				'name'				=> 'text_color',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('text_color'),
+				'choices'			=> mkt_block_values('text_color'),
 				'allow_null'		=> 1,
 			),
 			array(
 				'key'			=> 'field_63a627efe7eb5',
-				'label'			=> __('Appearance','hap'),
+				'label'			=> __('Appearance','mklang'),
 				'name'			=> 'appearance',
 				'type'			=> 'select',
 				'required'		=> 1,
 				'choices'		=> array(
-					'link'		=> __('Link','hap'),
-					'button'	=> __('Button','hap'),
+					'link'		=> __('Link','mklang'),
+					'button'	=> __('Button','mklang'),
 				),
 				'default_value'	=> 'button',
 				'return_format'	=> 'value',
 			),
 			array(
 				'key'				=> 'field_63a62826e7eb6',
-				'label'				=> __('Style','hap'),
+				'label'				=> __('Style','mklang'),
 				'name'				=> 'button_style',
 				'type'				=> 'select',
 				'conditional_logic'	=> array(
@@ -1005,13 +976,13 @@ function hap_load_fields_blocks() {
 						),
 					),
 				),
-				'choices'			=> hap_block_values('button_style'),
+				'choices'			=> mkt_block_values('button_style'),
 				'default_value'		=> false,
 				'return_format'		=> 'value',
 			),	
 			array(
 				'key'				=> 'field_63a6295dc92a6',
-				'label'				=> __('Size','hap'),
+				'label'				=> __('Size','mklang'),
 				'name'				=> 'button_size',
 				'type'				=> 'select',
 				'conditional_logic'	=> array(
@@ -1023,7 +994,7 @@ function hap_load_fields_blocks() {
 						),
 					),
 				),
-				'choices'			=> hap_block_values('button_size'),
+				'choices'			=> mkt_block_values('button_size'),
 				'return_format' 	=> 'value',
 			),
 		),
@@ -1050,11 +1021,11 @@ function hap_load_fields_blocks() {
 	// Anchor with inner blocks
 	acf_add_local_field_group(array(
 		'key'					=> 'group_639dab41a20f5',
-		'title'					=> __('Anchor element','hap'),
+		'title'					=> __('Anchor element','mklang'),
 		'fields'				=> array(
 			array(
 				'key'		=> 'field_639dae4f948f2',
-				'label'		=> __('Anchor','hap'),
+				'label'		=> __('Anchor','mklang'),
 				'type'		=> 'accordion',
 				'wrapper'		=> array(
 					'width'	=> '',
@@ -1064,17 +1035,17 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_639dab41656e9',
-				'label'			=> __('Link','hap'),
+				'label'			=> __('Link','mklang'),
 				'name'			=> 'link',
 				'type'			=> 'link',
 				'return_format' => 'array',
 			),
 			array(
 				'key'			=> 'field_639dac4f0969b',
-				'label'			=> __('Display','hap'),
+				'label'			=> __('Display','mklang'),
 				'name'			=> 'display',
 				'type'			=> 'select',
-				'choices'		=> hap_block_values('display'),
+				'choices'		=> mkt_block_values('display'),
 				'return_format' => 'value',
 			),
 		),
@@ -1101,11 +1072,11 @@ function hap_load_fields_blocks() {
 	// Svg icon
 	acf_add_local_field_group(array(
 		'key'					=> 'group_639b214095fae',
-		'title'					=> __('Svg icon','hap'),
+		'title'					=> __('Svg icon','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_639b214195faf',
-				'label'			=> __('Image','hap'),
+				'label'			=> __('Image','mklang'),
 				'name'			=> 'svg_img',
 				'type'			=> 'image',
 				'return_format'	=> 'id',
@@ -1137,11 +1108,11 @@ function hap_load_fields_blocks() {
 	// Icon and text
 	acf_add_local_field_group(array(
 		'key'					=> 'group_639b213e95fab',
-		'title'					=> __('Icon &amp; text','hap'),
+		'title'					=> __('Icon &amp; text','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_639b213e95faa',
-				'label'			=> __('Image','hap'),
+				'label'			=> __('Image','mklang'),
 				'name'			=> 'svg_img',
 				'type'			=> 'image',
 				'return_format'	=> 'id',
@@ -1169,322 +1140,15 @@ function hap_load_fields_blocks() {
 		'description'			=> '',
 		'show_in_rest'			=> 0,
 	));
-	
-	// Action link
-	acf_add_local_field_group(array(
-		'key' => 'group_638f01d7ad213',
-		'title' => __('Action link','hap'),
-		'fields' => array(
-			array(
-				'key' => 'field_638f3097fbe39',
-				'label' => 'Action link',
-				'name' => 'action_link',
-				'type' => 'link',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'return_format' => 'array',
-			),
-			array(
-				'key' => 'field_638f01d71d7b8',
-				'label' => 'Link style',
-				'name' => 'link_style',
-				'type' => 'button_group',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'choices' => array(
-					'button' => 'Button',
-					'default' => 'Regular',
-				),
-				'default_value' => 'button',
-				'return_format' => 'value',
-				'allow_null' => 0,
-				'layout' => 'horizontal',
-			),
-			array(
-				'key' => 'field_638f020f28456',
-				'label' => 'Appearance',
-				'name' => 'button_appearance',
-				'type' => 'button_group',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => array(
-					array(
-						array(
-							'field' => 'field_638f01d71d7b8',
-							'operator' => '==',
-							'value' => 'button',
-						),
-					),
-				),
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'choices' => array(
-					'default' => 'Regular',
-					'hollow' => 'Hollow',
-				),
-				'return_format' => 'value',
-				'allow_null' => 0,
-				'layout' => 'horizontal',
-			),
-			array(
-				'key' => 'field_638f023828457',
-				'label' => 'Button width',
-				'name' => 'button_width',
-				'type' => 'button_group',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => array(
-					array(
-						array(
-							'field' => 'field_638f01d71d7b8',
-							'operator' => '==',
-							'value' => 'button',
-						),
-					),
-				),
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'choices' => array(
-					'w-auto' => 'Width auto',
-					'w-full' => 'Full width',
-				),
-				'return_format' => 'value',
-				'allow_null' => 0,
-				'layout' => 'horizontal',
-			),
-			array(
-				'key' => 'field_638f0281be04e',
-				'label' => 'Icon & texts',
-				'name' => '',
-				'type' => 'accordion',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'open' => 0,
-				'multi_expand' => 0,
-				'endpoint' => 0,
-			),
-			array(
-				'key' => 'field_638f02afbe04f',
-				'label' => 'Top title',
-				'name' => 'top_title',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'maxlength' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_638f02c0be050',
-				'label' => 'Top title CSS classes',
-				'name' => 'top_title_css_classes',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'maxlength' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_638f0448cbcc7',
-				'label' => 'Title',
-				'name' => 'title',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'maxlength' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_638f045bcbcc8',
-				'label' => 'Title CSS classes',
-				'name' => 'title_css_classes',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'maxlength' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_638f02ddbe051',
-				'label' => 'Subtitle',
-				'name' => 'sub_title',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'maxlength' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_638f02e8be052',
-				'label' => 'Subtitle CSS classes',
-				'name' => 'sub_title_css_classes',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'maxlength' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_638f0331be053',
-				'label' => 'Icon',
-				'name' => 'icon',
-				'type' => 'image',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'return_format' => 'array',
-				'library' => 'all',
-				'min_width' => '',
-				'min_height' => '',
-				'min_size' => '',
-				'max_width' => '',
-				'max_height' => '',
-				'max_size' => '',
-				'mime_types' => '',
-				'preview_size' => 'thumbnail',
-			),
-			array(
-				'key' => 'field_638f035abe054',
-				'label' => 'Icon CSS classes',
-				'name' => 'icon_css_classes',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'maxlength' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_638f024728458',
-				'label' => 'Icon position',
-				'name' => 'flex_direction',
-				'type' => 'button_group',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'choices' => hap_block_values('flex_direction'),
-				'default_value' => 'flex-row',
-				'return_format' => 'value',
-				'allow_null' => 0,
-				'layout' => 'horizontal',
-			),
-		),
-		'location'				=> array(
-			array(
-				array(
-					'param'		=> 'block',
-					'operator'	=> '==',
-					'value'		=> 'acf/action-link',
-				),
-			),
-		),
-		'menu_order'			=> 0,
-		'position'				=> 'normal',
-		'style'					=> 'default',
-		'label_placement'		=> 'top',
-		'instruction_placement'	=> 'label',
-		'hide_on_screen'		=> '',
-		'active'				=> true,
-		'description'			=> '',
-		'show_in_rest'			=> 0,
-	));
-	
+		
 	// Post selector
 	acf_add_local_field_group(array(
 		'key'					=> 'group_638e1c094bbd9',
-		'title'					=> __('Post selector','hap'),
+		'title'					=> __('Post selector','mklang'),
 		'fields'				=> array(
 			array(
 				'key'				=> 'field_638e1c094e81b',
-				'label'				=> __('Select posts','hap'),
+				'label'				=> __('Select posts','mklang'),
 				'name'				=> 'post_selector_posts',
 				'type'				=> 'relationship',
 				'filters'			=> array(
@@ -1496,10 +1160,10 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_638e1c094e822',
-				'label'				=> __('Template name','hap'),
+				'label'				=> __('Template name','mklang'),
 				'name'				=> 'post_selector_template',
 				'type'				=> 'text',
-				'placeholder'		=> __('Ex:','hap') . ' post/post-card',
+				'placeholder'		=> __('Ex:','mklang') . ' post/post-card',
 			),
 		),
 		'location'				=> array(
@@ -1525,11 +1189,11 @@ function hap_load_fields_blocks() {
 	// WP Menu
 	acf_add_local_field_group(array(
 		'key'					=> 'group_639880b098c78',
-		'title'					=> __('WP Menu','hap'),
+		'title'					=> __('WP Menu','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_639880b1d6602',
-				'label'			=> __('Menu','hap'),
+				'label'			=> __('Menu','mklang'),
 				'name'			=> 'menu_id',
 				'type'			=> 'select',
 				'choices'		=> [],
@@ -1559,35 +1223,35 @@ function hap_load_fields_blocks() {
 	// Banner 2 columns
 	acf_add_local_field_group(array(
 		'key'					=> 'group_6398604453ca8',
-		'title'					=> __('Banner 2 columns','hap'),
+		'title'					=> __('Banner 2 columns','mklang'),
 		'fields'				=> array(
 			array(
 				'key'				=> 'field_63986044e8bbb',
-				'label'				=> __('Text color','hap'),
+				'label'				=> __('Text color','mklang'),
 				'name'				=> 'text_color',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('text_color'),
+				'choices'			=> mkt_block_values('text_color'),
 				'allow_null'		=> 1,
 			),
 			array(
 				'key'				=> 'field_639b13e4dd748',
-				'label'				=> __('Shadow color','hap'),
+				'label'				=> __('Shadow color','mklang'),
 				'name'				=> 'shadow_color',
 				'type'				=> 'select',
 				'choices'			=> array(
-					'gray'		=> __('Gray','hap'),
-					'accent'	=> __('Accent color','hap'),
-					'primary'	=> __('Primary color','hap'),
-					'secondary'	=> __('Secondary color','hap'),
+					'gray'		=> __('Gray','mklang'),
+					'accent'	=> __('Accent color','mklang'),
+					'primary'	=> __('Primary color','mklang'),
+					'secondary'	=> __('Secondary color','mklang'),
 				),
 				'return_format'		=> 'value',
 			),
 			array(
 				'key'				=> 'field_6398609ce8bbc',
-				'label'				=> __('Background color','hap'),
+				'label'				=> __('Background color','mklang'),
 				'name'				=> 'bg_color',
 				'type'				=> 'select',
-				'choices'			=> hap_block_values('bg_color'),
+				'choices'			=> mkt_block_values('bg_color'),
 				'return_format'		=> 'value',
 				'allow_null'		=> 1,
 			),
@@ -1625,11 +1289,11 @@ function hap_load_fields_blocks() {
 	// Custom attributes (all blocks)
 	acf_add_local_field_group(array(
 		'key'				=> 'group_639ca26c74b9c',
-		'title'				=> __('Custom attributes','hap'),
+		'title'				=> __('Custom attributes','mklang'),
 		'fields' => array(
 			array(
 				'key'			=> 'field_639ca2e849580',
-				'label'			=> __('Custom attributes','hap'),
+				'label'			=> __('Custom attributes','mklang'),
 				'type'			=> 'accordion',
 				'wrapper'		=> array(
 					'width'	=> '',
@@ -1639,7 +1303,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'	=> 'field_639ca26c80910',
-				'label'	=> __('Custom attributes','hap'),
+				'label'	=> __('Custom attributes','mklang'),
 				'name'	=> 'custom_attributes',
 				'type'	=> 'textarea',
 			),
@@ -1667,11 +1331,11 @@ function hap_load_fields_blocks() {
 	// Simple span
 	acf_add_local_field_group(array(
 		'key'					=> 'group_63b3622018165',
-		'title'					=> __('Simple span','hap'),
+		'title'					=> __('Simple span','mklang'),
 		'fields'				=> array(
 			array(
 				'key'		=> 'field_63b3fb3c28052',
-				'label'		=> __('Span content','hap'),
+				'label'		=> __('Span content','mklang'),
 				'name'		=> 'span_content',
 				'type'		=> 'text',
 			),
@@ -1703,25 +1367,25 @@ function hap_load_fields_blocks() {
 		'fields'					=> array(
 			array(
 				'key'		=> 'field_63b362201de07',
-				'label'		=> __('List style','hap'),
+				'label'		=> __('List style','mklang'),
 				'name'		=> 'list_style',
 				'type'		=> 'select',
 				'choices' => [
-					'default'				=> __('Default list','hap'),
-					'list'					=> __('Formatted list','hap'),
-					'list-check'			=> __('Check list','hap'),
-					'list-inline'			=> __('Inline list','hap'),
-					'list-inline-hyphen'	=> __('Inline list (hyphen)','hap'),
-					'list-inline-comma'		=> __('Inline list (comma)','hap'),
-					'list-justified'		=> __('Justified list','hap'),
-					'list-icon'				=> __('Icons list','hap'),
+					'default'				=> __('Default list','mklang'),
+					'list'					=> __('Formatted list','mklang'),
+					'list-check'			=> __('Check list','mklang'),
+					'list-inline'			=> __('Inline list','mklang'),
+					'list-inline-hyphen'	=> __('Inline list (hyphen)','mklang'),
+					'list-inline-comma'		=> __('Inline list (comma)','mklang'),
+					'list-justified'		=> __('Justified list','mklang'),
+					'list-icon'				=> __('Icons list','mklang'),
 				],
 				'default_value' => false,
 				'return_format' => 'value',
 			),
 			array(
 				'key'			=> 'field_63b3daf7606e9',
-				'label'			=> __('List columns','hap'),
+				'label'			=> __('List columns','mklang'),
 				'name'			=> 'list_columns',
 				'type'			=> 'select',
 				'choices'		=> array(
@@ -1734,7 +1398,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_63b3dc1d606ea',
-				'label'				=> __('Columns gap','hap'),
+				'label'				=> __('Columns gap','mklang'),
 				'name'				=> 'list_columns_gap',
 				'type'				=> 'select',
 				'conditional_logic'	=> array(
@@ -1754,7 +1418,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_63b3dca8606ec',
-				'label'				=> __('Columns separator','hap'),
+				'label'				=> __('Columns separator','mklang'),
 				'name'				=> 'list_columns_separator',
 				'type'				=> 'true_false',
 				'conditional_logic'	=> array(
@@ -1765,13 +1429,13 @@ function hap_load_fields_blocks() {
 						),
 					),
 				),
-				'ui_on_text'		=> __('On','hap'),
-				'ui_off_text'		=> __('Off','hap'),
+				'ui_on_text'		=> __('On','mklang'),
+				'ui_off_text'		=> __('Off','mklang'),
 				'ui'				=> 1,
 			),
 			array(
 				'key'				=> 'field_63b3dc64606eb',
-				'label'				=> __('Columns separator style','hap'),
+				'label'				=> __('Columns separator style','mklang'),
 				'name'				=> 'list_columns_separator_style',
 				'type'				=> 'select',
 				'conditional_logic' => array(
@@ -1792,7 +1456,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'				=> 'field_63b3dcfe606ed',
-				'label'				=> __('Columns separator color','hap'),
+				'label'				=> __('Columns separator color','mklang'),
 				'name'				=> 'list_columns_separator_color',
 				'type'				=> 'select',
 				'conditional_logic'	=> array(
@@ -1805,8 +1469,8 @@ function hap_load_fields_blocks() {
 					),
 				),
 				'choices' => array(
-					'list-color-border'		=> __('Default','hap'),
-					'list-color-primary'	=> __('Primary color','hap'),
+					'list-color-border'		=> __('Default','mklang'),
+					'list-color-primary'	=> __('Primary color','mklang'),
 				),
 				'allow_null'		=> 1,
 			),
@@ -1834,18 +1498,18 @@ function hap_load_fields_blocks() {
 	// Description list item
 	acf_add_local_field_group(array(
 		'key'						=> 'group_63b45254a8eef',
-		'title'						=> __('Description list item','hap'),
+		'title'						=> __('Description list item','mklang'),
 		'fields'					=> array(
 			array(
 				'key'		=> 'field_63b4525449081',
-				'label'		=> __('Title','hap'),
+				'label'		=> __('Title','mklang'),
 				'name'		=> 'dt',
 				'type'		=> 'text',
 				'required'	=> 1,
 			),
 			array(
 				'key'		=> 'field_63b4526949082',
-				'label'		=> __('Description','hap'),
+				'label'		=> __('Description','mklang'),
 				'name'		=> 'dd',
 				'type'		=> 'text',
 				'required'	=> 1,
@@ -1874,11 +1538,11 @@ function hap_load_fields_blocks() {
 	// Tab
 	acf_add_local_field_group(array(
 		'key'					=> 'group_63b41e05390d9',
-		'title'					=> __('Tab','hap'),
+		'title'					=> __('Tab','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_63b41e05ce96f',
-				'label'			=> __('Order','hap'),
+				'label'			=> __('Order','mklang'),
 				'name'			=> 'order',
 				'type'			=> 'select',
 				'choices' => [
@@ -1917,11 +1581,11 @@ function hap_load_fields_blocks() {
 	// Tabs
 	acf_add_local_field_group(array(
 		'key'					=> 'group_63b415ba93692',
-		'title'					=> __('Tabs','hap'),
+		'title'					=> __('Tabs','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_63b415ba1ff7a',
-				'label'			=> __('Tab titles','hap'),
+				'label'			=> __('Tab titles','mklang'),
 				'name'			=> 'tab_titles',
 				'type'			=> 'repeater',
 				'required'		=> 1,
@@ -1932,7 +1596,7 @@ function hap_load_fields_blocks() {
 				'sub_fields'	=> array(
 					array(
 						'key'				=> 'field_63b41f6c4074a',
-						'label'				=> __('Title','hap'),
+						'label'				=> __('Title','mklang'),
 						'name'				=> 'title',
 						'type'				=> 'text',
 						'required'			=> 1,
@@ -1964,11 +1628,11 @@ function hap_load_fields_blocks() {
 	// Accordion item
 	acf_add_local_field_group( array(
 		'key'					=> 'group_64bbce8ae8d54',
-		'title'					=> __('Accordion item','hap'),
+		'title'					=> __('Accordion item','mklang'),
 		'fields'				=> array(
 			array(
 				'key'				=> 'field_64bbce8b80919',
-				'label'			=> __('Title','hap'),
+				'label'			=> __('Title','mklang'),
 				'name'			=> 'title',
 				'type'			=> 'text',
 				'required'		=> 1,
@@ -1997,17 +1661,17 @@ function hap_load_fields_blocks() {
 	// Table of contents
 	acf_add_local_field_group(array(
 		'key'					=> 'group_63bc3cc68f88e',
-		'title'					=> __('Table of contents','hap'),
+		'title'					=> __('Table of contents','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_63bc3cc6241f3',
-				'label'			=> __('List type','hap'),
+				'label'			=> __('List type','mklang'),
 				'name'			=> 'list_type',
 				'type'			=> 'select',
-				'instructions'	=> __('Select the type of list and then click on the "Refresh Index" button. All h2 tags will be mapped to create the table of contents. In the modal click on the "Copy" button and then paste the html code into the block. Remember to check the links on the frontend as sometimes they may not match the anchors.','hap'),
+				'instructions'	=> __('Select the type of list and then click on the "Refresh Index" button. All h2 tags will be mapped to create the table of contents. In the modal click on the "Copy" button and then paste the html code into the block. Remember to check the links on the frontend as sometimes they may not match the anchors.','mklang'),
 				'choices'		=> [
-					'ol'	=> __('Ordered list','hap'),
-					'ul'	=> __('Unordered list','hap'),
+					'ol'	=> __('Ordered list','mklang'),
+					'ul'	=> __('Unordered list','mklang'),
 				],
 			),
 		),
@@ -2038,23 +1702,23 @@ function hap_load_fields_blocks() {
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_63f48280ff5b6',
-				'label'			=> __('Version','hap'),
+				'label'			=> __('Version','mklang'),
 				'name'			=> 'logo_version',
 				'type'			=> 'select',
 				'choices'		=> array(
-					'light'	=> __('Light background','hap'),
-					'dark'	=> __('Dark background','hap'),
+					'light'	=> __('Light background','mklang'),
+					'dark'	=> __('Dark background','mklang'),
 				),
 				'return_format'	=> 'value',
 			),
 			array(
 				'key'			=> 'field_63f482bbff5b7',
-				'label'			=> __('Link','hap'),
+				'label'			=> __('Link','mklang'),
 				'name'			=> 'logo_link',
 				'type'			=> 'select',
 				'choices'		=> array(
-					'link'		=> __('With link (homepage)','hap'),
-					'no_link'	=> __('Without link','hap'),
+					'link'		=> __('With link (homepage)','mklang'),
+					'no_link'	=> __('Without link','mklang'),
 				),
 				'return_format'	=> 'value',
 			),
@@ -2082,11 +1746,11 @@ function hap_load_fields_blocks() {
 	// Get template
 	acf_add_local_field_group(array(
 		'key'					=> 'group_63f8b119cb279',
-		'title'					=> __('Get template','hap'),
+		'title'					=> __('Get template','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_63f8b11ad97b0',
-				'label'			=> __('Template path','hap'),
+				'label'			=> __('Template path','mklang'),
 				'name'			=> 'template',
 				'type'			=> 'text',
 				'required'		=> 1,
@@ -2116,11 +1780,11 @@ function hap_load_fields_blocks() {
 	// Hero video
 	acf_add_local_field_group(array(
 		'key'					=> 'group_63ed0ff3287c3',
-		'title'					=> __('Hero video','hap'),
+		'title'					=> __('Hero video','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_63ed0ff3339a1',
-				'label'			=> __('Video','hap'),
+				'label'			=> __('Video','mklang'),
 				'name'			=> 'video',
 				'type'			=> 'file',
 				'required'		=> 1,
@@ -2131,7 +1795,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_640d8dd51fc38',
-				'label'			=> __('Poster','hap'),
+				'label'			=> __('Poster','mklang'),
 				'name'			=> 'poster',
 				'type'			=> 'image',
 				'required'		=> 1,
@@ -2142,7 +1806,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_640ed97c60836',
-				'label'			=> __('Video controls','hap'),
+				'label'			=> __('Video controls','mklang'),
 				'name'			=> 'video_controls',
 				'type'			=> 'checkbox',
 				'choices'		=> array(
@@ -2165,19 +1829,19 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_640ee066781bd',
-				'label'			=> __('Filter classes','hap'),
+				'label'			=> __('Filter classes','mklang'),
 				'name'			=> 'filter_classes',
 				'type'			=> 'text',
 			),
 			array(
 				'key'			=> 'field_640ee2cba4cbf',
-				'label'			=> __('Play on scroll','hap'),
+				'label'			=> __('Play on scroll','mklang'),
 				'name'			=> 'play_on_scroll',
 				'type'			=> 'true_false',
 				'default_value'	=> 0,
 				'ui'			=> 1,
-				'ui_on_text'	=> __('On','hap'),
-				'ui_off_text'	=> __('Off','hap'),
+				'ui_on_text'	=> __('On','mklang'),
+				'ui_off_text'	=> __('Off','mklang'),
 			),		
 		),
 		'location'				=> array(
@@ -2203,11 +1867,11 @@ function hap_load_fields_blocks() {
 	// Bar chart
 	acf_add_local_field_group(array(
 		'key'					=> 'group_63f5cde857a04',
-		'title'					=> __('Bar chart','hap'),
+		'title'					=> __('Bar chart','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_63f5cde8cbc77',
-				'label'			=> __('Value','hap'),
+				'label'			=> __('Value','mklang'),
 				'name'			=> 'chart_value',
 				'type'			=> 'number',
 				'required'		=> 1,
@@ -2215,7 +1879,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_63f5cfc01bdd6',
-				'label'			=> __('Label','hap'),
+				'label'			=> __('Label','mklang'),
 				'name'			=> 'chart_label',
 				'type'			=> 'text',
 				'required'		=> 1,
@@ -2244,37 +1908,37 @@ function hap_load_fields_blocks() {
 	// Pie chart
 	acf_add_local_field_group(array(
 		'key'					=> 'group_63f5e02e415d2',
-		'title'					=> __('Pie chart','hap'),
+		'title'					=> __('Pie chart','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_6408edf59d43d',
-				'label'			=> __('Title','hap'),
+				'label'			=> __('Title','mklang'),
 				'name'			=> 'title',
 				'type'			=> 'text',
 			),
 			/*array(
 				'key'			=> 'field_6408f1e6c7878',
-				'label'			=> __('Center color','hap'),
+				'label'			=> __('Center color','mklang'),
 				'name'			=> 'circle_color',
 				'type'			=> 'color_picker',
 				'return_format'	=> 'string',
 			),*/
 			array(
 				'key'			=> 'field_63f5e02e67668',
-				'label'			=> __('Values','hap'),
+				'label'			=> __('Values','mklang'),
 				'name'			=> 'chart_values',
 				'type'			=> 'repeater',
-				'instructions'	=> __('The sum of the values must be 100. If no color is set, the default colors will be used.','hap'),
+				'instructions'	=> __('The sum of the values must be 100. If no color is set, the default colors will be used.','mklang'),
 				'required'		=> 1,
 				'layout'		=> 'block',
 				'min'			=> 2,
 				'collapsed'		=> 'field_63f5e04567669',
-				'button_label'	=> __('Add value','hap'),
+				'button_label'	=> __('Add value','mklang'),
 				'rows_per_page'	=> 20,
 				'sub_fields'	=> array(
 					array(
 						'key'				=> 'field_63f5e04567669',
-						'label'				=> __('Value','hap'),
+						'label'				=> __('Value','mklang'),
 						'name'				=> 'value',
 						'type'				=> 'number',
 						'required'			=> 1,
@@ -2285,7 +1949,7 @@ function hap_load_fields_blocks() {
 					),
 					array(
 						'key'				=> 'field_63f5e0886766a',
-						'label'				=> __('Label','hap'),
+						'label'				=> __('Label','mklang'),
 						'name'				=> 'label',
 						'type'				=> 'text',
 						'required'			=> 1,
@@ -2293,7 +1957,7 @@ function hap_load_fields_blocks() {
 					),
 					array(
 						'key'				=> 'field_63f5e0b36766b',
-						'label'				=> __('Color','hap'),
+						'label'				=> __('Color','mklang'),
 						'name'				=> 'color',
 						'type'				=> 'color_picker',
 						'enable_opacity'	=> 0,
@@ -2304,7 +1968,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_63f5e288f7b81',
-				'label'			=> __('Size','hap'),
+				'label'			=> __('Size','mklang'),
 				'name'			=> 'chart_size',
 				'type'			=> 'number',
 				'default_value'	=> 200,
@@ -2336,11 +2000,11 @@ function hap_load_fields_blocks() {
 	// Photoswipe gallery
 	acf_add_local_field_group( array(
 		'key'					=> 'group_64c3849a755e1',
-		'title'					=> __('Photoswipe gallery','hap'),
+		'title'					=> __('Photoswipe gallery','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_64c3849aee9b0',
-				'label'			=> __('Images','hap'),
+				'label'			=> __('Images','mklang'),
 				'name'			=> 'images',
 				'type'			=> 'gallery',
 				'required'		=> 1,
@@ -2360,31 +2024,31 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_64c38514ee9b1',
-				'label'			=> __('Preview image size','hap'),
+				'label'			=> __('Preview image size','mklang'),
 				'name'			=> 'preview_image_size',
 				'type'			=> 'text',
 			),
 			array(
 				'key'			=> 'field_64c398c496236',
-				'label'			=> __('Full image size','hap'),
+				'label'			=> __('Full image size','mklang'),
 				'name'			=> 'full_image_size',
 				'type'			=> 'text',
 			),
 			array(
 				'key'			=> 'field_64c398e496237',
-				'label'			=> __('Card template','hap'),
+				'label'			=> __('Card template','mklang'),
 				'name'			=> 'card_template',
 				'type'			=> 'text',
 			),
 			array(
 				'key'			=> 'field_64c39ce1e5c40',
-				'label'			=> __('Remove wrapper','hap'),
+				'label'			=> __('Remove wrapper','mklang'),
 				'name'			=> 'remove_wrapper',
 				'type'			=> 'true_false',
-				'instructions'	=> __('Add the class "hap-gallery" to the new wrapper if you remove the default wrapper element.','hap'),
+				'instructions'	=> __('Add the class "mkt-gallery" to the new wrapper if you remove the default wrapper element.','mklang'),
 				'default_value'	=> 0,
-				'ui_on_text'	=> __('On','hap'),
-				'ui_off_text'	=> __('Off','hap'),
+				'ui_on_text'	=> __('On','mklang'),
+				'ui_off_text'	=> __('Off','mklang'),
 				'ui'			=> 1,
 			),
 		),
@@ -2427,7 +2091,7 @@ function hap_load_fields_blocks() {
 				'name'			=> 'post_type',
 				'type'			=> 'checkbox',
 				'required'		=> 1,
-				'choices'		=> hap_block_values('post_types'),
+				'choices'		=> mkt_block_values('post_types'),
 				'default_value'	=> array(
 					0	=> 'post',
 				),
@@ -2436,11 +2100,11 @@ function hap_load_fields_blocks() {
 				'save_custom'	=> 1,
 				'layout'		=> 'vertical',
 				'toggle'		=> 0,
-				'custom_choice_button_text'	=> __('Add new post type','hap'),
+				'custom_choice_button_text'	=> __('Add new post type','mklang'),
 			),
 			array(
 				'key'			=> 'field_640c64a1a898e',
-				'label'			=> __('Number','hap'),
+				'label'			=> __('Number','mklang'),
 				'name'			=> 'posts_per_page',
 				'type'			=> 'number',
 				'required'		=> 1,
@@ -2448,16 +2112,16 @@ function hap_load_fields_blocks() {
 				'min'			=> -1,
 				'max'			=> '',
 				'step'			=> 1,
-				'append'		=> __('Posts','hap'),
+				'append'		=> __('Posts','mklang'),
 			),
 			array(
 				'key'			=> 'field_640c5dca4a6a0',
-				'label'			=> __('Order','hap'),
+				'label'			=> __('Order','mklang'),
 				'name'			=> 'order',
 				'type'			=> 'select',
 				'choices'		=> array(
-					'DESC'	=> __('Descending','hap'),
-					'ASC'	=> __('Ascending','hap'),
+					'DESC'	=> __('Descending','mklang'),
+					'ASC'	=> __('Ascending','mklang'),
 				),
 				'default_value'	=> false,
 				'return_format'	=> 'value',
@@ -2468,18 +2132,18 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_640c5dca4a6da',
-				'label'			=> __('Order by','hap'),
+				'label'			=> __('Order by','mklang'),
 				'name'			=> 'orderby',
 				'type'			=> 'select',
 				'choices' => array(
-					'date'				=> __('Date','hap'),
-					'title'				=> __('Title','hap'),
-					'type'				=> __('Post type','hap'),
-					'parent'			=> __('Parent post','hap'),
-					'rand'				=> __('Random','hap'),
-					'menu_order'		=> __('Menu order','hap'),
-					'meta_value'		=> __('Meta value','hap'),
-					'meta_value_num'	=> __('Meta value number','hap'),
+					'date'				=> __('Date','mklang'),
+					'title'				=> __('Title','mklang'),
+					'type'				=> __('Post type','mklang'),
+					'parent'			=> __('Parent post','mklang'),
+					'rand'				=> __('Random','mklang'),
+					'menu_order'		=> __('Menu order','mklang'),
+					'meta_value'		=> __('Meta value','mklang'),
+					'meta_value_num'	=> __('Meta value number','mklang'),
 				),
 				'default_value'	=> false,
 				'return_format'	=> 'value',
@@ -2511,18 +2175,18 @@ function hap_load_fields_blocks() {
 					),
 				),
 			),
-            array(
-                'key'           => 'field_65f7423d673b7',
-                'label'         => __('Taxonomy','hap'),
-                'name'          => 'taxonomy',
-                'type'          => 'text',
-            ),
-            array(
-                'key'           => 'field_65f7428c673b8',
-                'label'         => __('Term slug','hap'),
-                'name'          => 'term',
-                'type'          => 'text',
-            ),
+			array(
+				'key'           => 'field_65f7423d673b7',
+				'label'         => __('Taxonomy','mklang'),
+				'name'          => 'taxonomy',
+				'type'          => 'text',
+			),
+			array(
+				'key'           => 'field_65f7428c673b8',
+				'label'         => __('Term slug','mklang'),
+				'name'          => 'term',
+				'type'          => 'text',
+			),
 		),
 		'location'			=> array(
 			array(
@@ -2547,7 +2211,7 @@ function hap_load_fields_blocks() {
 	// Icon link
 	acf_add_local_field_group( array(
 		'key'					=> 'group_64c79ce9aeaa8',
-		'title'					=> __('Icon link','hap'),
+		'title'					=> __('Icon link','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_64c79ce9d456d',
@@ -2559,7 +2223,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_64c79cf4d456e',
-				'label'			=> __('Icon (only SVG)','hap'),
+				'label'			=> __('Icon (only SVG)','mklang'),
 				'name'			=> 'icon',
 				'type'			=> 'image',
 				'return_format'	=> 'id',
@@ -2597,11 +2261,11 @@ function hap_load_fields_blocks() {
 	// Map
 	acf_add_local_field_group( array(
 		'key'					=> 'group_640b8b3c1a602',
-		'title'					=> __('Map','hap'),
+		'title'					=> __('Map','mklang'),
 		'fields'				=> array(
 			array(
 				'key'			=> 'field_640b8f3471b54',
-				'label'			=> __('Post selection','hap'),
+				'label'			=> __('Post selection','mklang'),
 				'name'			=> 'post_selection',
 				'type'			=> 'select',
 				'choices'		=> array(
@@ -2617,7 +2281,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_640b8efebadfe',
-				'label'			=> __('Posts','hap'),
+				'label'			=> __('Posts','mklang'),
 				'name'			=> 'posts',
 				'type'			=> 'relationship',
 				'required'		=> 1,
@@ -2644,7 +2308,7 @@ function hap_load_fields_blocks() {
 			),
 			array(
 				'key'			=> 'field_640b8b3caaaff',
-				'label'			=> __('Post type','hap'),
+				'label'			=> __('Post type','mklang'),
 				'name'			=> 'post_type',
 				'type'			=> 'checkbox',
 				'required'		=> 1,
@@ -2664,7 +2328,7 @@ function hap_load_fields_blocks() {
 				'save_custom'	=> 0,
 				'layout'		=> 'vertical',
 				'toggle'		=> 0,
-				'custom_choice_button_text'	=> __('Add new post type','hap'),
+				'custom_choice_button_text'	=> __('Add new post type','mklang'),
 			),
 		),
 		'location'				=> array(
@@ -2687,757 +2351,680 @@ function hap_load_fields_blocks() {
 		'show_in_rest'			=> 0,
 	));
 
-    // Social links
-    acf_add_local_field_group( array(
-        'key'                   => 'group_6640528f23d26',
-        'title'                 => __('Social links','hap'),
-        'fields' => array(
-            array(
-                'key'           => 'field_6640528f283e4',
-                'label'         => __('Social links','hap'),
-                'name'          => 'social_links',
-                'type'          => 'checkbox',
-                'required'      => 1,
-                'relevanssi_exclude'    => 1,
-                'choices'       => array(
-                    'facebook'      => 'Facebook',
-                    'instagram'     => 'Instagram',
-                    'twitter'       => 'X (Twitter)',
-                    'youtube'       => 'Youtube',
-                    'vimeo'         => 'Vimeo',
-                    'linkedin'      => 'Linkedin',
-                    'tiktok'        => 'Tiktok',
-                    'spotify'       => 'Spotify',
-                    'pinterest'     => 'Pinterest',
-                    'google_maps'   => 'Google Maps',
-                    'mailchimp'     => 'Newsletter',
-                    'whatsapp'      => 'Whatsapp',
-                    'telegram'      => 'Telegram',
-                    'signal'        => 'Signal',
-                ),
-                'return_format' => 'value',
-                'layout'        => 'vertical',
-            ),
-            array(
-                'key'           => 'field_6640555c3de08',
-                'label'         => __('Display options','hap'),
-                'name'          => 'display_options',
-                'type'          => 'select',
-                'required'      => 1,
-                'relevanssi_exclude'    => 1,
-                'choices'       => array(
-                    'show' => __('Show icon','hap'),
-                    'hide' => __('Show label','hap'),
-                    'both' => __('Show icon and label','hap'),
-                ),
-                'return_format' => 'value',
-            ),
-            array(
-                'key'           => 'field_664056f076b39',
-                'label'         => __('Icon classes','hap'),
-                'name'          => 'icon_classes',
-                'type'          => 'text',
-                'conditional_logic' => array(
-                    array(
-                        array(
-                            'field'     => 'field_6640555c3de08',
-                            'operator'  => '!=',
-                            'value'     => 'hide',
-                        ),
-                    ),
-                ),
-                'relevanssi_exclude'    => 1,
-            ),
-            array(
-                'key'           => 'field_6640571276b3a',
-                'label'         => __('Link classes','hap'),
-                'name'          => 'a_classes',
-                'type'          => 'text',
-                'conditional_logic'     => array(
-                    array(
-                        array(
-                            'field'     => 'field_6640555c3de08',
-                            'operator'  => '!=',
-                            'value'     => 'icon',
-                        ),
-                    ),
-                ),
-                'relevanssi_exclude'    => 1,
-            ),
-            array(
-                'key'           => 'field_6640574d17a15',
-                'label'         => __('Wrapper','hap'),
-                'name'          => 'wrapper',
-                'type'          => 'select',
-                'relevanssi_exclude'    => 1,
-                'choices' => array(
-                    'ul'    => __('Unordered list','hap'),
-                    'none'  => __('None','hap'),
-                ),
-                'return_format' => 'value',
-            ),
-        ),
-        'location'              => array(
-            array(
-                array(
-                    'param'     => 'block',
-                    'operator'  => '==',
-                    'value'     => 'acf/social-links',
-                ),
-            ),
-        ),
-        'menu_order'            => 0,
-        'position'              => 'normal',
-        'style'                 => 'default',
-        'label_placement'       => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen'        => '',
-        'active'                => true,
-        'description'           => '',
-        'show_in_rest'          => 0,
-    ));
+	// Social links
+	acf_add_local_field_group( array(
+		'key'                   => 'group_6640528f23d26',
+		'title'                 => __('Social links','mklang'),
+		'fields' => array(
+			array(
+				'key'           => 'field_6640528f283e4',
+				'label'         => __('Social links','mklang'),
+				'name'          => 'social_links',
+				'type'          => 'checkbox',
+				'required'      => 1,
+				'relevanssi_exclude'    => 1,
+				'choices'       => array(
+					'facebook'      => 'Facebook',
+					'instagram'     => 'Instagram',
+					'twitter'       => 'X (Twitter)',
+					'youtube'       => 'Youtube',
+					'vimeo'         => 'Vimeo',
+					'linkedin'      => 'Linkedin',
+					'tiktok'        => 'Tiktok',
+					'spotify'       => 'Spotify',
+					'pinterest'     => 'Pinterest',
+					'google_maps'   => 'Google Maps',
+					'mailchimp'     => 'Newsletter',
+					'whatsapp'      => 'Whatsapp',
+					'telegram'      => 'Telegram',
+					'signal'        => 'Signal',
+				),
+				'return_format' => 'value',
+				'layout'        => 'vertical',
+			),
+			array(
+				'key'           => 'field_6640555c3de08',
+				'label'         => __('Display options','mklang'),
+				'name'          => 'display_options',
+				'type'          => 'select',
+				'required'      => 1,
+				'relevanssi_exclude'    => 1,
+				'choices'       => array(
+					'show' => __('Show icon','mklang'),
+					'hide' => __('Show label','mklang'),
+					'both' => __('Show icon and label','mklang'),
+				),
+				'return_format' => 'value',
+			),
+			array(
+				'key'           => 'field_664056f076b39',
+				'label'         => __('Icon classes','mklang'),
+				'name'          => 'icon_classes',
+				'type'          => 'text',
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'     => 'field_6640555c3de08',
+							'operator'  => '!=',
+							'value'     => 'hide',
+						),
+					),
+				),
+				'relevanssi_exclude'    => 1,
+			),
+			array(
+				'key'           => 'field_6640571276b3a',
+				'label'         => __('Link classes','mklang'),
+				'name'          => 'a_classes',
+				'type'          => 'text',
+				'conditional_logic'     => array(
+					array(
+						array(
+							'field'     => 'field_6640555c3de08',
+							'operator'  => '!=',
+							'value'     => 'icon',
+						),
+					),
+				),
+				'relevanssi_exclude'    => 1,
+			),
+			array(
+				'key'           => 'field_6640574d17a15',
+				'label'         => __('Wrapper','mklang'),
+				'name'          => 'wrapper',
+				'type'          => 'select',
+				'relevanssi_exclude'    => 1,
+				'choices' => array(
+					'ul'    => __('Unordered list','mklang'),
+					'none'  => __('None','mklang'),
+				),
+				'return_format' => 'value',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'     => 'block',
+					'operator'  => '==',
+					'value'     => 'acf/social-links',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen'        => '',
+		'active'                => true,
+		'description'           => '',
+		'show_in_rest'          => 0,
+	));
 
-    // Custom image
-    acf_add_local_field_group( array(
-        'key'                   => 'group_665998cb00be3',
-        'title'                 => __('Custom image','hap'),
-        'fields'                => array(
-            array(
-                'key'           => 'field_665998cb96291',
-                'label'         => __('Image','hap'),
-                'name'          => 'image_id',
-                'type'          => 'image',
-                'required'      => 1,
-                'return_format' => 'id',
-                'library'       => 'all',
-                'mime_types'    => 'jpg,jpeg,png,gif,webp,avif',
-                'preview_size'  => 'medium',
-            ),
-            array(
-                'key'           => 'field_66599d3d90a4e',
-                'label'         => __('Size','hap'),
-                'name'          => 'size',
-                'type'          => 'select',
-                'required'      => 1,
-                'choices'       => array(
-                    'thumbnail'     => __('Thumbnail','hap'),
-                    'medium'        => __('Medium','hap'),
-                    'medium_large'  => __('Medium large','hap'),
-                    'large'         => __('Large','hap'),
-                    'full-hd-thumb' => 'Full HD (1920x1280)',
-                    'full'          => __('Full','hap'),
-                    'post-thumbnail'=> __('Original','hap'),
-                ),
-                'default_value' => 'original',
-                'return_format' => 'value',
-            ),
-            array(
-                'key'           => 'field_66599a0f6e72b',
-                'label'         => __('Above the fold','hap'),
-                'name'          => 'priority',
-                'type'          => 'true_false',
-                'default_value' => 0,
-                'ui_on_text'    => 'On',
-                'ui_off_text'   => 'Off',
-                'ui'            => 1,
-            ),
-            array(
-                'key'           => 'field_6659b0219435d',
-                'label'         => __('Preload','hap'),
-                'type'          => 'message',
-                'conditional_logic' => array(
-                    array(
-                        array(
-                            'field'     => 'field_66599a0f6e72b',
-                            'operator'  => '==',
-                            'value'     => '1',
-                        ),
-                    ),
-                ),
-                'message'       => __('If this is the main Above the Fold image, you may want to preload it.','hap'),
-            ),
-            array(
-                'key'           => 'field_66599be777c46',
-                'label'         => __('Figure tag','hap'),
-                'name'          => 'figure',
-                'type'          => 'true_false',
-                'default_value' => 0,
-                'ui_on_text'    => 'On',
-                'ui_off_text'   => 'Off',
-                'ui'            => 1,
-            ),
-            array(
-                'key'           => 'field_66599b646e72c',
-                'label'         => __('Figure class','hap'),
-                'name'          => 'fig_class',
-                'type'          => 'text',
-                'conditional_logic' => array(
-                    array(
-                        array(
-                            'field'     => 'field_66599be777c46',
-                            'operator'  => '==',
-                            'value'     => '1',
-                        ),
-                    ),
-                ),
-            ),
-            array(
-                'key'           => 'field_66599b8b6e72d',
-                'label'         => __('Figure caption','hap'),
-                'name'          => 'fig_caption',
-                'type'          => 'text',
-                'conditional_logic' => array(
-                    array(
-                        array(
-                            'field'     => 'field_66599be777c46',
-                            'operator'  => '==',
-                            'value'     => '1',
-                        ),
-                    ),
-                ),
-            ),
-            array(
-                'key'           => 'field_6659a0580916c',
-                'label'         => __('Style','hap'),
-                'name'          => 'style',
-                'type'          => 'text',
-            ),
-            array(
-                'key'           => 'field_6659a0729a513',
-                'label'         => __('Background image','hap'),
-                'name'          => 'bg_image',
-                'type'          => 'image',
-                'return_format' => 'id',
-                'library'       => 'all',
-                'mime_types'    => 'jpg,jpeg,png,gif,webp,avif',
-                'preview_size'  => 'medium',
-            ),
-        ),
-        'location'              => array(
-            array(
-                array(
-                    'param'     => 'block',
-                    'operator'  => '==',
-                    'value'     => 'acf/hap-image',
-                ),
-            ),
-        ),
-        'menu_order'            => 0,
-        'position'              => 'normal',
-        'style'                 => 'default',
-        'label_placement'       => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen'        => '',
-        'active'                => true,
-        'description'           => '',
-        'show_in_rest'          => 0,
-    ));
+	// Custom image
+	acf_add_local_field_group( array(
+		'key'                   => 'group_665998cb00be3',
+		'title'                 => __('Custom image','mklang'),
+		'fields'                => array(
+			array(
+				'key'           => 'field_665998cb96291',
+				'label'         => __('Image','mklang'),
+				'name'          => 'image_id',
+				'type'          => 'image',
+				'required'      => 1,
+				'return_format' => 'id',
+				'library'       => 'all',
+				'mime_types'    => 'jpg,jpeg,png,gif,webp,avif',
+				'preview_size'  => 'medium',
+			),
+			array(
+				'key'           => 'field_66599d3d90a4e',
+				'label'         => __('Size','mklang'),
+				'name'          => 'size',
+				'type'          => 'select',
+				'required'      => 1,
+				'choices'       => array(
+					'thumbnail'     => __('Thumbnail','mklang'),
+					'medium'        => __('Medium','mklang'),
+					'medium_large'  => __('Medium large','mklang'),
+					'large'         => __('Large','mklang'),
+					'full-hd-thumb' => 'Full HD (1920x1280)',
+					'full'          => __('Full','mklang'),
+					'post-thumbnail'=> __('Original','mklang'),
+				),
+				'default_value' => 'original',
+				'return_format' => 'value',
+			),
+			array(
+				'key'           => 'field_66599a0f6e72b',
+				'label'         => __('Above the fold','mklang'),
+				'name'          => 'priority',
+				'type'          => 'true_false',
+				'default_value' => 0,
+				'ui_on_text'    => 'On',
+				'ui_off_text'   => 'Off',
+				'ui'            => 1,
+			),
+			array(
+				'key'           => 'field_6659b0219435d',
+				'label'         => __('Preload','mklang'),
+				'type'          => 'message',
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'     => 'field_66599a0f6e72b',
+							'operator'  => '==',
+							'value'     => '1',
+						),
+					),
+				),
+				'message'       => __('If this is the main Above the Fold image, you may want to preload it.','mklang'),
+			),
+			array(
+				'key'           => 'field_66599be777c46',
+				'label'         => __('Figure tag','mklang'),
+				'name'          => 'figure',
+				'type'          => 'true_false',
+				'default_value' => 0,
+				'ui_on_text'    => 'On',
+				'ui_off_text'   => 'Off',
+				'ui'            => 1,
+			),
+			array(
+				'key'           => 'field_66599b646e72c',
+				'label'         => __('Figure class','mklang'),
+				'name'          => 'fig_class',
+				'type'          => 'text',
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'     => 'field_66599be777c46',
+							'operator'  => '==',
+							'value'     => '1',
+						),
+					),
+				),
+			),
+			array(
+				'key'           => 'field_66599b8b6e72d',
+				'label'         => __('Figure caption','mklang'),
+				'name'          => 'fig_caption',
+				'type'          => 'text',
+				'conditional_logic' => array(
+					array(
+						array(
+							'field'     => 'field_66599be777c46',
+							'operator'  => '==',
+							'value'     => '1',
+						),
+					),
+				),
+			),
+			array(
+				'key'           => 'field_6659a0580916c',
+				'label'         => __('Style','mklang'),
+				'name'          => 'style',
+				'type'          => 'text',
+			),
+			array(
+				'key'           => 'field_6659a0729a513',
+				'label'         => __('Background image','mklang'),
+				'name'          => 'bg_image',
+				'type'          => 'image',
+				'return_format' => 'id',
+				'library'       => 'all',
+				'mime_types'    => 'jpg,jpeg,png,gif,webp,avif',
+				'preview_size'  => 'medium',
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'     => 'block',
+					'operator'  => '==',
+					'value'     => 'acf/hap-image',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen'        => '',
+		'active'                => true,
+		'description'           => '',
+		'show_in_rest'          => 0,
+	));
 
-    // Company data and footer links
-    acf_add_local_field_group( array(
-        'key'                   => 'group_663e5314af88e',
-        'title'                 => __('Company data and footer links','hap'),
-        'fields'                => array(
-            array(
-                'key'       => 'field_663e5314839c4',
-                'label'     => __('Company data and footer links','hap'),
-                'name'      => 'company_data_footer_links',
-                'type'      => 'flexible_content',
-                'required'  => 1,
-                'relevanssi_exclude'    => 1,
-                'layouts'   => array(
-                    'layout_663e536e839c5' => array(
-                        'key'       => 'layout_663e536e839c5',
-                        'name'      => 'privacy',
-                        'label'     => __('Privacy','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'           => 'field_663e8c332de4f',
-                                'label'         => __('Info','hap'),
-                                'type'          => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'       => __('Add a link to the privacy policy page (set on the options page).','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e5329d857a' => array(
-                        'key'       => 'layout_663e5329d857a',
-                        'name'      => 'cookie',
-                        'label'     => 'Cookie',
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'           => 'field_663e8cc92de50',
-                                'label'         => __('Info','hap'),
-                                'type'          => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'       => __('Add a link to the cookie policy page (set on the options page).','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e5379839c7' => array(
-                        'key'       => 'layout_663e5379839c7',
-                        'name'      => 'cookie_preferences',
-                        'label'     => __('Cookie Preferences','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'           => 'field_663e8d202de51',
-                                'label'         => __('Info','hap'),
-                                'type'          => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'       => __('Add a link to cookie tracking preferences (only if you are using Iubenda).','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e53fb839cf' => array(
-                        'key'       => 'layout_663e53fb839cf',
-                        'name'      => 'terms_and_conditions',
-                        'label'     => __('Terms and Conditions','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'           => 'field_663e8d332de52',
-                                'label'         => __('Terms and Conditions','hap'),
-                                'name'          => 'terms_and_conditions_page',
-                                'type'          => 'post_object',
-                                'required'      => 1,
-                                'relevanssi_exclude' => 1,
-                                'post_type'     => array(
-                                    0 => 'page',
-                                ),
-                                'post_status'   => array(
-                                    0 => 'publish',
-                                ),
-                                'return_format' => 'id',
-                                'ui'            => 1,
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e5387839c9' => array(
-                        'key'       => 'layout_663e5387839c9',
-                        'name'      => 'copyright',
-                        'label'     => 'Copyright',
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e8da22de53',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the copyright notice. Ex: ©2020/2024, Company name. All rights reserved.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e5da32783e' => array(
-                        'key'       => 'layout_663e5da32783e',
-                        'name'      => 'vat_number',
-                        'label'     => __('VAT Number','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e8e282de54',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company VAT number.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663f2b3488dcb' => array(
-                        'key'       => 'layout_663f2b3488dcb',
-                        'name'      => 'cf_number',
-                        'label'     => __('Fiscal Code','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663f2b3488dcc',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company fiscal code.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e5396839cd' => array(
-                        'key'       => 'layout_663e5396839cd',
-                        'name'      => 'whistleblowing',
-                        'label'     => 'Whistleblowing',
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e8e382de55',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add a link with class "whistleblowing" to be used to display the whistleblowing modal. Whistleblowing compliance is mandatory only for companies with at least 50 employees.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_6641ea1f9351d' => array(
-                        'key'       => 'layout_6641ea1f9351d',
-                        'name'      => 'google_recaptcha',
-                        'label'     => 'Google reCAPTCHA',
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_6641e9ae9351c',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add Google reCAPTCHA links.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e5392839cb' => array(
-                        'key'       => 'layout_663e5392839cb',
-                        'name'      => 'credits',
-                        'label'     => __('Credits','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e8ebc2de56',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the Tenaglia Studio credit and link. Ex: Design & code by Tenaglia Studio.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e936da47d4' => array(
-                        'key'       => 'layout_663e936da47d4',
-                        'name'      => 'phone',
-                        'label'     => __('Phone','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e9384a47d6',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company phone number.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e939ba47d8' => array(
-                        'key'       => 'layout_663e939ba47d8',
-                        'name'      => 'mobile_phone',
-                        'label'     => __('Mobile phone','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e939ba47d9',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company mobile phone number.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e93b8a47da' => array(
-                        'key'       => 'layout_663e93b8a47da',
-                        'name'      => 'toll_free_phone',
-                        'label'     => __('Toll free phone','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e93b8a47db',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company toll free phone number.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e93dfa47dc' => array(
-                        'key'       => 'layout_663e93dfa47dc',
-                        'name'      => 'email',
-                        'label'     => 'Email',
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e93dfa47dd',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company email.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e946831854' => array(
-                        'key'       => 'layout_663e946831854',
-                        'name'      => 'pec_email',
-                        'label'     => __('PEC Email','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e946831855',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company PEC email.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e608de2039' => array(
-                        'key'       => 'layout_663e608de2039',
-                        'name'      => 'company_name',
-                        'label'     => __('Company Name','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e916e89dc2',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company name.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_66412b88f2c9c' => array(
-                        'key'       => 'layout_66412b88f2c9c',
-                        'name'      => 'business_name',
-                        'label'     => __('Business Name','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_66412b7ef2c9b',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the business name.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e60a3e203b' => array(
-                        'key'       => 'layout_663e60a3e203b',
-                        'name'      => 'registered_office',
-                        'label'     => __('Registered office','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e922189dc3',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company registered office address.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e60b8e203f' => array(
-                        'key'       => 'layout_663e60b8e203f',
-                        'name'      => 'rea_number',
-                        'label'     => __('REA Number','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e923989dc4',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company REA number.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e92a6a47cf' => array(
-                        'key'       => 'layout_663e92a6a47cf',
-                        'name'      => 'legal_representative',
-                        'label'     => __('Legal Representative','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e92b4a47d1',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company legal representative name.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e92cba47d2' => array(
-                        'key'       => 'layout_663e92cba47d2',
-                        'name'      => 'share_capital',
-                        'label'     => __('Share Capital','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e92cba47d3',
-                                'label'     => 'Info',
-                                'type'      => 'message',
-                                'relevanssi_exclude' => 1,
-                                'message'   => __('Add the company share capital.','hap'),
-                            ),
-                        ),
-                        'max'       => '1',
-                    ),
-                    'layout_663e60e6e2041' => array(
-                        'key'       => 'layout_663e60e6e2041',
-                        'name'      => 'custom_item',
-                        'label'     => __('Custom Item','hap'),
-                        'display'   => 'block',
-                        'sub_fields'=> array(
-                            array(
-                                'key'       => 'field_663e60fee2043',
-                                'label'     => __('Label','hap'),
-                                'name'      => 'label',
-                                'type'      => 'text',
-                                'required'  => 1,
-                                'relevanssi_exclude' => 1,
-                            ),
-                            array(
-                                'key'       => 'field_663e610ce2044',
-                                'label'     => 'URL',
-                                'name'      => 'url',
-                                'type'      => 'url',
-                                'relevanssi_exclude' => 1,
-                            ),
-                            array(
-                                'key'       => 'field_663e6114e2045',
-                                'label'     => __('Open in a new tab','hap'),
-                                'name'      => 'target_blank',
-                                'type'      => 'true_false',
-                                'conditional_logic' => array(
-                                    array(
-                                        array(
-                                            'field'     => 'field_663e610ce2044',
-                                            'operator'  => '!=empty',
-                                        ),
-                                    ),
-                                ),
-                                'relevanssi_exclude' => 1,
-                                'ui_on_text'    => __('On','project'),
-                                'ui_off_text'   => __('Off','project'),
-                                'ui'            => 1,
-                            ),
-                            array(
-                                'key'           => 'field_663e6135e2046',
-                                'label'         => __('CSS Classes','hap'),
-                                'name'          => 'css_class',
-                                'type'          => 'text',
-                                'relevanssi_exclude' => 1,
-                            ),
-                        ),
-                    ),
-                ),
-                'button_label' => __('Add item','hap'),
-            ),
-        ),
-        'location'              => array(
-            array(
-                array(
-                    'param'     => 'block',
-                    'operator'  => '==',
-                    'value'     => 'acf/company-data',
-                ),
-            ),
-        ),
-        'menu_order'            => 0,
-        'position'              => 'normal',
-        'style'                 => 'default',
-        'label_placement'       => 'top',
-        'instruction_placement' => 'label',
-        'hide_on_screen'        => '',
-        'active'                => true,
-        'description'           => '',
-        'show_in_rest'          => 0,
-    ));    
-	
-}
-
-/**
- * Programmatically populate ACF select field named "menu_id"
- * with available menus.
- * 
- * @param array $field
- * @return array $field
- */
-function hap_populate_acf_field_menu_id( $field ) {
-    
-    // Reset choices
-    $field['choices'] = [];
-    
-    // Get available menus
-    $choices = wp_get_nav_menus();
-    
-    // Loop through array and add to field 'choices'
-    if( $choices ) {
-        
-        foreach( $choices as $menu ) {
-            
-            $field['choices'][ $menu->term_id ] = $menu->name;
-            
-        }
-        
-    }
-    
-    // Return the field
-    return $field;
-    
-}
-
-/**
- * Programmatically populate ACF select field named "post_type"
- * with available public post types.
- * 
- * @param array $field
- * @return array $field
- */
-function hap_populate_post_types( $field ) {
-	
-	// Args to get the custom post types
-	$cpt_args = [
-		'public'                =>  true,
-		'publicly_queryable'    => true,
-	];
-
-	// Args to get the "page" post type which would otherwise be excluded
-	$page_args = [
-		'name' => 'page',
-	];
-
-	// Get the custom post type list (array of objects)
-	$cpts = get_post_types($cpt_args,'objects');
-
-	// Get the "page" post type (array of objects)
-	$pages = get_post_types( $page_args, 'objects' );
-
-	// Merge arrays
-	$cpts = array_merge( $cpts, $pages );
-
-	// Exclude media (attachemnts)
-	unset( $cpts['attachment'] );
-
-	// Sort array by key
-	ksort( $cpts );	
-	
-    foreach ( $cpts as $post_type ) {
-    
-		$field['choices'][$post_type->name] = $post_type->label;
-    
-	}
-
-    // Return the field
-    return $field;
+	// Company data and footer links
+	acf_add_local_field_group( array(
+		'key'                   => 'group_663e5314af88e',
+		'title'                 => __('Company data and footer links','mklang'),
+		'fields'                => array(
+			array(
+				'key'       => 'field_663e5314839c4',
+				'label'     => __('Company data and footer links','mklang'),
+				'name'      => 'company_data_footer_links',
+				'type'      => 'flexible_content',
+				'required'  => 1,
+				'relevanssi_exclude'    => 1,
+				'layouts'   => array(
+					'layout_663e536e839c5' => array(
+						'key'       => 'layout_663e536e839c5',
+						'name'      => 'privacy',
+						'label'     => __('Privacy','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'           => 'field_663e8c332de4f',
+								'label'         => __('Info','mklang'),
+								'type'          => 'message',
+								'relevanssi_exclude' => 1,
+								'message'       => __('Add a link to the privacy policy page (set on the options page).','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e5329d857a' => array(
+						'key'       => 'layout_663e5329d857a',
+						'name'      => 'cookie',
+						'label'     => 'Cookie',
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'           => 'field_663e8cc92de50',
+								'label'         => __('Info','mklang'),
+								'type'          => 'message',
+								'relevanssi_exclude' => 1,
+								'message'       => __('Add a link to the cookie policy page (set on the options page).','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e5379839c7' => array(
+						'key'       => 'layout_663e5379839c7',
+						'name'      => 'cookie_preferences',
+						'label'     => __('Cookie Preferences','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'           => 'field_663e8d202de51',
+								'label'         => __('Info','mklang'),
+								'type'          => 'message',
+								'relevanssi_exclude' => 1,
+								'message'       => __('Add a link to cookie tracking preferences (only if you are using Iubenda).','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e53fb839cf' => array(
+						'key'       => 'layout_663e53fb839cf',
+						'name'      => 'terms_and_conditions',
+						'label'     => __('Terms and Conditions','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'           => 'field_663e8d332de52',
+								'label'         => __('Terms and Conditions','mklang'),
+								'name'          => 'terms_and_conditions_page',
+								'type'          => 'post_object',
+								'required'      => 1,
+								'relevanssi_exclude' => 1,
+								'post_type'     => array(
+									0 => 'page',
+								),
+								'post_status'   => array(
+									0 => 'publish',
+								),
+								'return_format' => 'id',
+								'ui'            => 1,
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e5387839c9' => array(
+						'key'       => 'layout_663e5387839c9',
+						'name'      => 'copyright',
+						'label'     => 'Copyright',
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e8da22de53',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the copyright notice. Ex: ©2020/2024, Company name. All rights reserved.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e5da32783e' => array(
+						'key'       => 'layout_663e5da32783e',
+						'name'      => 'vat_number',
+						'label'     => __('VAT Number','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e8e282de54',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company VAT number.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663f2b3488dcb' => array(
+						'key'       => 'layout_663f2b3488dcb',
+						'name'      => 'cf_number',
+						'label'     => __('Fiscal Code','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663f2b3488dcc',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company fiscal code.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e5396839cd' => array(
+						'key'       => 'layout_663e5396839cd',
+						'name'      => 'whistleblowing',
+						'label'     => 'Whistleblowing',
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e8e382de55',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add a link with class "whistleblowing" to be used to display the whistleblowing modal. Whistleblowing compliance is mandatory only for companies with at least 50 employees.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_6641ea1f9351d' => array(
+						'key'       => 'layout_6641ea1f9351d',
+						'name'      => 'google_recaptcha',
+						'label'     => 'Google reCAPTCHA',
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_6641e9ae9351c',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add Google reCAPTCHA links.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e5392839cb' => array(
+						'key'       => 'layout_663e5392839cb',
+						'name'      => 'credits',
+						'label'     => __('Credits','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e8ebc2de56',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the Tenaglia Studio credit and link. Ex: Design & code by Tenaglia Studio.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e936da47d4' => array(
+						'key'       => 'layout_663e936da47d4',
+						'name'      => 'phone',
+						'label'     => __('Phone','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e9384a47d6',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company phone number.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e939ba47d8' => array(
+						'key'       => 'layout_663e939ba47d8',
+						'name'      => 'mobile_phone',
+						'label'     => __('Mobile phone','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e939ba47d9',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company mobile phone number.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e93b8a47da' => array(
+						'key'       => 'layout_663e93b8a47da',
+						'name'      => 'toll_free_phone',
+						'label'     => __('Toll free phone','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e93b8a47db',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company toll free phone number.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e93dfa47dc' => array(
+						'key'       => 'layout_663e93dfa47dc',
+						'name'      => 'email',
+						'label'     => 'Email',
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e93dfa47dd',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company email.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e946831854' => array(
+						'key'       => 'layout_663e946831854',
+						'name'      => 'pec_email',
+						'label'     => __('PEC Email','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e946831855',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company PEC email.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e608de2039' => array(
+						'key'       => 'layout_663e608de2039',
+						'name'      => 'company_name',
+						'label'     => __('Company Name','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e916e89dc2',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company name.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_66412b88f2c9c' => array(
+						'key'       => 'layout_66412b88f2c9c',
+						'name'      => 'business_name',
+						'label'     => __('Business Name','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_66412b7ef2c9b',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the business name.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e60a3e203b' => array(
+						'key'       => 'layout_663e60a3e203b',
+						'name'      => 'registered_office',
+						'label'     => __('Registered office','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e922189dc3',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company registered office address.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e60b8e203f' => array(
+						'key'       => 'layout_663e60b8e203f',
+						'name'      => 'rea_number',
+						'label'     => __('REA Number','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e923989dc4',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company REA number.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e92a6a47cf' => array(
+						'key'       => 'layout_663e92a6a47cf',
+						'name'      => 'legal_representative',
+						'label'     => __('Legal Representative','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e92b4a47d1',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company legal representative name.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e92cba47d2' => array(
+						'key'       => 'layout_663e92cba47d2',
+						'name'      => 'share_capital',
+						'label'     => __('Share Capital','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e92cba47d3',
+								'label'     => 'Info',
+								'type'      => 'message',
+								'relevanssi_exclude' => 1,
+								'message'   => __('Add the company share capital.','mklang'),
+							),
+						),
+						'max'       => '1',
+					),
+					'layout_663e60e6e2041' => array(
+						'key'       => 'layout_663e60e6e2041',
+						'name'      => 'custom_item',
+						'label'     => __('Custom Item','mklang'),
+						'display'   => 'block',
+						'sub_fields'=> array(
+							array(
+								'key'       => 'field_663e60fee2043',
+								'label'     => __('Label','mklang'),
+								'name'      => 'label',
+								'type'      => 'text',
+								'required'  => 1,
+								'relevanssi_exclude' => 1,
+							),
+							array(
+								'key'       => 'field_663e610ce2044',
+								'label'     => 'URL',
+								'name'      => 'url',
+								'type'      => 'url',
+								'relevanssi_exclude' => 1,
+							),
+							array(
+								'key'       => 'field_663e6114e2045',
+								'label'     => __('Open in a new tab','mklang'),
+								'name'      => 'target_blank',
+								'type'      => 'true_false',
+								'conditional_logic' => array(
+									array(
+										array(
+											'field'     => 'field_663e610ce2044',
+											'operator'  => '!=empty',
+										),
+									),
+								),
+								'relevanssi_exclude' => 1,
+								'ui_on_text'    => __('On','project'),
+								'ui_off_text'   => __('Off','project'),
+								'ui'            => 1,
+							),
+							array(
+								'key'           => 'field_663e6135e2046',
+								'label'         => __('CSS Classes','mklang'),
+								'name'          => 'css_class',
+								'type'          => 'text',
+								'relevanssi_exclude' => 1,
+							),
+						),
+					),
+				),
+				'button_label' => __('Add item','mklang'),
+			),
+		),
+		'location'              => array(
+			array(
+				array(
+					'param'     => 'block',
+					'operator'  => '==',
+					'value'     => 'acf/company-data',
+				),
+			),
+		),
+		'menu_order'            => 0,
+		'position'              => 'normal',
+		'style'                 => 'default',
+		'label_placement'       => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen'        => '',
+		'active'                => true,
+		'description'           => '',
+		'show_in_rest'          => 0,
+	));    
 	
 }

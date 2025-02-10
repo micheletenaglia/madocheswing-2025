@@ -1,9 +1,18 @@
 <?php
 
-/* Template name: Contacts */
+// Exit if accessed directly
+defined('ABSPATH') || exit;
 
+/**
+ * Template name: Contacts
+ * 
+ */
+
+// Get header
 get_header();
 
-	the_content();
+// Get content
+the_content();
 
+// Get footer
 get_footer();

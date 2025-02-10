@@ -1,9 +1,7 @@
 <?php
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined('ABSPATH') || exit;
 
 /**
  * Add category for project blocks.
@@ -11,7 +9,7 @@ if( ! defined( 'ABSPATH' ) ) {
  * @param array $categories
  * @return array $categories
  */
-function hap_block_categories_project( $categories ) {
+function mkt_block_categories_project( $categories ) {
 	// Get categories slugs
 	$category_slugs = wp_list_pluck($categories, 'slug');
     // Add custom category
@@ -32,7 +30,7 @@ function hap_block_categories_project( $categories ) {
  *
  * @return void.
  */
-function hap_project_acf_blocks_init() {
+function project_acf_blocks_init() {
 
     // Check function exists.
     if( function_exists('acf_register_block_type') ) {
@@ -73,6 +71,6 @@ function project_allowed_blocks( $allowed_blocks ) {
 		'acf/dance-class-card',
 	];
 	// Merge arrays
-	$allowed_blocks = array_merge( $allowed_blocks, $project_allowed_blocks);
+	$allowed_blocks = array_merge($allowed_blocks,$project_allowed_blocks);
 	return $allowed_blocks;
 }

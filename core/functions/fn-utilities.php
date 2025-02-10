@@ -1,272 +1,117 @@
 <?php
 
 // Exit if accessed directly
-if( !defined('ABSPATH') ) {
-	exit;
-}
+defined('ABSPATH') || exit;
 
 /**
- * Constants and utility functions.
+ * Utility functions.
  *
- * Do not edit directly!
- * The functions.php file must be used 
- * to add functionality to the site.
- * 
- * @since Hap Studio Theme 1.0.0
  */
 
-/****************************************************************************************
-   ____ ___  _   _ ____ _____  _    _   _ _____ ____  
-  / ___/ _ \| \ | / ___|_   _|/ \  | \ | |_   _/ ___| 
- | |  | | | |  \| \___ \ | | / _ \ |  \| | | | \___ \ 
- | |__| |_| | |\  |___) || |/ ___ \| |\  | | |  ___) |
-  \____\___/|_| \_|____/ |_/_/   \_\_| \_| |_| |____/ 
-
-****************************************************************************************/
-
-// Ajax Stuff
-define('HAP_ADMIN_AJAX_URI', admin_url('admin-ajax.php'));
-
-// Core Costants
-define('HAP_CORE', get_template_directory() . '/core/');
-define('HAP_CORE_URI', get_template_directory_uri() . '/core/');
-
-define('HAP_CORE_FN', get_template_directory() . '/core/functions/');
-
-define('HAP_CORE_TEMPLATES', get_template_directory() . '/core/templates/');
-
-// define('HAP_CORE_CSS', get_template_directory() . '/core/assets/scss/');
-define('HAP_CORE_CSS_URI', get_template_directory_uri() . '/core/assets/scss/');
-
-define('HAP_CORE_JS', get_template_directory() . '/core/assets/js/');
-define('HAP_CORE_JS_URI', get_template_directory_uri() . '/core/assets/js/');
-
-define('HAP_CORE_IMG', get_template_directory() . '/core/assets/img/');
-define('HAP_CORE_IMG_URI', get_template_directory_uri() . '/core/assets/img/');
-
-define('HAP_CORE_BLOCKS', get_template_directory() . '/core/blocks/');
-define('HAP_CORE_BLOCKS_URI', get_template_directory_uri() . '/core/blocks/');
-
-
-// Project Costants
-define('HAP_PROJECT', get_template_directory() . '/project/');
-define('HAP_PROJECT_URI', get_template_directory_uri() . '/project/');
-
-define('HAP_PROJECT_FN', get_template_directory() . '/project/functions/');
-
-define('HAP_PROJECT_TEMPLATES', get_template_directory() . '/project/templates/');
-
-define('HAP_PROJECT_CSS', get_template_directory() . '/project/assets/css/');
-define('HAP_PROJECT_CSS_URI', get_template_directory_uri() . '/project/assets/css/');
-
-define('HAP_PROJECT_JS', get_template_directory() . '/project/assets/js/');
-define('HAP_PROJECT_JS_URI', get_template_directory_uri() . '/project/assets/js/');
-
-define('HAP_PROJECT_IMG', get_template_directory() . '/project/assets/img/');
-define('HAP_PROJECT_IMG_URI', get_template_directory_uri() . '/project/assets/img/');
-
-define('HAP_PROJECT_BLOCKS', get_template_directory() . '/project/blocks/');
-define('HAP_PROJECT_BLOCKS_URI', get_template_directory_uri() . '/project/blocks/');
-
-// Server IP !!! Check
-add_action('wp_ajax_hap_server_ip', 'hap_server_ip', 10, 1);
-add_action('wp_ajax_nopriv_hap_server_ip', 'hap_server_ip', 10, 1);
-
-// Update all posts !!! Check
-add_action('wp_ajax_hap_update_all_posts', 'hap_update_all_posts', 10, 2);
-add_action('wp_ajax_nopriv_hap_update_all_posts', 'hap_update_all_posts', 10, 2);
-
-// add_action('wp_footer', 'hap_show_wp_load_stats');
-
-/****************************************************************************************
-  ____  _    _   _  ____ ___ _   _ ____  
- |  _ \| |  | | | |/ ___|_ _| \ | / ___| 
- | |_) | |  | | | | |  _ | ||  \| \___ \ 
- |  __/| |__| |_| | |_| || || |\  |___) |
- |_|   |_____\___/ \____|___|_| \_|____/ 
-                                         
-****************************************************************************************/
+/*-------------------------------------------------------------------------------------*/
+// Plugins
 
 /**
- * Check if ACF is activated.
- *
- * @return boolean.
+ * Pugins activation check.
+ * Other plugins
+ * - limit-login-attempts-reloaded
+ * - sg-cachepress
+ * - sg-security
+ * @param string $plugin
  */
-function is_acf_activated() {
-	return class_exists('acf') ? true : false;
+function mkt_plugin_active( $plugin ) : bool {
+    // Check if ACF is activated
+    if( $plugin == 'acf' ) {
+        return class_exists('acf') ? true : false;
+    }
+    // Check if WPML is activated
+    elseif( $plugin == 'wpml' ) {
+        return function_exists('icl_object_id') ? true : false;
+    }
+    // Check if Wordfence is activated
+    elseif( $plugin == 'wordfence' ) {
+        if( class_exists('wfWAFIPBlocksController') ) { 
+            return true;
+        }else{
+            return false;
+        }
+    }
+    // Check if WP Supercache is activated
+    elseif( $plugin == 'wp-supercache' ) {
+        if( function_exists('wpsc_init') ) { 
+            return true;
+        }else{
+            return false;
+        }
+    }
+    // Check if Contact Form 7 is activated
+    elseif( $plugin == 'cf7' ) {
+        return class_exists('WPCF7') ? true : false;
+    }
+    // Check if Flamingo is activated
+    elseif( $plugin == 'flamingo' ) {
+        return class_exists('Flamingo_Contact') ? true : false;
+    }
+    // Check if GTM4WP is activated
+    elseif( $plugin == 'tag-manager' ) {
+        return function_exists('gtm4wp_init') ? true : false;	
+    }
+    // Check if WooCommerce is activated
+    elseif( $plugin == 'woocommerce' ) {
+        return class_exists('woocommerce') ? true : false;
+    } 
+    // Check if WooCommerce Membership is activated
+    elseif( $plugin == 'wc-memberships' ) {
+        return class_exists('wc_memberships') ? true : false;
+    } 
+    // Check if WooCommerce Subscription is activated
+    elseif( $plugin == 'wc-subscription' ) {
+        return class_exists('wc_subscriptions') ? true : false;
+    } 
+    // Check if DK-PDF is activated
+    elseif( $plugin == 'facetwp' ) {
+        return class_exists('FacetWP') ? true : false;
+    } 
+    // Check if FacetWP is activated
+    elseif( $plugin == 'dkpdf' ) {
+        return class_exists('DKPDF') ? true : false;
+    } 
+    // Other plugins
+    else{
+        // Default values
+        $path = $plugin . '/' . $plugin;
+        // Yoast
+        if( $plugin == 'yoast' ) {
+            $path = 'wordpress-seo/wp-seo';
+        }
+        // Iubenda
+        if( $plugin == 'iubenda' ) {
+            $path = 'iubenda-cookie-law-solution/iubenda_cookie_solution';
+        }
+        // Simple History
+        if( $plugin == 'simple-history' ) {
+            $path = 'simple-history/index.php';
+        }
+        $path .= '.php';
+        if( in_array($path,apply_filters('active_plugins',get_option('active_plugins'))) ) { 
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
 
-/**
- * Check if WooCommerce is activated.
- *
- * @return boolean.
- */
-function is_woocommerce_activated() {
-	return class_exists('woocommerce') ? true : false;
-}
-
-/**
- * Check if WooCommerce Membership is activated.
- *
- * @return boolean.
- */
-function is_woocommerce_membership_activated() {
-	return class_exists('wc_memberships') ? true : false;
-}
-
-/**
- * Check if WooCommerce Subscription is activated.
- *
- * @return boolean.
- */
-function is_woocommerce_subscription_activated() {
-	return class_exists('wc_subscriptions') ? true : false;
-}
-
-/**
- * Check if FacetWP is activated.
- *
- * @return boolean.
- */
-function is_facetwp_activated() {
-	return class_exists('FacetWP') ? true : false;
-}
-
-/**
- * Check if WPML is activated.
- *
- * @return boolean.
- */
-function is_wpml_activated() {
-	return function_exists('icl_object_id') ? true : false;
-}
-
-/**
- * Check if Yoast Seo is activated.
- *
- * @return boolean.
- */
-function is_yoast_activated() {
-	return in_array('wordpress-seo/wp-seo.php', apply_filters( 'active_plugins', get_option( 'active_plugins') ) ) ? true : false;
-}
-
-/**
- * Check if Iubenda is activated.
- *
- * @return boolean.
- */
-function is_iubenda_activated() {
-	return in_array('iubenda-cookie-law-solution/iubenda_cookie_solution.php', apply_filters( 'active_plugins', get_option( 'active_plugins') ) ) ? true : false;
-}
-
-/**
- * Check if Contact Form 7 is activated.
- *
- * @return boolean.
- */
-function is_cf7_activated() {
-	return class_exists('WPCF7') ? true : false;
-}
-
-/**
- * Check if DK-PDF is activated.
- *
- * @return boolean.
- */
-function is_dkpdf_activated() {
-	return class_exists('DKPDF') ? true : false;
-}
-
-/**
- * Check if SG Security is activated.
- *
- * @return boolean.
- */
-function is_sg_security_activated() {
-	// if( class_exists('SG_Security') ) { 
-    return is_plugin_active( 'sg-security/sg-security.php' ) ? true : false;
-}
-
-/**
- * Check if SG Supercacher is activated.
- *
- * @return boolean.
- */
-function is_sg_supercacher_activated() {
-	// if( class_exists('Supercacher') ) { 
-    return is_plugin_active( 'sg-cachepress/sg-cachepress.php' ) ? true : false;
-}
-
-/**
- * Check if WP Rocket is activated.
- *
- * @return boolean.
- */
-function is_wp_rocket_activated() {
-	return is_plugin_active( 'wp-rocket/wp-rocket.php' ) ? true : false;
-}
-
-/**
- * Check if WP Supercache is activated.
- *
- * @return boolean.
- */
-function is_wp_supercache_activated() {
-	return function_exists('wpsc_init') ? true : false;
-}
-
-/**
- * Check if Wordfence is activated.
- *
- * @return boolean.
- */
-function is_wordfence_activated() {
-	return class_exists('wfWAFIPBlocksController') ? true : false;
-}
-
-/**
- * Check if Limit Login Attempts Reloaded is activated.
- *
- * @return boolean.
- */
-function is_limit_login_attempts_activated() {
-	// if( class_exists('Supercacher') ) { 
-    return is_plugin_active( 'limit-login-attempts-reloaded/limit-login-attempts-reloaded.php' ) ? true : false;
-}
-
-/**
- * Check if Flamingo is activated.
- *
- * @return boolean.
- */
-function is_flamingo_activated() {
-	return class_exists('Flamingo_Contact') ? true : false;
-}
-
-/**
- * Check if GTM4WP is activated.
- *
- * @return boolean.
- */
-function is_gtm4wp_activated() {
-	return function_exists('gtm4wp_init') ? true : false;	
-}
-
-//======================================================================
+/*-------------------------------------------------------------------------------------*/
 // Media
-//======================================================================
-
-// !!! Read this https://wordpress.stackexchange.com/questions/312625/escaping-svg-with-kses
 
 /**
  * Get SVG icon.
- * 
+ * @link https://wordpress.stackexchange.com/questions/312625/escaping-svg-with-kses
  * @param string $name
  * @param string $css_classes
  * @param string $path
- * @return string $svg
  */
-function get_svg_icon( $name, $css_classes = 'svg-icon fill-current h-4', $path = 'core' ) {
+function get_svg_icon( $name, $css_classes = 'svg-icon fill-current h-4', $path = 'core' ) : string {
 	// Empty var
 	$svg = '';
 	// 1. Check if file exists 	
@@ -275,28 +120,28 @@ function get_svg_icon( $name, $css_classes = 'svg-icon fill-current h-4', $path 
 		$path = ABSPATH . 'wp-content/uploads/';
 	}elseif( $path == 'block-core' ) {
 		// Set core block icons path
-		$path = HAP_CORE . 'blocks/' . str_replace( '-preview', '', $name ) . '/';
+		$path = get_template_directory() . '/core/blocks/' . str_replace( '-preview', '', $name ) . '/';
 	}elseif( $path == 'block-project' ) {
 		// Set project block icons path
-		$path = HAP_PROJECT . 'blocks/' . str_replace( '-preview', '', $name ) . '/';
+		$path = get_template_directory() . '/project/blocks/' . str_replace( '-preview', '', $name ) . '/';
 	}elseif( $path == 'project' ) {
 		// Set path to project
-		$path = HAP_PROJECT . 'assets/icons/';
+		$path = get_template_directory() . '/project/assets/icons/';
 	}elseif( $path == 'core' ) {
 		// Set default path
-		$path = HAP_CORE . 'assets/icons/';
+		$path = get_template_directory() . '/core/assets/icons/';
 	}
 	// Check if file exists
 	if( file_exists( $path . $name . '.svg' ) ) {
 		$svg = file_get_contents( $path . $name . '.svg' );
         // Sanitize attributes
-        $svg = hap_sanitize_attrs($svg);
+        $svg = mkt_sanitize_attrs($svg);
         // if string contains not allowed code
         if( !$svg ) {
-            return;
+            return '';
         }
 	}else{
-		return;
+		return '';
 	}
     // Remove unwanted content
     $svg = strstr( $svg, '<svg');
@@ -308,23 +153,21 @@ function get_svg_icon( $name, $css_classes = 'svg-icon fill-current h-4', $path 
 
 /**
  * Get SVG img.
- * 
  * @param string $name
  * @param string $css_classes
- * @return string $svg
  */
-function get_svg_img( $svg_id, $css_classes = 'svg-icon fill-current h-4' ) {
+function get_svg_img( $svg_id, $css_classes = 'svg-icon fill-current h-4' ) : string {
 	// Check if file exists
 	if( file_exists( wp_get_original_image_path($svg_id) ) ) {
 		$svg = file_get_contents( wp_get_original_image_path($svg_id) );
         // Sanitize attributes
-        $svg = hap_sanitize_attrs($svg);
+        $svg = mkt_sanitize_attrs($svg);
         // if string contains not allowed code
         if( !$svg ) {
-            return;
+            return '';
         }
 	}else{
-		return;
+		return '';
 	}
     // Remove unwanted content
     $svg = strstr( $svg, '<svg');
@@ -334,39 +177,240 @@ function get_svg_img( $svg_id, $css_classes = 'svg-icon fill-current h-4' ) {
 	return $svg;
 }
 
-//======================================================================
-// Custom locate template
-//======================================================================
+/**
+ * Get iframe/oembed.
+ * @param string $iframe
+ */
+function get_oembed( $iframe ) : string {
+	// Use preg_match to find iframe src.
+	preg_match('/src="(.+?)"/',$iframe,$matches);
+	$src = $matches[1];
+	// Add extra parameters to src and replace HTML.
+	$params = array(
+		'controls'  => 0,
+		'hd'        => 1,
+		'autohide'  => 1
+	);
+	$new_src = esc_url(add_query_arg($params, $src));
+	$iframe = str_replace($src, $new_src, $iframe);
+	// Add extra attributes to iframe HTML.
+	$attributes = 'frameborder="0"';
+	$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
+	// Display customized HTML.
+	$iframe = '<div class="oembed">' . $iframe . '</div>';
+	return $iframe;
+}
 
 /**
- * Cascading template path.
- *
- * @param string $template_name
- * @param array $args
- * @return void
+ * Get HTML5 Video.
+ * @param string $field
  */
-function hap_get_template( $template_name, $args = [] ) {
-	/*if( file_exists( HAP_PROJECT_TEMPLATES . $template_name . '.php' ) ) {
-		include( HAP_PROJECT_TEMPLATES . $template_name . '.php' );
-	}elseif( file_exists( HAP_CORE_TEMPLATES . $template_name . '.php' ) ) {	
-		include( HAP_CORE_TEMPLATES . $template_name . '.php' );
-	}*/
-	if( file_exists( HAP_PROJECT_TEMPLATES . $template_name . '.php' ) ) {
-		get_template_part( 'project/templates/' . $template_name, null, $args );
-	}elseif( file_exists( HAP_CORE_TEMPLATES . $template_name . '.php' ) ) {
-		get_template_part( 'core/templates/' . $template_name, null, $args );
+function get_html_video( $field ) : string {
+	// Attributes
+	$attrs = [
+		'width'		=>	'width="' . $field['width'] . '"',
+		'width'		=>	'height="' . $field['height'] . '"',
+		'controls'	=>	'controls=""',
+	];
+    // STart HTML
+	$video = '<video ' . implode( ' ', $attrs ) . '>';
+		$video .= '<source src="' . $field['url'] . '" type="video/mp4">';
+		// <source src="movie.ogg" type="video/ogg">
+		$video .= __('Your browser does not support the video tag.','mklang');
+	$video .= '</video>';
+	return $video;
+}
+
+/**
+ * Get image markup by image or post ID.
+ * - string  id
+ * - boolean lazy
+ * - boolean priority 
+ * - string  img_class
+ * - boolean figure
+ * - string  fig_class
+ * - string  caption
+ * - string  style
+ * - integer bg_image
+ * - boolean return
+ * @param integer $image_id
+ * @param string $size
+ * @param array $options
+ */
+function mkt_thumb( $image_id, $size = 'post-thumbnail', $options = [] ) : string {
+    // Check if the ID is a post ID or an attachment ID
+    if( get_post_type($image_id) != 'attachment' ) {
+        // get the post thumbnail ID
+        $image_id = get_post_thumbnail_id($image_id);
+    }
+    // Bail out early
+    if( !$image_id ) {
+        return '';
+    }
+    // Get mime type
+    $mime = get_post_mime_type($image_id);
+    // Allowed mime types
+    $mimes = [
+        'image/avif',
+        'image/gif',
+        'image/jpeg',
+        'image/png',
+        // 'image/svg+xml',
+        'image/webp',
+    ];
+    // Check mime and bail out if this is not one of the allowed type
+    // For SVG use get_svg_img() instead
+    if( !in_array($mime,$mimes) ) {
+        return '';
+    }
+    // Update options and set default values
+    $id = isset($options['id']) ? $options['id'] : null;
+    $lazy = isset($options['lazy']) ? $options['lazy'] : true;
+    $priority = isset($options['priority']) ? $options['priority'] : false;
+    $img_class = isset($options['img_class']) ? $options['img_class'] : '';
+    $figure = isset($options['figure']) ? $options['figure'] : false;
+    $fig_class = isset($options['fig_class']) ? $options['fig_class'] : '';
+    $fig_caption = isset($options['caption']) ? $options['caption'] : '';
+    $css_rules = isset($options['style']) ? $options['style'] : null;
+    $bg_image = isset($options['bg_image']) ? $options['bg_image'] : null;
+    $return = isset($options['return']) ? $options['return'] : false;
+    // Default attributes
+    $attrs = '';
+    // Get sizes
+    $sizes = [
+        'thumbnail'     =>  wp_get_attachment_image_src($image_id,'thumbnail'),
+        'medium'        =>  wp_get_attachment_image_src($image_id,'medium'),
+        'medium_large'  =>  wp_get_attachment_image_src($image_id,'medium_large'),
+        'large'         =>  wp_get_attachment_image_src($image_id,'large'),
+        'full-hd-thumb' =>  wp_get_attachment_image_src($image_id,'full-hd-thumb'),
+        'full'          =>  wp_get_attachment_image_src($image_id,'post-thumbnail'),
+        'post-thumbnail'=>  wp_get_attachment_image_src($image_id,'post-thumbnail'),
+        // Last two items are the same but the key is different for backwards compability
+    ];
+    $size_index = [
+        // 'thumbnail'     =>  1,
+        // 'medium'        =>  2,
+        'medium_large'  =>  3,
+        'large'         =>  4,
+        'full-hd-thumb' =>  5,
+        'full'          =>  6,
+        'post-thumbnail'=>  7,
+    ];
+    // If ID
+    if( $id ) {
+        $attrs .= 'id="' . esc_html($id). '" ';
+    }
+    // If image is above the fold
+    if( $priority ) {
+        $attrs .= 'fetchpriority="high" ';
+    }else{
+        // Add lazy loading
+        if( $lazy ) {
+            $attrs .= 'loading="lazy" ';
+        }
+    }
+    // Set async decoding
+    $attrs .= 'decoding="async" ';
+    // Set width, height and source
+    // Set width
+    $attrs .= 'width="' . esc_attr($sizes[$size][1]) . '" ';
+    // Set height
+    $attrs .= 'height="' . esc_attr($sizes[$size][2]) . '" ';
+    // Set source
+    $attrs .= 'src="' . esc_url($sizes[$size][0]) . '" ';
+    // Set alt text
+    $attrs .= 'alt="' . esc_html(get_post_meta($image_id, '_wp_attachment_image_alt', 1)) . '" ';
+    // CSS Class
+    $attrs .= 'class="img-' . esc_attr($image_id) . '-' . esc_attr($size) . ' ' . esc_attr($img_class) . '" ';
+    // Build source set
+    if( $size != 'thumbnail' && $size != 'medium' ) {
+        // Medium 640
+        $scrset = [
+            $sizes['medium'][0] . ' 640w', // $sizes['medium'][1]
+        ];
+        // Medium large 768
+        if( $sizes['medium_large'] && $size != 'medium_large' && $size_index[$size] > $size_index['medium_large'] ) {
+            $scrset[] = $sizes['medium_large'][0] . ' 768w';
+        }
+        // Large 960
+        if( $sizes['large'] && $size != 'large' && $size_index[$size] > $size_index['large'] ) {
+            $scrset[] = $sizes['large'][0] . ' 960w';
+        }
+        // Over
+        $scrset[] = $sizes['post-thumbnail'][0];
+        // Add source set
+        $attrs .= 'srcset="' . implode( ', ', $scrset ) . '" ';
+        // Add max size;
+        $attrs .= 'sizes="' . '(max-width: ' . esc_attr($sizes[$size][1]) . 'px) 100vw, ' . esc_attr($sizes[$size][1]) . 'px" ';
+    }
+    // If style or background image
+    $style = '';
+    if( $css_rules ) {
+        $style = esc_attr( $css_rules );
+    }
+    if( $bg_image ) {
+        // Get same size image
+        $bg_image = wp_get_attachment_image_src( $bg_image,$size );
+        $style .= ' background-image: url(' . esc_url($bg_image[0]) . ')';
+    }
+    if( $style ) {
+        $attrs .= ' style="' . $style . '"';
+    }
+    // Output
+    $img = '<img ' . $attrs . '/>';
+    // If figure
+    if( $figure ) {
+        $img = '<figure class="' . esc_attr($fig_class) . '">' . $img;
+        if( $fig_caption ) {
+            $img .= '<figcaption>' . esc_html($fig_caption) . '</figcaption>';
+        }
+        $img .= '</figure>';
+    }
+    // Return options
+    if( $return ) {
+        return $img;
+    }else{
+        // Default
+        echo $img;
+    }
+}
+
+/**
+ * Convert an image to base64.
+ * @link https://stackoverflow.com/questions/3967515/how-to-convert-an-image-to-base64-encoding
+ * @param integer $img_id
+ * @param string $path
+ * @example <img src="<?php echo mkt_img_to_base64(123); ?>" width="" height="" alt="" style="" />
+ */
+function mkt_img_to_base64( $img_id = 0, $path = '' ) : string {
+	// Bail out if no values
+	if( !wp_get_attachment_url($img_id) || !file_exists($path) ) {
+		return '';
 	}
+	// Default value
+	$base64 = null;
+	// Conditionally get file path
+	$path = $img_id ? get_attached_file($img_id) : $path;
+	// Get file extension
+	$type = pathinfo($path,PATHINFO_EXTENSION);
+	// Get file content
+	$data = file_get_contents($path);
+	// If is a SVG file
+	if( $type === 'svg' ) {
+		$base64 = 'data:image/svg+xml;base64,' . base64_encode($data); 
+	// If is a PNG or JPG file
+	}else{
+		$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
+	}
+	return $base64;
 }
 
 /**
  * This is used to verify attributes inside HTML tags.
- * !!! There is no common way to do this so this maybe not
- * the most secure solution to avoid XSS.
- *
+ * !!! There is no common way to do this so this maybe not the most secure solution to avoid XSS.
  * @param string $string
- * @return string $string
  */
-function hap_sanitize_attrs($string) {
+function mkt_sanitize_attrs( $string ) : string {
     // Lowercase for better search
     $str_low = strtolower($string);
     // Check for malicious strings
@@ -397,212 +441,79 @@ function hap_sanitize_attrs($string) {
         || str_contains( $str_low, 'entity' )
     ) {
         // Dump error
-        write_log('Bad code in hap_sanitize_attrs(): ' . $string );
+        write_log('Bad code in mkt_sanitize_attrs(): ' . $string );
         $string = '';
     }
     // return htmlspecialchars( $string, ENT_NOQUOTES );
     return $string;
 }
 
-//======================================================================
+/*-------------------------------------------------------------------------------------*/
+// Custom locate template
+
+/**
+ * Cascading template path.
+ * @param string $template_name
+ * @param array $args
+ */
+function mkt_get_template( $template_name, $args = [] ) : void {
+	if( file_exists( get_template_directory() . '/project/templates/' . $template_name . '.php' ) ) {
+		get_template_part( 'project/templates/' . $template_name, null, $args );
+	}elseif( file_exists( get_template_directory() . '/core/templates/' . $template_name . '.php' ) ) {
+		get_template_part( 'core/templates/' . $template_name, null, $args );
+	}
+}
+
+/*-------------------------------------------------------------------------------------*/
 // Arrays
-//======================================================================
 
 /**
  * Sanitize array.
- * 
  * @param array $array
  * @param string $type
- * @return array $sanitized_array
  */
-function hap_sanitize_array( $array, $type = 'simple' ) {
-	
+function mkt_sanitize_array( $array, $type = 'simple' ) : array {
+	// Default value
 	$sanitized_array = [];
-	
+	// Simple array
 	if( $type == 'simple' ) {
 		foreach( $array as $item ) {
 			$sanitized_array[] = sanitize_text_field($item);
 		}
-	}elseif( $type = 'indexed' ) {
+	}
+    // Indexed array
+    elseif( $type = 'indexed' ) {
 		foreach( $array as $index => $value ) {
 			$sanitized_array[sanitize_text_field($index)] = sanitize_text_field($value);
 		}
 	}
-
     return $sanitized_array;
-
 }
 
-/**
- * Check if all values in array are null.
- * 
- * @param array $array
- * @param string $type
- * @return boolean
- */
-function hap_check_array_all_null( $array, $type = 'simple' ) {
-	
-	$check = 0;
-	
-	if( $type = 'simple' ) {
-		foreach( $array as $item ) {
-			if( $item ) {
-				$check++;
-			}
-		}
-	}elseif( $type = 'indexed' ) {
-		foreach( $array as $index => $value ) {
-			if( $value ) {
-				$check++;
-			}
-		}
-	}
-	
-	if( $check > 0 ) {
-		$empty = false;
-	}else{
-		$empty = true;
-	}
-
-    return $empty;
-	
-}
-
-/**
- * Remove keys from simple array.
- *
- * @param array $array
- * @param array $new_array
- * @return array $array
- */
-function hap_remove_array_keys( $array, $new_array ) {
-	
-	if( $new_array ) {
-		
-		foreach( $new_array as $item ) {
-			
-			// Remove key
-			if( ( $key = array_search( $item, $array ) ) !== false ) {
-				unset( $array[$key] );
-			}
-			
-		} 
-	
-	}
-	
-	return $array;
-	
-}
-
-/**
- * Insert key in array in specific position.
- *
- * @param array $array
- * @param integer $position
- * @param mixed $value
- * @return array $new_array
- */
-function hap_insert_key_in_position( $array, $position, $value ) {
-		
-	$new_array = array_merge(
-		array_slice(
-			$array, 
-			0, 
-			$position
-		), 
-		array(
-			$value
-		), 
-		array_slice(
-			$array, 
-			$position
-		)
-	);
-
-	return $new_array;
-	
-}
-
-/**
- * Remove default files from an array of files created with scandir().
- *
- * @param array $values
- * @return array $clean_array
- */
-function hap_scandir_remove_defaults( $values ) {
-	
-	$clean_array = [];
-	
-	$default_values = [
-		'.',
-		'..',
-		'.DS_Store',
-		'index.php'
-	];
-	
-	// If array is not empty
-	if( $values ) {
-		// Loop through array
-		foreach( $values as $value ) {
-			// If current value is not in default values
-			if( !in_array( $value, $default_values ) ) {
-				// Add value to clean array
-				$clean_array[] = $value;
-			}
-		}
-	}
-	
-	return $clean_array;
-	
-}
-
-/**
- * Check if array is simple or associative.
- *
- * @param array $array
- * @return boolean
- */
-function has_string_keys( array $array ) {
-	
-	return count( array_filter(array_keys( $array ), 'is_string' ) ) > 0;
-
-}
-
-//======================================================================
-// ACF
-//======================================================================
+/*-------------------------------------------------------------------------------------*/
+// Get data
 
 /**
  * Array of ACF map data.
- *
  * @param array $address
- * @return array $address_data
  */
-function hap_address_data( $address ) {
-
+function mkt_address_data( $address ) : array {
+    // Data
 	$address_data = [
 		$address['street_name'] . ' ' . $address['street_number'],
 		$address['post_code'] . ' ' . $address['city'] . ' (' . $address['state_short'] . ')',
 		$address['country'] . ' (' . $address['country_short'] . ')',
-		'<a target="_blank" rel="noopener noreferrer nofollow" href="https://www.google.it/maps/place/' . $address['lat'] . ',' . $address['lng'] . '">' . __('Get directions','hap') . '</a>',
+		'<a target="_blank" rel="noopener noreferrer nofollow" href="https://www.google.it/maps/place/' . $address['lat'] . ',' . $address['lng'] . '">' . __('Get directions','mklang') . '</a>',
 	];
-	
 	return $address_data;
-
 }
-
-//======================================================================
-// Get data
-//======================================================================
 
 /**
  * Get logo.
- *
  * @param string $css_classes
  * @param string $version
- * @return string $logo
  */
-function hap_get_logo( $css_classes = 'default', $version = 'light' ) {
+function mkt_get_logo( $css_classes = 'default', $version = 'light' ) : string {
 	// Default value
 	$logo = '';
 	// Get field
@@ -610,14 +521,22 @@ function hap_get_logo( $css_classes = 'default', $version = 'light' ) {
 	$logo_data = get_field($field,'options'); 
 	// If field
 	if( $logo_data ) {
+		// Bail out if no image
+		if( !isset($logo_data['img']) ) {
+			return '';
+		}
 		// Get CSS classes
-		$logo_classes = ( $css_classes == 'default' ) ? $logo_data['css_classes'] : $css_classes;
+		if( isset($logo_data['css_classes']) ) {
+			$logo_classes = $css_classes == 'default' ? $logo_data['css_classes'] : $css_classes;
+		}else{
+			$logo_classes = $css_classes;
+		}
 		// If SVG file
 		if( $logo_data['img']['subtype'] == 'svg' || $logo_data['img']['subtype'] == 'svg+xml' && $logo_data['svg_inline'] ) {
-			$logo_file_name = get_file_name( $logo_data['img']['filename'] );
-			$logo = get_svg_icon( $logo_file_name, esc_attr($logo_classes), 'uploads' );
+			$logo_file_name = basename($logo_data['img']['filename'],'.svg');
+			$logo = get_svg_icon($logo_file_name,esc_attr($logo_classes),'uploads');
 		}else{
-            $logo = hap_thumb( 
+            $logo = mkt_thumb( 
                 $logo_data['img']['id'], 
                 'full', 
                 [
@@ -633,45 +552,37 @@ function hap_get_logo( $css_classes = 'default', $version = 'light' ) {
 
 /**
  * Conditionally render blocks or post_content.
- *
  * @param integer $post_id
- * @return void
  */
-function hap_get_content( $post_id ) {
-	
+function mkt_get_content( $post_id ) : void {
+	// Check if post exists
 	$object = get_post($post_id);
-		
+	// If post exists
 	if( $object ) {
-		
-		$blocks = parse_blocks( $object->post_content );
-		
+		// Parse blocks
+		$blocks = parse_blocks($object->post_content);
+		// If blocks were found
 		if( $blocks ) {
-			
+			// Loop blocks
 			foreach( $blocks as $block ) {
-
-				echo render_block( $block );
-    
+				// Render block
+				echo render_block($block);
 			}
-
 		}else{
-			
+			// Print post content
 			echo $object->post_content;
 		}
-				
 	}
-	
 }
 
 /**
  * Get array of social media icons with links.
- *
  * @param string $style
- * @return array $icons
  */
-function hap_get_social_media( $style = '' ) {
-
+function mkt_get_social_media( $style = '' ) : string {
+	// Default value
 	$icons = [];
-
+	// List of social media
 	$socials = [
 		'facebook',
 		'instagram',
@@ -679,66 +590,82 @@ function hap_get_social_media( $style = '' ) {
 		'youtube',
 		'linkedin'
 	];
-
+	// Loop
 	foreach( $socials as $social ) {
-
-		if( get_field( $social, 'options' ) ) {
-
-			$icons[] = '<a target="_blank" rel="noopener noreferrer nofollow" title="' . ucfirst( $social ) . '" href="' . esc_url( get_field( $social, 'options' ) ) . '">' . get_svg_icon( $social, $style ) . '</a>';
-
+		// Check if social media i set in options
+		if( get_field($social,'options') ) {
+			// Add link with icon
+			$icons[] = '<a target="_blank" rel="noopener noreferrer nofollow" aria-label="' . ucfirst($social) . '" title="' . ucfirst($social) . '" href="' . esc_url(get_field($social,'options')) . '">' . get_svg_icon($social,$style) . '</a>';
 		}
-
 	}
-
 	return $icons;
-
-}
-
-/**
- * Get url from string.
- * 
- * @param string $string
- * @return string
- */ 
-function hap_get_url_from_string( $string ) {
-
-    preg_match_all('#\bhttps?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $string, $match);
-
-	return $match[0][0];
-	
 }
 
 /**
  * Get post by slug.
- *
  * @param string $slug
  * @param string $post_type
- * @return object $post
  */
-function hap_get_post_by_slug($slug, $post_type = 'page') {
+function mkt_get_post_by_slug( $slug, $post_type = 'page' ) : object {
+	// Bailout if no slug and return silently
 	if( !$slug ) {
-		return;
+		return null;
 	}
-	$post = get_posts([
+	// Get post by slug
+	$posts = get_posts([
 		'numberposts'	=>	1,
 		'name'			=>	$slug,
 		'post_type'		=>	$post_type,
 	]);
-	if( $post ) {
-		$post = $post[0];
-	}else{
-		$post = null;
-	}
+	// If post return first post or null
+	$post = $posts ? $posts[0] : null;
 	return $post;
 }
 
 /**
- * Get public post types.
- *
- * @param string $format
- * @return array $cpts
+ * Function to replace the deprecated WordPress function get_page_by_title()
+ * @link https://make.wordpress.org/core/2023/03/06/get_page_by_title-deprecated/
+ * @param string $page_title
+ * @param string $post_type
+ * @param boolean $filters
+ * @param string/array $status
  */
-function hap_get_cpts( $format = 'objects' ) {
+function mkt_get_page_by_title( $page_title, $post_type = 'page', $filters = false, $status = '' ) : object {
+    // Args
+	$query_args = [
+		'post_type'              => $post_type,
+		'title'                  => $page_title,
+		'post_status'            => $status,
+		'numberposts'        	 => 1,
+		/*'no_found_rows'          => true,
+		'ignore_sticky_posts'    => true,
+		'update_post_term_cache' => false,
+		'update_post_meta_cache' => false,
+		'orderby'                => 'post_date ID',
+		'order'                  => 'ASC',*/
+	];
+    // If status
+    if( $status && $post_type != 'attachment' ) {
+        $query_args['post_status'] = $status;
+    }
+    // Suppress filters (useful for queries with WPML)
+    if( $filters ) {
+        $query_args['suppress_filters'] = false;
+    }
+	/* if( $post_type == 'attachment' ) {
+		unset($query_args['post_status']);
+	} */
+	$query = get_posts($query_args);
+    // If results return page object or null
+	$page = $query ? $query[0] : null;
+	return $page;
+}
+
+/**
+ * Get public post types.
+ * @param string $format
+ */
+function mkt_get_cpts( $format = 'objects' ) : array {
 	// Default value
 	$cpts = [];
     /*------------------------------------------------------*/
@@ -784,15 +711,13 @@ function hap_get_cpts( $format = 'objects' ) {
 
 /**
  * Get all theme templates.
- *
- * @return array $templates.
  */
-function hap_get_all_templates() {
+function mkt_get_all_templates() : array {
 	// Default value
 	$templates = [];
 	// Get public post types
-	$post_types = hap_get_cpts('string');
-	// Loop posy types
+	$post_types = mkt_get_cpts('string');
+	// Loop post types
 	foreach( $post_types as $slug => $label ) {
 		// Get post type templates
 		$cpt_templates = wp_get_theme()->get_page_templates( null, $slug );
@@ -805,74 +730,31 @@ function hap_get_all_templates() {
 }
 
 /**
- * Get script source by handle.
- *
- * https://stackoverflow.com/questions/56314360/get-scripts-url-by-handle-in-wordpress
- * 
- * @param string $handle
- * @return string $src
- */
-function hap_get_script_src_by_handle( $handle ) {
-    // Get enqueued scripts
-	global $wp_scripts;
-	// Default value
-	$src = null;
-    // If handle is in array
-	if( in_array( $handle, $wp_scripts->queue ) ) {
-        // Get source
-		$src = $wp_scripts->registered[$handle]->src;
-	}
-	return $src;
-}
-
-/**
- * Get style source by handle.
- *
- * https://stackoverflow.com/questions/56314360/get-scripts-url-by-handle-in-wordpress
- * 
- * @param string $handle
- * @return string $src
- */
-function hap_get_style_src_by_handle( $handle ) {
-    // Get enqueued styles
-	global $wp_styles;
-	// Default value
-	$src = null;
-    // If handle is in array
-	if( in_array( $handle, $wp_styles->queue ) ) {
-        // Get source
-		$src = $wp_styles->registered[$handle]->src;
-	}
-	return $src;
-}
-
-/**
  * Get WP roles.
- * 
  * @param string $role
- * @return string $selected_role
+
  */
-function hap_get_role( $role ) {
+function mkt_get_role( $role ) : string {
 	// Default role
 	$selected_role = $role;
 	// Default list of roles
 	$roles = [
 		// Default
-		'administrator'	=>	__('Administrator','hap'),
-		'editor'		=>	__('Editor','hap'),
-		'author'		=>	__('Author','hap'),
-		'contributor'	=>	__('Contributor','hap'),
-		'subscriber'	=>	__('Subscriber','hap'),
+		'administrator'	=>	__('Administrator','mklang'),
+		'editor'		=>	__('Editor','mklang'),
+		'author'		=>	__('Author','mklang'),
+		'contributor'	=>	__('Contributor','mklang'),
+		'subscriber'	=>	__('Subscriber','mklang'),
 		// Yoast
-		'wpseo_editor'	=>	__('SEO Editor','hap'),
-		'wpseo_manager'	=>	__('SEO Manager','hap'),	
+		'wpseo_editor'	=>	__('SEO Editor','mklang'),
+		'wpseo_manager'	=>	__('SEO Manager','mklang'),	
 		// Woocommerce
-		'shop_manager'	=>	__('Shop Manager','hap'),
-		'customer'		=>	__('Customer','hap'),
-		'wpseo_editor'	=>	__('SEO Editor','hap'),
+		'shop_manager'	=>	__('Shop Manager','mklang'),
+		'customer'		=>	__('Customer','mklang'),
+		'wpseo_editor'	=>	__('SEO Editor','mklang'),
 	];
 	// Allow a filter to add other custom roles
-	$roles = apply_filters('hap_get_roles',$roles);
+	$roles = apply_filters('mkt_get_roles',$roles);
 	// If role exists
 	if( array_key_exists( $role, $roles ) ) {
         // Update role
@@ -883,13 +765,11 @@ function hap_get_role( $role ) {
 
 /**
  * Get percentage.
- *
  * @param integer $total
  * @param integer $part
  * @param string $symbol
- * @return integer $percent
  */
-function hap_get_percent( $total, $part, $symbol = '' ) {
+function mkt_get_percent( $total, $part, $symbol = '' ) : float {
     // Handle null values
 	if( $total === 0 || $part === 0 ) {
         // Set default value
@@ -910,128 +790,22 @@ function hap_get_percent( $total, $part, $symbol = '' ) {
 }
 
 /**
- * Array key replace.
- *
- * @param string $item
- * @param string $replace_with
- * @param array $array
- * @return array $updated_array
- */
-function array_key_replace( $item, $replace_with, $array ) {
-	
-	$updated_array = [];
-
-	foreach ( $array as $key => $value ) {
-
-		if( !is_array($value) && $key == $item ) {
-
-			$updated_array = array_merge($updated_array, [$replace_with => $value]);
-
-			continue;
-		}
-
-		$updated_array = array_merge($updated_array, [$key => $value]);
-	}
-
-	return $updated_array;
-
-}
-
-/**
- * Get the current time in unix format.
- * !!! This is really useless
- *
- * @param string $format
- * @return object $now
- */
-function hap_get_current_time_unix( $format = 'Y-m-d H:i:s' ) {
-    // Get timestamp
-	$now = strtotime(current_time($format));
-	return $now;
-}
-
-/**
- * Return author ID from display_name field.
- *
- * @param string $display_name
- * @return integer $user_id
- */
-function hap_get_user_id_by_display_name( $display_name ) {
-	// Get database global
-	global $wpdb;
-    // MySql query
-	$query = "SELECT ID FROM {$wpdb->prefix}users WHERE `display_name` = '{$display_name}'";
-	// Get user ID
-	$user_id = (int)$wpdb->get_var( $wpdb->prepare( $query ) );
-	return $user_id;
-}
-
-/**
- * Get JSON from url.
- * !!! It's better using wp_remote_get()
- *
- * @param string $url
- * @return object $obj
- */
-function hap_get_json( $url ) {
-    // Default value
-	$obj  = null;
-	// Get fiel content
-	$json = file_get_contents( $url );
-	// If content
-	if( $json ) {
-        // Convert in PHP
-		$obj = json_decode($json);
-	}	
-	return $obj;
-}
-
-/**
  * Get file extension.
- *
  * @param string $file
- * @return string $extension
  */
-function get_file_extension( $file = '' ) {
+function get_file_extension( $file = '' ) : string {
 	// Convert string to array
-	$tmp = explode('.', $file);
+	$tmp = explode('.',$file);
     // Get last item in array
 	$extension = end($tmp);
 	return $extension ? $extension : false;
 }
 
 /**
- * Get the file extension without period.
- * !!! Almost same as above, is this really needed?
- *
- * @param string $filename
- * @return string $extension
- */
-function get_file_ext( $filename ) {
-	$extension = preg_match('/\./', $filename) ? preg_replace('/^.*\./', '', $filename) : '';
-	return $extension;
-}
-
-/**
- * Get file name without the extension.
- * !!! Probably basename() can do this job
- *
- * @param string $filename
- * @return string $filename_clean
- */
-function get_file_name( $filename ) {
-	$filename_clean = preg_replace('/.[^.]*$/', '', $filename);
-	return $filename_clean;
-}
-
-/**
- * Get current url.
- * !!! This is not accurate
- *
+ * Get current URL. !!! This is not accurate
  * @link https://wordpress.stackexchange.com/questions/274569/how-to-get-url-of-current-page-displayed
- * @return string $current_url.
  */
-function get_current_url() {
+function get_current_url() : string {
 	// Get WP
 	global $wp;
 	// Get URL
@@ -1045,66 +819,30 @@ function get_current_url() {
 }
 
 /**
- * Get url from an img tag.
- * !!! To be verified
- *
- * @param string $input
- * @return string $source
- */
-function get_img_src( $input ) {
-	preg_match_all("/<img[^>]*src=[\"|']([^'\"]+)[\"|'][^>]*>/i", $input, $output);
-	$return = [];
-	if (isset($output[1][0])) {
-		$return = $output[1];
-	}
-	foreach( (array) $return as $source ) {
-		return $source . PHP_EOL;
-	}
-}
-
-/**
- * Get url from an iframe.
- * !!! To be verified
- *
- * @param string $input
- * @return string $source
- */
-function get_iframe_src( $input ) {
-	preg_match_all('/<iframe[^>]+src="([^"]+)"/', $input, $output);
-	$return = [];
-	if (isset($output[1][0])) {
-		$return = $output[1];
-	}
-	foreach ((array) $return as $source) {
-		return $source . PHP_EOL;
-	}
-}
-
-/**
- * Get youtube video image thumb URL from embed URL.
- *
+ * Get Youtube video image thumb URL from embed URL.
  * @param string $url
  * @param string $size
- * @return string $img_url
  */
-function get_youtube_thumb( $url, $size = 'hqdefault' ) {
+function get_youtube_thumb( $url, $size = 'hqdefault' ) : string {
     // Build image URL
-    $img_url = esc_url( 'http://img.youtube.com/vi/' . str_replace('https://www.youtube.com/watch?v=','',$url ) . '/' . esc_attr($size) . '.jpg' );
-    return $img_url;
+    $img_url = 'http://img.youtube.com/vi/';
+	$img_url .= str_replace('https://www.youtube.com/watch?v=','',$url );
+	$img_url .= '/';
+	$img_url .= esc_attr($size);
+	$img_url .= '.jpg';
+    return esc_url($img_url);
 }
 
 /**
  * Get youtube video data URL from embed URL.
- *
+ * @link https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=mIRhWB5XPLc&format=json
  * @param string $url
- * @return null/array $data
  */
-function get_youtube_data( $url ) {
-    // Add arg to URL
-    // https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=mIRhWB5XPLc&format=json
-    $url = esc_url(add_query_arg(
+function get_youtube_data( $url ) : mixed {
+    // Add args to URL 
+    $url = esc_url_raw(add_query_arg(
         [
-            'url'       =>  $url,
+            'url'       =>  esc_url($url),
             'format'    =>  'json'
         ],
         'https://www.youtube.com/oembed'
@@ -1112,23 +850,23 @@ function get_youtube_data( $url ) {
     // Get JSON data
     $remote = wp_remote_get(
         $url,
-        array(
+        [
             'timeout' => 10,
-            'headers' => array(
+            'headers' => [
                 'Accept' => 'application/json'
-            )
-        )
+			]
+		]
     );
-    // Check data
+    // Check data and bail out if errors
     if(
-        is_wp_error( $remote )
-        || 200 !== wp_remote_retrieve_response_code( $remote )
-        || empty( wp_remote_retrieve_body( $remote ) )
+        is_wp_error($remote)
+        || 200 !== wp_remote_retrieve_response_code($remote)
+        || empty(wp_remote_retrieve_body($remote))
     ) {
         return null;
     }
     // Convert JSON to PHP array
-    $data = (array) json_decode($remote['body']);
+    $data = (array)json_decode($remote['body']);
     // Set minimum dimensions
     if( $data['width'] < 1920 ) {
         $height = intval( ( 1920 * $data['height'] ) / $data['width'] );
@@ -1138,162 +876,91 @@ function get_youtube_data( $url ) {
     return $data;
 }
 
-/**
- * Get true category set by Yoast
- *
- * @param integer $post_id
- * @return object $category
- */
-function hap_yoast_true_category( $post_id ) {
-	// Get true category asked by Yoast
-	// if more than 1 term is set to the post
-	$true_category = get_post_meta( $post_id, '_yoast_wpseo_primary_category',1 );
-
-	// Conditionally get category
-	if( $true_category ) {
-		// Get category by true category field
-		$category = get_term($true_category);
-	}else{
-		// Get normal category
-		$category = get_the_terms( $post_id, 'category' );
-		if( $category ) {
-			$category = $category[0];
-		}
-	}
-	return $category;
-}
-
-/**
- * Get WP table prefix.
- *
- * @return string $table_prefix.
- */
-function hap_get_table_prefix() {
-	// Get WP
-	global $wpdb;
-    // Get database prefix
-	$table_prefix = $wpdb->prefix;
-	return $table_prefix;
-}
+/*-------------------------------------------------------------------------------------*/
+// Time, data etc.
 
 /**
  * Get an array of weekdays.
- *
- * @return string $weekdays.
  */
-function hap_get_weekdays() {
+function mkt_get_weekdays() : array {
     // List of weekdays
     $weekdays = [
-		'monday'	=>	__('Monday','hap'),
-        'tuesday'	=>	__('Tuesday','hap'),
-        'wednesday'	=>	__('Wednesday','hap'),
-        'thursday'	=>	__('Thursday','hap'),
-        'friday'	=>	__('Friday','hap'),
-        'saturday'	=>	__('Saturday','hap'),
-        'sunday'	=>	__('Sunday','hap'),
+		'monday'	=>	__('Monday','mklang'),
+        'tuesday'	=>	__('Tuesday','mklang'),
+        'wednesday'	=>	__('Wednesday','mklang'),
+        'thursday'	=>	__('Thursday','mklang'),
+        'friday'	=>	__('Friday','mklang'),
+        'saturday'	=>	__('Saturday','mklang'),
+        'sunday'	=>	__('Sunday','mklang'),
     ];
 	return $weekdays;
 }
 
 /**
  * Get an array of months.
- *
- * @return string $months.
  */
-function hap_get_months() {
+function mkt_get_months() : array {
     // Months
     $months = [
-        1   =>  __('January','hap'),
-        2   =>  __('February','hap'),
-        3   =>  __('March','hap'),
-        4   =>  __('April','hap'),
-        5   =>  __('May','hap'),
-        6   =>  __('June','hap'),
-        7   =>  __('July','hap'),
-        8   =>  __('August','hap'),
-        9   =>  __('September','hap'),
-        10  =>  __('October','hap'),
-        11  =>  __('November','hap'),
-        12  =>  __('December','hap'),
+        1   =>  __('January','mklang'),
+        2   =>  __('February','mklang'),
+        3   =>  __('March','mklang'),
+        4   =>  __('April','mklang'),
+        5   =>  __('May','mklang'),
+        6   =>  __('June','mklang'),
+        7   =>  __('July','mklang'),
+        8   =>  __('August','mklang'),
+        9   =>  __('September','mklang'),
+        10  =>  __('October','mklang'),
+        11  =>  __('November','mklang'),
+        12  =>  __('December','mklang'),
     ];
 	return $months;
 }
 
 /**
- * Get email signature.
- *
- * @return string $signature.
+ * Check if a date is a weekend day.
+ * @param object $date
  */
-function hap_get_email_signature( $logo_format = 'base64' ) {
-    // Default value
-	$signature = '';
-	// Get logo
-	$logo = get_field('logo_other_version','options');
-    // If logo
-	if( isset( $logo['img'] ) && !empty( $logo['img'] ) ) {
-		// Get home URL
-		$home_url = get_home_url();
-		// Formats
-		if( $logo_format == 'base64' ) {
-            // Base 64
-			$logo_img = hap_img_to_base64( $logo['img'] );
-		}else{
-			// Image
-			$logo_img = wp_get_attachment_url( $logo['img'] );
-		}
-		// Start HTML
-		$signature .= '<table class="cf7-signature" style="border: none; margin-top: 60px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 18px; color: #646464;">';
-			$signature .= '<tbody>';
-				$signature .= '<tr style="border: none;">';
-					// Left cell
-					$signature .= '<td style="padding: 0; border: none; vertical-align: top; width: ' . ( $logo['width'] + 40 ) . 'px">';
-						// Logo
-						$signature .= '<a href="' . $home_url . '" target="_blank" rel="noopener noreferrer nofollow">';
-							$signature .= '<img width="' . $logo['width'] . '" height="' . $logo['height'] . '" src="' . $logo_img. '" style="width:' . $logo['width'] . 'px; height: ' . $logo['height'] . 'px;" />';
-						$signature .= '</a>';
-					$signature .= '</td>';
-					// Right cell
-					$signature .= '<td style="padding: 0; border: none;">';
-						// Company name
-						$signature .= ( get_field('company_name','options') ) ? '<strong style="color: #000;">' . get_field('company_name','options') . '</strong><br>' : null;
-						// Address
-						$signature .= ( get_field('address','options') ) ? get_field('address','options') . '<br>' : null;
-						// City
-						$signature .= ( get_field('city','options') ) ? get_field('city','options') . '<br>' : null;
-						// Phone
-						$signature .= ( get_field('phone','options') ) ? '<a style="color: #000; text-decoration: none;" href="tel:' . get_field('phone','options') . '">T. ' . get_field('phone','options') . '</a><br>' : null;
-						// Mobile
-						$signature .= ( get_field('mobile_phone','options') ) ? '<a style="color: #000; text-decoration: none;" href="tel:' . get_field('mobile_phone','options') . '">M. ' . get_field('mobile_phone','options') . '</a><br>' : null;
-						// Website
-						$signature .= '<a href="' . $home_url . '" target="_blank" rel="noopener noreferrer nofollow" style="color: #000; text-decoration: none; font-weight: bold;">' . hap_url_label($home_url) . '</a>';
-					$signature .= '</td>';
-				$signature .= '</tr>';
-			$signature .= '</tbody>';
-		$signature .= '</table>';
-		// Discalimer
-		if( get_field('email_disclaimer','options') ) {
-			$signature .= '<p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #efefef; font-size: 12px; line-height: 18px;">' . get_field('email_disclaimer','options') . '</p>';
-		}
-	}
-	return $signature;
+function is_weekend( $date ) : bool {
+	return date('N',strtotime($date)) >= 6 ? true : false;
 }
 
 /**
- * Get an array of continents names and codes.
- *
- * @return array/string $continents/$key.
+ * Check if a date is saturday. !!! Make same as is_weekend.
+ * @param object $date
  */
-function hap_get_continents( $key = null) {
+function is_saturday( $date ) : bool {
+	$weekday = date('l',strtotime($date));
+	return 'Saturday' == $weekday ? true : false;
+}
+
+/**
+ * Check if a date is sunday.  !!! Make same as is_weekend.
+ * @param object $date
+ */
+function is_sunday( $date ) : bool {
+	$weekday = date('l',strtotime($date));
+	return 'Sunday' == $weekday ? true : false;
+}
+
+/*-------------------------------------------------------------------------------------*/
+// Geographic
+
+/**
+ * Get an array of continents names and codes.
+ */
+function mkt_get_continents( $key = null ) : mixed {
     // Continents
 	$continents = [
-		'AF' => __('Africa','hap'),
-		'AS' => __('Asia','hap'),
-		'AM' => __('America','hap'),
-		'NA' => __('North America','hap'),
-		'SA' => __('South America','hap'),
-		'EU' => __('Europe','hap'),
-		'OC' => __('Oceania','hap'),
-		'AN' => __('Antarctica','hap'),
+		'AF' => __('Africa','mklang'),
+		'AS' => __('Asia','mklang'),
+		'AM' => __('America','mklang'),
+		'NA' => __('North America','mklang'),
+		'SA' => __('South America','mklang'),
+		'EU' => __('Europe','mklang'),
+		'OC' => __('Oceania','mklang'),
+		'AN' => __('Antarctica','mklang'),
 	];
 	// If $key
 	if( $key ) {	
@@ -1314,263 +981,261 @@ function hap_get_continents( $key = null) {
 
 /**
  * Get an array of countries names and codes.
- *
- * @return $countries.
  */
-function hap_get_countries( $key = null ) {
+function mkt_get_countries( $key = null ) : array {
     // Countries
 	$countries = [
-		'AE' => __('United Arab Emirates','hap'),
-		'AF' => __('Afghanistan','hap'),
-		'AL' => __('Albania','hap'),
-		'DZ' => __('Algeria','hap'),
-		'AS' => __('American Samoa','hap'),
-		'AD' => __('Andorra','hap'),
-		'AO' => __('Angola','hap'),
-		'AI' => __('Anguilla','hap'),
-		'AQ' => __('Antarctica','hap'),
-		'AG' => __('Antigua and Barbuda','hap'),
-		'AR' => __('Argentina','hap'),
-		'AM' => __('Armenia','hap'),
-		'AW' => __('Aruba','hap'),
-		'AU' => __('Australia','hap'),
-		'AT' => __('Austria','hap'),
-		'AZ' => __('Azerbaijan','hap'),
-		'BS' => __('Bahamas','hap'),
-		'BH' => __('Bahrain','hap'),
-		'BD' => __('Bangladesh','hap'),
-		'BB' => __('Barbados','hap'),
-		'BY' => __('Belarus','hap'),
-		'BE' => __('Belgium','hap'),
-		'BZ' => __('Belize','hap'),
-		'BJ' => __('Benin','hap'),
-		'BM' => __('Bermuda','hap'),
-		'BT' => __('Bhutan','hap'),
-		'BO' => __('Bolivia','hap'),
-		'BA' => __('Bosnia and Herzegovina','hap'),
-		'BW' => __('Botswana','hap'),
-		'BV' => __('Bouvet Island','hap'),
-		'BR' => __('Brazil','hap'),
-		'IO' => __('British Indian Ocean Territory','hap'),
-		'BN' => __('Brunei Darussalam','hap'),
-		'BG' => __('Bulgaria','hap'),
-		'BF' => __('Burkina Faso','hap'),
-		'BI' => __('Burundi','hap'),
-		'KH' => __('Cambodia','hap'),
-		'CM' => __('Cameroon','hap'),
-		'CA' => __('Canada','hap'),
-		'CV' => __('Cape Verde','hap'),
-		'KY' => __('Cayman Islands','hap'),
-		'CF' => __('Central African Republic','hap'),
-		'TD' => __('Chad','hap'),
-		'CL' => __('Chile','hap'),
-		'CN' => __('China','hap'),
-		'CX' => __('Christmas Island','hap'),
-		'CC' => __('Cocos (Keeling) Islands','hap'),
-		'CO' => __('Colombia','hap'),
-		'KM' => __('Comoros','hap'),
-		'CG' => __('Congo','hap'),
-		'CD' => __('Democratic Republic of the Congo','hap'),
-		'CK' => __('Cook Islands','hap'),
-		'CR' => __('Costa Rica','hap'),
-		'CI' => __('Ivory Coast','hap'),
-		'HR' => __('Croatia','hap'),
-		'CU' => __('Cuba','hap'),
-		'CY' => __('Cyprus','hap'),
-		'CZ' => __('Czech Republic','hap'),
-		'DK' => __('Denmark','hap'),
-		'DJ' => __('Djibouti','hap'),
-		'DM' => __('Dominica','hap'),
-		'DO' => __('Dominican Republic','hap'),
-		'EC' => __('Ecuador','hap'),
-		'EG' => __('Egypt','hap'),
-		'SV' => __('El Salvador','hap'),
-		'GQ' => __('Equatorial Guinea','hap'),
-		'ER' => __('Eritrea','hap'),
-		'EE' => __('Estonia','hap'),
-		'ET' => __('Ethiopia','hap'),
-		'FK' => __('Falkland Islands (Malvinas)','hap'),
-		'FO' => __('Faroe Islands','hap'),
-		'FJ' => __('Fiji','hap'),
-		'FI' => __('Finland','hap'),
-		'FR' => __('France','hap'),
-		'GF' => __('French Guiana','hap'),
-		'PF' => __('French Polynesia','hap'),
-		'TF' => __('French Southern Territories','hap'),
-		'GA' => __('Gabon','hap'),
-		'GM' => __('Gambia','hap'),
-		'GE' => __('Georgia','hap'),
-		'DE' => __('Germany','hap'),
-		'GB' => __('United Kingdom','hap'),
-		'GH' => __('Ghana','hap'),
-		'GI' => __('Gibraltar','hap'),
-		'GR' => __('Greece','hap'),
-		'GL' => __('Greenland','hap'),
-		'GD' => __('Grenada','hap'),
-		'GP' => __('Guadeloupe','hap'),
-		'GU' => __('Guam','hap'),
-		'GT' => __('Guatemala','hap'),
-		'GN' => __('Guinea','hap'),
-		'GW' => __('Guinea-Bissau','hap'),
-		'GY' => __('Guyana','hap'),
-		'HT' => __('Haiti','hap'),
-		'HM' => __('Heard Island and Mcdonald Islands','hap'),
-		'VA' => __('Vatican City State','hap'),
-		'HN' => __('Honduras','hap'),
-		'HK' => __('Hong Kong','hap'),
-		'HU' => __('Hungary','hap'),
-		'IS' => __('Iceland','hap'),
-		'IN' => __('India','hap'),
-		'ID' => __('Indonesia','hap'),
-		// 'IR' => __('Iran, Islamic Republic of','hap'),
-		'IR' => __('Iran','hap'),
-		'IQ' => __('Iraq','hap'),
-		'IE' => __('Ireland','hap'),
-		'IL' => __('Israel','hap'),
-		'IT' => __('Italy','hap'),
-		'JM' => __('Jamaica','hap'),
-		'JP' => __('Japan','hap'),
-		'JO' => __('Jordan','hap'),
-		'KZ' => __('Kazakhstan','hap'),
-		'KE' => __('Kenya','hap'),
-		'KI' => __('Kiribati','hap'),
-		// 'KP' => __('Korea, Democratic People\'s Republic of','hap'),
-		'KP' => __('North Korea','hap'),
-		// 'KR' => __('Korea, Republic of','hap'),
-		'KR' => __('South Korea','hap'),
-		'KW' => __('Kuwait','hap'),
-		'KG' => __('Kyrgyzstan','hap'),
-		// 'LA' => __('Lao People\'s Democratic Republic','hap'),
-		'LA' => __('Laos','hap'),
-		'LV' => __('Latvia','hap'),
-		'LB' => __('Lebanon','hap'),
-		'LS' => __('Lesotho','hap'),
-		'LR' => __('Liberia','hap'),
-		'LY' => __('Libyan Arab Jamahiriya','hap'),
-		'LI' => __('Liechtenstein','hap'),
-		'LT' => __('Lithuania','hap'),
-		'LU' => __('Luxembourg','hap'),
-		'MO' => __('Macao','hap'),
-		// 'MK' => __('Macedonia, the Former Yugoslav Republic of','hap'),
-		// 'MK' => __('Republic of North Macedonia','hap'),
-		'MK' => __('North Macedonia','hap'),
-		'MG' => __('Madagascar','hap'),
-		'MW' => __('Malawi','hap'),
-		'MY' => __('Malaysia','hap'),
-		'MV' => __('Maldives','hap'),
-		'ML' => __('Mali','hap'),
-		'MT' => __('Malta','hap'),
-		'MH' => __('Marshall Islands','hap'),
-		'MQ' => __('Martinique','hap'),
-		'MR' => __('Mauritania','hap'),
-		'MU' => __('Mauritius','hap'),
-		'YT' => __('Mayotte','hap'),
-		'MX' => __('Mexico','hap'),
-		// 'FM' => __('Micronesia, Federated States of','hap'),
-		'FM' => __('Federated States of Micronesia','hap'),
-		// 'MD' => __('Moldova, Republic of','hap'),
-		'MD' => __('Moldova','hap'),
-		'MC' => __('Monaco','hap'),
-		'MN' => __('Mongolia','hap'),
-		'MS' => __('Montserrat','hap'),
-		'MA' => __('Morocco','hap'),
-		'MZ' => __('Mozambique','hap'),
-		'MM' => __('Myanmar','hap'),
-		'NA' => __('Namibia','hap'),
-		'NR' => __('Nauru','hap'),
-		'NP' => __('Nepal','hap'),
-		'NL' => __('Netherlands','hap'),
-		'AN' => __('Netherlands Antilles','hap'),
-		'NC' => __('New Caledonia','hap'),
-		'NZ' => __('New Zealand','hap'),
-		'NI' => __('Nicaragua','hap'),
-		'NE' => __('Niger','hap'),
-		'NG' => __('Nigeria','hap'),
-		'NU' => __('Niue','hap'),
-		'NF' => __('Norfolk Island','hap'),
-		'MP' => __('Northern Mariana Islands','hap'),
-		'NO' => __('Norway','hap'),
-		'OM' => __('Oman','hap'),
-		'PK' => __('Pakistan','hap'),
-		'PW' => __('Palau','hap'),
-		// 'PS' => __('Palestinian Territory, Occupied','hap'),
-		// 'PS' => __('Palestine, State of','hap'),
-		'PS' => __('Palestine','hap'),
-		'PA' => __('Panama','hap'),
-		'PG' => __('Papua New Guinea','hap'),
-		'PY' => __('Paraguay','hap'),
-		'PE' => __('Peru','hap'),
-		'PH' => __('Philippines','hap'),
-		'PN' => __('Pitcairn','hap'),
-		'PL' => __('Poland','hap'),
-		'PT' => __('Portugal','hap'),
-		'PR' => __('Puerto Rico','hap'),
-		'QA' => __('Qatar','hap'),
-		'RE' => __('Reunion','hap'),
-		'RO' => __('Romania','hap'),
-		'RU' => __('Russian Federation','hap'),
-		'RW' => __('Rwanda','hap'),
-		'SH' => __('Saint Helena','hap'),
-		'KN' => __('Saint Kitts and Nevis','hap'),
-		'LC' => __('Saint Lucia','hap'),
-		'PM' => __('Saint Pierre and Miquelon','hap'),
-		'VC' => __('Saint Vincent and the Grenadines','hap'),
-		'WS' => __('Samoa','hap'),
-		'SM' => __('San Marino','hap'),
-		'ST' => __('Sao Tome and Principe','hap'),
-		'SA' => __('Saudi Arabia','hap'),
-		'SN' => __('Senegal','hap'),
-		'CS' => __('Serbia and Montenegro','hap'),
-		'SC' => __('Seychelles','hap'),
-		'SL' => __('Sierra Leone','hap'),
-		'SG' => __('Singapore','hap'),
-		'SK' => __('Slovakia','hap'),
-		'SI' => __('Slovenia','hap'),
-		'SB' => __('Solomon Islands','hap'),
-		'SO' => __('Somalia','hap'),
-		'ZA' => __('South Africa','hap'),
-		'GS' => __('South Georgia and the South Sandwich Islands','hap'),
-		'ES' => __('Spain','hap'),
-		'LK' => __('Sri Lanka','hap'),
-		'SD' => __('Sudan','hap'),
-		'SR' => __('Suriname','hap'),
-		'SJ' => __('Svalbard and Jan Mayen','hap'),
-		'SZ' => __('Swaziland','hap'),
-		'SE' => __('Sweden','hap'),
-		'CH' => __('Switzerland','hap'),
-		// 'SY' => __('Syrian Arab Republic','hap'),
-		'SY' => __('Syria','hap'),
-		'TW' => __('Taiwan','hap'),
-		// 'TW' => __('Taiwan, Province of China','hap'),
-		'TJ' => __('Tajikistan','hap'),
-		'TZ' => __('Tanzania, United Republic of','hap'),
-		'TH' => __('Thailand','hap'),
-		'TL' => __('Timor-Leste','hap'),
-		'TG' => __('Togo','hap'),
-		'TK' => __('Tokelau','hap'),
-		'TO' => __('Tonga','hap'),
-		'TT' => __('Trinidad and Tobago','hap'),
-		'TN' => __('Tunisia','hap'),
-		'TR' => __('Turkey','hap'),
-		'TM' => __('Turkmenistan','hap'),
-		'TC' => __('Turks and Caicos Islands','hap'),
-		'TV' => __('Tuvalu','hap'),
-		'UG' => __('Uganda','hap'),
-		'UA' => __('Ukraine','hap'),
-		'US' => __('United States','hap'),
-		'UM' => __('United States Minor Outlying Islands','hap'),
-		'UY' => __('Uruguay','hap'),
-		'UZ' => __('Uzbekistan','hap'),
-		'VU' => __('Vanuatu','hap'),
-		'VE' => __('Venezuela','hap'),
-		'VN' => __('Viet Nam','hap'),
-		'VG' => __('Virgin Islands, British','hap'),
-		'VI' => __('Virgin Islands, US','hap'),
-		'WF' => __('Wallis and Futuna','hap'),
-		'EH' => __('Western Sahara','hap'),
-		'YE' => __('Yemen','hap'),
-		'ZM' => __('Zambia','hap'),
-		'ZW' => __('Zimbabwe','hap'),
+		'AE' => __('United Arab Emirates','mklang'),
+		'AF' => __('Afghanistan','mklang'),
+		'AL' => __('Albania','mklang'),
+		'DZ' => __('Algeria','mklang'),
+		'AS' => __('American Samoa','mklang'),
+		'AD' => __('Andorra','mklang'),
+		'AO' => __('Angola','mklang'),
+		'AI' => __('Anguilla','mklang'),
+		'AQ' => __('Antarctica','mklang'),
+		'AG' => __('Antigua and Barbuda','mklang'),
+		'AR' => __('Argentina','mklang'),
+		'AM' => __('Armenia','mklang'),
+		'AW' => __('Aruba','mklang'),
+		'AU' => __('Australia','mklang'),
+		'AT' => __('Austria','mklang'),
+		'AZ' => __('Azerbaijan','mklang'),
+		'BS' => __('Bahamas','mklang'),
+		'BH' => __('Bahrain','mklang'),
+		'BD' => __('Bangladesh','mklang'),
+		'BB' => __('Barbados','mklang'),
+		'BY' => __('Belarus','mklang'),
+		'BE' => __('Belgium','mklang'),
+		'BZ' => __('Belize','mklang'),
+		'BJ' => __('Benin','mklang'),
+		'BM' => __('Bermuda','mklang'),
+		'BT' => __('Bhutan','mklang'),
+		'BO' => __('Bolivia','mklang'),
+		'BA' => __('Bosnia and Herzegovina','mklang'),
+		'BW' => __('Botswana','mklang'),
+		'BV' => __('Bouvet Island','mklang'),
+		'BR' => __('Brazil','mklang'),
+		'IO' => __('British Indian Ocean Territory','mklang'),
+		'BN' => __('Brunei Darussalam','mklang'),
+		'BG' => __('Bulgaria','mklang'),
+		'BF' => __('Burkina Faso','mklang'),
+		'BI' => __('Burundi','mklang'),
+		'KH' => __('Cambodia','mklang'),
+		'CM' => __('Cameroon','mklang'),
+		'CA' => __('Canada','mklang'),
+		'CV' => __('Cape Verde','mklang'),
+		'KY' => __('Cayman Islands','mklang'),
+		'CF' => __('Central African Republic','mklang'),
+		'TD' => __('Chad','mklang'),
+		'CL' => __('Chile','mklang'),
+		'CN' => __('China','mklang'),
+		'CX' => __('Christmas Island','mklang'),
+		'CC' => __('Cocos (Keeling) Islands','mklang'),
+		'CO' => __('Colombia','mklang'),
+		'KM' => __('Comoros','mklang'),
+		'CG' => __('Congo','mklang'),
+		'CD' => __('Democratic Republic of the Congo','mklang'),
+		'CK' => __('Cook Islands','mklang'),
+		'CR' => __('Costa Rica','mklang'),
+		'CI' => __('Ivory Coast','mklang'),
+		'HR' => __('Croatia','mklang'),
+		'CU' => __('Cuba','mklang'),
+		'CY' => __('Cyprus','mklang'),
+		'CZ' => __('Czech Republic','mklang'),
+		'DK' => __('Denmark','mklang'),
+		'DJ' => __('Djibouti','mklang'),
+		'DM' => __('Dominica','mklang'),
+		'DO' => __('Dominican Republic','mklang'),
+		'EC' => __('Ecuador','mklang'),
+		'EG' => __('Egypt','mklang'),
+		'SV' => __('El Salvador','mklang'),
+		'GQ' => __('Equatorial Guinea','mklang'),
+		'ER' => __('Eritrea','mklang'),
+		'EE' => __('Estonia','mklang'),
+		'ET' => __('Ethiopia','mklang'),
+		'FK' => __('Falkland Islands (Malvinas)','mklang'),
+		'FO' => __('Faroe Islands','mklang'),
+		'FJ' => __('Fiji','mklang'),
+		'FI' => __('Finland','mklang'),
+		'FR' => __('France','mklang'),
+		'GF' => __('French Guiana','mklang'),
+		'PF' => __('French Polynesia','mklang'),
+		'TF' => __('French Southern Territories','mklang'),
+		'GA' => __('Gabon','mklang'),
+		'GM' => __('Gambia','mklang'),
+		'GE' => __('Georgia','mklang'),
+		'DE' => __('Germany','mklang'),
+		'GB' => __('United Kingdom','mklang'),
+		'GH' => __('Ghana','mklang'),
+		'GI' => __('Gibraltar','mklang'),
+		'GR' => __('Greece','mklang'),
+		'GL' => __('Greenland','mklang'),
+		'GD' => __('Grenada','mklang'),
+		'GP' => __('Guadeloupe','mklang'),
+		'GU' => __('Guam','mklang'),
+		'GT' => __('Guatemala','mklang'),
+		'GN' => __('Guinea','mklang'),
+		'GW' => __('Guinea-Bissau','mklang'),
+		'GY' => __('Guyana','mklang'),
+		'HT' => __('Haiti','mklang'),
+		'HM' => __('Heard Island and Mcdonald Islands','mklang'),
+		'VA' => __('Vatican City State','mklang'),
+		'HN' => __('Honduras','mklang'),
+		'HK' => __('Hong Kong','mklang'),
+		'HU' => __('Hungary','mklang'),
+		'IS' => __('Iceland','mklang'),
+		'IN' => __('India','mklang'),
+		'ID' => __('Indonesia','mklang'),
+		// 'IR' => __('Iran, Islamic Republic of','mklang'),
+		'IR' => __('Iran','mklang'),
+		'IQ' => __('Iraq','mklang'),
+		'IE' => __('Ireland','mklang'),
+		'IL' => __('Israel','mklang'),
+		'IT' => __('Italy','mklang'),
+		'JM' => __('Jamaica','mklang'),
+		'JP' => __('Japan','mklang'),
+		'JO' => __('Jordan','mklang'),
+		'KZ' => __('Kazakhstan','mklang'),
+		'KE' => __('Kenya','mklang'),
+		'KI' => __('Kiribati','mklang'),
+		// 'KP' => __('Korea, Democratic People\'s Republic of','mklang'),
+		'KP' => __('North Korea','mklang'),
+		// 'KR' => __('Korea, Republic of','mklang'),
+		'KR' => __('South Korea','mklang'),
+		'KW' => __('Kuwait','mklang'),
+		'KG' => __('Kyrgyzstan','mklang'),
+		// 'LA' => __('Lao People\'s Democratic Republic','mklang'),
+		'LA' => __('Laos','mklang'),
+		'LV' => __('Latvia','mklang'),
+		'LB' => __('Lebanon','mklang'),
+		'LS' => __('Lesotho','mklang'),
+		'LR' => __('Liberia','mklang'),
+		'LY' => __('Libyan Arab Jamahiriya','mklang'),
+		'LI' => __('Liechtenstein','mklang'),
+		'LT' => __('Lithuania','mklang'),
+		'LU' => __('Luxembourg','mklang'),
+		'MO' => __('Macao','mklang'),
+		// 'MK' => __('Macedonia, the Former Yugoslav Republic of','mklang'),
+		// 'MK' => __('Republic of North Macedonia','mklang'),
+		'MK' => __('North Macedonia','mklang'),
+		'MG' => __('Madagascar','mklang'),
+		'MW' => __('Malawi','mklang'),
+		'MY' => __('Malaysia','mklang'),
+		'MV' => __('Maldives','mklang'),
+		'ML' => __('Mali','mklang'),
+		'MT' => __('Malta','mklang'),
+		'MH' => __('Marshall Islands','mklang'),
+		'MQ' => __('Martinique','mklang'),
+		'MR' => __('Mauritania','mklang'),
+		'MU' => __('Mauritius','mklang'),
+		'YT' => __('Mayotte','mklang'),
+		'MX' => __('Mexico','mklang'),
+		// 'FM' => __('Micronesia, Federated States of','mklang'),
+		'FM' => __('Federated States of Micronesia','mklang'),
+		// 'MD' => __('Moldova, Republic of','mklang'),
+		'MD' => __('Moldova','mklang'),
+		'MC' => __('Monaco','mklang'),
+		'MN' => __('Mongolia','mklang'),
+		'MS' => __('Montserrat','mklang'),
+		'MA' => __('Morocco','mklang'),
+		'MZ' => __('Mozambique','mklang'),
+		'MM' => __('Myanmar','mklang'),
+		'NA' => __('Namibia','mklang'),
+		'NR' => __('Nauru','mklang'),
+		'NP' => __('Nepal','mklang'),
+		'NL' => __('Netherlands','mklang'),
+		'AN' => __('Netherlands Antilles','mklang'),
+		'NC' => __('New Caledonia','mklang'),
+		'NZ' => __('New Zealand','mklang'),
+		'NI' => __('Nicaragua','mklang'),
+		'NE' => __('Niger','mklang'),
+		'NG' => __('Nigeria','mklang'),
+		'NU' => __('Niue','mklang'),
+		'NF' => __('Norfolk Island','mklang'),
+		'MP' => __('Northern Mariana Islands','mklang'),
+		'NO' => __('Norway','mklang'),
+		'OM' => __('Oman','mklang'),
+		'PK' => __('Pakistan','mklang'),
+		'PW' => __('Palau','mklang'),
+		// 'PS' => __('Palestinian Territory, Occupied','mklang'),
+		// 'PS' => __('Palestine, State of','mklang'),
+		'PS' => __('Palestine','mklang'),
+		'PA' => __('Panama','mklang'),
+		'PG' => __('Papua New Guinea','mklang'),
+		'PY' => __('Paraguay','mklang'),
+		'PE' => __('Peru','mklang'),
+		'PH' => __('Philippines','mklang'),
+		'PN' => __('Pitcairn','mklang'),
+		'PL' => __('Poland','mklang'),
+		'PT' => __('Portugal','mklang'),
+		'PR' => __('Puerto Rico','mklang'),
+		'QA' => __('Qatar','mklang'),
+		'RE' => __('Reunion','mklang'),
+		'RO' => __('Romania','mklang'),
+		'RU' => __('Russian Federation','mklang'),
+		'RW' => __('Rwanda','mklang'),
+		'SH' => __('Saint Helena','mklang'),
+		'KN' => __('Saint Kitts and Nevis','mklang'),
+		'LC' => __('Saint Lucia','mklang'),
+		'PM' => __('Saint Pierre and Miquelon','mklang'),
+		'VC' => __('Saint Vincent and the Grenadines','mklang'),
+		'WS' => __('Samoa','mklang'),
+		'SM' => __('San Marino','mklang'),
+		'ST' => __('Sao Tome and Principe','mklang'),
+		'SA' => __('Saudi Arabia','mklang'),
+		'SN' => __('Senegal','mklang'),
+		'CS' => __('Serbia and Montenegro','mklang'),
+		'SC' => __('Seychelles','mklang'),
+		'SL' => __('Sierra Leone','mklang'),
+		'SG' => __('Singapore','mklang'),
+		'SK' => __('Slovakia','mklang'),
+		'SI' => __('Slovenia','mklang'),
+		'SB' => __('Solomon Islands','mklang'),
+		'SO' => __('Somalia','mklang'),
+		'ZA' => __('South Africa','mklang'),
+		'GS' => __('South Georgia and the South Sandwich Islands','mklang'),
+		'ES' => __('Spain','mklang'),
+		'LK' => __('Sri Lanka','mklang'),
+		'SD' => __('Sudan','mklang'),
+		'SR' => __('Suriname','mklang'),
+		'SJ' => __('Svalbard and Jan Mayen','mklang'),
+		'SZ' => __('Swaziland','mklang'),
+		'SE' => __('Sweden','mklang'),
+		'CH' => __('Switzerland','mklang'),
+		// 'SY' => __('Syrian Arab Republic','mklang'),
+		'SY' => __('Syria','mklang'),
+		'TW' => __('Taiwan','mklang'),
+		// 'TW' => __('Taiwan, Province of China','mklang'),
+		'TJ' => __('Tajikistan','mklang'),
+		'TZ' => __('Tanzania, United Republic of','mklang'),
+		'TH' => __('Thailand','mklang'),
+		'TL' => __('Timor-Leste','mklang'),
+		'TG' => __('Togo','mklang'),
+		'TK' => __('Tokelau','mklang'),
+		'TO' => __('Tonga','mklang'),
+		'TT' => __('Trinidad and Tobago','mklang'),
+		'TN' => __('Tunisia','mklang'),
+		'TR' => __('Turkey','mklang'),
+		'TM' => __('Turkmenistan','mklang'),
+		'TC' => __('Turks and Caicos Islands','mklang'),
+		'TV' => __('Tuvalu','mklang'),
+		'UG' => __('Uganda','mklang'),
+		'UA' => __('Ukraine','mklang'),
+		'US' => __('United States','mklang'),
+		'UM' => __('United States Minor Outlying Islands','mklang'),
+		'UY' => __('Uruguay','mklang'),
+		'UZ' => __('Uzbekistan','mklang'),
+		'VU' => __('Vanuatu','mklang'),
+		'VE' => __('Venezuela','mklang'),
+		'VN' => __('Viet Nam','mklang'),
+		'VG' => __('Virgin Islands, British','mklang'),
+		'VI' => __('Virgin Islands, US','mklang'),
+		'WF' => __('Wallis and Futuna','mklang'),
+		'EH' => __('Western Sahara','mklang'),
+		'YE' => __('Yemen','mklang'),
+		'ZM' => __('Zambia','mklang'),
+		'ZW' => __('Zimbabwe','mklang'),
 	];
 	// If $key
 	if( $key ) {
@@ -1592,32 +1257,30 @@ function hap_get_countries( $key = null ) {
 
 /**
  * Get an array of italian regions.
- *
- * @return $regions.
  */
-function hap_get_italian_regions( $key = null ) {
+function mkt_get_italian_regions( $key = null ) : mixed {
     // Regions
 	$regions = [
-		'abruzzo'				=> __('Abruzzo','hap'), 
-		'basilicata'			=> __('Basilicata','hap'), 
-		'calabria'				=> __('Calabria','hap'), 
-		'campania'				=> __('Campania','hap'), 
-		'emilia-romagna'		=> __('Emilia-Romagna','hap'), 
-		'friuli-venezia-giulia'	=> __('Friuli Venezia Giulia','hap'), 
-		'lazio'					=> __('Lazio','hap'), 
-		'liguria'				=> __('Liguria','hap'), 
-		'lombardia'				=> __('Lombardy','hap'), 
-		'marche'				=> __('Marche','hap'), 
-		'molise'				=> __('Molise','hap'), 
-		'piemonte'				=> __('Piedmont','hap'), 
-		'puglia'				=> __('Apulia','hap'), 
-		'sardegna'				=> __('Sardinia','hap'), 
-		'sicilia'				=> __('Sicily','hap'), 
-		'toscana'				=> __('Tuscany','hap'), 
-		'umbria'				=> __('Umbria','hap'), 
-		'valle-d-aosta'			=> __('Aosta Valley','hap'),  
-		'veneto'				=> __('Veneto', 'hap'), 
-		'trentino-alto-adige'	=> __('Trentino-Alto Adige','hap'), 
+		'abruzzo'				=> __('Abruzzo','mklang'), 
+		'basilicata'			=> __('Basilicata','mklang'), 
+		'calabria'				=> __('Calabria','mklang'), 
+		'campania'				=> __('Campania','mklang'), 
+		'emilia-romagna'		=> __('Emilia-Romagna','mklang'), 
+		'friuli-venezia-giulia'	=> __('Friuli Venezia Giulia','mklang'), 
+		'lazio'					=> __('Lazio','mklang'), 
+		'liguria'				=> __('Liguria','mklang'), 
+		'lombardia'				=> __('Lombardy','mklang'), 
+		'marche'				=> __('Marche','mklang'), 
+		'molise'				=> __('Molise','mklang'), 
+		'piemonte'				=> __('Piedmont','mklang'), 
+		'puglia'				=> __('Apulia','mklang'), 
+		'sardegna'				=> __('Sardinia','mklang'), 
+		'sicilia'				=> __('Sicily','mklang'), 
+		'toscana'				=> __('Tuscany','mklang'), 
+		'umbria'				=> __('Umbria','mklang'), 
+		'valle-d-aosta'			=> __('Aosta Valley','mklang'),  
+		'veneto'				=> __('Veneto', 'mklang'), 
+		'trentino-alto-adige'	=> __('Trentino-Alto Adige','mklang'), 
 	];
 	// If $key
 	if( $key ) {	
@@ -1638,119 +1301,117 @@ function hap_get_italian_regions( $key = null ) {
 
 /**
  * Get an array of italian provinces.
- *
- * @return $provinces.
  */
-function hap_get_italian_provinces( $key = null ) {
+function mkt_get_italian_provinces( $key = null ) : array {
 	// Provinces
 	$provinces = [
-		'AG'	=> __('Agrigento','hap'),
-		'AL'	=> __('Alessandria','hap'),
-		'AN'	=> __('Ancona','hap'),
-		'AO'	=> __('Aosta','hap'),
-		'AR'	=> __('Arezzo','hap'),
-		'AP'	=> __('Ascoli Piceno','hap'),
-		'AT'	=> __('Asti','hap'),
-		'AV'	=> __('Avellino','hap'),
-		'BA'	=> __('Bari','hap'),
-		'BT'	=> __('Barletta-Andria-Trani','hap'),
-		'BL'	=> __('Belluno','hap'),
-		'BN'	=> __('Benevento','hap'),
-		'BG'	=> __('Bergamo','hap'),
-		'BI'	=> __('Biella','hap'),
-		'BO'	=> __('Bologna','hap'),
-		'BZ'	=> __('Bolzano','hap'),
-		'BS'	=> __('Brescia','hap'),
-		'BR'	=> __('Brindisi','hap'),
-		'CA'	=> __('Cagliari','hap'),
-		'CL'	=> __('Caltanissetta','hap'),
-		'CB'	=> __('Campobasso','hap'),
-		'CE'	=> __('Caserta','hap'),
-		'CT'	=> __('Catania','hap'),
-		'CZ'	=> __('Catanzaro','hap'),
-		'CH'	=> __('Chieti','hap'),
-		'CO'	=> __('Como','hap'),
-		'CS'	=> __('Cosenza','hap'),
-		'CR'	=> __('Cremona','hap'),
-		'KR'	=> __('Crotone','hap'),
-		'CN'	=> __('Cuneo','hap'),
-		'EN'	=> __('Enna','hap'),
-		'FM'	=> __('Fermo','hap'),
-		'FE'	=> __('Ferrara','hap'),
-		'FI'	=> __('Florence','hap'),
-		'FG'	=> __('Foggia','hap'),
-		'FC'	=> __('Forlì-Cesena','hap'),
-		'FR'	=> __('Frosinone','hap'),
-		'GE'	=> __('Genova','hap'),
-		'GO'	=> __('Gorizia','hap'),
-		'GR'	=> __('Grosseto','hap'),
-		'IM'	=> __('Imperia','hap'),
-		'IS'	=> __('Isernia','hap'),
-		'SP'	=> __('La Spezia','hap'),
-		'AQ'	=> __('L\'Aquila','hap'),
-		'LT'	=> __('Latina','hap'),
-		'LE'	=> __('Lecce','hap'),
-		'LC'	=> __('Lecco','hap'),
-		'LI'	=> __('Livorno','hap'),
-		'LO'	=> __('Lodi','hap'),
-		'LU'	=> __('Lucca','hap'),
-		'MC'	=> __('Macerata','hap'),
-		'MN'	=> __('Mantua','hap'),
-		'MS'	=> __('Massa and Carrara','hap'),
-		'MT'	=> __('Matera','hap'),
-		'ME'	=> __('Messina','hap'),
-		'MI'	=> __('Milan','hap'),
-		'MO'	=> __('Modena','hap'),
-		'MB'	=> __('Monza and Brianza','hap'),
-		'NA'	=> __('Naples','hap'),
-		'NO'	=> __('Novara','hap'),
-		'NU'	=> __('Nuoro','hap'),
-		'OR'	=> __('Oristano','hap'),
-		'PD'	=> __('Padua','hap'),
-		'PA'	=> __('Palermo','hap'),
-		'PR'	=> __('Parma','hap'),
-		'PV'	=> __('Pavia','hap'),
-		'PG'	=> __('Perugia','hap'),
-		'PU'	=> __('Pesaro and Urbino','hap'),
-		'PE'	=> __('Pescara','hap'),
-		'PC'	=> __('Piacenza','hap'),
-		'PI'	=> __('Pisa','hap'),
-		'PT'	=> __('Pistoia','hap'),
-		'PN'	=> __('Pordenone','hap'),
-		'PZ'	=> __('Potenza','hap'),
-		'PO'	=> __('Prato','hap'),
-		'RG'	=> __('Ragusa','hap'),
-		'RA'	=> __('Ravenna','hap'),
-		'RC'	=> __('Reggio Calabria','hap'),
-		'RE'	=> __('Reggio Emilia','hap'),
-		'RI'	=> __('Rieti','hap'),
-		'RN'	=> __('Rimini','hap'),
-		'RM'	=> __('Rome','hap'),
-		'RO'	=> __('Rovigo','hap'),
-		'SA'	=> __('Salerno','hap'),
-		'SS'	=> __('Sassari','hap'),
-		'SV'	=> __('Savona','hap'),
-		'SI'	=> __('Siena','hap'),
-		'SR'	=> __('Syracuse','hap'),
-		'SO'	=> __('Sondrio','hap'),
-		'SU'	=> __('South Sardinia','hap'),
-		'TA'	=> __('Taranto','hap'),
-		'TE'	=> __('Teramo','hap'),
-		'TR'	=> __('Terni','hap'),
-		'TO'	=> __('Turin','hap'),
-		'TP'	=> __('Trapani','hap'),
-		'TN'	=> __('Trento','hap'),
-		'TV'	=> __('Treviso','hap'),
-		'TS'	=> __('Trieste','hap'),
-		'UD'	=> __('Udine','hap'),
-		'VA'	=> __('Varese','hap'),
-		'VE'	=> __('Venice','hap'),
-		'VB'	=> __('Verbano-Cusio-Ossola','hap'),
-		'VC'	=> __('Vercelli','hap'),
-		'VR'	=> __('Verona','hap'),
-		'VV'	=> __('Vibo Valentia','hap'),
-		'VI'	=> __('Vicenza','hap'),
-		'VT'	=> __('Viterbo','hap'),
+		'AG'	=> __('Agrigento','mklang'),
+		'AL'	=> __('Alessandria','mklang'),
+		'AN'	=> __('Ancona','mklang'),
+		'AO'	=> __('Aosta','mklang'),
+		'AR'	=> __('Arezzo','mklang'),
+		'AP'	=> __('Ascoli Piceno','mklang'),
+		'AT'	=> __('Asti','mklang'),
+		'AV'	=> __('Avellino','mklang'),
+		'BA'	=> __('Bari','mklang'),
+		'BT'	=> __('Barletta-Andria-Trani','mklang'),
+		'BL'	=> __('Belluno','mklang'),
+		'BN'	=> __('Benevento','mklang'),
+		'BG'	=> __('Bergamo','mklang'),
+		'BI'	=> __('Biella','mklang'),
+		'BO'	=> __('Bologna','mklang'),
+		'BZ'	=> __('Bolzano','mklang'),
+		'BS'	=> __('Brescia','mklang'),
+		'BR'	=> __('Brindisi','mklang'),
+		'CA'	=> __('Cagliari','mklang'),
+		'CL'	=> __('Caltanissetta','mklang'),
+		'CB'	=> __('Campobasso','mklang'),
+		'CE'	=> __('Caserta','mklang'),
+		'CT'	=> __('Catania','mklang'),
+		'CZ'	=> __('Catanzaro','mklang'),
+		'CH'	=> __('Chieti','mklang'),
+		'CO'	=> __('Como','mklang'),
+		'CS'	=> __('Cosenza','mklang'),
+		'CR'	=> __('Cremona','mklang'),
+		'KR'	=> __('Crotone','mklang'),
+		'CN'	=> __('Cuneo','mklang'),
+		'EN'	=> __('Enna','mklang'),
+		'FM'	=> __('Fermo','mklang'),
+		'FE'	=> __('Ferrara','mklang'),
+		'FI'	=> __('Florence','mklang'),
+		'FG'	=> __('Foggia','mklang'),
+		'FC'	=> __('Forlì-Cesena','mklang'),
+		'FR'	=> __('Frosinone','mklang'),
+		'GE'	=> __('Genova','mklang'),
+		'GO'	=> __('Gorizia','mklang'),
+		'GR'	=> __('Grosseto','mklang'),
+		'IM'	=> __('Imperia','mklang'),
+		'IS'	=> __('Isernia','mklang'),
+		'SP'	=> __('La Spezia','mklang'),
+		'AQ'	=> __('L\'Aquila','mklang'),
+		'LT'	=> __('Latina','mklang'),
+		'LE'	=> __('Lecce','mklang'),
+		'LC'	=> __('Lecco','mklang'),
+		'LI'	=> __('Livorno','mklang'),
+		'LO'	=> __('Lodi','mklang'),
+		'LU'	=> __('Lucca','mklang'),
+		'MC'	=> __('Macerata','mklang'),
+		'MN'	=> __('Mantua','mklang'),
+		'MS'	=> __('Massa and Carrara','mklang'),
+		'MT'	=> __('Matera','mklang'),
+		'ME'	=> __('Messina','mklang'),
+		'MI'	=> __('Milan','mklang'),
+		'MO'	=> __('Modena','mklang'),
+		'MB'	=> __('Monza and Brianza','mklang'),
+		'NA'	=> __('Naples','mklang'),
+		'NO'	=> __('Novara','mklang'),
+		'NU'	=> __('Nuoro','mklang'),
+		'OR'	=> __('Oristano','mklang'),
+		'PD'	=> __('Padua','mklang'),
+		'PA'	=> __('Palermo','mklang'),
+		'PR'	=> __('Parma','mklang'),
+		'PV'	=> __('Pavia','mklang'),
+		'PG'	=> __('Perugia','mklang'),
+		'PU'	=> __('Pesaro and Urbino','mklang'),
+		'PE'	=> __('Pescara','mklang'),
+		'PC'	=> __('Piacenza','mklang'),
+		'PI'	=> __('Pisa','mklang'),
+		'PT'	=> __('Pistoia','mklang'),
+		'PN'	=> __('Pordenone','mklang'),
+		'PZ'	=> __('Potenza','mklang'),
+		'PO'	=> __('Prato','mklang'),
+		'RG'	=> __('Ragusa','mklang'),
+		'RA'	=> __('Ravenna','mklang'),
+		'RC'	=> __('Reggio Calabria','mklang'),
+		'RE'	=> __('Reggio Emilia','mklang'),
+		'RI'	=> __('Rieti','mklang'),
+		'RN'	=> __('Rimini','mklang'),
+		'RM'	=> __('Rome','mklang'),
+		'RO'	=> __('Rovigo','mklang'),
+		'SA'	=> __('Salerno','mklang'),
+		'SS'	=> __('Sassari','mklang'),
+		'SV'	=> __('Savona','mklang'),
+		'SI'	=> __('Siena','mklang'),
+		'SR'	=> __('Syracuse','mklang'),
+		'SO'	=> __('Sondrio','mklang'),
+		'SU'	=> __('South Sardinia','mklang'),
+		'TA'	=> __('Taranto','mklang'),
+		'TE'	=> __('Teramo','mklang'),
+		'TR'	=> __('Terni','mklang'),
+		'TO'	=> __('Turin','mklang'),
+		'TP'	=> __('Trapani','mklang'),
+		'TN'	=> __('Trento','mklang'),
+		'TV'	=> __('Treviso','mklang'),
+		'TS'	=> __('Trieste','mklang'),
+		'UD'	=> __('Udine','mklang'),
+		'VA'	=> __('Varese','mklang'),
+		'VE'	=> __('Venice','mklang'),
+		'VB'	=> __('Verbano-Cusio-Ossola','mklang'),
+		'VC'	=> __('Vercelli','mklang'),
+		'VR'	=> __('Verona','mklang'),
+		'VV'	=> __('Vibo Valentia','mklang'),
+		'VI'	=> __('Vicenza','mklang'),
+		'VT'	=> __('Viterbo','mklang'),
 	];
 	// If $key
 	if( $key ) {	
@@ -1769,246 +1430,16 @@ function hap_get_italian_provinces( $key = null ) {
 	}
 }
 
-//======================================================================
-// Check data
-//======================================================================
-
-/**
- * Check if a url is from youtube, vimeo or facebook.
- *
- * @param string $url
- * @param string $provider
- * @return boolean
- */
-function is_url_from($url, $provider = 'youtube') {
-	
-	if (strpos($url, $provider) > 0) {
-	
-		return true;
-	
-	}
-
-}
-
-/**
- * Check if a value of a key is in an array.
- *
- * @param string $array_key
- * @param string $value
- * @param array $array
- * @return boolean
- */
-function is_in_array( $array_key, $value, $array) {
-	
-	foreach( $array as $key => $val ) {
-		
-		if ($val[$array_key] === $value) {
-			
-			return true;
-		
-		}
-	
-	}
-
-	return null;
-
-}
-
-/**
- * Check if a date is a weekend day.
- *
- * @param object $date
- * @return boolean
- */
-function is_weekend( $date ) {
-	
-	return ( date('N', strtotime($date) ) >= 6) ? true : false;
-
-}
-
-
-/**
- * Check if a date is saturday.
- *
- * !!! Fare come funzione is_weekend
- *
- * @param object $date
- * @return boolean
- */
-function is_saturday( $date ) {
-	
-	$weekday = date('l', strtotime($date));
-
-	return ( 'Saturday' == $weekday ) ? true : false;
-	
-}
-
-/**
- * Check if a date is sunday.
- *
- * !!! Fare come funzione is_weekend
- *
- * @param object $date
- * @return boolean
- */
-function is_sunday( $date ) {
-	
-	$weekday = date('l', strtotime($date));
-
-	return ('Sunday' == $weekday) ? true : false;
-
-}
-
-/**
- * Get number of months between two dates.
- *
- * @param string $date1
- * @param string $date2
- * @return integer $counter
- */
-function hap_months_counter( $date_1, $date_2 ) {
-	
-	$start = new DateTime( $date_1 );
-	$end = new DateTime( $date_2 );
-	$end = $end->modify( '+1 month' );
-
-	$interval = DateInterval::createFromDateString('1 month');
-
-	$period = new DatePeriod( $start, $interval, $end );
-	$counter = 0;
-	
-	foreach( $period as $dt ) {
-		
-		++$counter;
-
-	}
-
-	return $counter;
-	
-}
-
-/**
- * Check if post is in a menu.
- *
- * @param integer $menu: int post object id of page
- * @param  integer $object_id: int post object id of page
- * @return boolean true if object is in menu
- */
-function hap_post_is_in_menu( $menu = null, $object_id = null ) {
-
-    // Get menu object
-    $menu_object = wp_get_nav_menu_items( esc_attr( $menu ) );
-
-    // Stop if there isn't a menu
-    if( ! $menu_object )
-        return false;
-
-    // Get the object_id field out of the menu object
-    $menu_items = wp_list_pluck( $menu_object, 'object_id' );
-
-    // Use the current post if object_id is not specified
-    if( !$object_id ) {
-        global $post;
-        $object_id = get_queried_object_id();
-    }
-
-    // Test if the specified page is in the menu or not. return true or false.
-    return in_array( (int) $object_id, $menu_items );
-
-}
-
-//======================================================================
+/*-------------------------------------------------------------------------------------*/
 // Format data
-//======================================================================
-
-/**
- * Implode array of post IDs in list items 
- * or string separated by custom glyph.
- *
- * @param array $ids
- * @param string $format
- * @param string $field
- * @return string $list
- */
-function hap_ids_to_list( $ids, $format, $field = null ) {
-			
-	$list = [];
-	if( $ids ) { 
-		foreach( $ids as $item ) { 
-			if( $field ) {
-				$list[] = get_field( $field, $item );				
-			}else{
-				$list[] = get_the_title( $item );
-			}
-		}
-		if( $format == 'list' ) {
-			$list = '<li>' . implode( '</li><li>', $list ) . '</li>';
-		}else {
-			$list = implode( $format, $list );
-		}
-	}else{
-		$list = '<span class="text-error font-bold">' . __('Error! No data.','hap') . '</span>';
-	}
-	
-	return $list;
-
-}
-
-/**
- * Get term list in array.
- * 
- * @param integer $post_id
- * @param string/array $tax
- * @return array $list
- */ 
-function get_term_list( $post_id, $tax ) {
-	
-	$terms = get_the_terms( $post_id, $tax );
-	
-	$list = [];
-	
-	if( $terms ) {
-		
-		foreach( $terms as $term ) {
-			
-			$list['names'] = $term->name;
-			$list['slugs'] = $term->slug;
-
-		}
-		
-	}
-	
-	return $list;
-
-}
-
-/**
- * Extract acronym with first letters of a string.
- *
- * @param array $words
- * @return string $acronym
- */
-function hap_acronym( $words ) {
-	
-	$words = explode(' ',$words);
-	$acronym = "";
-	foreach ($words as $w) {
-		$acronym .= mb_substr($w, 0, 1);
-	}
-	
-	return $acronym;
-	
-}
 
 /**
  * Money format 10,00 €.
- * 
  * @param integer $value
  * @param string $language
  * @param string $currency
- * @return string $formatted_value
  */ 
-function euro_format( $value, $language = 'it_IT', $currency = 'EUR' ) {
+function euro_format( $value, $language = 'it_IT', $currency = 'EUR' ) : string {
     // If value is zero
 	if( $value == 0 ) {
 		// !!! This should be handled better
@@ -2023,11 +1454,9 @@ function euro_format( $value, $language = 'it_IT', $currency = 'EUR' ) {
 }
 
 /**
- * Return url without http, https and www.
- *
- * @return $url.
+ * Return URL without http, https and www.
  */
-function hap_url_label($url) {
+function mkt_url_label( $url ) : string {
 	// Find in string
 	$find = [
 		'https',
@@ -2051,13 +1480,11 @@ function hap_url_label($url) {
 
 /**
  * Format phone number.
- *
  * @param string $number
  * @param integer $local_prefix_size
  * @param integer $prefix_int
- * @return object $phone
  */
-function hap_phone_format( $number, $local_prefix_size = 3, $prefix_int = '' ) {
+function mkt_phone_format( $number, $local_prefix_size = 3, $prefix_int = '' ) : object {
 	// URL ofr links
 	$url = 'tel:' . $number;
 	// Label
@@ -2075,12 +1502,9 @@ function hap_phone_format( $number, $local_prefix_size = 3, $prefix_int = '' ) {
 
 /**
  * Format file size according to size.
- *
- *
  * @param integer $file_size
- * @return string $formatted_value
  */
-function hap_format_file_size( $file_size ) {
+function mkt_format_file_size( $file_size ) : string {
     // Default value
 	$formatted_value = null;
     if( $file_size < 1024 ) {
@@ -2098,46 +1522,22 @@ function hap_format_file_size( $file_size ) {
 
 /**
  * Convert a string to float and replace commas with dots.
- *
- * Example:
- * 10,0 -> 10.0
- *
- * @return $value
+ * @example 10,0 -> 10.0
  */
-function string_to_float_comma_to_dot( $value ) {
+function string_to_float_comma_to_dot( $value ) : float {
     // Convert string to float and replace dots with commas
 	$float = (float)str_replace(',', '.', $value);
 	return $float;
 }
 
-/**
- * Generate random string of a given number of characters.
- *
- * @param integer $length
- * @return string $randomString
- */
-function hap_generate_random_string( $length = 25 ) {
-	// Set of characters
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    // String length
-	$charactersLength = strlen($characters);
-    // Default value
-	$randomString = '';
-    // Loop
-	for( $i = 0; $i < $length; $i++ ) {
-        // Build random string
-		$randomString .= $characters[rand(0, $charactersLength - 1)];
-	}
-	return $randomString;
-}
+/*-------------------------------------------------------------------------------------*/
+// Minify code
 
 /**
  * Minify HTML output code.
- *
  * @param string $buffer
- * @return string $buffer
  */
-function hap_minifier( $buffer ) {
+function mkt_minifier( $buffer ) : string {
     // Search
     $search = [
         '/\>[^\S ]+/s',     // Strip whitespaces after tags, except space
@@ -2157,187 +1557,23 @@ function hap_minifier( $buffer ) {
     return $buffer;
 }
 
-/**
- * Convert an image to base64.
- *
- * https://stackoverflow.com/questions/3967515/how-to-convert-an-image-to-base64-encoding
- * @param integer $img_id
- * @param string $path
- * @return string $base64
- *
- * Example:
- * <img src="<?php echo hap_img_to_base64(123); ?>" width="" height="" alt="" style="" />
- */
-function hap_img_to_base64( $img_id = null, $path = null) {
-	// Default value
-	$base64 = null;
-	// If $img_id get attachment path
-	if( $img_id ) {
-		$path = get_attached_file( $img_id );
-	}
-	// Get file extension
-	$type = pathinfo($path, PATHINFO_EXTENSION);
-	// Get file content
-	$data = file_get_contents($path);
-	// If is a SVG file
-	if( $type === 'svg' ) {
-		$base64 = 'data:image/svg+xml;base64,' . base64_encode($data); 
-	// If is a PNG or JPG file
-	}else{
-		$base64 = 'data:image/' . $type . ';base64,' . base64_encode($data);
-	}
-	return $base64;
-}
-
-/**
- * Transform HTML table to PHP array
- *
- * @param string $table
- * @param integer $start
- * @param integer $end
- * @return array $new_data
- */
-function html_table_to_array( $table, $start = 0, $end = null ) {
-    // Create new HTML document
-    $dom = new DOMDocument();
-    // Add meta to preserve the original characters
-    $content_type = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
-    // Load HTML
-    $dom->loadHTML( $content_type . $table );
-    // Save HTML
-    $dom->saveHTML();
-    // Get table th
-    $ths = $dom->getElementsByTagName('th');
-    // Get table td
-    $tds = $dom->getElementsByTagName('td');
-    // Get header name of the table
-    foreach( $ths as $node_header ) {
-        $data[] = trim($node_header->textContent);
-    }
-    // Get row data/detail table without header name as key
-    $i = 0;
-    $j = 0;
-    // Default values
-    $new_data = [];
-    $temp_data = [];
-    foreach( $tds as $node_detail ) {
-        $new_data[$j][] = trim($node_detail->textContent);
-        $i = $i + 1;
-        $j = $i % count($data) == 0 ? $j + 1 : $j;
-        // Increment index
-    }
-    // Index
-    $index = 0;
-    // Get row data/detail table with header name as key and outer array index as row number
-    for( $i = 0; $i < count($new_data); $i++ ) {
-        // Check and skip iteration
-        if( $start > $index ) {
-            $index++;
-            continue;
-        }
-        for($j = 0; $j < count($data); $j++) {
-            $temp_data[$i][$data[$j]] = $new_data[$i][$j];
-        }
-        $index++;
-        // Check and break loop
-        if( $end !== null && $end < $index ) {
-            break;
-        }
-    }
-    // Clean new data
-    $new_data = $temp_data; 
-    unset($temp_data);
-    return $new_data;
-}
-
-//======================================================================
-// APIs
-//======================================================================
-
-/**
- * Get Google Maps object.
- * Requested through Google Maps Web Service.
- *
- * https://stackoverflow.com/questions/23212681/php-get-latitude-longitude-from-an-address
- * See answer by FahadKhan
- *
- * @param string $address
- * @return array $acf_map
- */
-function hap_get_gmap_object($address) {
-
-	// Default value
-	$acf_map = null;
-	
-	// Prepare address string to be emebedded in url by replacing spaces with plus
-	$prepAddr = str_replace(' ','+',$address); // !!! This is not used anywhere
-	
-	// Get Google Maps APi Key
-	// The key must have set IP address as restriction,
-	// it won't work with restriction by HTTP referrer,
-	// this means that you need two different Api Keys.
-	// Places API must be activated.
-	$apiKey = get_field('google_maps_api_key_web_service','options');
-
-	// Request data
-	$geocode = file_get_contents(
-		'https://maps.googleapis.com/maps/api/geocode/json?address=' . urlencode($address) . '&sensor=false&key=' . $apiKey
-	);
-
-	// Decode json
-	$output = json_decode($geocode);
-	
-	if( $output->results ) {
-		
-		$map_data = $output->results[0];
-
-		// Populate array for ACF map
-		$acf_map = [
-			'address'			=>	$map_data->formatted_address,
-			'lat'				=>	$map_data->geometry->location->lat,
-			'lng'				=>	$map_data->geometry->location->lng,
-			'zoom'				=>	14,
-			'place_id'			=>	$map_data->place_id,
-			'street_number'		=>	$map_data->address_components[0]->long_name,
-			'street_name'		=>	$map_data->address_components[1]->long_name,
-			'street_name_short' =>	$map_data->address_components[1]->short_name,
-			'city'				=>	$map_data->address_components[2]->long_name,
-			'state'				=>	$map_data->address_components[4]->long_name,
-			'state_short'		=>	$map_data->address_components[4]->short_name,
-			'post_code'			=>	$map_data->address_components[7]->long_name,
-			'country'			=>	$map_data->address_components[6]->long_name,
-			'country_short'		=>	$map_data->address_components[6]->short_name,
-		];
-		
-	}
-
-	return $acf_map;
-
-}
-
-//======================================================================
+/*-------------------------------------------------------------------------------------*/
 // Cookies
-//======================================================================
 
 /**
  * Get/set a cookie in WordPress.
- *
- * This function returns a cookie value when only the $key is passed, 
- * or sets a cookie when both the $key and $value are passed.
- *
- *
+ * Returns the cookie value if only the $key is passed, true is successfully set a cookie, false otherwise. This function returns a cookie value when only the $key is passed, or sets a cookie when both the $key and $value are passed.
+ * @example echo mkt_cookie('my_cookie');
+ * @example unset($_COOKIE['my_cookie']);
  * @param string $key The cookie name/key
  * @param string $value Optional. The cookie value
  * @param string|int $expiration  Optional. Timestamp when the cookie expires
- * @return boolean|string|int The cookie value if only the $key is passed, true is successfully set a cookie, false otherwise
  */
-function hap_cookie( $key, $value = false, $expiration = false ) {
-
-   if ( $value ) {
-
+function mkt_cookie( $key, $value = false, $expiration = false ) {
+	// If value set cookie
+	if( $value ) {
 	   // Set a cookie
 	   if( !is_admin() ) {
-
 		   setcookie( 
 			   $key, 
 			   $value, 
@@ -2349,446 +1585,183 @@ function hap_cookie( $key, $value = false, $expiration = false ) {
 				   'httponly'	=>	true,
 				   'samesite'	=>	'None',
 				]
-			);
-		   
+			);   
 	   }
-
-   }else{
-	   
-	   return isset( $_COOKIE[ $key ] ) ? $_COOKIE[ $key ] : false;
-   
    }
-
-
-   // Example usage to return a cookie's value.
-   // echo hap_cookie( 'my_cookie' );
-   // and then blow it away
-   // unset( $_COOKIE[ 'my_cookie' ] );
-
+   // If no value get cookie
+   else{
+	   return isset($_COOKIE[$key]) ? $_COOKIE[$key] : false;
+   }
 }
 
 /**
  * Get a cookie in WordPress.
- *
- * This function returns a cookie value when the $key is passed
- *
- *
- * @param string $key The cookie name/key
- * @param string $value Optional. The cookie value
- * @param string|int $expiration  Optional. Timestamp when the cookie expires
- * @return boolean|string|int The cookie value if only the $key is passed, true is successfully set a cookie, false otherwise
+ * @param string $key
  */
-function hap_get_cookie( $key ) {
-
-   return isset( $_COOKIE[ $key ] ) ? $_COOKIE[ $key ] : false;
-
-   // Example usage to return a cookie's value.
-   // echo canva_get_cookie( 'my_cookie' );
-   // and then blow it away
-   // unset( $_COOKIE[ 'my_cookie' ] );
-
+function mkt_get_cookie( $key ) : string {
+   return isset($_COOKIE[$key]) ? $_COOKIE[$key] : false;
 }
 
 /**
  * Set a cookie in WordPress.
- *
- * This function sets a cookie when both the $key and $value are passed.
- *
- * @param string $key The cookie name/key
- * @param string $value The cookie value
- * @param string|int $expiration Timestamp when the cookie expires
- * @return boolean True is successfully set a cookie, false otherwise
+ * @param string $key
+ * @param string $value
+ * @param mixed $expiration
  */
-function hap_set_cookie( $key, $value, $expiration ) {
+function mkt_set_cookie( $key, $value, $expiration ) : void {
     // Set cookie
-    hap_cookie( $key, $value, $expiration );
+    mkt_cookie( $key, $value, $expiration );
 }
 
-//======================================================================
+/*-------------------------------------------------------------------------------------*/
 // Users, roles and login
-//======================================================================
-
-/**
- * Get user last login datetime.
- * 
- * @param integer $user_id
- * @return string $the_login_date
- */
-function hap_get_last_login( $user_id ) {
-	
-	$the_login_date = __('Never logged in','hap');
-	
-	$last_login = get_user_meta( $user_id, 'last_login', true );
-
-	if( $last_login ) {
-		$the_login_date = date('l j F Y, H:i', $last_login);
-	}
-	
-	return $the_login_date;
-
-}
 
 /**
  * Get user role.
- *
  * @param integer $user_id
- * @return array user roles
  */
-function get_user_role( $user_id = 0 ) {
-	
-	$user = ($user_id) ? get_userdata($user_id) : wp_get_current_user();
-
+function get_user_role( $user_id = 0 ) : string {
+	// Conditionally get user by ID or current user
+	$user = $user_id ? get_userdata($user_id) : wp_get_current_user();
 	return current($user->roles);
-	
 }
 
-/**
- * Check user role.
- *
- * @param integer $role
- * @return boolean
- */
-function is_user_role( $role = 'administrator' ) {
-	
-	$current_user = wp_get_current_user();
-
-	if( is_user_logged_in() && get_user_role($current_user->ID) == $role ) {
-		
-		return true;
-	
-	}else{
-	
-		return false;
-	
-	}
-
-}
-
-/**
- * Get all editable roles.
- * 
- * @return $editable_roles.
- */ 
-function hap_get_editable_roles() {
-	
-    global $wp_roles;
-
-    $all_roles = $wp_roles->roles;
-    $editable_roles = apply_filters('editable_roles', $all_roles);
-
-    return $editable_roles;
-	
-}
-
-/**
- * Get role capabilities.
- * 
- * @param string $role
- * @return $role_caps // !!! Maybe $capabilities
- */ 
-function hap_get_role_caps( $role ) {
-
-	$capabilities = [];
-	
-	$get_role = get_role( $role );
-	
-	if( $get_role ) {
-		
-		$role_caps = $get_role->capabilities;
-		
-		foreach( wp_roles()->role_objects as $item ) {
-			
-			$capabilities[] = $item;
-		}
-
-	}
-	
-	return $role_caps; // !!! Maybe $capabilities
-
-}
-
-//======================================================================
-// Urls and IPs
-//======================================================================
-
-/**
- * Check if url is external.
- *
- * @param string $url
- * @return boolean
- */
-function is_url_local( $url ) {
-	
-	if( empty( $url ) ) {
-		return false;
-	}
-
-	$urlParsed = parse_url($url);
-	$host = $urlParsed['host'];
-
-	if( empty( $host ) ) {
-		
-		// Maybe we have a relative link like: /wp-content/uploads/image.jpg
-		// Add absolute path to begin and check if file exists
-		$doc_root = $_SERVER['DOCUMENT_ROOT'];
-		$maybefile = $doc_root . $url;
-		
-		// Check if file exists
-		$fileexists = file_exists($maybefile);
-		
-		if( $fileexists ) {
-		
-			// Maybe you want to convert to full url?
-			return true;
-			
-		}
-		
-	}
-
-	// Strip www. if exists
-	$host = str_replace('www.', '', $host);
-	$thishost = $_SERVER['HTTP_HOST'];
-
-	// Strip www. if exists
-	$thishost = str_replace('www.', '', $thishost);
-	
-	if ($host == $thishost) {
-		return true;
-	}
-
-	return false;
-	
-}
-
-
-/**
- * Returns the client ip address.
- *
- * @return $ipaddress.
- */
-function get_client_ip() {
-	
-	$ipaddress = '';
-
-	if( getenv('HTTP_CLIENT_IP') ) {
-		
-		$ipaddress = getenv('HTTP_CLIENT_IP');
-	
-	}elseif( getenv('HTTP_X_FORWARDED_FOR') ) {
-		
-		$ipaddress = getenv('HTTP_X_FORWARDED_FOR');
-		
-	}elseif( getenv('HTTP_X_FORWARDED') ) {
-	
-		$ipaddress = getenv('HTTP_X_FORWARDED');
-	
-	}elseif( getenv('HTTP_FORWARDED_FOR') ) {
-	
-		$ipaddress = getenv('HTTP_FORWARDED_FOR');
-	
-	}elseif( getenv('HTTP_FORWARDED') ) {
-	
-		$ipaddress = getenv('HTTP_FORWARDED');
-	
-	}elseif( getenv('REMOTE_ADDR') ) {
-
-		$ipaddress = getenv('REMOTE_ADDR');
-	
-	} else {
-
-		$ipaddress = 'UNKNOWN';
-	
-	}
-
-	return $ipaddress;
-}
-
-//======================================================================
-// More utilities
-//======================================================================
-
-/**
- * Check if maintenance mode is activated.
- * Exlude logged users.
- *
- * @return boolean
- */
-function is_maintenance_mode_activated() {
-    // Bail out early
-    if( is_user_logged_in() ) {
-        return false;
-    }
-	// Get field
-	$maintenance_mode = get_field('maintenance_mode','options');
-    // Get cookie
-    $cookie = hap_get_cookie('hap_skip_token');
-    // Return true or false
-	if( 
-        isset($maintenance_mode['maintenance_mode_option']) 
-        && !empty($maintenance_mode['maintenance_mode_option'])
-        && !$cookie ) {
-		return true;
-	}else{
-		return false;
-	}
-}
-
-/**
- * Check if there is at least one post published in a post type.
- *
- * @param string $post_type
- * @param string $taxonomy
- * @param string $term
- * @return boolean
- */
-function is_there_any_post( $post_type = 'post', $taxonomy = 'category', $term = '' ) {
-	
-	$query = get_posts([
-		'post_type'		=>	$post,
-		'numberposts'	=>	-1,
-		'tax_query'		=>	[
-			[
-				'taxonomy'	=>	$taxonomy,
-				'terms'		=>	$term,
-			],
-		],
-	]);
-
-	if( $query ) {
-		
-		return true;
-	
-	}
-
-	return false;
-	
-}
-
-//======================================================================
+/*-------------------------------------------------------------------------------------*/
 // Maps
-//======================================================================
 
 /**
  * Get Google Maps link.
- *
  * @param array $address
- * @return string $text
  */
-function get_gmap_link( $address, $text = null ) {
-
-	if( !$text ) {
-		$text = __('Get directions','hap');
-	}
-	
+function get_gmap_link( $address, $text = null ) : string {
+	// Default text
+	$text = $text ? $text : __('Get directions','mklang');
+	// Start output	
 	$html = '<a target="_blank" rel="nofollow noopener nofollow" href="https://www.google.it/maps/place/';
 	$html .= str_replace( ' ', '+', $address['address'] );
 	$html .= '/">';
 	$html .= $text;
 	$html .= '</a>';
-
 	return $html;
-	
 }
 
-//======================================================================
+/*-------------------------------------------------------------------------------------*/
 // Emails
-//======================================================================
+
+/**
+ * Get email signature.
+ */
+function mkt_get_email_signature( $logo_format = 'base64' ) : string {
+    // Default value
+	$signature = '';
+	// Get logo
+	$logo = get_field('logo_other_version','options');
+    // Bail out and return site name if no logo
+	if( !isset($logo['img']) || empty($logo['img']) ) {
+		// Log error
+		write_log('mkt_get_email_signature : No logos found');
+		return get_bloginfo('name');
+	}
+	// Get home URL
+	$home_url = get_home_url();
+	// Formats
+	if( $logo_format == 'base64' ) {
+		// Base 64
+		$logo_img = mkt_img_to_base64($logo['img']);
+	}else{
+		// Image
+		$logo_img = wp_get_attachment_url( $logo['img'] );
+	}
+	// Start HTML
+	$signature .= '<table class="cf7-signature" style="border: none; margin-top: 60px; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; line-height: 18px; color: #646464;">';
+		$signature .= '<tbody>';
+			$signature .= '<tr style="border: none;">';
+				// Left cell
+				$signature .= '<td style="padding: 0; border: none; vertical-align: top; width: ' . ( $logo['width'] + 40 ) . 'px">';
+					// Logo
+					$signature .= '<a href="' . $home_url . '" target="_blank" rel="noopener noreferrer nofollow">';
+						$signature .= '<img width="' . $logo['width'] . '" height="' . $logo['height'] . '" src="' . $logo_img. '" style="width:' . $logo['width'] . 'px; height: ' . $logo['height'] . 'px;" />';
+					$signature .= '</a>';
+				$signature .= '</td>';
+				// Right cell
+				$signature .= '<td style="padding: 0; border: none;">';
+					// Company name
+					$signature .= ( get_field('company_name','options') ) ? '<strong style="color: #000;">' . get_field('company_name','options') . '</strong><br>' : null;
+					// Address
+					$signature .= ( get_field('address','options') ) ? get_field('address','options') . '<br>' : null;
+					// City
+					$signature .= ( get_field('city','options') ) ? get_field('city','options') . '<br>' : null;
+					// Phone
+					$signature .= ( get_field('phone','options') ) ? '<a style="color: #000; text-decoration: none;" href="tel:' . get_field('phone','options') . '">T. ' . get_field('phone','options') . '</a><br>' : null;
+					// Mobile
+					$signature .= ( get_field('mobile_phone','options') ) ? '<a style="color: #000; text-decoration: none;" href="tel:' . get_field('mobile_phone','options') . '">M. ' . get_field('mobile_phone','options') . '</a><br>' : null;
+					// Website
+					$signature .= '<a href="' . $home_url . '" target="_blank" rel="noopener noreferrer nofollow" style="color: #000; text-decoration: none; font-weight: bold;">' . mkt_url_label($home_url) . '</a>';
+				$signature .= '</td>';
+			$signature .= '</tr>';
+		$signature .= '</tbody>';
+	$signature .= '</table>';
+	// Discalimer
+	if( get_field('email_disclaimer','options') ) {
+		$signature .= '<p style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #efefef; font-size: 12px; line-height: 18px;">' . get_field('email_disclaimer','options') . '</p>';
+	}
+	return $signature;
+}
 
 /**
  * Markup of first part of emails.
- *
- * @return void
  */
-function hap_email_body_start() {
-	
+function mkt_email_body_start() : string {
+	// Starting div
 	$body_start = '<div style="background-color: rgb(250,250,250); padding: 20px; font-size: 18px; color: #646464; margin-bottom: 5px;">';
-	
 	return $body_start;
-	
 }
 
 /**
  * Markup of last part of emails.
- *
- * @return void
  */
-function hap_email_body_end() {
-		
+function mkt_email_body_end() : string {
+	// Close div
 	$body_end = '</div>';
-
-	$body_end .= hap_get_email_signature('img_url');
-
+	// Get email signature
+	$body_end .= mkt_get_email_signature('img_url');
 	return $body_end;
 }
 
 /**
  * Email body buttons.
- *
  * @param string $button_link
  * @param string $button_text
- * @return string $button
  */
-function hap_email_body_button( $button_link, $button_text ) {
-
+function mkt_email_body_button( $button_link, $button_text ) : string {
+	// Button outp
 	$button = '<a style="text-decoration: none; background-color: #2196F3; color: #ffffff; font-weight: 400; display: inline-block; padding: 20px 40px 16px 40px; font-size: 16px; margin: 0 10px 10px 0;" target="_blank" href="' . $button_link . '">' . $button_text . '</a>';
-	
 	return $button;
-
 }
 
-/**
- * Delete text between 2 strings.
- *
- * @param string $beginning
- * @param string $end
- * @param string $string
- * @return string
- */
-function delete_all_between( $beginning, $end, $string ) {
-	
-	$beginningPos = strpos($string, $beginning);
-	
-	$endPos = strpos($string, $end);
-	if ($beginningPos === false || $endPos === false) {
-		return $string;
-	}
-
-	$textToDelete = substr($string, $beginningPos, ($endPos + strlen($end)) - $beginningPos);
-
-	// Recursion to ensure all occurrences are replaced
-	return delete_all_between($beginning, $end, str_replace($textToDelete, '', $string));
-
-}
-
-//======================================================================
+/*-------------------------------------------------------------------------------------*/
 // Charts
-//======================================================================
 
 /**
  * Generate a pie chart.
- * 
- * https://codeburst.io/how-to-pure-css-pie-charts-w-css-variables-38287aea161e
+ * @link https://codeburst.io/how-to-pure-css-pie-charts-w-css-variables-38287aea161e
  * @param array $values
  * @param string $css_classes
  * @param array $colors
  * @param integer $size
- * @return string $html
  */
-function hap_pie_chart( $values, $css_classes = null, $colors = [], $size = 200 ) {
-
-	if( !$colors ) {
-
-		$colors = hap_color_palette();
-
-	}
-
+function mkt_pie_chart( $values, $css_classes = null, $colors = [], $size = 200 ) : string {
+	// Default color palette
+	$colors = $colors ? $colors : mkt_color_palette();
+	// Index
 	$index = 0;
+	// Offset
 	$offset = 0;
-
+	// Start output
 	$html = '<div class="stats_pie ' .  $css_classes . '" style="--size: ' . $size . ';">';
-
-	foreach( $values as $value ) :
-	
+	// Loop values
+	foreach( $values as $value ) {
+		// Segment
 		$html .= '<div class="pie__segment" style="';
 		$html .= '--offset: ' . $offset . ';';
 		$html .= '--value: ' . $value . ';';
@@ -2797,237 +1770,76 @@ function hap_pie_chart( $values, $css_classes = null, $colors = [], $size = 200 
 			$html .= '--over50: 1;';
 		}
 		$html .= '"></div>';
-
+		// Increment
 		$index++;
 		$offset += $value;
-
-	endforeach;
-
+	}
+	// End output
 	$html .= '</div>';
-
 	return $html;
-
 }
 
 /**
  * A set of default colors with a filter.
- *
- * https://gist.github.com/Njengah/415fa17bd93d5520b263434a7ee3f314
- *
- * @return array $colors.
+ * @link https://gist.github.com/Njengah/415fa17bd93d5520b263434a7ee3f314
  */
-function hap_color_palette() {
-
+function mkt_color_palette() : array {
+    // Colors
 	$colors = [
 		'var(--color-primary)',
 		'var(--color-secondary)',
 		'var(--color-accent)',
 	];
-	
 	// Filter to add other custom colors
-	$colors = apply_filters( 'hap_color_palette', $colors );
-	
+	$colors = apply_filters('mkt_color_palette',$colors);
 	return $colors;
-
 }
 
-/**
- * Function to replace the deprecated WordPress function get_page_by_title()
- * https://make.wordpress.org/core/2023/03/06/get_page_by_title-deprecated/
- *
- * @param string $page_title
- * @param string $post_type
- * @param boolean $filters
- * @param string/array $status
- * @return object $page_got_by_title
- */
-function hap_get_page_by_title( $page_title, $post_type = 'page', $filters = false, $status = '' ) {
-    // Args
-	$query_args = [
-		'post_type'              => $post_type,
-		'title'                  => $page_title,
-		'post_status'            => $status,
-		'numberposts'        	 => 1,
-		/*'no_found_rows'          => true,
-		'ignore_sticky_posts'    => true,
-		'update_post_term_cache' => false,
-		'update_post_meta_cache' => false,
-		'orderby'                => 'post_date ID',
-		'order'                  => 'ASC',*/
-	];
-    // If status
-    if( $status && $post_type != 'attachment' ) {
-        $query_args['post_status'] = $status;
-    }
-    // Suppress filters (useful for queries with WPML)
-    if( $filters ) {
-        $query_args['suppress_filters'] = false;
-    }
-	/* if( $post_type == 'attachment' ) {
-		unset($query_args['post_status']);
-	} */
-	$query = get_posts($query_args);
-    // If results
-	if( $query ) {
-		$page_got_by_title = $query[0];
-	} else {
-		$page_got_by_title = null;
-	}
-	return $page_got_by_title;
-}
-
-/**
- * Add stats about server performances below everything.
- *
- * @return void
- */
-function hap_show_wp_load_stats() {
-
-	if( !current_user_can('manage_hap_options') ) {
-		return;
-	}
-
-	echo '<div id="admin-query" class="text-center text-sm">';
-	echo get_num_queries();
-	echo __(' queries in ','hap');
-	timer_stop(3);
-	echo __(' seconds','hap');
-	echo '</div>';
-
-}
+/*-------------------------------------------------------------------------------------*/
+// Debug
 
 /**
  * Write errors in debug.log.
- *
- * https://wordpress.stackexchange.com/questions/260236/how-to-put-logs-in-wordpress
+ * @link https://wordpress.stackexchange.com/questions/260236/how-to-put-logs-in-wordpress
  * @param mixed $log
- * @return void
  */
 if( !function_exists('write_log') ) {
-
-    function write_log( $log ) {
-		
+    function write_log( $log ) : void {
+		// Id debug is active
         if( true === WP_DEBUG ) {
-        
-			if( is_array( $log ) || is_object( $log ) ) {
-            
-				error_log( print_r( $log, true ) );
-            
-			}else{
-				
-				error_log( $log );
-
+			// Array and objects
+			if( is_array($log) || is_object($log) ) {
+				error_log(print_r($log,true));
 			}
-
+			// Null
+			elseif( is_null($log) || !$log || empty($log) || $log == 0 ) {
+				error_log('NULL');
+			}
+			// String, integers and floats
+			else{
+				error_log($log);
+			}
 		}
-
 	}
-
 }
 
-/**
- * Get server time.
- *
- * @return string
- */
-function hap_server_time() {
-	
-	echo wp_date('Y-m-d H:i:s', hap_get_current_time());
-	
-}
-
-/**
- * Get server public ip address.
- *
- * @return void.
- */
-function hap_server_ip() {
-    // Bail out early
-	if( !is_admin() ) {
-		exit;
-	}
-    // Init cUrl
-	$curl = curl_init();
-    // Fetch data
-	curl_setopt_array($curl, array(
-		CURLOPT_URL				=> 'https://ipinfo.io/ip',
-		CURLOPT_RETURNTRANSFER	=> true,
-		CURLOPT_CUSTOMREQUEST	=> 'GET'
-	));
-    // Print value
-	echo 'curl https://ipinfo.io/ip = ' . curl_exec($curl);
-    // Ajax
-	wp_die();
-}
-
-/**
- * Useful to re-save posts by post type.
- *
- * @param string $content
- * @param integer $trim
- * @return void
- */
-function hap_update_all_posts( $vars = [], $by = 'field' ) {
-
-	extract($vars);
-
-	if( $by === 'field' ) {
-		
-		$args = array(
-			'post_type'			=> esc_attr($post_type),
-			'posts_per_page'	=> -1,
-			'meta_key'          => esc_attr($meta_key),
-			'meta_value'        => $meta_value,
-		);
-		
-	}else{
-		
-		$args = array(
-			'post_type'			=> esc_attr($post_type),
-			'posts_per_page'	=> -1,
-			'tax_query'			=> array(
-				'taxonomy'	=> esc_attr($taxonomy),
-				'field'		=> esc_attr($field),
-            	'terms'		=> $terms
-			),
-		);
-		
-	}
-
-	$all_posts = get_posts( $args );
-
-	foreach( $all_posts as $single_post ) {
-		
-		$single_post->post_title = $single_post->post_title . '';
-		
-		wp_update_post($single_post);
-	
-	}
-
-	wp_die();
-
-}
-
-//======================================================================
+/*-------------------------------------------------------------------------------------*/
 // ACF Blocks
-//======================================================================
 
 /** 
  * Array of values to be used in block fields.
- *
  * @param string $key
- * @return array $data
  */
-function hap_block_values( $key ) {
-	
+function mkt_block_values( $key ) : array {
+	// Values
 	$values = [
-	
+		// Display
 		'display' => [
 			'block'	=> 'Block',
 			'flex'	=> 'Flex',
 			'grid'	=> 'Grid',
 		],
-	
+		// Justify content
 		'justify_content' => [
 			'justify-start'		=> 'Flex start',
 			'justify-end'		=> 'Flex end',
@@ -3036,7 +1848,7 @@ function hap_block_values( $key ) {
 			'justify-around'	=> 'Space around',
 			'justify-evenly'	=> 'Space evenly',	
 		],
-	
+		// Align items
 		'align_items' => [
 			'items-start'		=> 'Start',
 			'items-end'			=> 'End',
@@ -3044,7 +1856,7 @@ function hap_block_values( $key ) {
 			'items-baseline'	=> 'Baseline',
 			'items-stretch'		=> 'Stretch',		
 		],
-	
+		// Grid
 		'grid' => [
 			'grid'			=> 'S1 M1 L1',
 			'grid-1-2'		=> 'S1 M2 L2',
@@ -3062,7 +1874,7 @@ function hap_block_values( $key ) {
 			'grid-2-4-6'	=> 'S2 M4 L6',
 			'grid-2-4-8'	=> 'S2 M4 L8',
 		],
-	
+		// Gap
 		'gap' => [
 			'gap-0'				=> 'S0 M0 L0',
 			'gap-2-4-4'			=> 'S2 M4 L4',
@@ -3070,13 +1882,14 @@ function hap_block_values( $key ) {
 			'gap-4-8-8'			=> 'S4 M8 L8',
 			'gap-4-8-16'		=> 'S4 M8 L16',
 		],
+		// Container
 		'container' => [
 			'w-full'		=> '100%',
 			'container-sm'	=> 'S',
 			'container-md'	=> 'M',
 			'container-lg'	=> 'L',
 		],
-	
+		// Padding
 		'padding' => [
 			'p-xs'	=> 'XS',
 			'p-sm'	=> 'S',
@@ -3084,7 +1897,7 @@ function hap_block_values( $key ) {
 			'p-lg'	=> 'L',
 			'p-xl'	=> 'XL',
 		],
-
+		// Padding top
 		'padding_t' => [
 			'pt-xs'	=> 'XS',
 			'pt-sm'	=> 'S',
@@ -3092,7 +1905,7 @@ function hap_block_values( $key ) {
 			'pt-lg'	=> 'L',
 			'pt-xl'	=> 'XL',
 		],
-
+		// Padding bottom
 		'padding_b' => [
 			'pb-xs'	=> 'XS',
 			'pb-sm'	=> 'S',
@@ -3100,7 +1913,7 @@ function hap_block_values( $key ) {
 			'pb-lg'	=> 'L',
 			'pb-xl'	=> 'XL',
 		],
-
+		// Padding left
 		'padding_l' => [
 			'pl-xs'	=> 'XS',
 			'pl-sm'	=> 'S',
@@ -3108,7 +1921,7 @@ function hap_block_values( $key ) {
 			'pl-lg'	=> 'L',
 			'pl-xl'	=> 'XL',
 		],
-		
+		// Padding right
 		'padding_r' => [
 			'pr-xs'	=> 'XS',
 			'pr-sm'	=> 'S',
@@ -3116,7 +1929,7 @@ function hap_block_values( $key ) {
 			'pr-lg'	=> 'L',
 			'pr-xl'	=> 'XL',
 		],
-		
+		// Margin
 		'margin' => [
 			'm-xs'	=> 'XS',
 			'm-sm'	=> 'S',
@@ -3124,7 +1937,7 @@ function hap_block_values( $key ) {
 			'm-lg'	=> 'L',
 			'm-xl'	=> 'XL',
 		],
-		
+		// Margin top
 		'margin_t' => [
 			'mt-xs'	=> 'XS',
 			'mt-sm'	=> 'S',
@@ -3132,7 +1945,7 @@ function hap_block_values( $key ) {
 			'mt-lg'	=> 'L',
 			'mt-xl'	=> 'XL',
 		],
-
+		// Margin bottom
 		'margin_b' => [
 			'mb-xs'	=> 'XS',
 			'mb-sm'	=> 'S',
@@ -3140,7 +1953,7 @@ function hap_block_values( $key ) {
 			'mb-lg'	=> 'L',
 			'mb-xl'	=> 'XL',
 		],
-		
+		// Margin left
 		'margin_l' => [
 			'ml-xs'	=> 'XS',
 			'ml-sm'	=> 'S',
@@ -3148,7 +1961,7 @@ function hap_block_values( $key ) {
 			'ml-lg'	=> 'L',
 			'ml-xl'	=> 'XL',
 		],
-		
+		// Margin right
 		'margin_r' => [
 			'mr-xs'	=> 'XS',
 			'mr-sm'	=> 'S',
@@ -3156,52 +1969,52 @@ function hap_block_values( $key ) {
 			'mr-lg'	=> 'L',
 			'mr-xl'	=> 'XL',
 		],
-		
+		// Background color
 		'bg_color' => [
-			'bg-default'		=> __('Transparent','hap'),
-			'bg-primary'		=> __('Primary color','hap'),
-			'bg-secondary'		=> __('Secondary color','hap'),
-			'bg-accent'			=> __('Accent color','hap'),
-			'bg-white'			=> __('White','hap'),
-			'bg-black'			=> __('Black','hap'),
-			'bg-gray-50'		=> __('Gray','hap') . ' 50',
-			'bg-gray-100'		=> __('Gray','hap') . ' 100',
-			'bg-gray-200'		=> __('Gray','hap') . ' 200',
-			'bg-gray-300'		=> __('Gray','hap') . ' 300',
-			'bg-gray-400'		=> __('Gray','hap') . ' 400',
-			'bg-gray-500'		=> __('Gray','hap') . ' 500',
-			'bg-gray-600'		=> __('Gray','hap') . ' 600',
-			'bg-gray-700'		=> __('Gray','hap') . ' 700',
-			'bg-gray-800'		=> __('Gray','hap') . ' 800',
-			'bg-gray-900'		=> __('Gray','hap') . ' 900',
+			'bg-default'		=> __('Transparent','mklang'),
+			'bg-primary'		=> __('Primary color','mklang'),
+			'bg-secondary'		=> __('Secondary color','mklang'),
+			'bg-accent'			=> __('Accent color','mklang'),
+			'bg-white'			=> __('White','mklang'),
+			'bg-black'			=> __('Black','mklang'),
+			'bg-gray-50'		=> __('Gray','mklang') . ' 50',
+			'bg-gray-100'		=> __('Gray','mklang') . ' 100',
+			'bg-gray-200'		=> __('Gray','mklang') . ' 200',
+			'bg-gray-300'		=> __('Gray','mklang') . ' 300',
+			'bg-gray-400'		=> __('Gray','mklang') . ' 400',
+			'bg-gray-500'		=> __('Gray','mklang') . ' 500',
+			'bg-gray-600'		=> __('Gray','mklang') . ' 600',
+			'bg-gray-700'		=> __('Gray','mklang') . ' 700',
+			'bg-gray-800'		=> __('Gray','mklang') . ' 800',
+			'bg-gray-900'		=> __('Gray','mklang') . ' 900',
 		],
-		
+		// Paragraph
 		'paragraph' => [
-			'text-left'		=> __('Left','hap'),
-			'text-right'	=> __('Right','hap'),
-			'text-center'	=> __('Center','hap'),
+			'text-left'		=> __('Left','mklang'),
+			'text-right'	=> __('Right','mklang'),
+			'text-center'	=> __('Center','mklang'),
 		],
-		
+		// Text color
 		'text_color' => [
-			'islight'		=> __('Dark','hap'),
-			'isdark'		=> __('Light','hap'),
+			'islight'		=> __('Dark','mklang'),
+			'isdark'		=> __('Light','mklang'),
 		],
-		
+		// Button style
 		'button_style' => [
-			'primary'			=> __('Primary','hap'),
-			'secondary'			=> __('Secondary','hap'),
-			'secondary light'	=> __('Secondary light','hap'),
-			'hollow'			=> __('Hollow','hap'),
-			'hollow light'		=> __('Hollow light','hap'),
+			'primary'			=> __('Primary','mklang'),
+			'secondary'			=> __('Secondary','mklang'),
+			'secondary light'	=> __('Secondary light','mklang'),
+			'hollow'			=> __('Hollow','mklang'),
+			'hollow light'		=> __('Hollow light','mklang'),
 		],
-
+		// Button size
 		'button_size' => [
-			'w-auto'			=> __('Auto','hap'),
-			'w-full'			=> __('Full width','hap'),
-			'small'				=> __('Small','hap'),
-			'small w-full'		=> __('Small full width','hap'),
+			'w-auto'			=> __('Auto','mklang'),
+			'w-full'			=> __('Full width','mklang'),
+			'small'				=> __('Small','mklang'),
+			'small w-full'		=> __('Small full width','mklang'),
 		],
-		
+		// Semantic tag
 		'semantic_tag' => [
 			'div'		=> 'div (default)',
 			'main'		=> 'main',
@@ -3216,7 +2029,7 @@ function hap_block_values( $key ) {
 			'ol'		=> 'ol',
 			'li'		=> 'li',
 		],
-		
+		// Column span
 		'col_span' => [
 			'col-span-1-1-2'	=>	'S1 M1 L2',
 			'col-span-1-1-3'	=>	'S1 M1 L3',
@@ -3226,7 +2039,7 @@ function hap_block_values( $key ) {
 			'col-span-1-3-3'	=>	'S1 M3 L3',
 			'col-span-1-3-6'	=>	'S1 M3 L6',
 		],
-		
+		// Background blending mode
 		'bg_blend_mode' => [
 			'bg-blend-normal'		=>	'Normal',
 			'bg-blend-multiply'		=>	'Multiply',
@@ -3245,7 +2058,7 @@ function hap_block_values( $key ) {
 			'bg-blend-color'		=>	'Color',
 			'bg-blend-luminosity'	=>	'Luminosity',
 		],
-		
+		// Blending mode
 		'mix_blend_mode' => [
 			'mix-blend-normal'		=>	'Normal',
 			'mix-blend-multiply'	=>	'Multiply',
@@ -3264,7 +2077,7 @@ function hap_block_values( $key ) {
 			'mix-blend-color'		=>	'Color',
 			'mix-blend-luminosity'	=>	'Luminosity',
 		],
-
+		// Height
 		'height' => [
 			'h-full'		=>	'100%',
 			'h-screen'		=>	'100vh',
@@ -3281,7 +2094,7 @@ function hap_block_values( $key ) {
 			'h-4/6'			=>	'2/3',
 			'h-5/6'			=>	'5/6',
 		],
-
+		// Min height
 		'min_height' => [
 			'min-h-full'		=>	'100%',
 			'min-h-screen'		=>	'100vh',
@@ -3297,74 +2110,56 @@ function hap_block_values( $key ) {
 			'min-h-25vw'		=>	'25vw',
 			'min-h-0'			=>	'0',
 		],
-		
+		// Flex direction
 		'flex_direction' => [
 			'flex-row'			=>	'row',
 			'flex-row-reverse'	=>	'row-reverse',
 			'flex-col'			=>	'column',
 			'flex-col-reverse'	=>	'column-reverse',
 		],
-		
+		// Post types
 		'post_types' => [
-			'post'	=>	__('Post','hap'),
-			'page'	=>	__('Page','hap'),
+			'post'	=>	__('Post','mklang'),
+			'page'	=>	__('Page','mklang'),
 		],
-		
 	];
-	
-	$values = apply_filters( 'hap_block_values', $values );
-	
+	// Allow a filter
+	$values = apply_filters('mkt_block_values',$values);
+	// Default value
 	$data = null;
-	
+	// If all data is requested
 	if( $key == 'all' ) {
-		
 		$data = $values;
-	
-	}else{
-		
+	}
+	// If only one group
+	else{
 		$data = $values[ $key ];
 	}
-	
 	return $data;
-	
 }
 
 /**
- * Get time ago message based on seconds.
- * https://gist.github.com/mokoshalb/8e2e1224cc3fb1f2c82c0d383ad67240
- *
- * @param integer $sec
- * @return string $label
+ * Icon link. A link with an icon
+ * @param array $link
+ * @param string $class
+ * @param string $icon
  */
-function hap_time_ago( $sec ) {
-    // Default value
-    $label = '';
-    // Starting seconds
-    $date1 = new DateTime("@0");
-	// Ending seconds
-    $date2 = new DateTime("@$sec");
-    // The time difference
-	$interval = date_diff($date1, $date2);
-	// Convert into Years, Months, Days, Hours, Minutes and Seconds
-    $years = intval($interval->format('%y'));
-    $months = intval($interval->format('%m'));
-    $days = intval($interval->format('%d'));
-    $hours = intval($interval->format('%h'));
-    $minutes = intval($interval->format('%i'));
-    $seconds = intval($interval->format('%s'));
-    // Return value accroding to time
-    if( $years > 0 ) {
-        $label = sprintf(__('%s Years, %s months and %s days ago.','hap'),$years,$months,$days);
-    }elseif( $months > 0 ) {
-        $label = sprintf(__('%s Months and %s days ago.','hap'),$months,$days);
-    }elseif( $days > 0 ) {
-        $label = sprintf(__('%s Days and %s hours ago.','hap'),$days,$hours);
-    }elseif( $hours > 0 ) {
-        $label = sprintf(__('%s Hours and %s minutes ago.','hap'),$hours,$minutes);
-    }elseif( $minutes > 0 ) {
-        $label = sprintf(__('%s Minutes and %s seconds ago.','hap'),$minutes,$seconds);
-    }elseif( $seconds > 0 ) {
-        $label = sprintf(__('%s Seconds ago.','hap'),$seconds);
-    }
-    return $label;    
+function mkt_icon_link( $link, $class = null, $icon = null ) : string {
+	// Default value
+	$html = null;
+	// If link is set
+	if( $link ) {
+		// Default icon
+		if( !$icon ) {
+			$icon = get_svg_icon('icon-link','svg-icon fill-current h-4','core');
+		}
+		// Start HTML
+		$html = '<a href="' . esc_url($link['url']) . '" ';
+		$html .= array_key_exists('target',$link) ? 'target="' . esc_attr($link['target']) . '" ' : null;
+		$html .= ' class="icon-link ' . esc_attr($class) . '">';
+		$html .= $icon;
+		$html .= esc_html($link['title']);
+		$html .= '</a>';
+	}
+	return $html;
 }

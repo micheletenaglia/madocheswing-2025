@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Template name: Teachers 
  * 
@@ -18,7 +21,6 @@ $teachers = get_posts([
 ]);
 
 ?>
-
 <div class="pl-sm pb-sm pr-sm">
     <header class="container-sm  mb-sm text-center">
         <span class="eyelet">Mado' che squadra</span>

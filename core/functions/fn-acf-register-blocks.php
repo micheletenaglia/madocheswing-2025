@@ -1,176 +1,139 @@
 <?php
 
 // Exit if accessed directly
-if( !defined('ABSPATH') ) {
-	exit;
-}
+defined('ABSPATH') || exit;
 
 /**
  * Register core blocks with ACF.
  *
- * Do not edit directly!
- * The functions.php file must be used 
- * to add functionality to the site.
- * 
- * @since Hap Studio Theme 1.0.0
  */
 
-/****************************************************************************************
-  ____  _     ___   ____ _  ______  
- | __ )| |   / _ \ / ___| |/ / ___| 
- |  _ \| |  | | | | |   | ' /\___ \ 
- | |_) | |__| |_| | |___| . \ ___) |
- |____/|_____\___/ \____|_|\_\____/ 
-
-****************************************************************************************/
-
-/* Filters ----------------------------------------------------------------------------*/
-
 // Add core block category
-add_filter('block_categories_all', 'hap_block_categories');
+add_filter('block_categories_all','mkt_block_categories');
 
 // Add project block category
-add_filter('block_categories_all', 'hap_block_categories_project');
+add_filter('block_categories_all','mkt_block_categories_project');
 
 // Set allowed blocks
-add_filter('allowed_block_types_all', 'hap_allowed_blocks', 10, 1);
-add_filter('hap_block_list','project_allowed_blocks');
-
-/* Actions ----------------------------------------------------------------------------*/
+add_filter('allowed_block_types_all','mkt_allowed_blocks',10,1);
+add_filter('mkt_block_list','project_allowed_blocks');
 
 // Register core blocks
-add_action('acf/init', 'hap_core_acf_blocks_init');
+add_action('acf/init','mkt_core_acf_blocks_init');
 
 // Register project blocks
-add_action('acf/init', 'hap_project_acf_blocks_init');
+add_action('acf/init','project_acf_blocks_init');
 
 // Enqueue custom blocks scripts
-add_action('enqueue_block_editor_assets', 'hap_block_editor_assets', PHP_INT_MAX);
-
-/* Functions --------------------------------------------------------------------------*/
+add_action('enqueue_block_editor_assets','mkt_block_editor_assets',PHP_INT_MAX);
 
 /**
  * Add category for blocks.
- *
  * @param array $categories
- * @return array $categories
  */
-function hap_block_categories( $categories ) {
-	
-	$category_slugs = wp_list_pluck($categories, 'slug');
-	
-	return in_array ('custom_hap_block_category', $category_slugs, true ) ? $categories : array_merge(
+function mkt_block_categories( $categories ) : array {
+	// Slugs
+	$category_slugs = wp_list_pluck($categories,'slug');
+	// Return value
+	return in_array('custom_mkt_block_category', $category_slugs, true ) ? $categories : array_merge(
 		$categories,
-		array(
+		[
 			// This category is never assigned
-			array(
-				'slug'  => 'hap_block_category',
-				'title' => __('Hap Core','hap'),
+			[
+				'slug'  => 'mkt_block_category',
+				'title' => __('Mkt Core','mklang'),
 				'icon'  => null,
-			),
+			],
 			// Layout
-			array(
-				'slug'  => 'hap_block_category_layout',
-				'title' => __('Hap / Layout','hap'),
+			[
+				'slug'  => 'mkt_block_category_layout',
+				'title' => __('Mkt / Layout','mklang'),
 				'icon'  => null,
-			),
+			],
 			// Images
-			array(
-				'slug'  => 'hap_block_category_images',
-				'title' => __('Hap / Images','hap'),
+			[
+				'slug'  => 'mkt_block_category_images',
+				'title' => __('Mkt / Images','mklang'),
 				'icon'  => null,
-			),
+			],
 			// Buttons
-			array(
-				'slug'  => 'hap_block_category_buttons',
-				'title' => __('Hap / Buttons and links','hap'),
+			[
+				'slug'  => 'mkt_block_category_buttons',
+				'title' => __('Mkt / Buttons and links','mklang'),
 				'icon'  => null,
-			),
+			],
 			// Modals
-			array(
-				'slug'  => 'hap_block_category_modals',
-				'title' => __('Hap / Modals','hap'),
+			[
+				'slug'  => 'mkt_block_category_modals',
+				'title' => __('Mkt / Modals','mklang'),
 				'icon'  => null,
-			),
+            ],
 			// Heros
-			array(
-				'slug'  => 'hap_block_category_heros',
-				'title' => __('Hap / Heros','hap'),
+			[
+				'slug'  => 'mkt_block_category_heros',
+				'title' => __('Mkt / Heros','mklang'),
 				'icon'  => null,
-			),
+            ],
 			// Get content
-			array(
-				'slug'  => 'hap_block_category_get_content',
-				'title' => __('Hap / Get content','hap'),
+			[
+				'slug'  => 'mkt_block_category_get_content',
+				'title' => __('Mkt / Get content','mklang'),
 				'icon'  => null,
-			),
+            ],
 			// Lists
-			array(
-				'slug'  => 'hap_block_category_lists',
-				'title' => __('Hap / Lists','hap'),
+			[
+				'slug'  => 'mkt_block_category_lists',
+				'title' => __('Mkt / Lists','mklang'),
 				'icon'  => null,
-			),
+            ],
 			// UI Elements
-			array(
-				'slug'  => 'hap_block_category_ui_elements',
-				'title' => __('Hap / UI Elements','hap'),
+			[
+				'slug'  => 'mkt_block_category_ui_elements',
+				'title' => __('Mkt / UI Elements','mklang'),
 				'icon'  => null,
-			),
+            ],
 			// Navigation
-			array(
-				'slug'  => 'hap_block_category_navigation',
-				'title' => __('Hap / Navigation','hap'),
+			[
+				'slug'  => 'mkt_block_category_navigation',
+				'title' => __('Mkt / Navigation','mklang'),
 				'icon'  => null,
-			),
+            ],
 			// Charts
-			array(
-				'slug'  => 'hap_block_category_charts',
-				'title' => __('Hap / Charts','hap'),
+			[
+				'slug'  => 'mkt_block_category_charts',
+				'title' => __('Mkt / Charts','mklang'),
 				'icon'  => null,
-			),
-		)
+            ],
+        ]
 	);
-	
 }
 
 /**
- * Callback function to automate the inclusion 
- * of the path to the render template of the block
- * !!! Doesn't work, $is_preview is not found
- *
+ * Callback function to automate the inclusion of the path to the render template of the block
+ * !!! Doesn't work, $is_preview is not found.
  * @param array $block
- * @return void
  */
-function hap_block_callback( $block,  $is_preview ) {
-	
+function mkt_block_callback( $block,  $is_preview ) : void {
 	// Convert name ("acf/testimonial") into path friendly slug ("testimonial")
 	$slug = str_replace( 
 		[ 'acf/', '_' ], 
 		[ '', '-' ], 
 		$block['name']
 	);
-	
+	// Path
 	$path = $slug . '/' . $slug . '.php';
-
 	// Conditionally include a template part
-	if (file_exists( HAP_PROJECT_BLOCKS . $path) ) {
-		
-		include( HAP_PROJECT_BLOCKS . $path );
-	
-	}elseif( file_exists( HAP_CORE_BLOCKS . $path ) ) {
-		
-		include( HAP_CORE_BLOCKS . $path );
-	
+	if (file_exists( get_template_directory() . '/project/blocks/' . $path) ) {
+		include(get_template_directory() . '/project/blocks/' . $path);
+	}elseif( file_exists( get_template_directory() . '/core/blocks/' . $path ) ) {
+		include( get_template_directory() . '/core/blocks/' . $path );
 	}
-
 }
 
 /**
  * Register core blocks.
- *
- * @return void.
  */
-function hap_core_acf_blocks_init() {
+function mkt_core_acf_blocks_init() : void {
 
     //======================================================================
     // Layout
@@ -179,9 +142,9 @@ function hap_core_acf_blocks_init() {
     // Register a container block.
     acf_register_block_type(array(
         'name'              => 'container',
-        'title'             => __('Container','hap'),
-        'description'       => __('A block for designing complex layouts.','hap'),
-        'category'          => 'hap_block_category_layout',
+        'title'             => __('Container','mklang'),
+        'description'       => __('A block for designing complex layouts.','mklang'),
+        'category'          => 'mkt_block_category_layout',
         'render_template'   => 'core/blocks/container/container.php',
         'icon' 				=> get_svg_icon(
             'container-preview', 
@@ -199,9 +162,9 @@ function hap_core_acf_blocks_init() {
     // Register a simple div.
     acf_register_block_type(array(
         'name'              => 'simple-div',
-        'title'             => __('Simple div','hap'),
-        'description'       => __('A simple DIV block.','hap'),
-        'category'          => 'hap_block_category_layout',
+        'title'             => __('Simple div','mklang'),
+        'description'       => __('A simple DIV block.','mklang'),
+        'category'          => 'mkt_block_category_layout',
         'render_template'   => 'core/blocks/simple-div/simple-div.php',
         'icon' 				=> get_svg_icon(
             'simple-div-preview', 
@@ -223,9 +186,9 @@ function hap_core_acf_blocks_init() {
     // Register the logo block.
     acf_register_block_type(array(
         'name'              => 'logo',
-        'title'             => __('Logo','hap'),
-        'description'       => __('The logo block.','hap'),
-        'category'          => 'hap_block_category_navigation',
+        'title'             => __('Logo','mklang'),
+        'description'       => __('The logo block.','mklang'),
+        'category'          => 'mkt_block_category_navigation',
         'render_template'   => 'core/blocks/logo/logo.php',
         'icon' 				=> get_svg_icon(
             'logo-preview', 
@@ -242,9 +205,9 @@ function hap_core_acf_blocks_init() {
     // Register the hamburger block.
     acf_register_block_type(array(
         'name'              => 'hamburger',
-        'title'             => __('Hamburger','hap'),
-        'description'       => __('The hamburger block.','hap'),
-        'category'          => 'hap_block_category_navigation',
+        'title'             => __('Hamburger','mklang'),
+        'description'       => __('The hamburger block.','mklang'),
+        'category'          => 'mkt_block_category_navigation',
         'render_template'   => 'core/blocks/hamburger/hamburger.php',
         'icon' 				=> get_svg_icon(
             'hamburger-preview', 
@@ -261,9 +224,9 @@ function hap_core_acf_blocks_init() {
     // Register the Company data and footer links block.
     acf_register_block_type(array(
         'name'              => 'company-data',
-        'title'             => __('Company data and footer links','hap'),
-        'description'       => __('Useful info and links that can be used in the footer or elsewhere.','hap'),
-        'category'          => 'hap_block_category_navigation',
+        'title'             => __('Company data and footer links','mklang'),
+        'description'       => __('Useful info and links that can be used in the footer or elsewhere.','mklang'),
+        'category'          => 'mkt_block_category_navigation',
         'render_template'   => 'core/blocks/company-data/company-data.php',
         'icon' 				=> get_svg_icon(
             'company-data-preview', 
@@ -280,9 +243,9 @@ function hap_core_acf_blocks_init() {
     // Register the Social links block.
     acf_register_block_type(array(
         'name'              => 'social-links',
-        'title'             => __('Social links','hap'),
-        'description'       => __('Links to social media.','hap'),
-        'category'          => 'hap_block_category_navigation',
+        'title'             => __('Social links','mklang'),
+        'description'       => __('Links to social media.','mklang'),
+        'category'          => 'mkt_block_category_navigation',
         'render_template'   => 'core/blocks/social-links/social-links.php',
         'icon' 				=> get_svg_icon(
             'social-links-preview', 
@@ -303,9 +266,9 @@ function hap_core_acf_blocks_init() {
     // Register the bar chart block.
     acf_register_block_type(array(
         'name'              => 'bar-chart',
-        'title'             => __('Bar chart','hap'),
-        'description'       => __('The bar chart block.','hap'),
-        'category'          => 'hap_block_category_charts',
+        'title'             => __('Bar chart','mklang'),
+        'description'       => __('The bar chart block.','mklang'),
+        'category'          => 'mkt_block_category_charts',
         'render_template'   => 'core/blocks/bar-chart/bar-chart.php',
         'icon' 				=> get_svg_icon(
             'bar-chart-preview', 
@@ -322,9 +285,9 @@ function hap_core_acf_blocks_init() {
     // Register the pie chart block.
     acf_register_block_type(array(
         'name'              => 'pie-chart',
-        'title'             => __('Pie chart','hap'),
-        'description'       => __('The pie chart block.','hap'),
-        'category'          => 'hap_block_category_charts',
+        'title'             => __('Pie chart','mklang'),
+        'description'       => __('The pie chart block.','mklang'),
+        'category'          => 'mkt_block_category_charts',
         'render_template'   => 'core/blocks/pie-chart/pie-chart.php',
         'icon' 				=> get_svg_icon(
             'pie-chart-preview', 
@@ -345,9 +308,9 @@ function hap_core_acf_blocks_init() {
     // Register a hero primary block.
     acf_register_block_type(array(
         'name'              => 'hero-primary',
-        'title'             => __('Hero primary','hap'),
-        'description'       => __('The main hero block.','hap'),
-        'category'          => 'hap_block_category_heros',
+        'title'             => __('Hero primary','mklang'),
+        'description'       => __('The main hero block.','mklang'),
+        'category'          => 'mkt_block_category_heros',
         'render_template'   => 'core/blocks/hero-primary/hero-primary.php',
         'icon' 				=> get_svg_icon(
             'hero-primary-preview', 
@@ -365,9 +328,9 @@ function hap_core_acf_blocks_init() {
     // Register a hero video block.
     acf_register_block_type(array(
         'name'              => 'hero-video',
-        'title'             => __('Hero video','hap'),
-        'description'       => __('The video hero block.','hap'),
-        'category'          => 'hap_block_category_heros',
+        'title'             => __('Hero video','mklang'),
+        'description'       => __('The video hero block.','mklang'),
+        'category'          => 'mkt_block_category_heros',
         'render_template'   => 'core/blocks/hero-video/hero-video.php',
         'icon' 				=> get_svg_icon(
             'hero-video-preview', 
@@ -390,12 +353,12 @@ function hap_core_acf_blocks_init() {
     // Register a custom image block.
     acf_register_block_type(array(
         'name'              => 'hap-image',
-        'title'             => __('Custom image','hap'),
-        'description'       => __('Add a custom image.','hap'),
-        'category'          => 'hap_block_category_images',
-        'render_template'   => 'core/blocks/hap-image/hap-image.php',
+        'title'             => __('Custom image','mklang'),
+        'description'       => __('Add a custom image.','mklang'),
+        'category'          => 'mkt_block_category_images',
+        'render_template'   => 'core/blocks/mkt-image/mkt-image.php',
         'icon' 				=> get_svg_icon(
-            'hap-image-preview', 
+            'mkt-image-preview', 
             null,
             'block-core'
         ),
@@ -410,9 +373,9 @@ function hap_core_acf_blocks_init() {
     // Register an svg icon block.
     acf_register_block_type(array(
         'name'              => 'svg-image',
-        'title'             => __('Svg image','hap'),
-        'description'       => __('Add a svg image.','hap'),
-        'category'          => 'hap_block_category_images',
+        'title'             => __('Svg image','mklang'),
+        'description'       => __('Add a svg image.','mklang'),
+        'category'          => 'mkt_block_category_images',
         'render_template'   => 'core/blocks/svg-image/svg-image.php',
         'icon' 				=> get_svg_icon(
             'svg-image-preview', 
@@ -429,9 +392,9 @@ function hap_core_acf_blocks_init() {
     // Register an image with sticker block.
     acf_register_block_type(array(
         'name'              => 'image-sticker',
-        'title'             => __('Image with sticker','hap'),
-        'description'       => __('Add an image with sticker.','hap'),
-        'category'          => 'hap_block_category_images',
+        'title'             => __('Image with sticker','mklang'),
+        'description'       => __('Add an image with sticker.','mklang'),
+        'category'          => 'mkt_block_category_images',
         'render_template'   => 'core/blocks/image-sticker/image-sticker.php',
         'icon' 				=> get_svg_icon(
             'image-sticker-preview', 
@@ -453,9 +416,9 @@ function hap_core_acf_blocks_init() {
     // Register a simple button block.
     acf_register_block_type(array(
         'name'              => 'simple-button',
-        'title'             => __('Simple button','hap'),
-        'description'       => __('Add a simple button.','hap'),
-        'category'          => 'hap_block_category_buttons',
+        'title'             => __('Simple button','mklang'),
+        'description'       => __('Add a simple button.','mklang'),
+        'category'          => 'mkt_block_category_buttons',
         'render_template'   => 'core/blocks/simple-button/simple-button.php',
         'icon' 				=> get_svg_icon(
             'simple-button-preview', 
@@ -468,32 +431,13 @@ function hap_core_acf_blocks_init() {
             'mode'		=> false,
         ),
     ));
-    
-    // Register an action link block.
-    acf_register_block_type(array(
-        'name'              => 'action-link',
-        'title'             => __('Action link','hap'),
-        'description'       => __('Add an action link to track events.','hap'),
-        'category'          => 'hap_block_category_buttons',
-        'render_template'   => 'core/blocks/action-link/action-link.php',
-        'icon' 				=> get_svg_icon(
-            'action-link-preview', 
-            null,
-            'block-core'
-        ),
-        'supports'          => array(
-            'anchor'	=> false,
-            'align'		=> false,
-            'mode'		=> false,
-        ),
-    ));
-    
+        
     // Register a anchor with content block.
     acf_register_block_type(array(
         'name'              => 'anchor-content',
-        'title'             => __('Link with content','hap'),
-        'description'       => __('Add a link with inner blocks.','hap'),
-        'category'          => 'hap_block_category_buttons',
+        'title'             => __('Link with content','mklang'),
+        'description'       => __('Add a link with inner blocks.','mklang'),
+        'category'          => 'mkt_block_category_buttons',
         'render_template'   => 'core/blocks/anchor-content/anchor-content.php',
         'icon' 				=> get_svg_icon(
             'anchor-content-preview', 
@@ -515,9 +459,9 @@ function hap_core_acf_blocks_init() {
     // Register a WPML language switcher block.
     acf_register_block_type(array(
         'name'              => 'wpml-switcher',
-        'title'             => __('WPML Language switcher','hap'),
-        'description'       => __('Add a language switcher.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('WPML Language switcher','mklang'),
+        'description'       => __('Add a language switcher.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/wpml-switcher/wpml-switcher.php',
         'icon' 				=> get_svg_icon(
             'wpml-switcher-preview', 
@@ -534,9 +478,9 @@ function hap_core_acf_blocks_init() {
     // Register a key number block.
     acf_register_block_type(array(
         'name'              => 'key-number',
-        'title'             => __('Key number','hap'),
-        'description'       => __('Add an infographic-style key number.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Key number','mklang'),
+        'description'       => __('Add an infographic-style key number.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/key-number/key-number.php',
         'icon' 				=> get_svg_icon(
             'key-number-preview', 
@@ -554,9 +498,9 @@ function hap_core_acf_blocks_init() {
     // Register a icon text block.
     acf_register_block_type(array(
         'name'              => 'icon-text',
-        'title'             => __('Icon text','hap'),
-        'description'       => __('Add a block with icon and text.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Icon text','mklang'),
+        'description'       => __('Add a block with icon and text.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/icon-text/icon-text.php',
         'icon' 				=> get_svg_icon(
             'icon-text-preview', 
@@ -574,9 +518,9 @@ function hap_core_acf_blocks_init() {
     // Register a banner with 2 columns.
     acf_register_block_type(array(
         'name'              => 'banner-col-2',
-        'title'             => __('Banner','hap'),
-        'description'       => __('A banner on two columns with text and image.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Banner','mklang'),
+        'description'       => __('A banner on two columns with text and image.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/banner-col-2/banner-col-2.php',
         'icon' 				=> get_svg_icon(
             'banner-col-2-preview', 
@@ -594,9 +538,9 @@ function hap_core_acf_blocks_init() {
     // Register a simple span.
     /*acf_register_block_type(array(
         'name'              => 'simple-span',
-        'title'             => __('Simple span','hap'),
-        'description'       => __('Just a simple span.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Simple span','mklang'),
+        'description'       => __('Just a simple span.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/simple-span/simple-span.php',
         'icon' 				=> get_svg_icon(
             'simple-span-preview', 
@@ -614,11 +558,11 @@ function hap_core_acf_blocks_init() {
     // Register a table of contents.
     acf_register_block_type(array(
         'name'              => 'toc',
-        'title'             => __('Table of contents','hap'),
-        'description'       => __('Add a table of contents.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Table of contents','mklang'),
+        'description'       => __('Add a table of contents.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/toc/toc.php',
-        'textdomain'		=> 'hap',
+        'textdomain'		=> 'mklang',
         'icon' 				=> get_svg_icon(
             'toc-preview', 
             null,
@@ -635,9 +579,9 @@ function hap_core_acf_blocks_init() {
     // Register a tab component.
     acf_register_block_type(array(
         'name'              => 'tabs',
-        'title'             => __('Tabs','hap'),
-        'description'       => __('Add a tab component.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Tabs','mklang'),
+        'description'       => __('Add a tab component.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/tabs/tabs.php',
         'icon' 				=> get_svg_icon(
             'tabs-preview', 
@@ -655,9 +599,9 @@ function hap_core_acf_blocks_init() {
     // Register a tab item.
     acf_register_block_type(array(
         'name'              => 'tabs-item',
-        'title'             => __('Tab','hap'),
-        'description'       => __('A tab item.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Tab','mklang'),
+        'description'       => __('A tab item.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/tabs-item/tabs-item.php',
         'icon' 				=> get_svg_icon(
             'tabs-item-preview', 
@@ -676,9 +620,9 @@ function hap_core_acf_blocks_init() {
     // Register an accordion component.
     acf_register_block_type(array(
         'name'              => 'accordion',
-        'title'             => __('Accordion','hap'),
-        'description'       => __('Add an accordion component.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Accordion','mklang'),
+        'description'       => __('Add an accordion component.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/accordion/accordion.php',
         'icon' 				=> get_svg_icon(
             'accordion-preview', 
@@ -696,9 +640,9 @@ function hap_core_acf_blocks_init() {
     // Register an accordion item.
     acf_register_block_type(array(
         'name'              => 'accordion-item',
-        'title'             => __('Accordion item','hap'),
-        'description'       => __('An accordion item.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Accordion item','mklang'),
+        'description'       => __('An accordion item.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/accordion-item/accordion-item.php',
         'icon' 				=> get_svg_icon(
             'accordion-item-preview', 
@@ -717,9 +661,9 @@ function hap_core_acf_blocks_init() {
     // Register a Photoswipe gallery.
     acf_register_block_type(array(
         'name'              => 'photoswipe-gallery',
-        'title'             => __('Photoswipe gallery','hap'),
-        'description'       => __('A Photoswipe gallery.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Photoswipe gallery','mklang'),
+        'description'       => __('A Photoswipe gallery.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/photoswipe-gallery/photoswipe-gallery.php',
         'icon' 				=> get_svg_icon(
             'photoswipe-gallery-preview', 
@@ -738,8 +682,8 @@ function hap_core_acf_blocks_init() {
     acf_register_block_type(array(
         'name'              => 'swiper',
         'title'             => 'Swiper Slider',
-        'description'       => __('Add a slider component.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'description'       => __('Add a slider component.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/swiper/swiper.php',
         'icon' 				=> get_svg_icon(
             'swiper-preview', 
@@ -757,9 +701,9 @@ function hap_core_acf_blocks_init() {
     // Register a Swiper slide component.
     acf_register_block_type(array(
         'name'              => 'swiper-slide',
-        'title'             => __('Swiper slide','hap'),
-        'description'       => __('A slide for Swiper Slider.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Swiper slide','mklang'),
+        'description'       => __('A slide for Swiper Slider.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/swiper-slide/swiper-slide.php',
         'icon' 				=> get_svg_icon(
             'swiper-slide-preview', 
@@ -778,9 +722,9 @@ function hap_core_acf_blocks_init() {
     // Register a map block.
     acf_register_block_type(array(
         'name'              => 'map',
-        'title'             => __('Map','hap'),
-        'description'       => __('A map block.','hap'),
-        'category'          => 'hap_block_category_ui_elements',
+        'title'             => __('Map','mklang'),
+        'description'       => __('A map block.','mklang'),
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/map/map.php',
         'icon' 				=> get_svg_icon(
             'map-preview', 
@@ -799,7 +743,7 @@ function hap_core_acf_blocks_init() {
         'name'              => 'link-with-icon',
         'title'             => __('Icon link','project'),
         'description'       => __('A link with an icon.','project'),
-        'category'          => 'hap_block_category_ui_elements',
+        'category'          => 'mkt_block_category_ui_elements',
         'render_template'   => 'core/blocks/link-with-icon/link-with-icon.php',
         'icon' 				=> get_svg_icon(
             'link-with-icon-preview', 
@@ -821,9 +765,9 @@ function hap_core_acf_blocks_init() {
     // Register a post query block.
     acf_register_block_type(array(
         'name'              => 'query',
-        'title'             => __('Query','hap'),
-        'description'       => __('Query posts and apply custom template.','hap'),
-        'category'          => 'hap_block_category_get_content',
+        'title'             => __('Query','mklang'),
+        'description'       => __('Query posts and apply custom template.','mklang'),
+        'category'          => 'mkt_block_category_get_content',
         'render_template'   => 'core/blocks/query/query.php',
         'icon' 				=> get_svg_icon(
             'query-preview', 
@@ -840,9 +784,9 @@ function hap_core_acf_blocks_init() {
     // Register a post selector block.
     acf_register_block_type(array(
         'name'              => 'post-selector',
-        'title'             => __('Post selector','hap'),
-        'description'       => __('Select posts and apply custom template.','hap'),
-        'category'          => 'hap_block_category_get_content',
+        'title'             => __('Post selector','mklang'),
+        'description'       => __('Select posts and apply custom template.','mklang'),
+        'category'          => 'mkt_block_category_get_content',
         'render_template'   => 'core/blocks/post-selector/post-selector.php',
         'icon' 				=> get_svg_icon(
             'post-selector-preview', 
@@ -860,9 +804,9 @@ function hap_core_acf_blocks_init() {
     // Register a WP menu block.
     acf_register_block_type(array(
         'name'              => 'menu-wp',
-        'title'             => __('Menu','hap'),
-        'description'       => __('Add a WP menu.','hap'),
-        'category'          => 'hap_block_category_get_content',
+        'title'             => __('Menu','mklang'),
+        'description'       => __('Add a WP menu.','mklang'),
+        'category'          => 'mkt_block_category_get_content',
         'render_template'   => 'core/blocks/menu/menu.php',
         'icon' 				=> get_svg_icon(
             'menu-preview', 
@@ -879,9 +823,9 @@ function hap_core_acf_blocks_init() {
     // Register a get template block.
     acf_register_block_type(array(
         'name'              => 'get-template',
-        'title'             => __('Get template','hap'),
-        'description'       => __('Get a template as a block.','hap'),
-        'category'          => 'hap_block_category_get_content',
+        'title'             => __('Get template','mklang'),
+        'description'       => __('Get a template as a block.','mklang'),
+        'category'          => 'mkt_block_category_get_content',
         'render_template'   => 'core/blocks/get-template/get-template.php',
         'icon' 				=> get_svg_icon(
             'get-template-preview', 
@@ -903,9 +847,9 @@ function hap_core_acf_blocks_init() {
     // Register a modal to open a Contact Form 7 form.
     acf_register_block_type(array(
         'name'              => 'modal-form-cf7',
-        'title'             => __('Contact Form 7 modal','hap'),
-        'description'       => __('A link/button to open a Contact Form 7 form in a modal.','hap'),
-        'category'          => 'hap_block_category_modals',
+        'title'             => __('Contact Form 7 modal','mklang'),
+        'description'       => __('A link/button to open a Contact Form 7 form in a modal.','mklang'),
+        'category'          => 'mkt_block_category_modals',
         'render_template'   => 'core/blocks/modal-form-cf7/modal-form-cf7.php',
         'icon' 				=> get_svg_icon(
             'modal-form-cf7-preview', 
@@ -927,9 +871,9 @@ function hap_core_acf_blocks_init() {
     // Register an advanced list.
     acf_register_block_type(array(
         'name'              => 'advanced-list',
-        'title'             => __('Advanced list','hap'),
-        'description'       => __('Add an advanced list.','hap'),
-        'category'          => 'hap_block_category_lists',
+        'title'             => __('Advanced list','mklang'),
+        'description'       => __('Add an advanced list.','mklang'),
+        'category'          => 'mkt_block_category_lists',
         'render_template'   => 'core/blocks/advanced-list/advanced-list.php',
         'icon' 				=> get_svg_icon(
             'advanced-list-preview', 
@@ -947,9 +891,9 @@ function hap_core_acf_blocks_init() {
     // Register an advanced list item.
     acf_register_block_type(array(
         'name'              => 'advanced-list-item',
-        'title'             => __('List item','hap'),
-        'description'       => __('An advanced list item.','hap'),
-        'category'          => 'hap_block_category_lists',
+        'title'             => __('List item','mklang'),
+        'description'       => __('An advanced list item.','mklang'),
+        'category'          => 'mkt_block_category_lists',
         'render_template'   => 'core/blocks/advanced-list-item/advanced-list-item.php',
         'icon' 				=> get_svg_icon(
             'advanced-list-item-preview', 
@@ -968,9 +912,9 @@ function hap_core_acf_blocks_init() {
     // Register a description list.
     acf_register_block_type(array(
         'name'              => 'description-list',
-        'title'             => __('Description list','hap'),
-        'description'       => __('Add a description list.','hap'),
-        'category'          => 'hap_block_category_lists',
+        'title'             => __('Description list','mklang'),
+        'description'       => __('Add a description list.','mklang'),
+        'category'          => 'mkt_block_category_lists',
         'render_template'   => 'core/blocks/description-list/description-list.php',
         'icon' 				=> get_svg_icon(
             'description-list-preview', 
@@ -988,9 +932,9 @@ function hap_core_acf_blocks_init() {
     // Register a description list item.
     acf_register_block_type(array(
         'name'              => 'description-list-item',
-        'title'             => __('Description list item','hap'),
-        'description'       => __('A description list item.','hap'),
-        'category'          => 'hap_block_category_lists',
+        'title'             => __('Description list item','mklang'),
+        'description'       => __('A description list item.','mklang'),
+        'category'          => 'mkt_block_category_lists',
         'render_template'   => 'core/blocks/description-list-item/description-list-item.php',
         'icon' 				=> get_svg_icon(
             'description-list-item-preview', 
@@ -1009,13 +953,10 @@ function hap_core_acf_blocks_init() {
 
 /**
  * Generate the whitelist of blocks to be used in the project.
- *
- * @url https://rudrastyh.com/gutenberg/remove-default-blocks.html
- *
- * @return $allowed_blocks.
+ * @link https://rudrastyh.com/gutenberg/remove-default-blocks.html
  */
-function hap_allowed_blocks( $allowed_blocks ) {
-	
+function mkt_allowed_blocks( $allowed_blocks ) : array {
+    // Listo f allwed blocks
 	$allowed_blocks =  [
 		// WP Core blocks
 		'core/block', // Activate reusable blocks
@@ -1034,12 +975,12 @@ function hap_allowed_blocks( $allowed_blocks ) {
 		'core/embed',
 		// 'core-embed/youtube',
 		// 'core-embed/vimeo',
-
+        /*----------------------------*/
 		// Yoast
 		'yoast/faq-block',
 		'yoast/how-to-block',
 		'yoast-seo/breadcrumbs',
-		
+		/*----------------------------*/
 		// ACF Blocks
 		// 'acf/hero-slider',
 		// 'acf/common-block-slider',
@@ -1048,7 +989,7 @@ function hap_allowed_blocks( $allowed_blocks ) {
 		// 'acf/photobutton',
 		// 'acf/testimonial',
 		// 'acf/video-embed',
-		
+		/*----------------------------*/
 		// Layout
 		'acf/container',
 		'acf/simple-div',
@@ -1058,7 +999,6 @@ function hap_allowed_blocks( $allowed_blocks ) {
 		'acf/image-sticker',
 		// Buttons and links
 		'acf/simple-button',
-		'acf/action-link',
 		'acf/anchor-content',
 		// Modals
 		'acf/modal-form-cf7',
@@ -1100,35 +1040,27 @@ function hap_allowed_blocks( $allowed_blocks ) {
 		'acf/bar-chart',
 		'acf/pie-chart',
 	];
-
-	// $allowed_blocks = array_merge( $allowed_blocks, (array) apply_filters('hap_block_list', [] ) );
-	$allowed_blocks = apply_filters( 'hap_block_list', $allowed_blocks );
-	
+	// $allowed_blocks = array_merge( $allowed_blocks, (array) apply_filters('mkt_block_list', [] ) );
+	$allowed_blocks = apply_filters('mkt_block_list',$allowed_blocks);
 	return $allowed_blocks;
-
 }
 
 /**
  * Enqueue block scripts.
- *
- * @return void.
  */
-function hap_block_editor_assets() {
-	
+function mkt_block_editor_assets() : void {
+	// Core JS block file
 	wp_enqueue_script(
-		'hap-blocks', 
-		HAP_CORE_URI . 'assets/admin/backend-blocks.js', 
-		['wp-blocks', 'wp-element', 'wp-edit-post']
+		'theme-blocks', 
+		get_template_directory_uri() . '/core/assets/admin/backend-blocks.js', 
+		['wp-blocks','wp-element','wp-edit-post']
 	);
-
-	if( file_exists( HAP_PROJECT_URI . 'assets/admin/backend-blocks.js' ) ) {
-		
+    // Project JS block file
+	if( file_exists(get_template_directory() . '/project/assets/admin/backend-blocks.js') ) {
 		wp_enqueue_script(
-			'hap-project-blocks', 
-			HAP_PROJECT_URI . 'assets/admin/backend-blocks.js', 
-			['wp-blocks', 'wp-element', 'wp-edit-post']
+			'project-blocks', 
+			get_template_directory_uri() . '/project/assets/admin/backend-blocks.js', 
+			['wp-blocks','wp-element','wp-edit-post']
 		);
-		
 	}
-
 }

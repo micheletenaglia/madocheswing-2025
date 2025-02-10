@@ -1,15 +1,20 @@
 <?php
 
-/* Template name: Privacy policy */
+// Exit if accessed directly
+defined('ABSPATH') || exit;
 
+/**
+ * Template name: Privacy policy
+ * 
+ */
+
+// Get header
 get_header();
 
 ?>
-
 <main class="container-md content p-4-8">
-	
 	<?php the_content(); ?>
-
 </main>
-
-<?php get_footer();
+<?php
+// Get footer
+get_footer();

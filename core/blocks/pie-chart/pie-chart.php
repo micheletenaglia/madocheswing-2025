@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Block Template: Pie chart.
  *
@@ -16,7 +19,7 @@ $size = get_field('chart_size');
 $values = get_field('chart_values');
 
 // Default palette if no color selected
-$palette = hap_color_palette();
+$palette = mkt_color_palette();
 
 // Index to associate iteration and color keys
 $index = 0;
@@ -60,87 +63,60 @@ if( !empty( $block['anchor'] ) ) {
 	$id = $block['anchor'];
 }
 
-?>
-
-<?php if( $is_preview ) : ?>
-
-	<div class="hap-wp-block"><!-- Start preview -->
-		
-		<div class="hap-wp-block-info"><!-- Start preview header -->
-
-			<div class="hap-wp-block-info-left">
-
-				<figure class="hap-wp-block-info-icon">
-					<?php echo get_svg_icon( 'pie-chart', null, 'block-core' ); ?>
+// Backend
+if( $is_preview ) : ?>
+	<div class="mkcb-wp-block">
+		<div class="mkcb-wp-block-info">
+			<div class="mkcb-wp-block-info-left">
+				<figure class="mkcb-wp-block-info-icon">
+					<?php echo get_svg_icon('pie-chart',null,'block-core'); ?>
 				</figure>
-
 				<div>
-					<span class="hap-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-					<span class="hap-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
+					<span class="mkcb-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+					<span class="mkcb-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
 				</div>
-
 			</div>
-			
-		</div><!-- End preview header -->
-
-		<div class="hap-wp-block-content"><!-- Start preview content -->
-
-			<?php if( $values ) : ?>
-			
-				<?php if( $get_labels ) : ?>
-
+		</div>
+		<div class="mkcb-wp-block-content">
+			<?php if( $values ) :
+				if( $get_labels ) : ?>
 					<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="pie-chart <?php echo esc_attr($class_name); ?>">
-						
 						<div>
-							<?php echo hap_pie_chart( $get_values, null, $get_colors, $size ); ?>
+							<?php echo mkt_pie_chart($get_values,null,$get_colors,$size); ?>
 						</div>
-						
 						<div class="ml-4">
-							<?php echo ( get_field('title') ) ? '<h6 class="mb-2">' . get_field('title') . '</h6>' : null; ?>
+							<?php echo get_field('title') ? '<h6 class="mb-2">' . get_field('title') . '</h6>' : null; ?>
 							<ul>
 								<?php foreach( $get_labels as $label => $data ) : ?>
 									<li class="chart-label">
 										<span>
-											<span class="dot" style="background-color: <?php echo $data['color']; ?>"></span>
-											<?php echo $data['value'] . '% ' . $label; ?>
+											<span class="dot" style="background-color: <?php echo esc_attr($data['color']); ?>"></span>
+											<?php echo esc_attr($data['value']) . '% ' . esc_html($label); ?>
 										</span>
 									</li>
 								<?php endforeach; ?>
 							</ul>
 						</div>
-
 					</div>
-
-					<?php else : ?>
-
-					<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="pie-chart <?php echo esc_attr($class_name); ?>">
-						<?php echo hap_pie_chart( $get_values, null, $get_colors, $size ); ?>
+				<?php else : ?>
+					<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="pie-chart <?php echo esc_attr	($class_name); ?>">
+						<?php echo mkt_pie_chart( get_values,null,$get_colors,$size); ?>
 					</div>
-
-				<?php endif; ?>
-
-			<?php else : ?>
-			
-				<strong class="text-error"><?php _e('Fill in the required fields.','hap'); ?></strong>
-			
+				<?php endif;
+			else : ?>
+				<strong class="text-error"><?php _e('Fill in the required fields.','mklang'); ?></strong>
 			<?php endif; ?>
-
-		</div><!-- End preview content -->
-		
-	</div><!-- End preview -->
-
-<?php else : // hap_pie_chart( $values, $css_classes = null, $colors = null, $size = 200 ) ?>
-
-	<?php if( $values ) : ?>
-
-		<?php if( $get_labels ) : ?>
-
+		</div>
+	</div>
+<?php else : 
+	// Frontend
+	// mkt_pie_chart( $values, $css_classes = null, $colors = null, $size = 200 )
+	if( $values ) :
+		if( $get_labels ) : ?>
 			<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="pie-chart flex items-center <?php echo esc_attr($class_name); ?>">
-				
 				<div>
-					<?php echo hap_pie_chart( $get_values, null, $get_colors, $size ); ?>
+					<?php echo mkt_pie_chart($get_values,null,$get_colors,$size); ?>
 				</div>
-				
 				<div class="ml-4">
 					<?php echo ( get_field('title') ) ? '<h6 class="mb-2">' . get_field('title') . '</h6>' : null; ?>
 					<ul>
@@ -154,17 +130,11 @@ if( !empty( $block['anchor'] ) ) {
 						<?php endforeach; ?>
 					</ul>
 				</div>
-
 			</div>
-
 		<?php else : ?>
-
 			<div <?php if($id) { echo 'id="' . esc_attr($id) . '"';} ?> class="pie-chart <?php echo esc_attr($class_name); ?>">
-				<?php echo hap_pie_chart( $get_values, null, $get_colors, $size ); ?>
+				<?php echo mkt_pie_chart($get_values,null,$get_colors,$size); ?>
 			</div>
-
-		<?php endif; ?>
-
-	<?php endif; ?>
-
-<?php endif; ?>
+		<?php endif;
+	endif;
+endif;

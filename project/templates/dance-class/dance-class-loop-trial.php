@@ -1,5 +1,8 @@
 <?php
-    
+
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * List of trial lessons.
  * 

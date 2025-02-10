@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Post card.
  * 
@@ -13,7 +16,6 @@ $category = get_the_category($post_id);
 $category = $category[0];
 
 ?>
-
 <a href="<?php echo get_the_permalink($post_id); ?>" class="card-dance-class">
     <div class="card-label">
         <span><?php echo $category->name; ?></span>

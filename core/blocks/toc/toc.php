@@ -1,5 +1,8 @@
 <?php
 
+// Exit if accessed directly
+defined('ABSPATH') || exit;
+
 /**
  * Block Template: Table of Contents.
  *
@@ -29,49 +32,34 @@ $allowed_blocks = [
 $open_tag = '<' . $list_type . ' class="' . esc_attr($class_name) . '">';
 $close_tag = '</' . $list_type . '>';
 	
-?>
-
-<?php if( $is_preview ) : ?>
-
-	<div class="hap-wp-block"><!-- Start preview -->
-		
-		<div class="hap-wp-block-info"><!-- Start preview header -->
-
-			<div class="hap-wp-block-info-left">
-
-				<figure class="hap-wp-block-info-icon">
-					<?php echo get_svg_icon( 'toc', null, 'block-core' ); ?>
+// Backend
+if( $is_preview ) : ?>
+	<div class="mkcb-wp-block">
+		<div class="mkcb-wp-block-info">
+			<div class="mkcb-wp-block-info-left">
+				<figure class="mkcb-wp-block-info-icon">
+					<?php echo get_svg_icon('toc',null,'block-core'); ?>
 				</figure>
-
 				<div>
-					<span class="hap-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
-					<span class="hap-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
+					<span class="mkcb-wp-block-title"><?php echo esc_attr($block['title']); ?></span>
+					<span class="mkcb-wp-block-desc"><?php echo esc_attr($block['description']); ?></span>
 				</div>
-
 			</div>
-
-			<div class="hap-wp-block-info-right">
+			<div class="mkcb-wp-block-info-right">
 				<a class="js-toc button primary small">
-					<?php _e('Refresh index','hap'); ?>
+					<?php _e('Refresh index','mklang'); ?>
 				</a>
 			</div>
-
-		</div><!-- End preview header -->
-		
-		<div class="hap-wp-block-content"><!-- Start preview content -->
-
+		</div>
+		<div class="mkcb-wp-block-content">
 			<?php echo $open_tag; ?>
-				<InnerBlocks allowedBlocks="<?php echo esc_attr( wp_json_encode( $allowed_blocks ) ); ?>" />
+				<InnerBlocks allowedBlocks="<?php echo esc_attr(wp_json_encode($allowed_blocks)); ?>" />
 			<?php echo $close_tag; ?>
-
-		</div><!-- End preview content -->
-
-	</div><!-- End preview -->
-		
-<?php else : ?>
-
-	<?php echo $open_tag; ?>
-		<InnerBlocks allowedBlocks="<?php echo esc_attr( wp_json_encode( $allowed_blocks ) ); ?>" />
-	<?php echo $close_tag; ?>
-		
-<?php endif; ?>
+		</div>
+	</div>
+<?php else : 
+	// Frontend
+	echo $open_tag; ?>
+		<InnerBlocks allowedBlocks="<?php echo esc_attr(wp_json_encode($allowed_blocks)); ?>" />
+	<?php echo $close_tag;
+endif;

@@ -1,10 +1,14 @@
 <?php
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined('ABSPATH') || exit;
 
+/**
+ * Template for post pagination.
+ * 
+ */
+
+// Pagination
 the_posts_pagination( 
 	[
 		'mid_size'	=>	2,
@@ -12,5 +16,3 @@ the_posts_pagination(
 		'next_text'	=>	get_svg_icon('chevron-right'),
 	]
 );
-
-?>

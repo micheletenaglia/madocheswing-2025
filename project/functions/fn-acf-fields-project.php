@@ -1,18 +1,21 @@
 <?php 
 
 // Exit if accessed directly
-if( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined('ABSPATH') || exit;
 
 /**
  * Add project custom fields.
  * 
- * @return void.
+ * This function is called in 
+ * core/functions/fn-acf-fields-theme.php
+ * mktFieldsTheme::fields
+ * 
  */
-// add_action( 'acf/include_fields', function() {
-if( function_exists('acf_add_local_field_group') ) {
-    
+function project_fields() {
+    // Bail out early
+    if( !function_exists('acf_add_local_field_group') ) {
+        return;
+    }    
     // Post type: Dance class
 	acf_add_local_field_group( array(
         'key'       => 'group_62adc5882c4b4',
@@ -241,7 +244,6 @@ if( function_exists('acf_add_local_field_group') ) {
         'description'           => '',
         'show_in_rest'          => 0,
     ));
-
     // Post type: Event
 	acf_add_local_field_group( array(
         'key'       => 'group_632cc5992b5f7',
@@ -364,7 +366,6 @@ if( function_exists('acf_add_local_field_group') ) {
         'description'           => '',
         'show_in_rest'          => 0,
     ));
-
     // Post type: Level
 	acf_add_local_field_group( array(
         'key'       => 'group_632e20ceba487',
@@ -420,7 +421,6 @@ if( function_exists('acf_add_local_field_group') ) {
         'description'           => '',
         'show_in_rest'          => 0,
     ));
-
     // Post type: Location
 	acf_add_local_field_group( array(
         'key'       => 'group_62b0ae648cddd',
@@ -475,7 +475,6 @@ if( function_exists('acf_add_local_field_group') ) {
         'description'           => '',
         'show_in_rest'          => 0,
     ));
-
     // Post type: Style
 	acf_add_local_field_group( array(
         'key'       => 'group_62b070ece29e9',
@@ -508,7 +507,6 @@ if( function_exists('acf_add_local_field_group') ) {
         'description'           => '',
         'show_in_rest'          => 0,
     ));
-
     // Post type: Teacher
 	acf_add_local_field_group( array(
         'key'       => 'group_62b050855297a',
@@ -595,5 +593,4 @@ if( function_exists('acf_add_local_field_group') ) {
         'description'           => '',
         'show_in_rest'          => 0,
     ));
-
 }
