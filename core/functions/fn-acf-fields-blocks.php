@@ -2582,7 +2582,7 @@ function mkt_load_fields_blocks() : void {
 				array(
 					'param'     => 'block',
 					'operator'  => '==',
-					'value'     => 'acf/hap-image',
+					'value'     => 'acf/custom-image',
 				),
 			),
 		),

@@ -352,7 +352,7 @@ function mkt_core_acf_blocks_init() : void {
 
     // Register a custom image block.
     acf_register_block_type(array(
-        'name'              => 'hap-image',
+        'name'              => 'custom-image',
         'title'             => __('Custom image','mklang'),
         'description'       => __('Add a custom image.','mklang'),
         'category'          => 'mkt_block_category_images',
@@ -994,7 +994,7 @@ function mkt_allowed_blocks( $allowed_blocks ) : array {
 		'acf/container',
 		'acf/simple-div',
 		// Images
-        'acf/hap-image',
+        'acf/custom-image',
 		'acf/svg-image',
 		'acf/image-sticker',
 		// Buttons and links
