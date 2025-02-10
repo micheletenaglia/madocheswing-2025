@@ -1,0 +1,86 @@
+@keyframes spin {
+	to {
+	transform:rotate(1turn)
+}
+
+}
+@-webkit-keyframes ping {
+	75%,to {
+	opacity:0;
+	transform:scale(2)
+}
+
+}
+@keyframes ping {
+	75%,to {
+	opacity:0;
+	transform:scale(2)
+}
+
+}
+@-webkit-keyframes pulse {
+	50% {
+	opacity:.5
+}
+
+}
+@keyframes pulse {
+	50% {
+	opacity:.5
+}
+
+}
+@-webkit-keyframes bounce {
+	0%,to {
+	-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);
+	animation-timing-function:cubic-bezier(.8,0,1,1);
+	transform:translateY(-25%)
+}
+50% {
+	-webkit-animation-timing-function:cubic-bezier(0,0,
+.2,1);
+	animation-timing-function:cubic-bezier(0,0,
+.2,1);
+	transform:none
+}
+
+}
+@keyframes bounce {
+	0%,to {
+	-webkit-animation-timing-function:cubic-bezier(.8,0,1,1);
+	animation-timing-function:cubic-bezier(.8,0,1,1);
+	transform:translateY(-25%)
+}
+50% {
+	-webkit-animation-timing-function:cubic-bezier(0,0,
+.2,1);
+	animation-timing-function:cubic-bezier(0,0,
+.2,1);
+	transform:none
+}
+
+}
+.animate-none {
+	-webkit-animation:none;
+	animation:none
+}
+.animate-spin {
+	-webkit-animation:spin 1s linear infinite;
+	animation:spin 1s linear infinite
+}
+.animate-ping {
+	-webkit-animation:ping 1s cubic-bezier(0,0,
+.2,1) infinite;
+	animation:ping 1s cubic-bezier(0,0,
+.2,1) infinite
+}
+.animate-pulse {
+	-webkit-animation:pulse 2s cubic-bezier(.4,0,
+.6,1) infinite;
+	animation:pulse 2s cubic-bezier(.4,0,
+.6,1) infinite
+}
+.animate-bounce {
+	-webkit-animation:bounce 1s infinite;
+	animation:bounce 1s infinite
+}

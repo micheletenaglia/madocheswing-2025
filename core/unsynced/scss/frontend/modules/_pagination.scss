@@ -1,0 +1,26 @@
+.navigation.pagination {
+	.nav-links {
+		display: inline-flex;
+		align-items: center;
+		border: var(--button-border-width) solid var(--border-color);
+		overflow: hidden;
+		border-radius: var(--button-border-radius);
+		.page-numbers {
+			width: 2rem;
+			height: 2rem;
+			font-size: .875rem;
+			font-weight: var(--font-weight-bold);
+			border-right: var(--button-border-width) solid var(--border-color);
+			@include flex-center;
+			svg {
+				height: .875rem;
+			}
+			&.current {
+				color: var(--border-color);
+			}
+			&:last-child {
+				border-right: none;
+			}
+		}
+	}
+}

@@ -1,0 +1,137 @@
+html, body {
+	font-size: $body-size-min;
+	@include break-3 {
+		font-size: $body-size-md;
+	}
+	@include break-4 {
+		font-size: $body-size-max;
+	}
+}
+p {
+	padding-bottom: 1.5em;
+}
+/*p:last-child {
+	padding-bottom: 0;
+}*/
+b, strong {
+	font-weight: var(--font-weight-bold);
+}
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	color: var(--color-title);
+	// font-weight: var(--title-font-weight);
+	transition: all .4s linear;
+}
+h1, .h1 {
+	font-size: 2.4rem;
+	font-weight: $h1-font-weight;
+	font-size: clamp( $h1-min, $h1-med, $h1-max );
+	margin-bottom: .5em;
+	line-height: 1em;
+}
+h2, .h2 {
+	font-size: 2.1rem;
+	font-weight: $h2-font-weight;
+	font-size: clamp( $h2-min, $h2-med, $h2-max );
+	margin-bottom: .5em;
+	line-height: 1.2em;
+}
+h3, .h3 {
+	font-size: 1.8rem;
+	font-weight: $h3-font-weight;
+	font-size: clamp( $h3-min, $h3-med, $h3-max );
+	margin-bottom: .5em;
+	line-height: 1.2em;
+}
+h4, .h4 {
+	font-size: 1.5rem;
+	font-weight: $h4-font-weight;
+	font-size: clamp( $h4-min, $h4-med, $h4-max );
+	margin-bottom: .75em;
+	line-height: 1.2em;
+}
+h5, .h5 {
+	font-size: 1rem;
+	font-weight: $h5-font-weight;
+	font-size: $h5-size;
+	margin-bottom: 1em;
+	line-height: 1.2em;
+}
+h6, .h6 {
+	font-size: .875rem;
+	font-weight: $h6-font-weight;
+	font-size: $h6-size;
+	margin-bottom: .5em;
+	line-height: 1.2em;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a{
+	color: inherit;
+}
+/*
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover{
+	text-decoration: underline;
+}*/
+h1 br,
+h2 br,
+h3 br,
+h4 br,
+h5 br,
+h6 br{
+	@include break-2-max {
+		display: none;
+	}
+}
+.mono {
+	font-variant-numeric: tabular-nums;
+}
+.islight {
+	color: var(--color-text);
+	h1, .h1,
+	h2, .h2,
+	h3, .h3,
+	h4, .h4,
+	h5, .h5,
+	h6, .h6 {
+		color: var(--color-title);
+	}
+	p, li {
+		color: var(--color-text);
+	}
+	p a, li a {
+		color: var(--link-color);
+	}
+}
+
+.number-xl {
+	font-size: 2rem;
+	line-height: 1em;
+	color: var(--color-title);
+	@include break-3 {
+		font-size: 3rem;
+	}
+}
+
+.font-primary {
+	font-family: "Primary Font" ;
+}
+.font-secondary {
+	font-family: "Secondary Font" ;
+}
+.font-extra {
+	font-family: "Extra Font" ;
+}

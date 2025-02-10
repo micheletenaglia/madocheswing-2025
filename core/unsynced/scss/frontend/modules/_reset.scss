@@ -1,0 +1,136 @@
+a,
+abbr,
+acronym,
+address,
+applet,
+b,
+big,
+blockquote,
+body,
+center,
+cite,
+code,
+dd,
+del,
+dfn,
+div,
+dl,
+dt,
+em,
+fieldset,
+font,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+object,
+ol,
+p,
+pre,
+q,
+s,
+samp,
+small,
+span,
+strike,
+strong,
+sub,
+sup,
+tt,
+u,
+ul,
+var,
+figure,
+figcaption {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	background: 0 0;
+	font-size: 100%;
+	vertical-align : baseline;
+	-webkit-text-size-adjust : 100%;
+	-ms-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+	
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-smoothing: antialiased;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	
+	-moz-tab-size:4;
+	-o-tab-size:4;
+	tab-size:4
+}
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+	border: 0 solid;
+}
+summary {
+	display: list-item;
+}
+blockquote, dd, dl, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
+	margin:0
+}
+audio, canvas, embed, iframe, img, object, svg, video {
+	display: block;
+	vertical-align: middle;
+}
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:after,
+blockquote:before,
+q:after,
+q:before {
+	content: '';
+	content: none;
+}
+article,
+aside,
+footer,
+header,
+hgroup,
+nav,
+section {
+	display: block;
+}
+embed,
+iframe,
+object,
+video {
+	max-width: 100%;
+}
+.clear {
+	clear: both;
+}
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+.pointer-events-none {
+	pointer-events: none;
+}
+.pointer-events-auto {
+	pointer-events: auto;
+}

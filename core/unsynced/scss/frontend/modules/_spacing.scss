@@ -1,0 +1,94 @@
+// loop of padding and margin prefixes
+@each $spacing in $spacings {
+	
+	// condition to set variable padding/margin
+	$spacing-type: '';
+	@if $spacing == '.p' {
+		$spacing-type: 'padding';
+	} @else if $spacing == '.m' {
+		$spacing-type: 'margin';
+	}
+	
+	@each $spacing in $spacings {
+		#{$spacing}-auto {
+			#{$spacing-type}: auto;
+		}
+		#{$spacing}x-auto {
+			#{$spacing-type}-left: auto;
+			#{$spacing-type}-right: auto;
+		}
+		#{$spacing}l-auto {
+			#{$spacing-type}-left: auto;
+		}
+		#{$spacing}r-auto {
+			#{$spacing-type}-right: auto;
+		}
+	}	
+	
+	// array of directions
+	$directions: '-','t-','b-','r-','l-';
+	
+	// loop of directions
+	@each $direction in $directions {
+		
+		// condition to set direction none/top-bottom/right/left
+		$direction-style: '';
+		@if $direction == 't-' {
+			$direction-style: '-top';
+		} @else if $direction == 'b-' {
+			$direction-style: '-bottom';
+		} @else if $direction == 'r-' {
+			$direction-style: '-right';
+		} @else if $direction == 'l-' {
+			$direction-style: '-left';
+		}@else {
+			$direction-style: '';
+		}		
+				
+		// Deafult padding and margin
+		@each $fixed-size in $fixed-sizes {
+			
+			$fixed-size-rem: ( $fixed-size / 4 ) + 'rem';
+			
+			#{$spacing}#{$direction}#{$fixed-size} {
+				#{$spacing-type}#{$direction-style}: unquote($fixed-size-rem);
+			}
+			
+		}
+		
+		// Responsive padding and margin from break-3 viewport
+		@each $responsive-size in $responsive-sizes {
+			
+			$responsive-size-medium: '-' + $responsive-size * 2 ;
+			$responsive-size-rem: ( $responsive-size / 4 ) + 'rem';
+			$responsive-size-rem: unquote($responsive-size-rem);
+			
+			// @if index($fixed-size, $exclusions) {
+			#{$spacing}#{$direction}#{$responsive-size}#{$responsive-size-medium} {
+				#{$spacing-type}#{$direction-style}: calc( var(--space-1-2) * #{$responsive-size-rem} );
+			}
+			
+		}
+		
+		// Responsive padding and margin from break-3 viewport and from break-4 viewport
+		@each $super-responsive-size in $super-responsive-sizes {
+			
+			$super-responsive-size-medium: '-' + $super-responsive-size * 2 ;
+			$super-responsive-size-large: '-' + $super-responsive-size * 3 ;
+			$super-responsive-size-extra-large: '-' + $super-responsive-size * 4 ;
+			
+			$super-responsive-size-rem: ( $super-responsive-size / 4 ) + 'rem';
+			$super-responsive-size-rem: unquote($super-responsive-size-rem);
+			
+			#{$spacing}#{$direction}#{$super-responsive-size}#{$super-responsive-size-medium}#{$super-responsive-size-large} {
+				#{$spacing-type}#{$direction-style}: calc( var(--space-1-2-3) * #{$super-responsive-size-rem} );
+			}
+
+			#{$spacing}#{$direction}#{$super-responsive-size}#{$super-responsive-size-medium}#{$super-responsive-size-extra-large} {
+				#{$spacing-type}#{$direction-style}: calc( var(--space-1-2-4) * #{$super-responsive-size-rem} );
+			}
+			
+		}
+		
+	}
+}

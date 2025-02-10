@@ -1,0 +1,41 @@
+cite, em, i {
+	font-style: italic;
+}
+code, kbd, pre, samp {
+	font-family: ui-monospace,SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+	font-size: 1em;
+	margin-bottom: 10px;
+}
+pre {
+	overflow: auto;
+}
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+small {
+	font-size: 80%;
+}
+sub,
+sup {
+	position: relative;
+	height: 0;
+	line-height: 0;
+	vertical-align: baseline;
+	font-size: 50%;
+}
+sub {
+	bottom: -.25em;
+}
+sup {
+	top: -.5em;
+}
+address {
+	font-style: normal;
+}
+abbr[title] {
+	-webkit-text-decoration:underline dotted;
+	text-decoration:underline dotted
+}

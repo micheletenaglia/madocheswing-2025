@@ -1,0 +1,376 @@
+@mixin container($size) {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	transition: var(--transition-default);
+	@if $size == small {
+		@include break-3 {
+			max-width: calc( 100% - 4rem );
+		}
+		@include break-4 {
+			max-width: #{$breakpoint-2};
+		}
+		@include break-5 {
+			max-width: #{$breakpoint-3};
+		}
+	} @else if $size == medium {
+		@include break-3 {
+			max-width: calc( 100% - 4rem );
+		}
+		@include break-4 {
+			max-width: #{$breakpoint-3};
+		}
+		@include break-5 {
+			max-width: #{$breakpoint-4};
+		}
+	} @else if $size == large {
+		@include break-4 {
+			max-width: calc( 100% - 4rem );
+		}
+	}
+}
+
+@mixin full-fixed($z-index) {
+	position: fixed;
+	z-index: $z-index;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+@mixin full-absolute($z-index) {
+	position: absolute;
+	z-index: $z-index;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@mixin grid-columns( $columns-1, $columns-2: false, $columns-3: false ) {
+	grid-template-columns: repeat($columns-1, minmax(0, 1fr));
+	@if $columns-2 != false {
+		@include break-3 {
+			grid-template-columns: repeat($columns-2, minmax(0, 1fr));
+		}
+	}
+	@if $columns-3 != false {
+		@include break-4 {
+			grid-template-columns: repeat($columns-3, minmax(0, 1fr));
+		}
+	}
+}
+@mixin col-span( $columns-1, $columns-2: false, $columns-3: false ) {
+	grid-column: span $columns-1/span $columns-1;
+	@if $columns-2 != false {
+		@include break-3 {
+			grid-column: span $columns-2/span $columns-2;
+		}
+	}
+	@if $columns-3 != false {
+		@include break-4 {
+			grid-column: span $columns-3/span $columns-3;
+		}
+	}
+}
+@mixin rgba-background($hexcolor, $opacity) {
+  background-color: $hexcolor;
+  background-color: rgba($hexcolor, $opacity); 
+}
+@mixin rgba($hexcolor, $opacity) {
+  color: $hexcolor;
+  color: rgba($hexcolor, $opacity); 
+}
+
+@mixin mt-font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	font-display: fallback;
+}
+
+@mixin flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin vertical-justified {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+// Vendors
+@mixin border-radius($property) {
+  -webkit-border-radius: $property;
+  -moz-border-radius: $property;
+  -o-border-radius: $property;
+  -ms-border-radius: $property;
+  border-radius: $property;
+}
+
+@mixin transition($property) {
+  -webkit-transition: $property;
+  -moz-transition: $property;
+  -o-transition: $property;
+  -ms-transition: $property;
+  transition: $property;
+}
+
+@mixin text-shadow($property) {
+  -webkit-text-shadow: $property;
+  -moz-text-shadow: $property;
+  -o-text-shadow: $property;
+  -ms-text-shadow: $property;
+  text-shadow: $property;
+}
+
+@mixin box-shadow($property...) {
+  -webkit-box-shadow: $property;
+  -moz-box-shadow: $property;
+  -o-box-shadow: $property;
+  -ms-box-shadow: $property;
+  box-shadow: $property;
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -moz-transform: $property;
+  -o-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin transform-origin($property) {
+  -webkit-transform-origin: $property;
+  -moz-transform-origin: $property;
+  -o-transform-origin: $property;
+  -ms-transform-origin: $property;
+  transform-origin: $property;
+}
+
+@mixin button-base() {
+	display: inline-flex;
+	height: #{$button-height};
+	margin: #{$button-margin};
+	padding: #{$button-padding};
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	font-weight: var(--button-font-weight);
+	text-align: center;
+	line-height: 1;
+	border-style: solid;
+	border-width: var(--button-border-width);
+	border-radius: var(--button-border-radius);
+	cursor: pointer;
+	transition: all .2s ease-in-out;
+	&:hover {
+		text-decoration: none;
+		transform: scale(1.025);
+	}
+	&:disabled,
+	&:disabled:hover {
+		opacity: .25;
+		cursor: not-allowed;
+		&:before,
+		&:after {
+			display: none !important;
+		}
+	}
+	&.hidden {
+		display: none;
+	}
+}
+
+@mixin button-primary() {
+	@include button-base();
+	color: var(--color-button-text);
+	background-color: var(--color-button-bg);
+	border-color: var(--color-button-border);
+	&:hover {
+		color: var(--color-button-text-hover);
+		background-color: var(--color-button-bg-hover);
+		border-color: var(--color-button-border-hover);
+		box-shadow: 0 0 0 1px var(--color-button-border-hover);
+	}
+	&:focus {
+		box-shadow: 0 0 0 1px var(--color-button-text), 0 0 0 3px var(--color-button-bg);
+	}
+	&:disabled,
+	&:disabled:hover {
+		opacity: .5;
+	}
+}
+@mixin button-hollow() {
+	@include button-base();
+	color: var(--color-button-hollow-text);
+	background-color: transparent;
+	border-color: var(--color-button-hollow-border);
+	&:hover {
+		color: var(--color-button-hollow-text-hover);
+		background-color: var(--color-button-hollow-bg-hover);
+		border-color: var(--color-button-hollow-border-hover);
+		box-shadow: 0 0 0 1px var(--color-button-hollow-border-hover);
+	}
+	&:focus {
+		box-shadow: 0 0 0 1px var(--color-button-text), 0 0 0 3px var(--color-button-bg);
+	}
+}
+@mixin button-hollow-light() {
+	color: var(--color-button-hollow-light-text);
+	background-color: var(--color-button-hollow-light-bg);
+	border-color: var(--color-button-hollow-light-border);
+	&:hover {
+		color: var(--color-button-hollow-light-text-hover);
+		background-color: var(--color-button-hollow-light-bg-hover);
+		border-color: var(--color-button-hollow-light-border-hover);
+		box-shadow: 0 0 0 1px var(--color-button-hollow-light-border-hover);
+	}
+	&:focus {
+		box-shadow: 0 0 0 1px var(--color-button-text), 0 0 0 3px var(--color-button-bg);
+	}
+}
+@mixin button-secondary() {
+	@include button-base();
+	color: var(--color-button-secondary-text);
+	background-color: var(--color-button-secondary-bg);
+	border-color: var(--color-button-secondary-border);
+	&:hover {
+		color: var(--color-button-secondary-text-hover);
+		background-color: var(--color-button-secondary-bg-hover);
+		border-color: var(--color-button-secondary-border-hover);
+		box-shadow: 0 0 0 1px var(--color-button-secondary-border-hover);
+	}
+	&:focus {
+		box-shadow: 0 0 0 1px var(--color-button-text), 0 0 0 3px var(--color-button-secondary-bg);
+	}
+}
+@mixin button-secondary-light() {
+	color: var(--color-button-secondary-light-text);
+	background-color: var(--color-button-secondary-light-bg);
+	border-color: var(--color-button-secondary-light-border);
+	&:hover {
+		color: var(--color-button-secondary-light-text-hover);
+		background-color: var(--color-button-secondary-light-bg-hover);
+		border-color: var(--color-button-secondary-light-border-hover);
+		box-shadow: 0 0 0 1px var(--color-button-secondary-light-border-hover);
+	}
+	&:focus {
+		box-shadow: 0 0 0 1px var(--color-button-text), 0 0 0 3px var(--color-button-secondary-bg);
+	}
+}
+@mixin button-small() {
+	padding: .25em 2em;
+	height: var(--button-small-height);
+	font-size: 14px;
+} 
+@mixin button-adjacent() {
+	margin: 0 .5rem .5rem 0;	
+}
+@mixin button-long() {
+	width: 100%;
+	@include break-3 {
+		width: 12rem;			
+		max-width: 100%;
+	}
+}
+
+// String replace
+// Replace $search with $replace in $string
+//
+// @param {String} $string - Initial string.
+// @param {String} $search - Substring to replace.
+// @param {String} $replace ('') - New value.
+// @return {String} - Updated string.
+//
+@function str-replace($string, $search, $replace: '') {
+	
+	$index: str-index($string, $search);
+
+	@if $index {
+
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+
+}
+
+// Implode
+// Join list elements to form a single string
+//
+// @param {string} $pieces: the list of strings to implode.
+// @param {string} $glue: the "glue" between elements in the result string.
+// @return {string} the result string.
+//
+@function implode($pieces, $glue: "") {
+
+	$result: null;
+	
+	@for $i from 1 through length($pieces) {
+	
+		$piece: nth($pieces, $i);
+		
+		@if type-of($piece) == list {
+		
+			$result: unquote("#{$result}#{$glue}#{implode($piece, $glue)}");
+
+		} @else {
+		
+			$result: unquote("#{$result}#{$glue}#{$piece}");
+		
+		}
+	
+	}
+	
+	@if $result != null {
+
+		$result: str-slice($result, str-length($glue) + 1, -1);
+	
+	}
+	
+	@return $result;
+
+}
+
+// Grid
+// Generate responsive grids with custom gap
+//
+// @param {integer} $break-1: grid default value.
+// @param {integer} $break-2: grid value media query > 960px.
+// @param {integer} $break-3: grid value media query > 1280px.
+// @param {string} $gap: grid gap value.
+//
+@mixin grid( $break-2, $break-3 : false, $break-4 : false, $break-5 : false, $gap : 1rem ) {
+	display: grid;
+	gap: $gap;
+	grid-template-columns: repeat($break-2, minmax(0, 1fr));
+	@if $break-3 {
+		@include break-3 {
+			gap: 2*$gap;
+			grid-template-columns: repeat($break-3, minmax(0, 1fr));	
+		}
+	}
+	@if $break-4 {
+		@include break-4 {
+			grid-template-columns: repeat($break-4, minmax(0, 1fr));	
+		}
+	}
+	@if $break-5 {
+		@include break-5 {
+			grid-template-columns: repeat($break-5, minmax(0, 1fr));	
+		}
+	}
+
+}
+
+// Convert hex to numeric R, G, B
+//
+// @param {string} $color: the HEX color value.
+// @return {string} R, G, B.
+//
+@function toRGB ($color) {
+    @return red($color) + ", " + green($color) + ", " + blue($color);
+}

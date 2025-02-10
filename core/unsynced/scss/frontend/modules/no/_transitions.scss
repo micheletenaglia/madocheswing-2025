@@ -1,0 +1,103 @@
+.transition-none {
+	transition-property:none
+}
+.transition-all {
+	transition-duration:.15s;
+	transition-property:all;
+	transition-timing-function:cubic-bezier(.4,0,
+.2,1)
+}
+.transition {
+	transition-duration:.15s;
+	transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,filter,-webkit-backdrop-filter;
+	transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter;
+	transition-property:background-color,border-color,color,fill,stroke,opacity,box-shadow,transform,filter,backdrop-filter,-webkit-backdrop-filter;
+	transition-timing-function:cubic-bezier(.4,0,
+.2,1)
+}
+.transition-colors {
+	transition-duration:.15s;
+	transition-property:background-color,border-color,color,fill,stroke;
+	transition-timing-function:cubic-bezier(.4,0,
+.2,1)
+}
+.transition-opacity {
+	transition-duration:.15s;
+	transition-property:opacity;
+	transition-timing-function:cubic-bezier(.4,0,
+.2,1)
+}
+.transition-shadow {
+	transition-duration:.15s;
+	transition-property:box-shadow;
+	transition-timing-function:cubic-bezier(.4,0,
+.2,1)
+}
+.transition-transform {
+	transition-duration:.15s;
+	transition-property:transform;
+	transition-timing-function:cubic-bezier(.4,0,
+.2,1)
+}
+.delay-75 {
+	transition-delay:75ms
+}
+.delay-100 {
+	transition-delay:.1s
+}
+.delay-150 {
+	transition-delay:.15s
+}
+.delay-200 {
+	transition-delay:.2s
+}
+.delay-300 {
+	transition-delay:.3s
+}
+.delay-500 {
+	transition-delay:.5s
+}
+.delay-700 {
+	transition-delay:.7s
+}
+.delay-1000 {
+	transition-delay:1s
+}
+.duration-75 {
+	transition-duration:75ms
+}
+.duration-100 {
+	transition-duration:.1s
+}
+.duration-150 {
+	transition-duration:.15s
+}
+.duration-200 {
+	transition-duration:.2s
+}
+.duration-300 {
+	transition-duration:.3s
+}
+.duration-500 {
+	transition-duration:.5s
+}
+.duration-700 {
+	transition-duration:.7s
+}
+.duration-1000 {
+	transition-duration:1s
+}
+.ease-linear {
+	transition-timing-function:linear
+}
+.ease-in {
+	transition-timing-function:cubic-bezier(.4,0,1,1)
+}
+.ease-out {
+	transition-timing-function:cubic-bezier(0,0,
+.2,1)
+}
+.ease-in-out {
+	transition-timing-function:cubic-bezier(.4,0,
+.2,1)
+}

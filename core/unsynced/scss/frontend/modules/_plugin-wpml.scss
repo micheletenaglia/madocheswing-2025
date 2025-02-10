@@ -1,0 +1,23 @@
+// Hide WPML notice below footer
+body:not(.logged-in) {
+	.otgs-development-site-front-end {
+		display: none;
+	}
+}
+.hap-wpml-switcher-wrap {
+	.js-wpml-switcher {
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+}
+.hap-wpml-switcher {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	z-index: 10;
+	background-color: var(--color-bg);
+	&.open {
+		display: block;
+	}
+}

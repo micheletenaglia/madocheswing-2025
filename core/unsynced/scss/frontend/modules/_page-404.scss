@@ -1,0 +1,8 @@
+.default-404 {
+	min-height: 80vh;
+	@include flex-center;
+	padding: 1rem;
+	@include break-3 {
+		padding: 2rem;
+	}
+}

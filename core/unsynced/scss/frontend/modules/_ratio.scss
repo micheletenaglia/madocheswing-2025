@@ -1,0 +1,21 @@
+.ratio-1-1 {
+	padding-top: 100%;
+}
+.ratio-4-3 {
+	padding-top: calc(3 / 4 * 100%);
+}
+.ratio-full-hd {
+	padding-top: calc(1080 / 1920 * 100%);
+}
+.ratio-half-hd {
+	padding-top: calc(640 / 1920 * 100%);
+}
+.ratio-photo {
+	padding-top: calc(1280 / 1920 * 100%);
+}
+.ratio-din-a-h {
+	padding-top: calc(210 / 297 * 100%);
+}
+.ratio-din-a-v {
+	padding-top: calc(297 / 210 * 100%);
+}

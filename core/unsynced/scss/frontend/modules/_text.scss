@@ -1,0 +1,41 @@
+.break-words {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-ms-word-break: break-all;
+	// This is the dangerous one in WebKit, as it breaks things wherever
+	//word-break: break-all;
+	//Instead use this non-standard one:
+	word-break: break-word;
+	// Adds a hyphen where the word breaks, if supported (No Blink) */
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+.truncate-1-lines,
+.truncate-2-lines,
+.truncate-3-lines {
+	display:block;
+	display:-webkit-box;
+	-webkit-line-clamp:1;
+	-webkit-box-orient:vertical;
+	overflow:hidden;
+	text-overflow:ellipsis
+}
+.truncate-2-lines {
+	-webkit-line-clamp:2
+}
+.truncate-3-lines {
+	-webkit-line-clamp:3
+}
+.truncable-text { // ??? Boh
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap
+}
+.br-fluid br {
+	@include break-3-max {
+		display: none;
+	}
+}

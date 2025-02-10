@@ -1,0 +1,172 @@
+/* Spacings BU */
+
+// Padding
+.p-xs {
+	padding: var(--bu);
+}
+.p-sm {
+	padding: calc( 2 * var(--bu) );
+}
+.p-md {
+	padding: calc( 4 * var(--bu) );
+}
+.p-lg {
+	padding: calc( 6 * var(--bu) );
+}
+.p-xl {
+	padding: calc( 8 * var(--bu) );
+}
+
+// Padding top
+.pt-xs {
+	padding-top: var(--bu);
+}
+.pt-sm {
+	padding-top: calc( 2 * var(--bu) );
+}
+.pt-md {
+	padding-top: calc( 4 * var(--bu) );
+}
+.pt-lg {
+	padding-top: calc( 6 * var(--bu) );
+}
+.pt-xl {
+	padding-top: calc( 8 * var(--bu) );
+}
+
+// Padding bottom
+.pb-xs {
+	padding-bottom: var(--bu);
+}
+.pb-sm {
+	padding-bottom: calc( 2 * var(--bu) );
+}
+.pb-md {
+	padding-bottom: calc( 4 * var(--bu) );
+}
+.pb-lg {
+	padding-bottom: calc( 6 * var(--bu) );
+}
+.pb-xl {
+	padding-bottom: calc( 8 * var(--bu) );
+}
+
+// Padding left
+.pl-xs {
+	padding-left: var(--bu);
+}
+.pl-sm {
+	padding-left: calc( 2 * var(--bu) );
+}
+.pl-md {
+	padding-left: calc( 4 * var(--bu) );
+}
+.pl-lg {
+	padding-left: calc( 6 * var(--bu) );
+}
+.pl-xl {
+	padding-left: calc( 8 * var(--bu) );
+}
+
+// Padding right
+.pr-xs {
+	padding-right: var(--bu);
+}
+.pr-sm {
+	padding-right: calc( 2 * var(--bu) );
+}
+.pr-md {
+	padding-right: calc( 4 * var(--bu) );
+}
+.pr-lg {
+	padding-right: calc( 6 * var(--bu) );
+}
+.pr-xl {
+	padding-right: calc( 8 * var(--bu) );
+}
+
+
+// Margin
+.m-xs {
+	margin: var(--bu);
+}
+.m-sm {
+	margin: calc( 2 * var(--bu) );
+}
+.m-md {
+	margin: calc( 4 * var(--bu) );
+}
+.m-lg {
+	margin: calc( 6 * var(--bu) );
+}
+.m-xl {
+	margin: calc( 8 * var(--bu) );
+}
+
+// Margin left right
+.mt-xs {
+	margin-top: var(--bu);
+}
+.mt-sm {
+	margin-top: calc( 2 * var(--bu) );
+}
+.mt-md {
+	margin-top: calc( 4 * var(--bu) );
+}
+.mt-lg {
+	margin-top: calc( 6 * var(--bu) );
+}
+.mt-xl {
+	margin-top: calc( 8 * var(--bu) );
+}
+
+// Margin top bottom
+.mb-xs {
+	margin-bottom: var(--bu);
+}
+.mb-sm {
+	margin-bottom: calc( 2 * var(--bu) );
+}
+.mb-md {
+	margin-bottom: calc( 4 * var(--bu) );
+}
+.mb-lg {
+	margin-bottom: calc( 6 * var(--bu) );
+}
+.mb-xl {
+	margin-bottom: calc( 8 * var(--bu) );
+}
+
+// Margin left
+.ml-xs {
+	margin-left: var(--bu);
+}
+.ml-sm {
+	margin-left: calc( 2 * var(--bu) );
+}
+.ml-md {
+	margin-left: calc( 4 * var(--bu) );
+}
+.ml-lg {
+	margin-left: calc( 6 * var(--bu) );
+}
+.ml-xl {
+	margin-left: calc( 8 * var(--bu) );
+}
+
+// Margin right
+.mr-xs {
+	margin-right: var(--bu);
+}
+.mr-sm {
+	margin-right: calc( 2 * var(--bu) );
+}
+.mr-md {
+	margin-right: calc( 4 * var(--bu) );
+}
+.mr-lg {
+	margin-right: calc( 6 * var(--bu) );
+}
+.mr-xl {
+	margin-right: calc( 8 * var(--bu) );
+}

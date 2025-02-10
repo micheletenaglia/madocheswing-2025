@@ -1,0 +1,27 @@
+.fill-current {
+	fill: currentColor,
+}
+.fill-primary {
+	fill: var(--color-primary),
+}
+.fill-secondary {
+	fill: var(--color-secondary),
+}
+.stroke-current {
+	stroke: currentColor;
+}
+.stroke-primary {
+	stroke: var(--color-primary),
+}
+.stroke-secondary {
+	stroke: var(--color-secondary),
+}
+.stroke-0 {
+	stroke-width: 0;
+}
+.stroke-1 {
+	stroke-width: 1;
+}
+.stroke-2 {
+	stroke-width: 2;
+}

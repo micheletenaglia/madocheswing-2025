@@ -1,0 +1,121 @@
+/*#iubenda-iframe {
+	font-family: var(--font-primary) !important;
+	h1, h2, h3, h4, h5, h6,
+	p, li, span, strong, em {
+		font-family: var(--font-primary) !important;
+	}
+	#purposes-content-container .purposes-header .purposes-header-title {
+		@include break-3 {
+			line-height: 40px !important;
+			margin-bottom: 1rem !important;
+		}
+	}
+	#iubFooterBtnContainer {
+		button#iubFooterBtn {
+			box-shadow: none !important;
+			color: var(--color-button-text) !important;
+			background-color: var(--color-button-bg) !important;
+			border: 1px solid var(--color-button-border) !important;
+			transition: var(--transition-default)!important;;
+			&:hover {
+				box-shadow: none !important;
+				color: var(--color-button-text-hover) !important;
+				background-color: var(--color-button-bg-hover) !important;
+				border: 1px solid var(--color-button-border-hover) !important;
+			}
+			&:focus {
+				outline-color: var(--color-button-border) !important;
+			}
+		}
+	}
+	.purposes-header .purposes-header-right .iub-iframe-brand-button {
+		display: none !important;
+		width: 0 !important;
+		height: 0 !important;
+		overflow: hidden !important;
+	}
+}*/
+
+// Iubenda
+body #iubenda-cs-banner {
+	.iubenda-banner-content:not(.iubenda-custom-content) *, 
+	[class*=" iub"], 
+	[class^=iub] {
+		font-family: var(--font-primary) !important;
+	}
+	.iubenda-cs-content {
+		background-color: var(--color-bg) !important;
+	}
+	#iubenda-cs-title {
+		color: var(--color-primary) !important;
+	}
+	.iubenda-cs-opt-group button,
+	.iubenda-cs-opt-group button.iubenda-cs-reject-btn,
+	.iubenda-alert button.iubenda-button-cancel {
+		color: rgba(0,0,0,.6)!important;
+		background-color: rgba(0,0,0,.1) !important;
+		border-radius: var(--button-border-radius) !important;
+		font-weight: var(--button-font-weight) !important;
+		&.focus,
+		&.hover,
+		&:hover {
+			color: rgba(0,0,0,.8)!important;
+			background-color: rgba(0,0,0,.1)!important;
+		}
+		
+	}
+	.iubenda-cs-opt-group button.iubenda-cs-accept-btn,
+	.iubenda-cs-opt-group button.iubenda-cs-customize-btn,
+	.iubenda-cs-opt-group button.iubenda-cs-btn-primary:not(.iubenda-cs-reject-btn), 
+	.iubenda-alert button.iubenda-button-confirm {
+		color: var(--color-button-text) !important;
+		background-color: var(--color-button-bg) !important;
+		border: var(--button-border-width) solid var(--color-button-border) !important;
+		border-radius: var(--button-border-radius) !important;
+		font-weight: var(--button-font-weight) !important;
+		&:hover {
+			color: var(--color-button-text-hover) !important;
+			background-color: var(--color-button-bg-hover) !important;
+			border: var(--button-border-width) solid var(--color-button-border-hover) !important;
+		}
+	}
+	[tabindex]:not([tabindex="-1"]):focus, 
+	a[href]:focus, 
+	button:focus, 
+	details:focus, 
+	input:focus, 
+	select:focus, 
+	textarea:focus {
+		outline-color: var(--color-button-bg) !important;
+	}
+}
+body #iubenda-iframe {
+	* {
+		font-family: var(--font-primary) !important;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		color: var(--color-title) !important;
+		font-weight: var(--title-font-weight) !important;
+	}
+	.iub-btn {
+		font-weight: var(--button-font-weight) !important;
+	}
+	#purposes-content-container {
+		.purposes-header .purposes-header-title {
+			font-size: 1.8rem !important;
+		}
+		.purposes-header .purposes-header-title,
+		.purposes-section-header-title,
+		.purposes-item .purposes-item-title label {
+			font-weight: var(--title-font-weight) !important;
+		}
+	}
+	#iubFooterBtnContainer button {
+		border-radius: var(--button-border-radius) !important;
+		font-weight: var(--button-font-weight) !important;
+		background-color: var(--color-button-bg) !important;
+		color: var(--color-button-text) !important;
+		border: var(--button-border-width) solid var(--color-button-border) !important;
+		border-color: var(--color-button-border) !important;
+	}
+}

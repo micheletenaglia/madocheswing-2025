@@ -1,0 +1,569 @@
+/**
+ * Replace $search with $replace in $string
+ *
+ * Edit title => 'title' with project name.
+ *
+ * @param {String} $string - Initial string.
+ * @param {String} $search - Substring to replace.
+ * @param {String} $replace ('') - New value.
+ * @return {String} - Updated string.
+ */
+@function str-replace($string, $search, $replace: '') {
+	
+  $index: str-index($string, $search);
+  
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  
+  @return $string;
+
+}
+
+/**
+ * Implode
+ * Join list elements to form a single string
+ *
+ * @param {string} $pieces: the list of strings to implode.
+ * @param {string} $glue: the "glue" between elements in the result string.
+ * @return {string} the result string.
+ */
+@function implode($pieces, $glue: "") {
+	$result: null;
+	@for $i from 1 through length($pieces) {
+		$piece: nth($pieces, $i);
+		@if type-of($piece) == list {
+			$result: unquote("#{$result}#{$glue}#{implode($piece, $glue)}");
+		} @else {
+			$result: unquote("#{$result}#{$glue}#{$piece}");
+		}
+	}
+	@if $result != null {
+		$result: str-slice($result, str-length($glue) + 1, -1);
+	}
+	@return $result;
+}
+
+@mixin grid( $break-1, $break-2 : false, $break-3 : false, $gap : 1rem ) {
+	display: grid;
+	gap: $gap;
+	@if $break-2 {
+		@include break-3 {
+			gap: 2*$gap;
+			grid-template-columns: repeat($break-2, minmax(0, 1fr));	
+		}
+	}
+	@if $break-3 {
+		@include break-4 {
+			grid-template-columns: repeat($break-3, minmax(0, 1fr));	
+		}
+	}
+}
+
+
+$grids: (
+	(1),
+	(1,2),
+	(1,2,3)
+);
+
+@each $item in $grids {
+	
+	$name: implode( $item, '-' );
+	
+	@if length( $item ) == 1 {
+		.sergio-#{$name} {
+			@include grid( nth($item, 1) );
+		};
+	}
+	
+	@if length( $item ) == 2 {
+		.sergio-#{$name} {
+			@include grid( nth($item, 1), nth($item, 2) );
+		};
+	}
+
+	@if length( $item ) == 3 {
+		.sergio-#{$name} {
+			@include grid( nth($item, 1), nth($item, 2), nth($item, 3) );
+		};
+	}
+
+}
+// Grid
+.grid-1 {
+	display: grid;
+	gap: 1rem;
+	@include break-3 {
+		gap: 2rem;
+	}
+}
+.grid-1-2 {
+	display: grid;
+	gap: 1rem;
+	@include break-3 {
+		gap: 2rem;
+		grid-template-columns: repeat(2, minmax(0, 1fr));	
+	}
+}
+.grid-1-3 {
+	display: grid;
+	gap: 1rem;
+	@include break-3 {
+		gap: 2rem;
+		grid-template-columns: repeat(3, minmax(0, 1fr));	
+	}
+}
+.grid-1-2-3 {
+	display: grid;
+	gap: 1rem;
+	@include break-3 {
+		gap: 2rem;
+		grid-template-columns: repeat(2, minmax(0, 1fr));	
+	}
+	@include break-4 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));	
+	}
+}
+.grid-1-1-3 {
+	display: grid;
+	gap: 1rem;
+	@include break-4 {
+		gap: 2rem;
+		grid-template-columns: repeat(3, minmax(0, 1fr));	
+	}
+}
+.grid-1-1-4 {
+	display: grid;
+	gap: 1rem;
+	@include break-4 {
+		gap: 2rem;
+		grid-template-columns: repeat(4, minmax(0, 1fr));	
+	}
+}
+.grid-1-2-4 {
+	display: grid;
+	gap: 1rem;
+	@include break-3 {
+		gap: 2rem;
+		grid-template-columns: repeat(2, minmax(0, 1fr));	
+	}
+	@include break-4 {
+		gap: 2rem;
+		grid-template-columns: repeat(4, minmax(0, 1fr));	
+	}
+}
+.grid-2-4 {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(2, minmax(0, 1fr));	
+	@include break-3 {
+		gap: 2rem;
+		grid-template-columns: repeat(4, minmax(0, 1fr));	
+	}
+}
+.grid-1-2-3-4 {
+	display: grid;
+	gap: 1rem;
+	@include break-3 {
+		gap: 2rem;
+		grid-template-columns: repeat(2, minmax(0, 1fr));	
+	}
+	@include break-4 {
+		grid-template-columns: repeat(3, minmax(0, 1fr));	
+	}
+	@include break-5 {
+		grid-template-columns: repeat(4, minmax(0, 1fr));	
+	}
+}
+.grid-12 {
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: repeat(12, minmax(0, 1fr));	
+}
+
+// Column span (small to large)
+// Column span 1
+.col-span-1-2 {
+	@include break-3 {
+		grid-column: span 2/span 2;
+	}
+}
+.col-span-1-2-3 {
+	@include break-3 {
+		grid-column: span 2/span 2;
+	}
+	@include break-4 {
+		grid-column: span 3/span 3;
+	}
+}
+.col-span-1-2-3-4 {
+	@include break-3 {
+		grid-column: span 2/span 2;
+	}
+	@include break-4 {
+		grid-column: span 3/span 3;
+	}
+	@include break-5 {
+		grid-column: span 4/span 4;
+	}
+}
+
+.col-span-1-2-3-6 {
+	@include break-3 {
+		grid-column: span 2/span 2;
+	}
+	@include break-4 {
+		grid-column: span 3/span 3;
+	}
+	@include break-5 {
+		grid-column: span 6/span 6;
+	}
+}
+.col-span-1-3 {
+	@include break-3 {
+		grid-column: span 3/span 3;
+	}
+}
+// Column span 2
+.col-span-2 {
+	grid-column: span 2/span 2;
+}
+.col-span-2-3 {
+	grid-column: span 2/span 2;
+	@include break-3 {
+		grid-column: span 3/span 3;
+	}
+}
+.col-span-2-3-4 {
+	grid-column: span 2/span 2;
+	@include break-3 {
+		grid-column: span 3/span 3;
+	}
+	@include break-4 {
+		grid-column: span 4/span 4;
+	}
+}
+.col-span-2-3-4-6 {
+	grid-column: span 2/span 2;
+	@include break-3 {
+		grid-column: span 3/span 3;
+	}
+	@include break-4 {
+		grid-column: span 4/span 4;
+	}
+	@include break-5 {
+		grid-column: span 6/span 6;
+	}
+}
+// Column span 3
+.col-span-3 {
+	grid-column: span 3/span 3;
+}
+.col-span-3-4 {
+	grid-column: span 3/span 3;
+	@include break-3 {
+		grid-column: span 4/span 4;
+	}
+}
+.col-span-3-4-6 {
+	grid-column: span 3/span 3;
+	@include break-3 {
+		grid-column: span 4/span 4;
+	}
+	@include break-4 {
+		grid-column: span 4/span 4;
+	}
+}
+// Column span 4
+.col-span-4 {
+	grid-column: span 4/span 4;
+}
+.col-span-4-6 {
+	grid-column: span 4/span 4;
+	@include break-3 {
+		grid-column: span 6/span 6;
+	}
+}
+// Column span 6
+.col-span-6 {
+	grid-column: span 6/span 6;
+}
+.col-span-6-8 {
+	grid-column: span 6/span 6;
+	@include break-3 {
+		grid-column: span 8/span 8;
+	}
+}
+.col-span-6-6-8 {
+	grid-column: span 6/span 6;
+	@include break-4 {
+		grid-column: span 8/span 8;
+	}
+}
+.col-span-6-6-12 {
+	grid-column: span 6/span 6;
+	@include break-4 {
+		grid-column: span 12/span 12;
+	}
+}
+.col-span-6-8-12 {
+	grid-column: span 6/span 6;
+	@include break-3 {
+		grid-column: span 8/span 8;
+	}
+	@include break-4 {
+		grid-column: span 12/span 12;
+	}
+}
+
+// Column span (large to small)
+.col-span-3-2-1 {
+	grid-column: span 3/span 3;
+	@include break-3 {
+		grid-column: span 2/span 2;
+	}
+	@include break-4 {
+		grid-column: span 1/span 1;
+	}
+}
+.col-span-4-3-2-1 {
+	grid-column: span 4/span 4;
+	@include break-3 {
+		grid-column: span 3/span 3;
+	}
+	@include break-4 {
+		grid-column: span 2/span 2;
+	}
+	@include break-5 {
+		grid-column: span 1/span 1;
+	}
+}
+
+.col-span-6-3-2-1 {
+	grid-column: span 6/span 6;
+	@include break-3 {
+		grid-column: span 3/span 3;
+	}
+	@include break-4 {
+		grid-column: span 2/span 2;
+	}
+	@include break-5 {
+		grid-column: span 1/span 1;
+	}
+}
+// Column span 2
+.col-span-3-2 {
+	grid-column: span 3/span 3;
+	@include break-3 {
+		grid-column: span 2/span 2;
+	}
+}
+.col-span-4-3-2 {
+	grid-column: span 4/span 4;
+	@include break-3 {
+		grid-column: span 3/span 3;
+	}
+	@include break-4 {
+		grid-column: span 2/span 2;
+	}
+}
+.col-span-6-4-3-2 {
+	grid-column: span 6/span 6;
+	@include break-3 {
+		grid-column: span 4/span 4;
+	}
+	@include break-4 {
+		grid-column: span 3/span 3;
+	}
+	@include break-5 {
+		grid-column: span 2/span 2;
+	}
+}
+// Column span 3
+.col-span-4-3 {
+	grid-column: span 4/span 4;
+	@include break-3 {
+		grid-column: span 3/span 3;
+	}
+}
+.col-span-6-4-3 {
+	grid-column: span 6/span 6;
+	@include break-3 {
+		grid-column: span 4/span 4;
+	}
+	@include break-4 {
+		grid-column: span 3/span 3;
+	}
+}
+// Column span 4
+.col-span-6-4 {
+	grid-column: span 6/span 6;
+	@include break-3 {
+		grid-column: span 4/span 4;
+	}
+}
+// Column span 6
+.col-span-8-6 {
+	grid-column: span 8/span 8;
+	@include break-3 {
+		grid-column: span 6/span 6;
+	}
+}
+.col-span-8-6-4 {
+	grid-column: span 8/span 8;
+	@include break-3 {
+		grid-column: span 6/span 6;
+	}
+	@include break-4 {
+		grid-column: span 4/span 4;
+	}
+}
+.col-span-8-6-4-3 {
+	grid-column: span 8/span 8;
+	@include break-3 {
+		grid-column: span 6/span 6;
+	}
+	@include break-4 {
+		grid-column: span 4/span 4;
+	}
+	@include break-5 {
+		grid-column: span 3/span 3;
+	}
+}
+// Column span 12
+.col-span-12 {
+	grid-column: span 12/span 12;
+}
+.col-span-12-2 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 2/span 2;
+	}
+}
+.col-span-12-3 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 3/span 3;
+	}
+}
+.col-span-12-4-3 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 4/span 4;
+	}
+	@include break-4 {
+		grid-column: span 3/span 3;
+	}
+}
+.col-span-12-4 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 4/span 4;
+	}
+}
+.col-span-12-6 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 6/span 6;
+	}
+}
+.col-span-12-6-4 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 6/span 6;
+	}
+	@include break-4 {
+		grid-column: span 4/span 4;
+	}
+}
+.col-span-12-6-4-3 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 6/span 6;
+	}
+	@include break-4 {
+		grid-column: span 4/span 4;
+	}
+	@include break-5 {
+		grid-column: span 3/span 3;
+	}
+}
+.col-span-12-6-3 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 6/span 6;
+	}
+	@include break-4 {
+		grid-column: span 3/span 3;
+	}
+}
+.col-span-12-8 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 8/span 8;
+	}
+}
+.col-span-12-8-6 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 8/span 8;
+	}
+	@include break-4 {
+		grid-column: span 6/span 6;
+	}
+}
+.col-span-12-8-4 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 8/span 8;
+	}
+	@include break-4 {
+		grid-column: span 4/span 4;
+	}
+}
+.col-span-12-8-4-3 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 8/span 8;
+	}
+	@include break-4 {
+		grid-column: span 4/span 4;
+	}
+	@include break-5 {
+		grid-column: span 3/span 3;
+	}
+}
+.col-span-12-8-6 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 8/span 8;
+	}
+	@include break-4 {
+		grid-column: span 6/span 6;
+	}
+}
+.col-span-12-8-6-4 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 8/span 8;
+	}
+	@include break-4 {
+		grid-column: span 6/span 6;
+	}
+	@include break-5 {
+		grid-column: span 4/span 4;
+	}
+}
+.col-span-12-8-6-3 {
+	grid-column: span 12/span 12;
+	@include break-3 {
+		grid-column: span 8/span 8;
+	}
+	@include break-4 {
+		grid-column: span 6/span 6;
+	}
+	@include break-5 {
+		grid-column: span 3/span 3;
+	}
+}

@@ -1,0 +1,286 @@
+//----------------------------------------------------------------------------------------
+//  _     ___   ____  ___  
+// | |   / _ \ / ___|/ _ \ 
+// | |  | | | | |  _| | | |
+// | |__| |_| | |_| | |_| |
+// |_____\___/ \____|\___/ 
+//
+//----------------------------------------------------------------------------------------
+
+.logo {
+	height: var(--logo-height);
+	width: auto;
+	transition: var(--transition-default);
+	img {
+		height: 100%;
+		width: auto;
+		transition: var(--transition-default);
+	}
+	svg {
+		height: var(--logo-height);
+		width: auto;
+		transition: var(--transition-default);
+	}
+}
+
+//----------------------------------------------------------------------------------------
+//  ____  _____ ____  _  _______ ___  ____  
+// |  _ \| ____/ ___|| |/ /_   _/ _ \|  _ \ 
+// | | | |  _| \___ \| ' /  | || | | | |_) |
+// | |_| | |___ ___) | . \  | || |_| |  __/ 
+// |____/|_____|____/|_|\_\ |_| \___/|_|    
+//
+//----------------------------------------------------------------------------------------
+
+#top {
+	position: relative;
+	left: 0;
+	top: 0;
+	transition: var(--transition-default);
+	&.open {
+		left: -100%;
+		@include break-4 {
+			left: -360px;
+		}
+	}
+}
+.nav-always {
+	display: flex;
+	align-items: center;
+}
+.menu-layer {
+	display: none;
+	@include full-fixed(19);
+	background-color: $menu-popup-bg;
+	cursor: pointer;
+}
+.nav-desktop {
+	color: $menu-text;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	transition: var(--transition-default);
+	&.menu-fixed {
+		position: fixed;
+		z-index: 10;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+	.menu-mobile-toggle-bars {
+		@include break-4 {
+			display: none;
+		}
+	}
+}
+.menu-toggle-bars,
+.menu-mobile-toggle-bars {
+	width: 3rem;
+	height: 1.5rem;
+	cursor: pointer;
+	margin: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	span {
+		display: block;
+		border-top: 1px solid #000;
+		&:nth-of-type(1) {
+		}
+		&:nth-of-type(2) {
+		}
+		&:nth-of-type(3) {
+		}
+	}
+}
+.menu-flex {
+	@include break-4-max {
+		display: none !important;
+	}
+	li {
+		line-height: 1.1em;
+	}
+}
+.menu-flex,
+.menu-popup {
+	a {
+		display: block;
+		margin: .5em;
+		padding: .5em;
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+.menu-flex a {
+	color: $menu-text;
+	&:hover {
+		color: $menu-text-hover;	
+	}
+}
+.menu-popup a {
+	color: $menu-popup-text;
+	&:hover {
+		color: $menu-popup-text-hover;	
+	}
+}
+.menu-mobile-toggle {
+	height: 2rem;
+	margin: 1rem;
+	cursor: pointer;
+	@include break-4 {
+		display: none;
+	}
+}
+
+//======================================================================
+// Desktop Menu Default
+//======================================================================
+.menu-default {
+	.nav-desktop {
+		nav,
+		ul {
+			display: flex;
+			align-items: center;
+		}
+	}
+}
+
+//======================================================================
+// Desktop Menu Centered
+//======================================================================
+.menu-centered {
+	.nav-desktop {
+		nav,
+		ul {
+			display: flex;
+			align-items: center;
+		}
+	}
+}
+
+//======================================================================
+// Desktop Menu Fade In
+//======================================================================
+.menu-fade-in {
+	.nav-fade-in {
+		display: none;
+		position: fixed;
+		z-index: 20;
+		top: 50%;
+		right: 50%;
+		transform: translate(50%,-50%);
+	}
+}
+
+//======================================================================
+// Desktop Menu Slide In
+//======================================================================
+.menu-slide-in {
+	.nav-desktop{
+		position: relative;
+		top: 0;
+		left: 0;
+	}
+	.nav-slide-in {
+		position: fixed;
+		z-index: 20;
+		top: 0;
+		left: 100%;
+		width: 100%;
+		height: 100%;
+		transition: var(--transition-default);
+		background-color: $menu-popup-bg;
+		@include break-4 {
+			width: 360px;
+		}
+		&.open {
+			left: 0;
+			@include break-4 {
+				left: calc( 100% - 360px );
+			}
+		}
+		li a {
+			color: $menu-popup-text;
+		}
+	}
+	.js-menu-slide-in.menu-layer {
+		@include full-fixed(19);
+		background-color: transparent;
+		&.open {
+			display: block;
+		}
+
+	}
+}
+
+//----------------------------------------------------------------------------------------
+//  __  __  ___  ____ ___ _     _____ 
+// |  \/  |/ _ \| __ )_ _| |   | ____|
+// | |\/| | | | |  _ \| || |   |  _|  
+// | |  | | |_| | |_) | || |___| |___ 
+// |_|  |_|\___/|____/___|_____|_____|
+//
+//----------------------------------------------------------------------------------------
+.menu-mobile {
+	padding-top: 6rem;
+	overflow-y: auto;
+	a:not(.button) {
+		display: block;
+		font-size: 1.25rem;
+		color: #{$menu-mobile-color};
+		transition: var(--transition-default);
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+}
+.nav-mobile {
+	.logo {
+		max-height: var(--menu-height);
+		position: absolute;
+		top: 0;
+		left: 1rem;
+		padding: 0;
+		margin: 0;
+		a {
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+#menu-mobile-layer {
+	@include break-4 {
+		display: none;
+	}
+}
+
+//======================================================================
+// Mbobile Menu Default
+//======================================================================
+.menu-mobile-default {
+	position: fixed;
+	top: 0;
+	right: -100%;
+	z-index: 30;
+	width: 90%;
+	height: 100%;
+	background-color: #{$menu-mobile-bg};
+	padding: #{$menu-mobile-padding};
+	color: #{$menu-mobile-color};
+	transition: var(--transition-default);
+	overflow-y: auto;
+	@include break-4 {
+		display: none;
+	}
+	&.js-menu-mobile.open {
+		right: 0;
+	}
+	.menu-mobile-toggle-bars {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
