@@ -478,7 +478,7 @@ class mktBackend{
 
     /**
      * Remove theme support.
-     * !!! Doesnot work.
+     * !!! Does not work.
      */
     public function remove_theme_support() : void {
         remove_theme_support('post-formats',['post']);

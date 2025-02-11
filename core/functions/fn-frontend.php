@@ -271,10 +271,10 @@ class mktFrontend{
 	public function webfonts_attr_onload( $tag, $handle, $href, $media ) : string {
 		// If is not the backend
 		if( !is_admin() ) {
-			if( str_contains( $handle, 'font-google' ) ) {
+			if( str_contains($handle,'font-google') ) {
 				$tag = '<link rel="stylesheet" id="font-google-css" href="' . esc_url($href) . '" media="print"  onload="this.media=\'all\'" />';
 			/* !!! For some reasons this doesn't work
-			}elseif( str_contains( $handle, 'font-adobe' ) ) {
+			}elseif(str_contains( $handle,'font-adobe') ) {
 				$tag = '<link rel="stylesheet" id="font-adobe-css" href="' . esc_url($href) . '" media="print" onload="this.media=\'all\'" />';
 			*/
 			}
@@ -330,7 +330,6 @@ class mktFrontend{
 		// Get categories
 		$categories = get_the_category($post->ID);
 		// Loop categories
-		// !!! We can use list pluck here
 		foreach( $categories as $category ) {
 			$classes[] = 'cat-' . $category->slug;
 		}

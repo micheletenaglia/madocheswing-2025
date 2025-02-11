@@ -1155,7 +1155,7 @@ class mktFieldsTheme{
                     'label'				=> __('Category archive','mklang'),
                     'name'				=> 'disable_category_archive',
                     'type'				=> 'true_false',
-                    // !!! To be fixed 'instructions'		=> sprintf( __('Enable or disable category terms archives. <br><a href="%s">Example</a>','mklang' ), get_term_link( get_option('default_category') ) ),
+                    // !!! To be fixed 'instructions'		=> sprintf(__('Enable or disable category terms archives. <br><a href="%s">Example</a>','mklang'),get_term_link(get_option('default_category'))),
                     'ui'				=> 1,
                     'ui_on_text'		=> __('Off','mklang'),
                     'ui_off_text'		=> __('On','mklang'),
