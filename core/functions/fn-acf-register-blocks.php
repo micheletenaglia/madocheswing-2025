@@ -19,7 +19,7 @@ class mktBlocks{
     public function __construct() {
 
         // Add core block category
-        add_filter('block_categories_all',[$this,'block_categories']);
+        add_filter('block_categories_all',[$this,'block_categories_all']);
 
         // Register core blocks
         add_action('acf/init',[$this,'core_acf_blocks_init']);
