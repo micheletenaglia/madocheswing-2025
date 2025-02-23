@@ -132,6 +132,13 @@ class mktFrontend{
 		// !!! This works only sometimes
 		add_filter('wp_lazy_loading_enabled','__return_true');
 
+        /*----------------------------------------------------------------------------*/
+        // Redirects
+
+		// Redirects 301 set by plugin
+		// !!! This better hooked in plugins_loaded but it need to be called by a plugin because a theme is loaded after the hook
+		add_action('after_setup_theme',[$this,'redirect']);
+
 	}
 
 	/**
@@ -1277,6 +1284,42 @@ class mktFrontend{
 			<?php }
 		}
 	}
+
+    /**
+     * Redirect 301.
+     */
+    public function redirect() : void {
+        // Bail out early
+        if( is_admin() ) {
+            return;
+        }
+        // Get global variable for DB
+        global $wpdb;
+        // Table name
+        $table_name = $wpdb->prefix . 'custom_301_redirects';
+        // Get redirects
+        $redirects = $wpdb->get_col("
+            SELECT redirect_from 
+            FROM $table_name"
+        );
+        // Bail out early
+        if( !$redirects ) {
+            return;
+        }
+        if( in_array($_SERVER['REQUEST_URI'],$redirects) ) {
+            // Get redirect URL
+            $redirect_to = $wpdb->get_var($wpdb->prepare("
+                SELECT redirect_to 
+                FROM $table_name
+                WHERE redirect_from = %s",
+                $_SERVER['REQUEST_URI']
+            ));
+            // Redirect and exit
+            header('HTTP/1.1 301 Moved Permanently');
+            header('Location: ' . esc_url_raw($redirect_to));
+            exit();
+        }
+    }
 
 }
 

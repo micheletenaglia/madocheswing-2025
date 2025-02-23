@@ -809,12 +809,13 @@ function get_current_url() : string {
 	// Get WP
 	global $wp;
 	// Get URL
-	$current_url = home_url(
+	/*$current_url = home_url(
         add_query_arg(
             [], 
             $wp->request
         )
-    );
+    );*/
+	$current_url = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 	return esc_url($current_url);	
 }
 
@@ -982,7 +983,7 @@ function mkt_get_continents( $key = null ) : mixed {
 /**
  * Get an array of countries names and codes.
  */
-function mkt_get_countries( $key = null ) : array {
+function mkt_get_countries( $key = null ) : mixed {
     // Countries
 	$countries = [
 		'AE' => __('United Arab Emirates','mklang'),
@@ -1243,7 +1244,6 @@ function mkt_get_countries( $key = null ) : array {
 		if( array_key_exists( $key, $countries ) ) {
 			// Return name
 			return $countries[$key];
-
 		}else{
 			// Else return $key value
 			return $key;
@@ -1735,7 +1735,7 @@ function mkt_email_body_end() : string {
  */
 function mkt_email_body_button( $button_link, $button_text ) : string {
 	// Button outp
-	$button = '<a style="text-decoration: none; background-color: #2196F3; color: #ffffff; font-weight: 400; display: inline-block; padding: 20px 40px 16px 40px; font-size: 16px; margin: 0 10px 10px 0;" target="_blank" href="' . $button_link . '">' . $button_text . '</a>';
+	$button = '<a style="text-decoration: none; background-color: #2196F3; color: #ffffff; font-weight: 400; display: inline-block; padding: 20px 40px 16px 40px; font-size: 16px; margin: 0 10px 10px 0;" target="_blank" href="' . esc_url($button_link) . '">' . esc_html($button_text) . '</a>';
 	return $button;
 }
 
